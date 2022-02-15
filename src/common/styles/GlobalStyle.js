@@ -6,9 +6,9 @@ const GlobalStyle = createGlobalStyle`
         --white: #ffffff;
     }
 
-    @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+    /* @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap'); */
   * {
-        font-family: 'Jua', sans-serif;
+        /* font-family: 'Jua', sans-serif; */
         box-sizing: border-box;
     }
 
