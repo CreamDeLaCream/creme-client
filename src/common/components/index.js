@@ -7,6 +7,7 @@ import Keyword from './Keyword';
 import Logo from './Logo';
 import Modal from './Modal';
 import Navbar from './Navbar';
+import NavMenu from './NavMenu';
 import Template from './Template';
 
 export {
@@ -19,5 +20,6 @@ export {
   Logo,
   Modal,
   Navbar,
+  NavMenu,
   Template,
 };

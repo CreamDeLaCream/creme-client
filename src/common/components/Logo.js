@@ -1,9 +1,26 @@
-import React from 'react'
+import React from 'react';
+import styled from 'styled-components';
+
+// components
+import { logo } from '../styles/textStyle';
 
 const Logo = () => {
   return (
-    <div>Logo</div>
-  )
-}
+    <div>
+      <Title>
+        Cream
+        <br />
+        de la
+        <br />
+        Cream
+      </Title>
+    </div>
+  );
+};
 
-export default Logo
+const Title = styled.h1`
+  ${logo}
+  color: var(--main);
+`;
+
+export default Logo;

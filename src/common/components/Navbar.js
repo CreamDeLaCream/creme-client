@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { NavLink } from 'react-router-dom';
 
-import NavMenu from './NavMenu';
+import { NavMenu, Logo } from './';
 
 const Navbar = () => {
   const menus = [
@@ -15,6 +15,9 @@ const Navbar = () => {
 
   return (
     <Side>
+      <Logobox>
+        <Logo />
+      </Logobox>
       <Menu>
         {menus.map((menu, index) => {
           return (
@@ -29,20 +32,26 @@ const Navbar = () => {
 };
 
 const Side = styled.nav`
-  width: 30%;
+  width: 28%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
+  align-items: flex-start;
   border: 1px var(--main) solid;
   /* border-right: 1px solid #e0e0e0; */
 `;
 
+const Logobox = styled.div`
+  display: flex;
+  margin: 2rem 0 0 3rem;
+  /* margin-left: 3rem; */
+`;
+
 const Menu = styled.div`
   /* margin-top: 30px; */
-  width: 200px;
   display: flex;
   flex-direction: column;
+  margin: 0 0 2rem 3rem;
 `;
 
 export default Navbar;
