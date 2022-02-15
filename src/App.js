@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import GlobalStyle from './common/styles/GlobalStyle';
 
 import { Switch, Route } from 'react-router-dom';
@@ -15,20 +16,30 @@ import {
   MyPetPage,
   TeamPage,
 } from './pages';
+import { Navbar } from './common/components';
+
+const Center = styled.div`
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+`;
 
 function App() {
   return (
     <React.Fragment>
       <ConnectedRouter history={history}>
         <GlobalStyle />
-        <Switch>
-          <Route exact path="/" component={IntroPage} />
-          <Route exact path="/main" component={MainPage} />
-          <Route exact path="/analysis" component={AnalysisPage} />
-          <Route exact path="/result" component={ResultPage} />
-          <Route exact path="/mypet" component={MyPetPage} />
-          <Route exact path="/team" component={TeamPage} />
-        </Switch>
+        <Center>
+          <Navbar />
+          <Switch>
+            <Route exact path="/" component={IntroPage} />
+            <Route exact path="/main" component={MainPage} />
+            <Route exact path="/analysis" component={AnalysisPage} />
+            <Route exact path="/result" component={ResultPage} />
+            <Route exact path="/mypet" component={MyPetPage} />
+            <Route exact path="/team" component={TeamPage} />
+          </Switch>
+        </Center>
       </ConnectedRouter>
     </React.Fragment>
   );

@@ -1,5 +1,5 @@
 const colors = {
-  main: '#279eea',
+  main: 'orange',
   white: '#ffffff',
 };
 

@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-const NavMenu = () => {
+const NavMenu = ({ menu }) => {
   return (
-    <div>NavMenu</div>
-  )
-}
+    <div>
+      <p>{menu.name}</p>
+    </div>
+  );
+};
 
-export default NavMenu
+export default NavMenu;
