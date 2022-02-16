@@ -1,16 +1,16 @@
 import React from 'react';
-import styled from 'styled-components';
+
+// components
+import { Text } from './';
 
 const NavMenu = ({ menu }) => {
   return (
     <div>
-      <Text>{menu.name}</Text>
+      <Text type="sub_1" color="gray">
+        {menu.name}
+      </Text>
     </div>
   );
 };
-
-const Text = styled.p`
-  line-height: 10px;
-`;
 
 export default NavMenu;

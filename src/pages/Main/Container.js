@@ -1,9 +1,24 @@
-import React from 'react'
+import React from 'react';
+import styled from 'styled-components';
 
-const Container = () => {
+const Container = ({ children }) => {
   return (
-    <div>Container</div>
-  )
-}
+    <Wrapper>
+      <Form>{children}</Form>
+    </Wrapper>
+  );
+};
 
-export default Container
+const Wrapper = styled.div`
+  width: 72%;
+  border: 1px solid blue;
+`;
+
+const Form = styled.main`
+  display: flex;
+  position: relative;
+  justify-content: flex-start;
+  border: 1px solid green;
+`;
+
+export default Container;
