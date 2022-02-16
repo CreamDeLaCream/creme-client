@@ -5,7 +5,8 @@ import styled from 'styled-components';
 import Container from './Container';
 import { Text, Grid, Button, Input } from '../../common/components';
 
-const MainPage = () => {
+const MainPage = (props) => {
+  const { history } = props;
   return (
     <Container>
       <Grid>
@@ -75,6 +76,7 @@ const MainPage = () => {
             color="var(--white)"
             radius="5px"
             cursor
+            // _onClick={() => history.push('/login')}
           >
             마이펫 불러오기
           </Button>
@@ -86,6 +88,7 @@ const MainPage = () => {
             color="var(--white)"
             radius="5px"
             cursor
+            _onClick={() => history.push('/analysis')}
           >
             분석 시작
           </Button>
