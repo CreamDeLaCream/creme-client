@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-const Grid = props => {
+const Grid = (props) => {
   const {
     display,
     justifyContent,
@@ -38,8 +38,8 @@ const Grid = props => {
 Grid.defaultProps = {
   chidren: null,
   is_flex: false,
-  width: "100%",
-  height: "",
+  width: '100%',
+  height: '',
   padding: false,
   margin: false,
   bg: false,
@@ -47,29 +47,21 @@ Grid.defaultProps = {
 };
 
 const GridBox = styled.div`
-  width: ${props => props.width};
+  width: ${(props) => props.width};
   box-sizing: border-box;
-  ${props => (props.display ? `display: ${props.display};` : "")}
-  ${props => (props.alignItems ? `align-items: ${props.alignItems};` : "")}
-  ${props =>
-    props.justifyContent ? `justify-content: ${props.justifyContent};` : ""}
-  ${props => (props.padding ? `padding: ${props.padding};` : "")}
-  ${props => (props.height ? `height: ${props.height};` : "")}
-  ${props => (props.margin ? `margin: ${props.margin};` : "")}
-  ${props => (props.bg ? `background-color: ${props.bg};` : "")}
-  ${props => (props.center ? `text-align: center;` : "")}
-  ${props =>
+  ${(props) => (props.display ? `display: ${props.display};` : '')}
+  ${(props) => (props.alignItems ? `align-items: ${props.alignItems};` : '')}
+  ${(props) =>
+    props.justifyContent ? `justify-content: ${props.justifyContent};` : ''}
+  ${(props) => (props.padding ? `padding: ${props.padding};` : '')}
+  ${(props) => (props.height ? `height: ${props.height};` : '')}
+  ${(props) => (props.margin ? `margin: ${props.margin};` : '')}
+  ${(props) => (props.bg ? `background-color: ${props.bg};` : '')}
+  ${(props) => (props.center ? `text-align: center;` : '')}
+  ${(props) =>
     props.is_flex
       ? `display: flex; align-items: center; justify-content: space-between;`
-      : ""}
-  ${props =>
-    props.is_flex_comment
-      ? `display: flex; align-items: center; justify-content: flex-start;`
-      : ""}
-  ${props =>
-    props.is_flex_button
-      ? `display: flex; align-items: center; justify-content: flex-end;`
-      : ""}
+      : ''}
 `;
 
 export default Grid;

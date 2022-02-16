@@ -45,6 +45,7 @@ const Wrapper = styled.div`
     }
   }};
   color: ${(props) => (props.color ? `var(--${props.color})` : `black`)};
+  width: ${(props) => props.width};
 `;
 
 export default Text;
