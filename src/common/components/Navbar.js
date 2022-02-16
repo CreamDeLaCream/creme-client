@@ -52,14 +52,12 @@ const Side = styled.nav`
   ${({ theme }) => theme.device.mobile} {
     min-width: 13rem;
   }
-  /* border-right: 1px solid #e0e0e0; */
 `;
 
 const Logobox = styled.div`
   display: flex;
   margin: 2rem 0 0 3rem;
   cursor: pointer;
-  /* margin-left: 3rem; */
 `;
 
 const LinkWrapper = styled.div`
@@ -71,7 +69,7 @@ const LinkWrapper = styled.div`
 const Menu = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 0 0 2rem 3rem;
+  margin: 0 0 4rem 3rem;
 `;
 
 export default Navbar;

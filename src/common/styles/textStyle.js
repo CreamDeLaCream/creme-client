@@ -11,12 +11,13 @@ export const logo_2 = css`
 `;
 
 export const head_1 = css`
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: 600;
 `;
 
 export const head_2 = css`
-  font-size: 1.3rem;
+  font-size: 1.5rem;
+  font-weight: 600;
 `;
 
 export const head_3 = css`
@@ -33,6 +34,10 @@ export const sub_2 = css`
   font-size: 1.2rem;
 `;
 
+export const input_1 = css`
+  font-size: 0.9rem;
+  /* line-height: 1rem; */
+`;
 export const body_1 = css`
   font-size: 0.9rem;
   /* line-height: 1rem; */

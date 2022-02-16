@@ -16,20 +16,23 @@ import {
   MyPetPage,
   TeamPage,
 } from './pages';
-import { Navbar } from './common/components';
+import { Navbar, Template } from './common/components';
 
-const Center = styled.div`
-  height: 100vh;
-  display: flex;
-  flex-direction: row;
-`;
+// const Center = styled.div`
+//   height: 100vh;
+//   display: flex;
+//   flex-direction: row;
+//   border: 2px solid purple;
+//   max-width: 1440px;
+// `;
 
 function App() {
   return (
     <React.Fragment>
       <ConnectedRouter history={history}>
         <GlobalStyle />
-        <Center>
+        {/* <Center> */}
+        <Template>
           <Navbar />
           <Switch>
             <Route exact path="/" component={IntroPage} />
@@ -39,7 +42,8 @@ function App() {
             <Route exact path="/mypet" component={MyPetPage} />
             <Route exact path="/team" component={TeamPage} />
           </Switch>
-        </Center>
+        </Template>
+        {/* </Center> */}
       </ConnectedRouter>
     </React.Fragment>
   );

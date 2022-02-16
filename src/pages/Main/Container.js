@@ -11,12 +11,13 @@ const Container = ({ children }) => {
 
 const Wrapper = styled.div`
   width: 72%;
-  border: 1px solid blue;
+  border: 1px solid yellow;
 `;
 
-const Form = styled.main`
-  display: flex;
+const Form = styled.section`
   position: relative;
+  display: flex;
+  flex-direction: column;
   justify-content: flex-start;
   border: 1px solid green;
 `;
