@@ -1,35 +1,48 @@
 import { css } from 'styled-components';
 
-// 아래는 예시입니다.
-
-// 로고
-export const logo = css`
+export const logo_1 = css`
   font-size: 1.8rem;
   font-weight: 600;
 `;
 
-// Header Menu
-export const head_1 = css`
-  font-size: 1.1rem;
-  font-weight: 500;
+export const logo_2 = css`
+  font-size: 3rem;
+  font-weight: 600;
 `;
 
-// // 문항 제목
-// export const sub_1 = css`
-//   font-size: 1.4rem;
-//   font-weight: 400;
-//   line-height: 3rem;
-//   letter-spacing: -0.05rem;
-// `;
+export const head_1 = css`
+  font-size: 1.8rem;
+  font-weight: 600;
+`;
 
-// // 문항 답변
-// export const sub_2 = css`
-//   font-size: 1.4rem;
-//   font-weight: 400;
-// `;
+export const head_2 = css`
+  font-size: 1.3rem;
+`;
 
-// // 버튼
-// export const button = css`
-//   font-size: 1rem;
-//   font-weight: 600;
-// `;
+export const head_3 = css`
+  font-size: 1rem;
+  line-height: 5rem;
+`;
+
+export const sub_1 = css`
+  font-size: 1rem;
+  line-height: 2.2rem;
+`;
+
+export const sub_2 = css`
+  font-size: 1.2rem;
+`;
+
+export const body_1 = css`
+  font-size: 0.9rem;
+  /* line-height: 1rem; */
+`;
+
+export const body_2 = css`
+  font-size: 1.1rem;
+`;
+
+export const button = css`
+  font-size: 1.6rem;
+  line-height: 2rem;
+`;
