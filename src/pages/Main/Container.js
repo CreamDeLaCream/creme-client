@@ -10,16 +10,18 @@ const Container = ({ children }) => {
 };
 
 const Wrapper = styled.div`
-  width: 72%;
-  border: 1px solid yellow;
+  width: 65rem;
 `;
 
 const Form = styled.section`
   position: relative;
+  /* height: 100vh; */
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  /* justify-content: space-between; */
   border: 1px solid green;
+  padding: 2rem;
+  /* align-items: space-between; */
 `;
 
 export default Container;

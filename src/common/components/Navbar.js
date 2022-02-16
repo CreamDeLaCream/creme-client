@@ -40,7 +40,7 @@ const Navbar = () => {
 };
 
 const Side = styled.nav`
-  width: 28%;
+  width: 25rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
