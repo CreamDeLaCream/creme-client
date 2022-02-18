@@ -6,7 +6,7 @@ export const logo_1 = css`
 `;
 
 export const logo_2 = css`
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 600;
 `;
 
@@ -16,7 +16,7 @@ export const head_1 = css`
 `;
 
 export const head_2 = css`
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 600;
 `;
 
