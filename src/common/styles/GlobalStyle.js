@@ -2,12 +2,12 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
     :root{
-        --main: orange;
+        --main: #f69269;
         --lightorange: #fae5d6;
+        --cream: #f5e9d5;
         --white: #ffffff;
         --gray: #a2a2a2;
         --lightgray: lightgray;
-        --black: black;
     }
 
     @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
