@@ -3,20 +3,24 @@ import styled from 'styled-components';
 
 // components
 import Container from './Container';
-import { Text, Grid, Button, Input } from '../../common/components';
+import {
+  Header,
+  Text,
+  Grid,
+  Button,
+  Input,
+  Navbar,
+} from '../../common/components';
 
 const MainPage = (props) => {
   const { history } = props;
   return (
     <Container>
-      <Grid>
-        <Text type="head_1" color="main">
-          반려견 감정 상태
-        </Text>
-      </Grid>
+      <Header />
+      <Navbar />
 
       <Grid margin="2rem auto">
-        <Text type="head_1" color="main">
+        <Text type="mainTitle" color="main">
           반려견과 반려인의 첫 걸음,
           <br /> 지금 당신의 반려견 감정 상태를 분석해보세요.
         </Text>
@@ -24,21 +28,21 @@ const MainPage = (props) => {
 
       <Grid margin="2rem auto">
         <InputWrapper>
-          <Text type="head_1" color="main">
+          <Text type="mainTitle" color="main">
             이름
           </Text>
           <Input />
         </InputWrapper>
 
         <InputWrapper>
-          <Text type="head_1" color="main">
+          <Text type="mainTitle" color="main">
             나이
           </Text>
           <Input />
         </InputWrapper>
 
         <InputWrapper>
-          <Text type="head_1" color="main">
+          <Text type="mainTitle" color="main">
             감정
           </Text>
           <PhotoBtnWrapper>
@@ -99,9 +103,7 @@ const MainPage = (props) => {
 };
 
 const InputWrapper = styled.div`
-  width: 40rem;
   display: flex;
-  flex-direction: row;
   align-items: center;
   margin-bottom: 2rem;
   ${({ theme }) => theme.device.tablet} {

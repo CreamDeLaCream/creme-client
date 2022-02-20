@@ -10,7 +10,7 @@ const Container = ({ children }) => {
 };
 
 const Wrapper = styled.div`
-  width: 65rem;
+  width: 64rem;
 `;
 
 const Form = styled.section`
@@ -18,7 +18,7 @@ const Form = styled.section`
   position: relative;
   display: flex;
   flex-direction: column;
-  border: 1px solid green;
+  /* border: 1px solid green; */
   padding: 2rem;
 `;
 

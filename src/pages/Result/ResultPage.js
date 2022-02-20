@@ -3,15 +3,16 @@ import styled from 'styled-components';
 
 // components
 import Container from './Container';
-import { Text, Grid, Button, Input } from '../../common/components';
-import { head_1, logo_2 } from '../../common/styles/textStyle';
+import { Text, Grid, Header, Navbar } from '../../common/components';
 
 const ResultPage = (props) => {
   // const { history } = props;
   return (
     <Container>
+      <Header />
+      <Navbar />
       <Grid margin="1rem auto">
-        <Text type="head_1" color="main">
+        <Text type="MainTitle" color="main">
           반려견 감정 상태 결과
         </Text>
       </Grid>
@@ -82,7 +83,6 @@ const EmotionBox = styled.div`
   background-color: var(--main);
   color: var(--white);
   font-weight: 600;
-  ${head_1}
   border: 1px solid var(--main);
 `;
 

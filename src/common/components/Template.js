@@ -12,15 +12,16 @@ const Template = ({ children }) => {
 const Container = styled.div`
   display: flex;
   justify-content: center;
+  margin: 7rem 0 0 0;
 `;
 
 const MainForm = styled.main`
   width: 100%;
-  height: 100vh;
+  /* height: 100vh; */
   display: flex;
   position: relative;
-  max-width: 1440px;
-  border: 2px solid purple;
+  max-width: 1024px;
+  /* border: 2px solid violet; */
 `;
 
 export default Template;
