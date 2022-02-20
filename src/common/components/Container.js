@@ -1,24 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Container = ({ children }) => {
-  return (
-    <Wrapper>
-      <Form>{children}</Form>
-    </Wrapper>
-  );
+const Container = ({ children, ...rest }) => {
+  return <Form {...rest}>{children}</Form>;
 };
 
-const Wrapper = styled.div`
-  width: 64rem;
-`;
-
 const Form = styled.section`
-  height: 200vh;
   position: relative;
+  width: 64rem;
+  /* height: 80vh; */
+  height: ${(props) => props.height};
   display: flex;
   flex-direction: column;
-  /* border: 1px solid green; */
+  border: 1px solid green;
   padding: 2rem;
 `;
 

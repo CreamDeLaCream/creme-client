@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 // components
-import Container from './Container';
+import Container from '../../common/components/Container';
 import {
   Header,
   Text,
@@ -15,7 +15,7 @@ import {
 const MainPage = (props) => {
   const { history } = props;
   return (
-    <Container>
+    <Container height="100vh">
       <Header />
       <Navbar />
 

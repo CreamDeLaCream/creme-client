@@ -1,16 +1,17 @@
 import React from 'react';
-import styled from 'styled-components';
 
 // components
-import Container from './Container';
-import { Header, Navbar } from '../../common/components';
+import { Header, Navbar, Text, Container } from '../../common/components';
 
 const TeamPage = () => {
   return (
-    <div>
+    <Container height="100vh">
       <Header />
       <Navbar />
-    </div>
+      <Text type="mainTitle" color="main">
+        TeamPage
+      </Text>
+    </Container>
   );
 };
 

@@ -2,8 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 // components
-import Container from './Container';
-import { Text, Grid, Header, Navbar } from '../../common/components';
+import { Text, Grid, Header, Navbar, Container } from '../../common/components';
 
 const ResultPage = (props) => {
   // const { history } = props;

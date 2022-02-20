@@ -1,5 +1,6 @@
 import Grid from './Grid';
 import Button from './Button';
+import Container from './Container';
 import Image from './Image';
 import Input from './Input';
 import Text from './Text';
@@ -14,6 +15,7 @@ import Template from './Template';
 export {
   Grid,
   Button,
+  Container,
   Image,
   Input,
   Text,
