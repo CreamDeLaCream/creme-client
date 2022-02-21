@@ -8,6 +8,7 @@ export const MyPet = () => {
   const myPetList = [
     { name: 'LuLu', age: '6살' },
     { name: 'Summer', age: '6살' },
+    { name: 'Lume', age: '3살' },
   ];
 
   const MyPetCards = ({ cardData }) => {
@@ -16,9 +17,11 @@ export const MyPet = () => {
         <img
           alt=""
           src={process.env.PUBLIC_URL + `/Image/dog0.png`}
-          width="450px"
+          width="220px"
+          height="230px"
         />
-        {cardData.name}
+        <span>{cardData.name}</span>
+        <span>{cardData.age}</span>
       </MyPetCard>
     );
   };
@@ -34,14 +37,35 @@ export const MyPet = () => {
 
 const MyPetCard = styled.div`
   width: 220px;
-  height: 220px;
+  height: 320px;
   cusor: pointer;
   overflow: hidden;
   margin-right: 20px;
+  box-shadow: 3px 3px 3px var(--lightgray);
 
   float: left;
 
-  background-color: var(--main);
-  border-radius: 50%;
-  color: #ffffff;
+  background-color: var(--white);
+  // border: 2px solid var(--main);
+  border-radius: 20px;
+  color: var(--main);
+
+  img {
+    object-fit: cover;
+    background-size: contain;
+  }
+
+  span {
+    margin-left: 13px;
+    margin-top: 10px;
+    font-size: 20px;
+    // font-family: nomal;
+  }
+
+  div {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: var(--white);
+  }
 `;

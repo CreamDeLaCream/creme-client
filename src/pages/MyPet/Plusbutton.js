@@ -7,17 +7,17 @@ export const Plusbutton = () => {
 
 const MyPetPlusButton = styled.div`
   width: 220px;
-  height: 220px;
+  height: 320px;
   cusor: pointer;
   overflow: hidden;
 
   background-color: var(--white);
   border: 2px solid var(--main);
-  border-radius: 50%;
+  border-radius: 20px;
 
   color: var(--main);
   text-align: center;
-  line-height: 210px;
+  line-height: 310px;
 
   font-size: 30px;
 `;

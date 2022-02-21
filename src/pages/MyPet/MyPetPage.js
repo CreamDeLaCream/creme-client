@@ -18,9 +18,11 @@ const IntroPage = () => {
         <MyPet />
         <Plusbutton />
       </MyPetWrapper>
-      <Text type="mainTitle" color="main" margin-top="30px">
-        마이펫 감정 기록
-      </Text>
+      <RecordWrapper>
+        <Text type="mainTitle" color="main" padding-top="30px">
+          마이펫 감정 기록
+        </Text>
+      </RecordWrapper>
     </Container>
   );
 };
@@ -29,6 +31,10 @@ const MyPetWrapper = styled.div`
   display: flex;
   flexdirection: row;
   margin-top: 30px;
+`;
+
+const RecordWrapper = styled.div`
+  margin-top: 50px;
 `;
 
 export default IntroPage;

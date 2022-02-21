@@ -7,7 +7,7 @@ const GlobalStyle = createGlobalStyle`
         --cream: #f5e9d5;
         --white: #ffffff;
         --gray: #a2a2a2;
-        --lightgray: lightgray;
+        --lightgray: #f5f5f5;
     }
 
     @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
