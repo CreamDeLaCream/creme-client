@@ -1,13 +1,17 @@
 import React from 'react';
 
-import { Header, Navbar } from '../../common/components';
+// components
+import { Header, Navbar, Container } from '../../common/components';
+import TestItems from './TestItems';
 
 const AnalysisPage = () => {
   return (
-    <div>
+    <Container>
       <Header />
       <Navbar />
-    </div>
+
+      <TestItems />
+    </Container>
   );
 };
 
