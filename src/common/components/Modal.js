@@ -1,11 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-// import './Modal.css';
 
-const Modal = ({ setOpenModal }) => {
+const Modal = ({ setOpenModal, children, ...rest }) => {
   return (
     <ModalBackground>
-      <ModalContainer>
+      <ModalContainer {...rest}>
         <TitleCloseBtn>
           <Button
             onClick={() => {
@@ -15,6 +14,7 @@ const Modal = ({ setOpenModal }) => {
             X
           </Button>
         </TitleCloseBtn>
+        <ModalContent>{children}</ModalContent>
       </ModalContainer>
     </ModalBackground>
   );
@@ -34,8 +34,8 @@ const ModalBackground = styled.section`
 `;
 
 const ModalContainer = styled.div`
-  width: 500px;
-  height: 500px;
+  width: 31rem;
+  height: 31rem;
   border-radius: 12px;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -45,6 +45,10 @@ const ModalContainer = styled.div`
   display: inline-block;
   text-align: center;
   margin-top: 10px;
+  ${({ theme }) => theme.device.mobile} {
+    min-width: 20rem;
+    min-height: 20rem;
+  }
 `;
 
 const TitleCloseBtn = styled.div`
@@ -61,6 +65,13 @@ const Button = styled.button`
   border: none;
   font-size: 25px;
   cursor: pointer;
+`;
+
+const ModalContent = styled.div`
+  width: ${(props) => props.width};
+  margin: ${(props) => props.margin};
+  margin-bottom: ${(props) => props.marginBottom};
+  font-size: ${(props) => props.fontSize};
 `;
 
 export default Modal;

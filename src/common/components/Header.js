@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 
 // components
-import { Logo, Modal } from './';
+import { Logo, Modal, Text, Image, Grid, Button } from './';
 
 const Header = (props) => {
   const history = useHistory();
@@ -34,7 +34,28 @@ const Header = (props) => {
           </RightSide>
         </InsideBox>
       </Container>
-      {modalOpen && <Modal setOpenModal={setModalOpen} />}
+      {modalOpen && (
+        <Modal setOpenModal={setModalOpen}>
+          <Grid display="flex" justifyContent="center" margin="1rem 0 3rem 0">
+            <Image shape="bigcircle" size="14" />
+          </Grid>
+
+          <Wrapper>
+            <Button
+              width="25rem"
+              padding="0.5rem"
+              bg="var(--main)"
+              color="var(--white)"
+              radius="5px"
+              cursor
+            >
+              <Text type="button" color="white">
+                카카오톡으로 시작하기
+              </Text>
+            </Button>
+          </Wrapper>
+        </Modal>
+      )}
     </>
   );
 };
@@ -90,6 +111,13 @@ const Item = styled.li`
   padding: 0.3rem 2rem;
   color: var(--main);
   cursor: pointer;
+`;
+
+const Wrapper = styled.div`
+  ${({ theme }) => theme.device.mobile} {
+    display: flex;
+    justify-content: center;
+  }
 `;
 
 export default Header;
