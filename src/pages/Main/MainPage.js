@@ -35,49 +35,34 @@ const MainPage = (props) => {
           <Image size="15" />
           <Image size="15" />
         </Grid>
+      </Grid>
 
-        <Grid is_flex>
+      <Grid margin="1rem auto">
+        <Grid is_flex width="100%">
           <Button
-            width="100%"
+            width="48%"
             padding="0.5rem"
             bg="var(--main)"
             color="var(--white)"
             radius="5px"
             cursor
+            mobileWidth
+            // 중간 점검 이후 변경 예정
+            // _onClick={() => history.push('/login')}
           >
             <Text type="button" color="white">
               사진찍기 / 업로드
             </Text>
           </Button>
-        </Grid>
-      </Grid>
-
-      <Grid margin="1rem auto" display="flex" justifyContent="flex-end">
-        <Grid is_flex width="23.1rem">
           <Button
-            width="10rem"
+            width="48%"
             padding="0.5rem"
             bg="var(--main)"
             color="var(--white)"
             radius="5px"
             cursor
-            // 중간 점검 이후 변경 예정
-            // _onClick={() => history.push('/login')}
-          >
-            <Text type="button" color="white">
-              마이펫 불러오기
-            </Text>
-          </Button>
-          <Button
-            width="10rem"
-            padding="0.5rem"
-            bg="var(--main)"
-            color="var(--white)"
-            radius="5px"
-            cursor
-            // 중간 점검 이후 변경 예정
-            // _onClick={() => history.push('/analysis')}
-            _onClick={() => history.push('/result')}
+            _onClick={() => history.push('/analysis')}
+            // _onClick={() => history.push('/result')}
           >
             <Text type="button" color="white">
               분석 시작
@@ -104,44 +89,30 @@ const MainPage = (props) => {
           <Input placeholder="댕댕이의 이름을 입력해주세요." />
         </Grid>
 
-        <Grid is_flex margin="0 0 3rem 0">
+        <Grid is_flex margin="0 0 1rem 0">
           <Input placeholder="댕댕이의 나이를 입력해주세요." />
         </Grid>
+      </Grid>
 
-        <Grid>
+      <Grid margin="1rem auto">
+        <Grid is_flex width="100%">
           <Button
-            width="100%"
+            width="48%"
             padding="0.5rem"
             bg="var(--main)"
             color="var(--white)"
             radius="5px"
             cursor
+            mobileWidth
+            // 중간 점검 이후 변경 예정
+            // _onClick={() => history.push('/login')}
           >
             <Text type="button" color="white">
               사진찍기 / 업로드
             </Text>
           </Button>
-        </Grid>
-      </Grid>
-
-      <Grid margin="1rem auto" display="flex" justifyContent="flex-end">
-        <Grid is_flex width="23.1rem">
           <Button
-            width="10rem"
-            padding="0.5rem"
-            bg="var(--main)"
-            color="var(--white)"
-            radius="5px"
-            cursor
-            // 중간 점검 이후 변경 예정
-            // _onClick={() => history.push('/login')}
-          >
-            <Text type="button" color="white">
-              마이펫 불러오기
-            </Text>
-          </Button>
-          <Button
-            width="10rem"
+            width="48%"
             padding="0.5rem"
             bg="var(--main)"
             color="var(--white)"
