@@ -18,6 +18,9 @@ const IntroPage = () => {
         <MyPet />
         <Plusbutton />
       </MyPetWrapper>
+      <Text type="mainTitle" color="main" margin-top="30px">
+        마이펫 감정 기록
+      </Text>
     </Container>
   );
 };
@@ -25,6 +28,7 @@ const IntroPage = () => {
 const MyPetWrapper = styled.div`
   display: flex;
   flexdirection: row;
+  margin-top: 30px;
 `;
 
 export default IntroPage;

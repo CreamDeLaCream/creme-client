@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 export const Plusbutton = () => {
-  return <MyPetPlusButton>추가</MyPetPlusButton>;
+  return <MyPetPlusButton>마이펫 추가</MyPetPlusButton>;
 };
 
 const MyPetPlusButton = styled.div`
@@ -11,11 +11,13 @@ const MyPetPlusButton = styled.div`
   cusor: pointer;
   overflow: hidden;
 
-  background-color: var(--main);
-  // border: 4px solid var(--main);
+  background-color: var(--white);
+  border: 2px solid var(--main);
   border-radius: 50%;
 
-  color: #ffffff;
+  color: var(--main);
   text-align: center;
-  line-height: 140px;
+  line-height: 210px;
+
+  font-size: 30px;
 `;
