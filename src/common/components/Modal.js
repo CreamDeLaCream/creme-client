@@ -38,14 +38,15 @@ const Modal = ({ setOpenModal }) => {
 };
 
 const ModalBackground = styled.section`
-  width: 100%;
-  height: 100vh;
+  position: fixed;
   top: 0;
   left: 0;
-  background-color: rgba(200, 200, 200);
-  position: fixed;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
+  background-color: var(--lightgray);
+  opacity: 0.5;
   align-items: center;
   z-index: 30;
 `;

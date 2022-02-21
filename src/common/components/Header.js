@@ -9,31 +9,33 @@ const Header = (props) => {
   const history = useHistory();
   const [modalOpen, setModalOpen] = useState(false);
   return (
-    <Container>
-      <InsideBox>
-        <LeftSide>
-          <LogoBox onClick={() => history.push('/')}>
-            <Logo />
-          </LogoBox>
-        </LeftSide>
-        <RightSide>
-          {props.page === 'headermenu' ? (
-            <Nav>
-              <List>
-                <Item
-                  onClick={() => {
-                    setModalOpen(true);
-                  }}
-                >
-                  로그인
-                </Item>
-                {modalOpen && <Modal setOpenModal={setModalOpen} />}
-              </List>
-            </Nav>
-          ) : null}
-        </RightSide>
-      </InsideBox>
-    </Container>
+    <>
+      <Container>
+        <InsideBox>
+          <LeftSide>
+            <LogoBox onClick={() => history.push('/')}>
+              <Logo />
+            </LogoBox>
+          </LeftSide>
+          <RightSide>
+            {props.page === 'headermenu' ? (
+              <Nav>
+                <List>
+                  <Item
+                    onClick={() => {
+                      setModalOpen(true);
+                    }}
+                  >
+                    로그인
+                  </Item>
+                </List>
+              </Nav>
+            ) : null}
+          </RightSide>
+        </InsideBox>
+      </Container>
+      {modalOpen && <Modal setOpenModal={setModalOpen} />}
+    </>
   );
 };
 
