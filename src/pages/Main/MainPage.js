@@ -61,6 +61,7 @@ const MainPage = (props) => {
             color="var(--white)"
             radius="5px"
             cursor
+            // 중간 점검 이후 변경 예정
             // _onClick={() => history.push('/login')}
           >
             <Text type="button" color="white">
@@ -74,7 +75,9 @@ const MainPage = (props) => {
             color="var(--white)"
             radius="5px"
             cursor
-            _onClick={() => history.push('/analysis')}
+            // 중간 점검 이후 변경 예정
+            // _onClick={() => history.push('/analysis')}
+            _onClick={() => history.push('/result')}
           >
             <Text type="button" color="white">
               분석 시작
@@ -130,6 +133,7 @@ const MainPage = (props) => {
             color="var(--white)"
             radius="5px"
             cursor
+            // 중간 점검 이후 변경 예정
             // _onClick={() => history.push('/login')}
           >
             <Text type="button" color="white">
@@ -143,7 +147,9 @@ const MainPage = (props) => {
             color="var(--white)"
             radius="5px"
             cursor
-            _onClick={() => history.push('/analysis')}
+            // 중간 점검 이후 변경 예정
+            // _onClick={() => history.push('/analysis')}
+            _onClick={() => history.push('/result')}
           >
             <Text type="button" color="white">
               분석 시작
