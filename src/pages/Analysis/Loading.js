@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react';
 
 const Loading = () => {
-  return (
-    <div>Loading</div>
-  )
-}
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-export default Loading
+  return <div>Loading</div>;
+};
+
+export default Loading;
