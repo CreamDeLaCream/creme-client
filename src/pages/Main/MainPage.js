@@ -83,73 +83,6 @@ const MainPage = (props) => {
         </Grid>
       </Grid>
     </Container>;
-  // <Container height="100vh">
-  //   <Header />
-  //   <Navbar />
-
-  //   <Grid margin="2rem auto">
-  //     <Text type="mainTitle" color="main">
-  //       반려견과 반려인의 첫 걸음,
-  //       <br /> 지금 당신의 반려견 감정 상태를 분석해보세요.
-  //     </Text>
-  //   </Grid>
-
-  //   <Grid margin="2rem auto">
-  //     <InputWrapper>
-  //       <Input placeholder="댕댕이의 이름을 입력해주세요." />
-  //     </InputWrapper>
-
-  //     <InputWrapper>
-  //       <Input placeholder="댕댕이의 나이를 입력해주세요." />
-  //     </InputWrapper>
-
-  //     <UploadBtnWrapper>
-  //       <Button
-  //         width="100%"
-  //         padding="0.5rem"
-  //         bg="var(--main)"
-  //         color="var(--white)"
-  //         radius="5px"
-  //         cursor
-  //       >
-  //         <Text type="button" color="white">
-  //           사진찍기 / 업로드
-  //         </Text>
-  //       </Button>
-  //     </UploadBtnWrapper>
-  //   </Grid>
-
-  //   <Grid margin="1rem auto" display="flex" justifyContent="flex-end">
-  //     <PageBtnWrapper>
-  //       <Button
-  //         width="10rem"
-  //         padding="0.5rem"
-  //         bg="var(--main)"
-  //         color="var(--white)"
-  //         radius="5px"
-  //         cursor
-  //         // _onClick={() => history.push('/login')}
-  //       >
-  //         <Text type="button" color="white">
-  //           마이펫 불러오기
-  //         </Text>
-  //       </Button>
-  //       <Button
-  //         width="10rem"
-  //         padding="0.5rem"
-  //         bg="var(--main)"
-  //         color="var(--white)"
-  //         radius="5px"
-  //         cursor
-  //         _onClick={() => history.push('/analysis')}
-  //       >
-  //         <Text type="button" color="white">
-  //           분석 시작
-  //         </Text>
-  //       </Button>
-  //     </PageBtnWrapper>
-  //   </Grid>
-  // </Container>;
 
   return (
     <Container height="100vh">
@@ -221,26 +154,5 @@ const MainPage = (props) => {
     </Container>
   );
 };
-
-// const InputWrapper = styled.div`
-//   display: flex;
-//   align-items: center;
-//   margin-bottom: 2rem;
-// `;
-
-// const UploadBtnWrapper = styled.div`
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-//   ${({ theme }) => theme.device.mobile} {
-//     min-width: 20rem;
-//   }
-// `;
-
-// const PageBtnWrapper = styled.div`
-//   width: 23.1rem;
-//   display: flex;
-//   justify-content: space-between;
-// `;
 
 export default MainPage;
