@@ -1,9 +1,18 @@
-import React from 'react'
+import React from 'react';
+
+// components
+import { Header, Navbar, Text, Container } from '../../common/components';
 
 const IntroPage = () => {
   return (
-    <div>IntroPage</div>
-  )
-}
+    <Container height="100vh">
+      <Header page="headermenu" />
+      <Navbar page="navbarmenu" />
+      <Text type="mainTitle" color="main">
+        IntroPage
+      </Text>
+    </Container>
+  );
+};
 
-export default IntroPage
+export default IntroPage;

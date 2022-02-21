@@ -5,12 +5,8 @@ import { Text } from './';
 const Logo = () => {
   return (
     <div>
-      <Text type="logo_1" color="main">
-        Cream
-        <br />
-        de la
-        <br />
-        Cream
+      <Text type="logo" color="main">
+        Creme de la Creme
       </Text>
     </div>
   );

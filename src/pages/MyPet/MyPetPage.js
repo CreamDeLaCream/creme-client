@@ -1,9 +1,18 @@
-import React from 'react'
+import React from 'react';
 
-const MyPetPage = () => {
+// components
+import { Header, Navbar, Text, Container } from '../../common/components';
+
+const IntroPage = () => {
   return (
-    <div>MyPetPage</div>
-  )
-}
+    <Container height="100vh">
+      <Header />
+      <Navbar />
+      <Text type="mainTitle" color="main">
+        IntroPage
+      </Text>
+    </Container>
+  );
+};
 
-export default MyPetPage
+export default IntroPage;

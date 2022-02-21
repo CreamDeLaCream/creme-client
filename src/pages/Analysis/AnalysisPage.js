@@ -1,11 +1,13 @@
 import React from 'react';
-import TestItems from './TestItems';
+
+import { Header, Navbar } from '../../common/components';
 
 const AnalysisPage = () => {
   return (
-    <>
-      <TestItems />
-    </>
+    <div>
+      <Header />
+      <Navbar />
+    </div>
   );
 };
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import GlobalStyle from './common/styles/GlobalStyle';
 
 import { Switch, Route } from 'react-router-dom';
@@ -16,7 +15,7 @@ import {
   MyPetPage,
   TeamPage,
 } from './pages';
-import { Navbar, Template } from './common/components';
+import { Template } from './common/components';
 
 // const Center = styled.div`
 //   height: 100vh;
@@ -33,10 +32,9 @@ function App() {
         <GlobalStyle />
         {/* <Center> */}
         <Template>
-          <Navbar />
           <Switch>
-            <Route exact path="/" component={IntroPage} />
-            <Route exact path="/main" component={MainPage} />
+            <Route exact path="/" component={MainPage} />
+            <Route exact path="/intro" component={IntroPage} />
             <Route exact path="/analysis" component={AnalysisPage} />
             <Route exact path="/result" component={ResultPage} />
             <Route exact path="/mypet" component={MyPetPage} />

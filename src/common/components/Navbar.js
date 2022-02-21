@@ -1,75 +1,76 @@
 import React from 'react';
 import styled from 'styled-components';
-
 import { NavLink, useHistory } from 'react-router-dom';
 
-import { NavMenu, Logo } from './';
+// components
+import { NavItems } from './';
 
-const Navbar = () => {
+const Navbar = (props) => {
   const history = useHistory();
-
   const menus = [
-    { name: '서비스 소개', path: '/' },
-    { name: '반려견 감정상태', path: '/main' },
+    { name: '서비스 소개', path: '/intro' },
+    { name: '반려견 감정상태', path: '/' },
     { name: '마이펫', path: '/mypet' },
     { name: '팀소개', path: '/team' },
   ];
 
   return (
-    <Side>
-      <Logobox onClick={() => history.push('/')}>
-        <Logo />
-      </Logobox>
-      <Menu>
+    <Container>
+      <NavBox>
         {menus.map((menu, index) => {
           return (
-            <LinkWrapper>
-              <NavLink
-                to={menu.path}
-                key={index}
-                style={{ color: 'gray', textDecoration: 'none' }}
-              >
-                <NavMenu menu={menu} />
-              </NavLink>
-            </LinkWrapper>
+            <NavLink
+              exact
+              to={menu.path}
+              key={index}
+              style={{
+                // color: 'gray',
+                fontSize: '1.2rem',
+                textDecoration: 'none',
+                margin: '0 20px 0 0',
+              }}
+              activeStyle={{ fontWeight: 'bold' }}
+            >
+              <NavItems menu={menu} />
+            </NavLink>
           );
         })}
-      </Menu>
-    </Side>
+      </NavBox>
+      <RightSide>
+        {/* {props.page === 'navbarmenu' ? (
+          <Nav>
+            <List>
+              <Item onClick={() => history.push('/team')}>팀소개</Item>
+            </List>
+          </Nav>
+        ) : null} */}
+      </RightSide>
+    </Container>
   );
 };
 
-const Side = styled.nav`
-  width: 28%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  border: 1px var(--main) solid;
-  ${({ theme }) => theme.device.tablet} {
-    min-width: 13rem;
-  }
-  ${({ theme }) => theme.device.mobile} {
-    min-width: 13rem;
-  }
+const Container = styled.div`
+  position: fixed;
+  top: 5rem;
+  left: 0;
+  z-index: 20;
+  width: 100%;
+  background-color: white;
+  /* ${({ theme }) => theme.device.mobile} {
+    min-width: 20rem;
+    wrap: nowrap;
+  } */
 `;
 
-const Logobox = styled.div`
+const NavBox = styled.div`
   display: flex;
-  margin: 2rem 0 0 3rem;
-  cursor: pointer;
+  justify-content: flex-start;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  min-width: 25rem;
 `;
 
-const LinkWrapper = styled.div`
-  :hover :first-child {
-    color: var(--main);
-  }
-`;
-
-const Menu = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: 0 0 4rem 3rem;
-`;
+const RightSide = styled.section``;
 
 export default Navbar;

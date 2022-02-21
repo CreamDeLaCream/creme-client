@@ -31,11 +31,9 @@ const Button = (props) => {
   };
 
   return (
-    <React.Fragment>
-      <ElButton {...styles} onClick={_onClick}>
-        {children}
-      </ElButton>
-    </React.Fragment>
+    <ButtonForm {...styles} onClick={_onClick}>
+      {children}
+    </ButtonForm>
   );
 };
 
@@ -54,7 +52,7 @@ Button.defaultProps = {
   border: false,
 };
 
-const ElButton = styled.button`
+const ButtonForm = styled.button`
   width: ${(props) => props.width};
   height: ${(props) => props.height};
   ${(props) => (props.size ? `font-size: ${props.size}` : '')};
