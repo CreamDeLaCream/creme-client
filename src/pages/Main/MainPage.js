@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 // components
@@ -11,7 +11,9 @@ import {
   Input,
   Navbar,
   Image,
+  Modal,
 } from '../../common/components';
+
 // import api from '../../common/utils/API';
 
 const MainPage = (props) => {

@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 
 // components
-import { Logo } from './';
+import { Logo, Modal } from './';
 
 const Header = (props) => {
   const history = useHistory();
+  const [modalOpen, setModalOpen] = useState(false);
   return (
     <Container>
       <InsideBox>
@@ -19,7 +20,14 @@ const Header = (props) => {
           {props.page === 'headermenu' ? (
             <Nav>
               <List>
-                <Item onClick={() => history.push('/login')}>로그인</Item>
+                <Item
+                  onClick={() => {
+                    setModalOpen(true);
+                  }}
+                >
+                  로그인
+                </Item>
+                {modalOpen && <Modal setOpenModal={setModalOpen} />}
               </List>
             </Nav>
           ) : null}
