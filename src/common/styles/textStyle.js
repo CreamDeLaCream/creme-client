@@ -24,7 +24,7 @@ export const subTitle = css`
 
 export const body = css`
   font-size: 1rem;
-  line-height: 5rem;
+  line-height: 2rem;
 `;
 
 export const desc = css`

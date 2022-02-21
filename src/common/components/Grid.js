@@ -14,6 +14,7 @@ const Grid = (props) => {
     children,
     center,
     height,
+    marginBottom,
   } = props;
 
   const styles = {
@@ -27,6 +28,7 @@ const Grid = (props) => {
     padding: padding,
     bg: bg,
     center: center,
+    marginBottom: marginBottom,
   };
   return (
     <React.Fragment>
@@ -56,6 +58,8 @@ const GridBox = styled.div`
   ${(props) => (props.padding ? `padding: ${props.padding};` : '')}
   ${(props) => (props.height ? `height: ${props.height};` : '')}
   ${(props) => (props.margin ? `margin: ${props.margin};` : '')}
+  ${(props) =>
+    props.marginBottom ? `margin-bottom: ${props.marginBottom};` : ''}
   ${(props) => (props.bg ? `background-color: ${props.bg};` : '')}
   ${(props) => (props.center ? `text-align: center;` : '')}
   ${(props) =>

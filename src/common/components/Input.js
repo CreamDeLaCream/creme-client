@@ -18,7 +18,7 @@ const Input = (props) => {
     return (
       <Grid>
         <TextareaForm
-          rows={2}
+          rows={3}
           value={value}
           placeholder={placeholder}
           onChange={_onChange}
@@ -48,9 +48,26 @@ const Input = (props) => {
 };
 
 const TextareaForm = styled.textarea`
-  border: 1px solid #212121;
+  border: 2px solid var(--lightgray);
   width: 100%;
-  padding: 12px 4px;
+  font-size: 1.1rem;
+  color: gray;
+  padding: 5px 0px 0px 5px;
+  border-radius: 5px;
+  :focus {
+    outline: none;
+    ::-webkit-input-placeholder {
+      color: transparent;
+    }
+  }
+  ::placeholder {
+    color: var(--main);
+    text-align: center;
+    padding: 1rem 0 0 0;
+  }
+  ${({ theme }) => theme.device.mobile} {
+    min-width: 20rem;
+  }
 `;
 
 const InputForm = styled.input`
@@ -63,6 +80,9 @@ const InputForm = styled.input`
   color: gray;
   :focus {
     outline: none;
+    ::-webkit-input-placeholder {
+      color: transparent;
+    }
   }
   ::placeholder {
     color: var(--main);

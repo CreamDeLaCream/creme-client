@@ -38,6 +38,8 @@ const Wrapper = styled.div`
   color: ${(props) => (props.color ? `var(--${props.color})` : `black`)};
   width: ${(props) => props.width};
   margin: ${(props) => props.margin};
+  margin-bottom: ${(props) => props.marginBottom};
+  font-size: ${(props) => props.fontSize};
 `;
 
 export default Text;

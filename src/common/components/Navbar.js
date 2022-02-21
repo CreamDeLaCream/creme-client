@@ -25,6 +25,7 @@ const Navbar = (props) => {
               key={index}
               style={{
                 // color: 'gray',
+                fontSize: '1.2rem',
                 textDecoration: 'none',
                 margin: '0 20px 0 0',
               }}
