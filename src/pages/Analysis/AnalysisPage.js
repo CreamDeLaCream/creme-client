@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
+import TestItems from './TestItems';
 
 const AnalysisPage = () => {
   return (
-    <div>AnalysisPage</div>
-  )
-}
+    <>
+      <TestItems />
+    </>
+  );
+};
 
-export default AnalysisPage
+export default AnalysisPage;
