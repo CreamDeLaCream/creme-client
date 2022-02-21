@@ -25,7 +25,7 @@ const Navbar = (props) => {
               key={index}
               style={{
                 // color: 'gray',
-                fontSize: '1.2rem',
+                fontSize: '1.1rem',
                 textDecoration: 'none',
                 margin: '0 20px 0 0',
               }}
@@ -56,10 +56,10 @@ const Container = styled.div`
   z-index: 20;
   width: 100%;
   background-color: white;
-  /* ${({ theme }) => theme.device.mobile} {
-    min-width: 20rem;
-    wrap: nowrap;
-  } */
+  ${({ theme }) => theme.device.mobile} {
+    /* min-width: 20rem; */
+    flex-wrap: nowrap;
+  }
 `;
 
 const NavBox = styled.div`
@@ -69,6 +69,9 @@ const NavBox = styled.div`
   margin: 0 auto;
   padding: 0 2rem;
   min-width: 25rem;
+  ${({ theme }) => theme.device.mobile} {
+    min-width: 27rem;
+  }
 `;
 
 const RightSide = styled.section``;
