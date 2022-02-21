@@ -59,13 +59,13 @@ const InputForm = styled.input`
   border: 2px solid var(--lightgray);
   border-radius: 5px;
   padding: 0px 0px 0px 5px;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   color: gray;
   :focus {
     outline: none;
   }
   ::placeholder {
-    color: var(--gray);
+    color: var(--main);
   }
   ${({ theme }) => theme.device.mobile} {
     min-width: 20rem;

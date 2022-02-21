@@ -25,9 +25,6 @@ const Header = (props) => {
           ) : null}
         </RightSide>
       </InsideBox>
-      {/* <DownBox>
-        <NavItems />
-      </DownBox> */}
     </Container>
   );
 };

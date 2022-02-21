@@ -67,6 +67,7 @@ const NavBox = styled.div`
   max-width: 1024px;
   margin: 0 auto;
   padding: 0 2rem;
+  min-width: 25rem;
 `;
 
 const RightSide = styled.section``;

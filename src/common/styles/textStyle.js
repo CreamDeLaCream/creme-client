@@ -33,6 +33,5 @@ export const desc = css`
 `;
 
 export const button = css`
-  font-size: 1.6rem;
-  line-height: 2rem;
+  font-size: 1rem;
 `;

@@ -15,8 +15,7 @@ const NavItems = ({ menu }) => {
 };
 
 const Wrapper = styled.div`
-  /* min-width: 5rem;
-  width: 100%; */
+  line-height: 1rem;
 `;
 
 export default NavItems;
