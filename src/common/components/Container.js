@@ -14,6 +14,7 @@ const Form = styled.section`
   flex-direction: column;
   border: 1px solid green;
   padding: 2rem;
+  // flex-wrap: wrap;
 `;
 
 export default Container;

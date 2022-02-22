@@ -25,7 +25,6 @@ const IntroPage = () => {
         <Text type="mainTitle" color="main" padding-top="30px">
           마이펫 감정 기록
         </Text>
-        {/* <hr /> */}
         <RecordCardWrapper>
           <Record />
           <RecordPlusbutton />
@@ -39,18 +38,15 @@ const MyPetWrapper = styled.div`
   display: flex;
   margin-top: 30px;
 `;
-
 const RecordWrapper = styled.div`
   margin-top: 50px;
 `;
-
 const RecordCardWrapper = styled.div`
   display: flex;
-  flex: 1;
-  height: 1000px;
+  flex-direction: row,
   margin-top: 30px;
-
-  background-color: var(--gray);
-`;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  `;
 
 export default IntroPage;

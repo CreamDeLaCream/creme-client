@@ -47,7 +47,7 @@ const MyPetCard = styled.div`
 
   background-color: var(--white);
   // border: 2px solid var(--main);
-  border-radius: 20px;
+  border-radius: 5px;
   color: var(--main);
 
   img {

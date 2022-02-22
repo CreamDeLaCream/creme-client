@@ -39,11 +39,6 @@ export const AnalysisImageData = [
     name: 'summer',
     date: '2022/02/22',
   },
-  {
-    id: 8,
-    name: 'lulu',
-    date: '2022/02/22',
-  },
 ];
 
 export default AnalysisImageData;

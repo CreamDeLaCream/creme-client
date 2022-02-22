@@ -12,8 +12,8 @@ const MyPetPlusButton = styled.div`
   overflow: hidden;
 
   background-color: var(--white);
-  border: 2px solid var(--main);
-  border-radius: 20px;
+  border: 1px solid var(--main);
+  border-radius: 5px;
 
   color: var(--main);
   text-align: center;

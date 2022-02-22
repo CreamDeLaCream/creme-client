@@ -6,13 +6,19 @@ import AnalysisImageData from './AnalysisImageData';
 
 const Record = () => {
   let [recordImage, setRecordImage] = useState(AnalysisImageData);
+  const env = process.env;
+  env.PUBLIC_URL = env.PUBLIC_URL || '';
 
   function ImageList({ recordcards }) {
     return (
       <RecordCard>
-        <div>
-          {recordcards.name} {recordcards.date}
-        </div>
+        <img
+          alt=""
+          src={process.env.PUBLIC_URL + `/Image/dog0.png`}
+          width="315px"
+          height="315px"
+        />
+        {recordcards.name} {recordcards.date}
       </RecordCard>
     );
   }
@@ -26,22 +32,26 @@ const Record = () => {
 };
 
 const RecordCard = styled.div`
-  width: 310px;
-  height: 310px;
-  position: absolute;
+  width: 315px;
+  height: 315px;
+  overflow: hidden;
 
   cursor: pointer;
 
-  // border: 2px solid var(--main);
+  // border: 3px solid var(--main);
   background-color: var(--main);
+  // border-radius: 3px;
 
-  margin-right: 10px;
+  margin-top: 7px;
+  text-align: center;
+  line-height: 310px;
 
-  div {
-    width: 220px;
-    height: 200px;
-    background-color: var(--withe);
-  }
+  color: var(--white);
+
+  // div {
+  //   width: 220px;
+  //   height: 200px;
+  //   background-color: var(--withe);
+  // }
 `;
-
 export default Record;
