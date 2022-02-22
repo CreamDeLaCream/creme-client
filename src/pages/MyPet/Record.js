@@ -41,6 +41,8 @@ const RecordCard = styled.div`
   // border: 3px solid var(--main);
   background-color: var(--main);
   // border-radius: 3px;
+  object-fit: cover;
+  background-size: contain;
 
   margin-top: 7px;
   text-align: center;

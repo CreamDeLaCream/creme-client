@@ -6,7 +6,7 @@ export const Plusbutton = () => {
 };
 
 const MyPetPlusButton = styled.div`
-  width: 220px;
+  width: 230px;
   height: 320px;
   cusor: pointer;
   overflow: hidden;

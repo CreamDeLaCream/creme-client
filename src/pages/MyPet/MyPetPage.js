@@ -37,6 +37,8 @@ const IntroPage = () => {
 const MyPetWrapper = styled.div`
   display: flex;
   margin-top: 30px;
+  flex-wrap: wrap;
+  justify-content: space-between;
 `;
 const RecordWrapper = styled.div`
   margin-top: 50px;
