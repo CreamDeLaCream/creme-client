@@ -6,6 +6,7 @@ import { Header, Navbar, Text, Container } from '../../common/components';
 import { MyPet } from './MyPet';
 import { Plusbutton } from './Plusbutton';
 import Record from './Record';
+import { RecordPlusbutton } from './RecordPlusbutton';
 
 const IntroPage = () => {
   return (
@@ -27,8 +28,7 @@ const IntroPage = () => {
         {/* <hr /> */}
         <RecordCardWrapper>
           <Record />
-          <Record />
-          <Record />
+          <RecordPlusbutton />
         </RecordCardWrapper>
       </RecordWrapper>
     </Container>
@@ -37,7 +37,6 @@ const IntroPage = () => {
 
 const MyPetWrapper = styled.div`
   display: flex;
-  flexdirection: row;
   margin-top: 30px;
 `;
 
@@ -48,8 +47,10 @@ const RecordWrapper = styled.div`
 const RecordCardWrapper = styled.div`
   display: flex;
   flex: 1;
-  flexdirection: row;
+  height: 1000px;
   margin-top: 30px;
+
+  background-color: var(--gray);
 `;
 
 export default IntroPage;
