@@ -18,7 +18,9 @@ const Record = () => {
           width="315px"
           height="315px"
         />
-        {recordcards.name} {recordcards.date}
+        <CardContent>
+          {recordcards.name} {recordcards.date}
+        </CardContent>
       </RecordCard>
     );
   }
@@ -37,23 +39,33 @@ const RecordCard = styled.div`
   overflow: hidden;
 
   cursor: pointer;
+  background-color: var(--main);
 
   // border: 3px solid var(--main);
-  background-color: var(--main);
   // border-radius: 3px;
   object-fit: cover;
   background-size: contain;
+
+  color: var(--main);
+  font-weight: 500;
 
   margin-top: 7px;
   text-align: center;
   line-height: 310px;
 
-  color: var(--white);
+  position: relative;
 
-  // div {
-  //   width: 220px;
-  //   height: 200px;
-  //   background-color: var(--withe);
-  // }
+  img:hover {
+    opacity: 0.1;
+    transition: all 0.25s linear;
+    transform: scale(1.25);
+  }
+`;
+
+const CardContent = styled.div`
+  font-size: 25px;
+  margin-top: 75px;
+  position: absolute;
+  opacity: 0.1;
 `;
 export default Record;

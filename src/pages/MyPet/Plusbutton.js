@@ -20,4 +20,5 @@ const MyPetPlusButton = styled.div`
   line-height: 310px;
 
   font-size: 30px;
+  font-family: nomal;
 `;

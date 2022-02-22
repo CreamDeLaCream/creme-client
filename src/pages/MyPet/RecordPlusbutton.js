@@ -21,4 +21,5 @@ const ImagePlusbutton = styled.div`
   margin-top: 7px;
 
   font-size: 30px;
+  font-family: nomal;
 `;

@@ -44,6 +44,7 @@ const RecordWrapper = styled.div`
   margin-top: 50px;
 `;
 const RecordCardWrapper = styled.div`
+margin-top: 20px;
   display: flex;
   flex-direction: row,
   margin-top: 30px;

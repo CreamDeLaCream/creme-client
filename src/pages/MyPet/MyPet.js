@@ -20,7 +20,7 @@ export const MyPet = () => {
           width="230px"
           // height="240px"
         />
-        <span>{cardData.name}</span>
+        <span>{cardData.name}</span> <br />
         <span>{cardData.age}</span>
       </MyPetCard>
     );
@@ -40,7 +40,6 @@ const MyPetCard = styled.div`
   height: 320px;
   cusor: pointer;
   overflow: hidden;
-  // margin-right: 20px;
   box-shadow: 3px 3px 3px 1px var(--lightgray);
 
   float: left;
@@ -60,8 +59,8 @@ const MyPetCard = styled.div`
   span {
     margin-left: 13px;
     margin-top: 10px;
-    font-size: 20px;
-    // font-family: nomal;
+    font-size: 15px;
+    font-family: nomal;
   }
 
   div {
