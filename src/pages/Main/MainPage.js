@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 // components
-import Container from '../../common/components/Container';
 import {
+  Container,
   Header,
   Text,
   Grid,
@@ -11,12 +11,39 @@ import {
   Input,
   Navbar,
   Image,
-  Modal,
 } from '../../common/components';
-
+import { useDropzone } from 'react-dropzone';
 // import api from '../../common/utils/API';
 
 const MainPage = (props) => {
+  const [files, setFiles] = useState([]);
+
+  const { getRootProps, getInputProps } = useDropzone({
+    accept: 'image/*',
+    onDrop: (acceptedFiles) => {
+      setFiles(
+        acceptedFiles.map((file) =>
+          Object.assign(file, {
+            preview: URL.createObjectURL(file),
+          }),
+        ),
+      );
+    },
+  });
+
+  const images = files.map((file) => (
+    <div key={file.name}>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <img
+          src={file.preview}
+          style={{ width: '250px' }}
+          alt="preview"
+          center
+        />
+      </div>
+    </div>
+  ));
+
   const { history } = props;
   const _session_key = null;
   const is_login = sessionStorage.getItem(_session_key);
@@ -87,6 +114,11 @@ const MainPage = (props) => {
       </Grid>
 
       <Grid margin="2rem auto">
+        {/* <input {...getInputProps()} /> */}
+        <div>{images}</div>
+      </Grid>
+
+      <Grid margin="2rem auto">
         <Grid is_flex margin="0 0 3rem 0">
           <Input placeholder="댕댕이의 이름을 입력해주세요." />
         </Grid>
@@ -96,41 +128,60 @@ const MainPage = (props) => {
         </Grid>
       </Grid>
 
+      <Grid>
+        <div style={{ flexGrow: 1, margin: 'auto' }}>
+          <label htmlFor="img-upload">
+            <div>
+              <div></div>
+            </div>
+          </label>
+        </div>
+      </Grid>
+
       <Grid margin="1rem auto">
         <Grid is_flex width="100%">
-          <Button
-            width="48%"
-            padding="0.5rem"
-            bg="var(--main)"
-            color="var(--white)"
-            radius="5px"
-            cursor
-            mobileWidth
-            // 중간 점검 이후 변경 예정
-            // _onClick={() => history.push('/login')}
-          >
-            <Text type="button" color="white">
-              사진찍기 / 업로드
-            </Text>
-          </Button>
-          <Button
-            width="48%"
-            padding="0.5rem"
-            bg="var(--main)"
-            color="var(--white)"
-            radius="5px"
-            cursor
-            _onClick={() => history.push('/analysis')}
-            // _onClick={() => history.push('/result')}
-          >
-            <Text type="button" color="white">
-              분석 시작
-            </Text>
-          </Button>
+          <Wrapper {...getRootProps()}>
+            <Button
+              width="100%"
+              padding="0.5rem"
+              bg="var(--main)"
+              color="var(--white)"
+              radius="5px"
+              cursor
+              // 중간 점검 이후 변경 예정
+              // _onClick={() => history.push('/login')}
+            >
+              <Text type="button" color="white">
+                사진 찍기/ 업로드
+              </Text>
+            </Button>
+          </Wrapper>
+
+          <Wrapper>
+            <Button
+              width="100%"
+              padding="0.5rem"
+              bg="var(--main)"
+              color="var(--white)"
+              radius="5px"
+              cursor
+              _onClick={() => history.push('/analysis')}
+              // _onClick={() => history.push('/result')}
+            >
+              <Text type="button" color="white">
+                분석 시작
+              </Text>
+            </Button>
+          </Wrapper>
         </Grid>
       </Grid>
     </Container>
   );
 };
+
+const Wrapper = styled.div`
+  width: 48%;
+  justify-content: space-between;
+`;
 
 export default MainPage;
