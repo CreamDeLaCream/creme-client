@@ -17,7 +17,7 @@ export const MyPet = () => {
         <img
           alt=""
           src={process.env.PUBLIC_URL + `/Image/dog0.png`}
-          width="220px"
+          width="230px"
           height="230px"
         />
         <span>{cardData.name}</span>
@@ -36,12 +36,12 @@ export const MyPet = () => {
 };
 
 const MyPetCard = styled.div`
-  width: 220px;
+  width: 230px;
   height: 320px;
   cusor: pointer;
   overflow: hidden;
   margin-right: 20px;
-  box-shadow: 3px 3px 3px var(--lightgray);
+  box-shadow: 3px 3px 3px 1px var(--lightgray);
 
   float: left;
 
