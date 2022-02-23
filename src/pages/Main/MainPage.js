@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+// import { createUser } from '../../common/redux/modules/userSlice';
+import { useDispatch } from 'react-redux';
+import { actionCreators as postActions } from '../../common/redux/modules/post';
 
 // components
 import {
@@ -16,7 +19,11 @@ import { useDropzone } from 'react-dropzone';
 // import api from '../../common/utils/API';
 
 const MainPage = (props) => {
+  const { history } = props;
+  const dispatch = useDispatch();
   const [files, setFiles] = useState([]);
+  const [age, setAge] = useState('');
+  const [name, setName] = useState('');
 
   const { getRootProps, getInputProps } = useDropzone({
     accept: 'image/*',
@@ -44,7 +51,24 @@ const MainPage = (props) => {
     </div>
   ));
 
-  const { history } = props;
+  const addPost = () => {
+    let post = {
+      name: name,
+      age: age,
+      image: files[0],
+    };
+    console.log(post);
+    dispatch(postActions.addPostAX(post));
+    history.push('/result');
+  };
+
+  const changeName = (e) => {
+    setName(e.target.value);
+  };
+  const changeAge = (e) => {
+    setAge(e.target.value);
+  };
+
   const _session_key = null;
   const is_login = sessionStorage.getItem(_session_key);
   if (is_login)
@@ -120,11 +144,19 @@ const MainPage = (props) => {
 
       <Grid margin="2rem auto">
         <Grid is_flex margin="0 0 3rem 0">
-          <Input placeholder="댕댕이의 이름을 입력해주세요." />
+          <Input
+            placeholder="댕댕이의 이름을 입력해주세요."
+            value={name}
+            _onChange={changeName}
+          />
         </Grid>
 
         <Grid is_flex margin="0 0 1rem 0">
-          <Input placeholder="댕댕이의 나이를 입력해주세요." />
+          <Input
+            placeholder="댕댕이의 나이를 입력해주세요."
+            value={age}
+            _onChange={changeAge}
+          />
         </Grid>
       </Grid>
 
@@ -165,7 +197,7 @@ const MainPage = (props) => {
               color="var(--white)"
               radius="5px"
               cursor
-              _onClick={() => history.push('/analysis')}
+              _onClick={addPost}
               // _onClick={() => history.push('/result')}
             >
               <Text type="button" color="white">
