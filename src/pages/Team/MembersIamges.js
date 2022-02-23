@@ -6,7 +6,7 @@ export const MembersIamges = () => {
     <MembersImage>
       <img
         alt=""
-        src={process.env.PUBLIC_URL + `/Image/cat0.png`}
+        src={process.env.PUBLIC_URL + `/Image/image.png`}
         width="300px"
         height="300px"
       />

@@ -55,7 +55,8 @@ const Container = styled.div`
   left: 0;
   z-index: 20;
   width: 100%;
-  background-color: white;
+  background-color: transparent;
+  // background-color: white;
   ${({ theme }) => theme.device.mobile} {
     /* min-width: 20rem; */
     flex-wrap: nowrap;

@@ -53,18 +53,18 @@ const MyPetInfoCard = styled.div`
   margin-left: 20px;
 `;
 
-const MyPetImage = styled.div`
-  width: 280px;
-  height: 280px;
-  border-radius: 50%;
-  border: 2px solid var(--cream);
-  background-color: var(--main);
-  overflow: hidden;
-  // positon: absolute;
-  // vertical-align: middle;
-  margin-right: 50px;
-  margin-top: 10px;
-`;
+// const MyPetImage = styled.div`
+//   width: 280px;
+//   height: 280px;
+//   border-radius: 50%;
+//   border: 2px solid var(--cream);
+//   background-color: var(--main);
+//   overflow: hidden;
+//   // positon: absolute;
+//   // vertical-align: middle;
+//   margin-right: 50px;
+//   margin-top: 10px;
+// `;
 
 const MyPetContentContainer = styled.div`
   width: 500px;

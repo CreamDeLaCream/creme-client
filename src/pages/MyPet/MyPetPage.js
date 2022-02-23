@@ -72,7 +72,7 @@ const MyPetWrapper = styled.div`
   margin-top: 30px;
   flex-direction: row;
   background-color: var(--lightcream);
-  border: solid 1px var(--lightcream);
+  border: solid 2px var(--cream);
   border-radius: 15px;
 `;
 const RecordWrapper = styled.div`

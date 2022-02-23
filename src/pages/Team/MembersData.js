@@ -31,6 +31,7 @@ export const MembersData = [
     name: '리경',
     github: 'https://github.com/rigyeonghong',
     info: '파이썬은 눈감고도 코드 짬.',
+    character: ['주인잘따름', '얌전', '이중인격'],
   },
 
   {

@@ -26,7 +26,14 @@ export const TeamMembers = () => {
             </TeamInfo>
           </TeamContent>
         </TeamContentContainer>
-        <MyPetImages />
+        <MembersImage>
+          <img
+            alt=""
+            src={process.env.PUBLIC_URL + `/Image/image${membersdatas.id}.png`}
+            width="300px"
+            height="300px"
+          />
+        </MembersImage>
       </TeamInfoCard>
     );
   }
@@ -46,8 +53,21 @@ const TeamInfoCard = styled.div`
   justify-content: space-between;
   margin-top: 20px;
   background-color: var(--lightcream);
-  border: solid 1px var(--lightcream);
+  border: solid 2px var(--cream);
   border-radius: 15px;
+`;
+
+const MembersImage = styled.div`
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  border: 13px solid var(--cream);
+  background-color: var(--main);
+  overflow: hidden;
+  // positon: absolute;
+  // vertical-align: middle;
+  margin-right: 50px;
+  margin-top: 10px;
 `;
 
 const MyPetImage = styled.div`
