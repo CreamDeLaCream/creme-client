@@ -1,9 +1,9 @@
 import { createAction, handleActions } from 'redux-actions';
 import { produce } from 'immer';
-// import axios from 'axios';
+import api from '../../utils/API';
 
 // Action
-const SET_POST = 'SET_POST';
+const SET_POST = 'GET_POST';
 const ADD_POST = 'ADD_POST';
 
 // Action Creator
@@ -16,20 +16,65 @@ const initialState = {
 };
 
 // middleware
-const addPostAX = (post) => {
-  return function (dispatch, getState, { history }) {};
+const addPostAX = (name, age, image) => {
+  return function (dispatch, getState, { history }) {
+    const formData = new FormData();
+    // formData.append('file', image);
+    api
+      .post(`/post`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+        name: name,
+        age: age,
+        image: ``,
+      })
+      .then((response) => {
+        // dispatch(writeTextPage(response.data.comments));
+        dispatch(addPost(response.data.posts));
+        // window.location.reload();
+      })
+      .catch((error) => {
+        console.log('이미지 전송 실패', error);
+      });
+  };
 };
 
-const getPostAX = () => {
-  return function (dispatch, getState, { history }) {};
+const setPostAX = () => {
+  return function (dispatch, getState, { history }) {
+    api
+      .get(`/`)
+      .then((res) => {
+        let post_list = [];
+        res.data.forEach((_post) => {
+          let post = {
+            post_id: _post.id,
+            name: _post.name,
+            profile_image: _post.profile_image,
+            content: _post.content,
+          };
+          post_list.push(post);
+        });
+        dispatch(setPost(post_list));
+      })
+      .catch((e) => {
+        console.log('불러오기 에러', e);
+      });
+  };
 };
 
 // Reducer
 export default handleActions(
   {
-    [SET_POST]: (state, action) => produce(state, (draft) => {}),
+    [SET_POST]: (state, action) =>
+      produce(state, (draft) => {
+        draft.list.push(...action.payload.postlist);
+      }),
 
-    [ADD_POST]: (state, action) => produce(state, (draft) => {}),
+    [ADD_POST]: (state, action) =>
+      produce(state, (draft) => {
+        draft.comment.push(action.payload.post);
+      }),
   },
   initialState,
 );
@@ -38,7 +83,7 @@ const actionCreators = {
   setPost,
   addPost,
   addPostAX,
-  getPostAX,
+  setPostAX,
 };
 
 export { actionCreators };
