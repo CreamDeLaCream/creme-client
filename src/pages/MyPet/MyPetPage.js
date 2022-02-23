@@ -16,7 +16,9 @@ const IntroPage = () => {
       <Header />
       <Navbar />
       <Text type="mainTitle" color="main">
-        나의 사랑스러운 댕댕이를 추가하고 <br /> 감정기록들을 관리하세요.
+        나의 사랑스러운 댕댕이를
+        <br />
+        추가하고 감정기록들을 관리하세요.
       </Text>
       <MyPetWrapper>
         <MyPetInfo />
@@ -41,7 +43,7 @@ const MyPetWrapper = styled.div`
   display: flex;
   margin-top: 30px;
   flex-direction: row;
-  background-color: var(--lightcream);
+  // background-color: var(--lightcream);
   border: solid 1px var(--lightcream);
   border-radius: 15px;
 

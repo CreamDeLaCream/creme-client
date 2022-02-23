@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 // Data
@@ -14,12 +14,18 @@ export const MyPetInfo = () => {
       <MyPetImage>
         <img
           alt=""
-          src={process.env.PUBLIC_URL + `/Image/dog0.png`}
-          width="350px"
-          height="350px"
+          src={process.env.PUBLIC_URL + `/Image/cat0.png`}
+          width="300px"
+          height="300px"
         />
       </MyPetImage>
-      <MyPetContent></MyPetContent>
+      <MyPetContent>
+        <p>MyPet</p>
+        <MyPetName>
+          레아님의 <br />
+          댕댕이 LULU
+        </MyPetName>
+      </MyPetContent>
     </MyPetInfoCard>
   );
 };
@@ -27,13 +33,14 @@ export const MyPetInfo = () => {
 const MyPetInfoCard = styled.div`
   width: 830px;
   height: 320px;
+  display: flex;
 `;
 
 const MyPetImage = styled.div`
   width: 280px;
   height: 280px;
   border-radius: 50%;
-  border: 2px solid var(--main);
+  border: 2px solid var(--cream);
   background-color: var(--main);
   overflow: hidden;
   // positon: absolute;
@@ -42,4 +49,23 @@ const MyPetImage = styled.div`
   margin-left: 20px;
 `;
 
-const MyPetContent = styled.div``;
+const MyPetContent = styled.div`
+  margin-left: 20px;
+  width: 500px;
+
+  // background-color: var(--cream);
+  color: var(--main);
+
+  p {
+    margin-top: 30px;
+    margin-left: 30px;
+    width: 440px;
+  }
+`;
+
+const MyPetName = styled.div`
+  width: 440px;
+  margin-left: 30px;
+  font-size: 30px;
+  color: var(--gray);
+`;
