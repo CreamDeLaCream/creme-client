@@ -4,6 +4,9 @@ import styled from 'styled-components';
 // Data
 import AnalysisImageData from './AnalysisData';
 
+// Compo
+import { Keyword } from '../../common/components';
+
 export const MyPetInfo = () => {
   const env = process.env;
   env.PUBLIC_URL = env.PUBLIC_URL || '';
@@ -23,8 +26,11 @@ export const MyPetInfo = () => {
         <p>MyPet</p>
         <MyPetName>
           레아님의 <br />
-          댕댕이 LULU
+          댕댕이 SUMMER
         </MyPetName>
+        <MyPetKeyword>
+          <Keyword />
+        </MyPetKeyword>
       </MyPetContent>
     </MyPetInfoCard>
   );
@@ -59,6 +65,7 @@ const MyPetContent = styled.div`
   p {
     margin-top: 30px;
     margin-left: 30px;
+    font-size: 20px;
     width: 440px;
   }
 `;
@@ -68,4 +75,10 @@ const MyPetName = styled.div`
   margin-left: 30px;
   font-size: 30px;
   color: var(--gray);
+`;
+
+const MyPetKeyword = styled.div`
+  width: 440px;
+  margin-left: 30px;
+  margin-top: 20px;
 `;
