@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 import { Text } from '.';
 import useDetectOutsideClick from '../../common/utils/useDetectOutsideClick';
@@ -11,8 +11,8 @@ const DropDown = () => {
   const onClick = () => setIsActive(!isActive);
 
   return (
-    <MenuContainer className="menu-container">
-      <TriggerButton onClick={onClick} className="menu-trigger">
+    <MenuContainer>
+      <TriggerButton onClick={onClick}>
         <MenuTitle>asdf</MenuTitle>
         <Image
           src="https://mblogthumb-phinf.pstatic.net/20141020_84/ribbonchick_1413740254883HpC05_JPEG/01.jpg?type=w420"
