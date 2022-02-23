@@ -2,11 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 
 // components
-import { Header, Navbar, Text, Container } from '../../common/components';
+import {
+  Header,
+  Navbar,
+  Text,
+  Container,
+  Button,
+} from '../../common/components';
 import { MyPet } from './MyPet';
 import { Plusbutton } from './Plusbutton';
 import Record from './Record';
-import { RecordPlusbutton } from './RecordPlusbutton';
 import { MyPetList } from './MyPetList';
 import { MyPetInfo } from './MyPetInfo';
 
@@ -30,8 +35,19 @@ const IntroPage = () => {
         </Text>
         <RecordCardWrapper>
           <Record />
-          <RecordPlusbutton />
         </RecordCardWrapper>
+        <ButtonWrapper>
+          <Button
+            width="80px"
+            height="80px"
+            bg="var(--main)"
+            radius="50%"
+            size="20px"
+            color="var(--white)"
+          >
+            더보기
+          </Button>
+        </ButtonWrapper>
       </RecordWrapper>
     </Container>
   );
@@ -57,6 +73,14 @@ const RecordCardWrapper = styled.div`
   margin-top: 30px;
   flex-wrap: wrap;
   justify-content: space-between;
+`;
+
+const ButtonWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 50px;
 `;
 
 export default IntroPage;
