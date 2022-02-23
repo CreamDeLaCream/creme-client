@@ -7,6 +7,8 @@ import { MyPet } from './MyPet';
 import { Plusbutton } from './Plusbutton';
 import Record from './Record';
 import { RecordPlusbutton } from './RecordPlusbutton';
+import { MyPetList } from './MyPetList';
+import { MyPetInfo } from './MyPetInfo';
 
 const IntroPage = () => {
   return (
@@ -14,11 +16,12 @@ const IntroPage = () => {
       <Header />
       <Navbar />
       <Text type="mainTitle" color="main">
-        나의 사랑스러운 댕댕이를 추가하세요.
+        나의 사랑스러운 댕댕이를 추가하고 <br /> 감정기록들을 관리하세요.
       </Text>
       <MyPetWrapper>
-        <MyPet />
-        <Plusbutton />
+        <MyPetInfo />
+        <MyPetList />
+        {/* <MyPet /> */}
       </MyPetWrapper>
 
       <RecordWrapper>
@@ -37,14 +40,18 @@ const IntroPage = () => {
 const MyPetWrapper = styled.div`
   display: flex;
   margin-top: 30px;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex-direction: row;
+  background-color: var(--lightcream);
+  border: solid 1px var(--lightcream);
+  border-radius: 15px;
+
+  position: relative;
 `;
 const RecordWrapper = styled.div`
   margin-top: 50px;
 `;
 const RecordCardWrapper = styled.div`
-margin-top: 20px;
+  margin-top: 20px;
   display: flex;
   flex-direction: row,
   margin-top: 30px;

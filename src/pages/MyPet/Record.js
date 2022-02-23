@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 // Data
-import AnalysisImageData from './AnalysisImageData';
+import AnalysisData from './AnalysisData';
 
 const Record = () => {
-  let [recordImage, setRecordImage] = useState(AnalysisImageData);
+  let [recordImage, setRecordImage] = useState(AnalysisData);
   const env = process.env;
   env.PUBLIC_URL = env.PUBLIC_URL || '';
 
@@ -41,8 +41,6 @@ const RecordCard = styled.div`
   cursor: pointer;
   background-color: var(--main);
 
-  // border: 3px solid var(--main);
-  // border-radius: 3px;
   object-fit: cover;
   background-size: contain;
 

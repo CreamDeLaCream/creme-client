@@ -1,27 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// Data
+import AnalysisData from './AnalysisData';
+
 const env = process.env;
 env.PUBLIC_URL = env.PUBLIC_URL || '';
 
 export const MyPet = () => {
   const myPetList = [
-    { name: 'LuLu', age: '6살' },
-    { name: 'Summer', age: '6살' },
-    { name: 'Lume', age: '3살' },
+    { name: 'LuLu' },
+    // { name: 'Summer', age: '6살' },
+    // { name: 'Lume', age: '3살' },
   ];
 
   const MyPetCards = ({ cardData }) => {
     return (
       <MyPetCard>
-        <img
-          alt=""
-          src={process.env.PUBLIC_URL + `/Image/dog0.png`}
-          width="230px"
-          // height="240px"
-        />
-        <span>{cardData.name}</span> <br />
-        <span>{cardData.age}</span>
+        <span>{cardData.name}</span>
       </MyPetCard>
     );
   };
@@ -36,31 +32,17 @@ export const MyPet = () => {
 };
 
 const MyPetCard = styled.div`
-  width: 230px;
-  height: 320px;
+  width: 170px;
+  height: 64px;
   cusor: pointer;
-  overflow: hidden;
-  box-shadow: 3px 3px 3px 1px var(--lightgray);
 
-  float: left;
-  background-size: contain;
-  object-fit: cover;
-
-  background-color: var(--white);
-  // border: 2px solid var(--main);
-  border-radius: 5px;
-  color: var(--main);
-
-  img {
-    object-fit: cover;
-    background-size: contain;
-  }
+  // box-shadow: 3px 3px 3px 1px var(--lightgray);
+  background-color: var(--main);
+  color: var(--white);
 
   span {
-    margin-left: 13px;
-    margin-top: 10px;
-    font-size: 15px;
-    font-family: nomal;
+    font-size: 30px;
+    // font-family: nomal;
   }
 
   div {

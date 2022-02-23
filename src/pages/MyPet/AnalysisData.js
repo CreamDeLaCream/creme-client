@@ -1,4 +1,4 @@
-export const AnalysisImageData = [
+export const AnalysisData = [
   {
     id: 0,
     name: 'lulu',
@@ -41,4 +41,4 @@ export const AnalysisImageData = [
   },
 ];
 
-export default AnalysisImageData;
+export default AnalysisData;

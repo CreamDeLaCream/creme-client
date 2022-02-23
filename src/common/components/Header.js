@@ -31,7 +31,7 @@ const Header = (props) => {
 
 const Container = styled.header`
   position: fixed;
-  top: 0;
+  top: 2rem;
   left: 0;
   z-index: 20;
   width: 100%;

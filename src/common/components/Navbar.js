@@ -51,7 +51,7 @@ const Navbar = (props) => {
 
 const Container = styled.div`
   position: fixed;
-  top: 5rem;
+  top: 8rem;
   left: 0;
   z-index: 20;
   width: 100%;
