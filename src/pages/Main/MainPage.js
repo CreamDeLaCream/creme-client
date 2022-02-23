@@ -155,6 +155,13 @@ const MainPage = (props) => {
         <div>{images}</div>
       </Grid>
 
+      <Grid display="flex" justifyContent="flex-end">
+        <Button padding="0.5rem" bg="transparent" radius="5px" cursor>
+          <Text type="body" color="main">
+            이미지 업로드 방식
+          </Text>
+        </Button>
+      </Grid>
       <Grid margin="2rem auto">
         <Grid is_flex margin="0 0 3rem 0">
           <Input
