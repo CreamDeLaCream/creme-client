@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useDispatch, useSelector } from 'react-redux';
+import { actionCreators as postActions } from '../../common/redux/modules/post';
 
 // components
 import {
@@ -15,6 +17,20 @@ import {
 
 const ResultPage = (props) => {
   const { history } = props;
+  const dispatch = useDispatch();
+  const post_list = useSelector((state) => state.post.list);
+
+  // React.useEffect(() => {
+  //   if (post_list.length === 0) {
+  //     dispatch(postActions.getPostAX());
+  //     console.log(post_list);
+  //   }
+  //   console.log(props);
+  //   if (props.search_result) {
+  //     console.log(props.search_result);
+  //   }
+  // }, []);
+
   return (
     <Container>
       <Header />
