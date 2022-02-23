@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { actionCreators as postActions } from '../../common/redux/modules/post';
-
+// import { useDetectOutsideClick } from '../../common/components';
 // components
 import {
   Text,
@@ -13,6 +13,7 @@ import {
   Container,
   Input,
   Image,
+  DropDown,
 } from '../../common/components';
 
 const ResultPage = (props) => {
@@ -35,13 +36,13 @@ const ResultPage = (props) => {
     <Container>
       <Header />
       <Navbar />
+      <DropDown />
       <Grid margin="1rem auto">
         <Text type="mainTitle" color="main">
           반려견 감정 상태 결과
         </Text>
       </Grid>
       <ResultBox></ResultBox>
-
       <Grid margin="2rem auto">
         <Text type="subTitle" color="main" marginBottom="2rem">
           당신이 생각하는 OO의 감정상태 일치도는?
@@ -68,7 +69,6 @@ const ResultPage = (props) => {
           </Grid>
         </Grid> */}
       </Grid>
-
       <Grid margin="2rem auto">
         <Text type="subTitle" color="main">
           현재 OO의 감정 상태
@@ -87,7 +87,6 @@ const ResultPage = (props) => {
           </Text>
         </Grid>
       </Grid>
-
       <Grid margin="2rem auto">
         <Text type="subTitle" color="main">
           OO의 솔루션
@@ -96,7 +95,6 @@ const ResultPage = (props) => {
           지금처럼 루루와의 시간을 보내면서 행복도를 유지시켜주세요.
         </Text>
       </Grid>
-
       <Grid margin="2rem auto">
         <Text type="subTitle" color="main">
           OO이에게 필요한 것
@@ -110,14 +108,12 @@ const ResultPage = (props) => {
           <Image size="8" />
         </Grid>
       </Grid>
-
       <Grid margin="2rem auto">
         <Text type="subTitle" color="main">
           오늘의 감정일기(메모)
         </Text>
         <Input multiLine placeholder="반려인의 간단한 기록 작성 공간" />
       </Grid>
-
       <Grid margin="1rem auto" display="flex" justifyContent="flex-end">
         <Grid is_flex width="34rem">
           <Button

@@ -1,6 +1,7 @@
 import Grid from './Grid';
 import Button from './Button';
 import Container from './Container';
+import DropDown from './DropDown';
 import Image from './Image';
 import Input from './Input';
 import Text from './Text';
@@ -16,6 +17,7 @@ export {
   Grid,
   Button,
   Container,
+  DropDown,
   Image,
   Input,
   Text,
