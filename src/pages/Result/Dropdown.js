@@ -10,32 +10,9 @@ const DropDown = (props) => {
   const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
   const onClick = () => setIsActive(!isActive);
 
-  const { src, small, title, children, width } = props;
-
-  const styles = {
-    width: width,
-  };
-
-  if (small) {
-    return (
-      <MenuContainer>
-        <TriggerButton {...styles} onClick={onClick}>
-          <MenuTitle>{title}</MenuTitle>
-          <Image src={src} alt="" />
-        </TriggerButton>
-        <Nav
-          ref={dropdownRef}
-          className={`menu ${isActive ? 'active' : 'inactive'}`}
-        >
-          {children}
-        </Nav>
-      </MenuContainer>
-    );
-  }
-
   return (
     <MenuContainer>
-      <TriggerButton {...styles} onClick={onClick}>
+      <TriggerButton onClick={onClick}>
         <MenuTitle>DropDown</MenuTitle>
         <Image
           src="https://mblogthumb-phinf.pstatic.net/20141020_84/ribbonchick_1413740254883HpC05_JPEG/01.jpg?type=w420"
@@ -46,7 +23,17 @@ const DropDown = (props) => {
         ref={dropdownRef}
         className={`menu ${isActive ? 'active' : 'inactive'}`}
       >
-        {children}
+        <MenuList>
+          <Item>
+            <Text color="gray">마이페이지</Text>
+          </Item>
+          <Item>
+            <Text color="gray">인트로</Text>
+          </Item>
+          <Item>
+            <Text color="gray">팀</Text>
+          </Item>
+        </MenuList>
       </Nav>
     </MenuContainer>
   );
@@ -104,18 +91,18 @@ const Nav = styled.nav`
   }
 `;
 
-// const MenuList = styled.ul`
-//   list-style: none;
-//   padding: 0;
-//   margin: 0;
-// `;
+const MenuList = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 0;
+`;
 
-// const Item = styled.li`
-//   display: block;
-//   text-decoration: none;
-//   /* color: #333333; */
-//   border-bottom: 1px solid #dddddd;
-//   padding: 15px 20px;
-// `;
+const Item = styled.li`
+  display: block;
+  text-decoration: none;
+  /* color: #333333; */
+  border-bottom: 1px solid #dddddd;
+  padding: 15px 20px;
+`;
 
 export default DropDown;
