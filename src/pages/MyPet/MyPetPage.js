@@ -22,8 +22,6 @@ const IntroPage = () => {
       </Text>
       <MyPetWrapper>
         <MyPetInfo />
-        <MyPetList />
-        {/* <MyPet /> */}
       </MyPetWrapper>
 
       <RecordWrapper>
@@ -43,7 +41,7 @@ const MyPetWrapper = styled.div`
   display: flex;
   margin-top: 30px;
   flex-direction: row;
-  // background-color: var(--lightcream);
+  background-color: var(--lightcream);
   border: solid 1px var(--lightcream);
   border-radius: 15px;
 

@@ -14,7 +14,7 @@ const Record = () => {
       <RecordCard>
         <img
           alt=""
-          src={process.env.PUBLIC_URL + `/Image/dog0.png`}
+          src={process.env.PUBLIC_URL + `/Image/cat0.png`}
           width="315px"
           height="315px"
         />
