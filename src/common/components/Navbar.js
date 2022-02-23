@@ -8,8 +8,8 @@ import { NavItems } from './';
 const Navbar = (props) => {
   const history = useHistory();
   const menus = [
-    { name: '서비스 소개', path: '/intro' },
-    { name: '반려견 감정상태', path: '/' },
+    { name: '서비스 소개', path: '/' },
+    { name: '반려견 감정상태', path: '/main' },
     { name: '마이펫', path: '/mypet' },
     { name: '팀소개', path: '/team' },
   ];
