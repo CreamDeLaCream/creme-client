@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { actionCreators as postActions } from '../../common/redux/modules/post';
@@ -13,13 +13,17 @@ import {
   Container,
   Input,
   Image,
-  // DropDown,
+  Modal,
 } from '../../common/components';
-import DropDown from '../MyPet/Dropdown';
+
+import Dropdown from '../Result/Dropdown';
+
 const ResultPage = (props) => {
   const { history } = props;
   const dispatch = useDispatch();
   const post_list = useSelector((state) => state.post.list);
+
+  const [modalOpen, setModalOpen] = useState(false);
 
   // React.useEffect(() => {
   //   if (post_list.length === 0) {
@@ -33,11 +37,11 @@ const ResultPage = (props) => {
   // }, []);
 
   return (
-    <Container>
-      <Header />
-      <Navbar />
-      <DropDown />
-      {/* <MenuList>
+    <>
+      <Container>
+        <Header />
+        <Navbar />
+        {/* <MenuList>
           <Item>
             <Text color="red">마이페이지</Text>
           </Item>
@@ -49,143 +53,174 @@ const ResultPage = (props) => {
           </Item>
         </MenuList> */}
 
-      <Grid margin="1rem auto">
-        <Text type="mainTitle" color="main">
-          반려견 감정 상태 결과
-        </Text>
-      </Grid>
-      <ResultBox></ResultBox>
-      <Grid margin="2rem auto">
-        <Text type="subTitle" color="main" marginBottom="2rem">
-          당신이 생각하는 OO의 감정상태 일치도는?
-        </Text>
-
-        <Grid is_flex>
-          <Grid width="20rem">
-            <Text fontSize="5rem" color="main">
-              일치
-            </Text>
-          </Grid>
-
-          <Grid width="40rem">
-            <EmotionBox>지루함 50%</EmotionBox>
-            <EmotionBox>행복함 50%</EmotionBox>
-          </Grid>
-        </Grid>
-        {/* 
-        <Grid>
-          <Grid marginBottom="2rem">
-            <Text type="body_1" color="black">
-              반려인이 생각한 OO의 감정상태
-            </Text>
-          </Grid>
-        </Grid> */}
-      </Grid>
-      <Grid margin="2rem auto">
-        <Text type="subTitle" color="main">
-          현재 OO의 감정 상태
-        </Text>
-
-        <Grid>
-          <Text type="body" color="main">
-            #행복함 #즐거움 #여유로움 #슬픔
-          </Text>
-
-          <Text>
-            루루는 지금 행복한 감정을 느끼고 있어요. 루루는 지금 행복한 감정을
-            느끼고 있어요. 루루는 지금 행복한 감정을 느끼고 있어요. 루루는 지금
-            행복한 감정을 느끼고 있어요. 루루는 지금 행복한 감정을 느끼고
-            있어요. 루루는 지금 행복한 감정을 느끼고 있어요.
+        <Grid margin="1rem auto">
+          <Text type="mainTitle" color="main">
+            반려견 감정 상태 결과
           </Text>
         </Grid>
-      </Grid>
-      <Grid margin="2rem auto">
-        <Text type="subTitle" color="main">
-          OO의 솔루션
-        </Text>
-        <Text type="body">
-          지금처럼 루루와의 시간을 보내면서 행복도를 유지시켜주세요.
-        </Text>
-      </Grid>
-      <Grid margin="2rem auto">
-        <Text type="subTitle" color="main">
-          OO이에게 필요한 것
-        </Text>
-        <Grid is_flex margin="0 0 3rem 0">
-          {/* <DropDown
-            small
-            title="lulu"
-            src="https://w7.pngwing.com/pngs/639/26/png-transparent-arrow-computer-icons-drop-down-list-arrow-angle-black-%D0%B7%D0%BD%D0%B0%D1%87%D0%BA%D0%B8.png"
-          > */}
-          <Image size="8" />
+        <ResultBox></ResultBox>
 
-          <MenuList>
-            <Item>
-              <Text color="red">마이페이지</Text>
-            </Item>
-            <Item>
-              <Text>인트로</Text>
-            </Item>
-            <Item>
-              <Text>팀</Text>
-            </Item>
-          </MenuList>
-          {/* </DropDown> */}
-          <Image size="8" />
-          <Image size="8" />
-          <Image size="8" />
-          <Image size="8" />
-          <Image size="8" />
+        <Grid margin="2rem auto">
+          <Text type="mainTitle" color="main" marginBottom="2rem">
+            LULU, 6살
+          </Text>
+          <Text type="subTitle">keyword</Text>
         </Grid>
-      </Grid>
-      <Grid margin="2rem auto">
-        <Text type="subTitle" color="main">
-          오늘의 감정일기(메모)
-        </Text>
-        <Input multiLine placeholder="반려인의 간단한 기록 작성 공간" />
-      </Grid>
-      <Grid margin="1rem auto" display="flex" justifyContent="flex-end">
-        <Grid is_flex width="34rem">
-          <Button
-            width="10rem"
-            padding="0.5rem"
-            bg="var(--main)"
-            color="var(--white)"
-            radius="5px"
-            cursor
-          >
-            <Text type="button" color="white">
-              URL 복사하기
-            </Text>
-          </Button>
-          <Button
-            width="10rem"
-            padding="0.5rem"
-            bg="var(--main)"
-            color="var(--white)"
-            radius="5px"
-            cursor
-          >
-            <Text type="button" color="white">
-              카카오톡 공유
-            </Text>
-          </Button>
-          <Button
-            width="10rem"
-            padding="0.5rem"
-            bg="var(--main)"
-            color="var(--white)"
-            radius="5px"
-            cursor
-            _onClick={() => history.push('/')}
-          >
-            <Text type="button" color="white">
-              검사 다시하기
-            </Text>
-          </Button>
+
+        <Grid margin="2rem auto">
+          <Text type="subTitle" color="main" marginBottom="2rem">
+            당신이 생각하는 OO의 감정상태 일치도는?
+          </Text>
+
+          <Grid is_flex>
+            <Grid width="20rem">
+              <Text fontSize="5rem" color="main">
+                일치
+              </Text>
+            </Grid>
+
+            <Grid width="40rem">
+              <EmotionBox>지루함 50%</EmotionBox>
+              <EmotionBox>행복함 50%</EmotionBox>
+            </Grid>
+          </Grid>
         </Grid>
-      </Grid>
-    </Container>
+        <Grid margin="2rem auto">
+          <Text type="subTitle" color="main">
+            현재 OO의 감정 상태
+          </Text>
+
+          <Grid>
+            <Text type="body" color="main">
+              #행복함 #즐거움 #여유로움 #슬픔
+            </Text>
+
+            <Text>
+              루루는 지금 행복한 감정을 느끼고 있어요. 루루는 지금 행복한 감정을
+              느끼고 있어요. 루루는 지금 행복한 감정을 느끼고 있어요. 루루는
+              지금 행복한 감정을 느끼고 있어요. 루루는 지금 행복한 감정을 느끼고
+              있어요. 루루는 지금 행복한 감정을 느끼고 있어요.
+            </Text>
+          </Grid>
+        </Grid>
+        <Grid margin="2rem auto">
+          <Text type="subTitle" color="main">
+            OO의 솔루션
+          </Text>
+          <Text type="body">
+            지금처럼 루루와의 시간을 보내면서 행복도를 유지시켜주세요.
+          </Text>
+        </Grid>
+        <Grid margin="2rem auto">
+          <Text type="subTitle" color="main">
+            OO이에게 필요한 것
+          </Text>
+          <Grid is_flex margin="0 0 3rem 0">
+            <Dropdown />
+            <Dropdown />
+            <Dropdown />
+            <Dropdown />
+            <Dropdown />
+            <Dropdown />
+          </Grid>
+        </Grid>
+        <Grid margin="2rem auto">
+          <Text type="subTitle" color="main">
+            오늘의 감정일기(메모)
+          </Text>
+          <Input multiLine placeholder="반려인의 간단한 기록 작성 공간" />
+        </Grid>
+        <Grid margin="1rem auto" display="flex" justifyContent="flex-end">
+          <Grid is_flex width="34rem">
+            <Button
+              width="10rem"
+              padding="0.5rem"
+              bg="var(--main)"
+              color="var(--white)"
+              radius="5px"
+              cursor
+              _onClick={() => {
+                setModalOpen(true);
+              }}
+            >
+              <Text type="button" color="white">
+                URL 복사하기
+              </Text>
+            </Button>
+            <Button
+              width="10rem"
+              padding="0.5rem"
+              bg="var(--main)"
+              color="var(--white)"
+              radius="5px"
+              cursor
+            >
+              <Text type="button" color="white">
+                카카오톡 공유
+              </Text>
+            </Button>
+            <Button
+              width="10rem"
+              padding="0.5rem"
+              bg="var(--main)"
+              color="var(--white)"
+              radius="5px"
+              cursor
+              _onClick={() => history.push('/')}
+            >
+              <Text type="button" color="white">
+                검사 다시하기
+              </Text>
+            </Button>
+          </Grid>
+        </Grid>
+      </Container>
+      {modalOpen && (
+        <Modal width="35rem" height="50rem" setOpenModal={setModalOpen}>
+          <Grid display="flex" justifyContent="center" margin="1rem 0 3rem 0">
+            <Image shape="bigcircle" size="14" />
+          </Grid>
+
+          <Grid is_flex>
+            <Text type="subTitle" color="main">
+              댕댕이의 이름을 입력해주세요.
+            </Text>
+          </Grid>
+          <Grid margin="0 0 3rem 0">
+            {/* <Input placeholder="댕댕이의 이름을 입력해주세요." /> */}
+            <Input />
+          </Grid>
+          <Grid is_flex>
+            <Text type="subTitle" color="main">
+              댕댕이의 나이를 입력해주세요.
+            </Text>
+          </Grid>
+          <Grid margin="0 0 3rem 0">
+            {/* <Input placeholder="댕댕이의 나이를 입력해주세요." /> */}
+            <Input />
+          </Grid>
+          <Grid is_flex margin="0 0 3rem 0">
+            <Text type="subTitle" color="main">
+              댕댕이의 키워드를 입력해주세요.
+            </Text>
+          </Grid>
+
+          <Button
+            width="100%"
+            padding="0.5rem"
+            bg="var(--main)"
+            color="var(--white)"
+            radius="5px"
+            cursor
+            // _onClick={() => history.push('/main')}
+          >
+            <Text type="button" color="white">
+              업로드
+            </Text>
+          </Button>
+        </Modal>
+      )}
+    </>
   );
 };
 
@@ -207,19 +242,6 @@ const EmotionBox = styled.div`
   border: 1px solid var(--main);
 `;
 
-const MenuList = styled.ul`
-  width: 10rem;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-`;
-
-const Item = styled.li`
-  border-bottom: 1px solid #dddddd;
-  text-decoration: none;
-  color: red;
-  padding: 15px 20px;
-  display: block;
-`;
+const Wrapper = styled.div``;
 
 export default ResultPage;
