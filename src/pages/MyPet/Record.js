@@ -4,7 +4,7 @@ import styled from 'styled-components';
 // Data
 import AnalysisData from './AnalysisData';
 
-const Record = () => {
+const Record = ({ recordcards }) => {
   let [recordImage, setRecordImage] = useState(AnalysisData);
   const env = process.env;
   env.PUBLIC_URL = env.PUBLIC_URL || '';
@@ -18,9 +18,11 @@ const Record = () => {
           width="315px"
           height="315px"
         />
-        <CardContent>
+        {/* <CardContent>
+          고양이
           {recordcards.name} {recordcards.date}
-        </CardContent>
+        </CardContent> */}
+        고양이
       </RecordCard>
     );
   }
@@ -44,9 +46,6 @@ const RecordCard = styled.div`
   object-fit: cover;
   background-size: contain;
 
-  color: var(--main);
-  font-weight: 500;
-
   margin-top: 7px;
   text-align: center;
   line-height: 310px;
@@ -65,5 +64,6 @@ const CardContent = styled.div`
   margin-top: 75px;
   position: absolute;
   opacity: 0.1;
+  color: var(--cream);
 `;
 export default Record;

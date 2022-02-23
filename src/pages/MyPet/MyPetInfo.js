@@ -7,10 +7,9 @@ import AnalysisImageData from './AnalysisData';
 // Compo
 import { Keyword } from '../../common/components';
 import { Button } from '../../common/components';
+import { MyPetImages } from './MyPetImages';
 
 export const MyPetInfo = () => {
-  const env = process.env;
-  env.PUBLIC_URL = env.PUBLIC_URL || '';
   let [recordContent, setRecordContent] = useState(AnalysisImageData);
 
   return (
@@ -41,14 +40,7 @@ export const MyPetInfo = () => {
           </CurrentEmotion>
         </MyPetContent>
       </MyPetContentContainer>
-      <MyPetImage>
-        <img
-          alt=""
-          src={process.env.PUBLIC_URL + `/Image/cat0.png`}
-          width="300px"
-          height="300px"
-        />
-      </MyPetImage>
+      <MyPetImages />
     </MyPetInfoCard>
   );
 };

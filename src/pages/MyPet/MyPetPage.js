@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 // components
@@ -14,8 +14,20 @@ import { Plusbutton } from './Plusbutton';
 import Record from './Record';
 import { MyPetList } from './MyPetList';
 import { MyPetInfo } from './MyPetInfo';
+import AnalysisData from './AnalysisData';
 
 const IntroPage = () => {
+  let [petImage, setPetImage] = useState(AnalysisData);
+
+  const concatImage = () => {
+    const temp = petImage.concat(AnalysisData);
+    setPetImage(temp);
+    // axios.get('api/userlist/${number}').then((res) => {
+    //   const temp = card.concat(res.data.users);
+    //   setCard(temp);
+    // })
+  };
+
   return (
     <Container height="200vh">
       <Header />
@@ -44,6 +56,8 @@ const IntroPage = () => {
             radius="50%"
             size="20px"
             color="var(--white)"
+            cursor
+            onClisk={concatImage}
           >
             더보기
           </Button>
@@ -79,7 +93,7 @@ const ButtonWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 50px;
   margin-bottom: 50px;
 `;
 
