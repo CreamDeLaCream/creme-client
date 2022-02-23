@@ -53,10 +53,10 @@ const RecordWrapper = styled.div`
 const RecordCardWrapper = styled.div`
   margin-top: 20px;
   display: flex;
-  flex-direction: row,
+  flex-direction: row;
   margin-top: 30px;
   flex-wrap: wrap;
   justify-content: space-between;
-  `;
+`;
 
 export default IntroPage;

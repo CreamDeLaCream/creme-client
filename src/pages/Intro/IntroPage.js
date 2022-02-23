@@ -8,9 +8,7 @@ const IntroPage = () => {
     <Container height="100vh">
       <Header page="headermenu" />
       <Navbar page="navbarmenu" />
-      <Text type="mainTitle" color="main">
-        IntroPage
-      </Text>
+      <Text type="mainTitle" color="main"></Text>
     </Container>
   );
 };

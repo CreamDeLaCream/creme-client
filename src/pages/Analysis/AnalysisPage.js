@@ -1,16 +1,19 @@
 import React from 'react';
 
 // components
-import { Header, Navbar, Container } from '../../common/components';
-import TestItems from './TestItems';
+import { Header, Navbar, Text, Container } from '../../common/components';
+import { EmotionTest } from './EmotionTest';
+import Loading from '../Analysis/Loading';
 
 const AnalysisPage = () => {
   return (
     <Container>
       <Header />
       <Navbar />
-
-      <TestItems />
+      <Text type="mainTitle" color="main">
+        <Loading />
+        <EmotionTest />
+      </Text>
     </Container>
   );
 };

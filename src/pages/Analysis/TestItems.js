@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
+// Compo
+import { Button } from '../../common/components';
+
 const TestItems = () => {
   const [emotionResult, setEmotionResult] = useState([]);
   const [emotionSelected, setEmotionSelected] = useState(0);
@@ -22,7 +25,20 @@ const TestItems = () => {
   };
 
   function Item({ itemData }) {
-    return <TestAnswer onClick={handleEmotion}>{itemData.emotion}</TestAnswer>;
+    return (
+      <Button
+        width="80px"
+        height="80px"
+        bg="var(--main)"
+        radius="50%"
+        color="var(--white)"
+        size="20px"
+        margin="0 20px 0 0"
+        onClick={handleEmotion}
+      >
+        {itemData.emotion}
+      </Button>
+    );
   }
 
   return (
@@ -33,23 +49,5 @@ const TestItems = () => {
     </>
   );
 };
-
-const TestAnswer = styled.div`
-  width: 80px;
-  height: 80px;
-  cursor: pointer;
-
-  margin-right: 20px;
-
-  background-color: var(--main);
-  border-radius: 50%;
-
-  text-align: center;
-  color: #ffffff;
-
-  &:hover {
-    background-color: var(--cream);
-  }
-`;
 
 export default TestItems;
