@@ -166,7 +166,7 @@ const ResultPage = (props) => {
               color="var(--white)"
               radius="5px"
               cursor
-              _onClick={() => history.push('/')}
+              _onClick={() => history.push('/main')}
             >
               <Text type="button" color="white">
                 검사 다시하기
@@ -241,7 +241,5 @@ const EmotionBox = styled.div`
   font-weight: 600;
   border: 1px solid var(--main);
 `;
-
-const Wrapper = styled.div``;
 
 export default ResultPage;
