@@ -20,7 +20,7 @@ export const MyPetInfo = () => {
           <p>MyPet</p>
           <MyPetName>
             레아님의 댕댕이
-            <br /> 'SUMMER'
+            <br /> <b style={{ color: 'var(--main)' }}>SUMMER, 6살</b>
           </MyPetName>
           <MyPetKeyword>
             <Keyword />
@@ -36,7 +36,7 @@ export const MyPetInfo = () => {
               radius="10px"
               margin="0 0 0 5px"
             >
-              Hyppay
+              Test Go!
             </Button>
           </CurrentEmotion>
         </MyPetContent>
@@ -58,6 +58,8 @@ const MyPetInfoCard = styled.div`
   height: 320px;
   display: flex;
   justify-content: space-between;
+  margin-top: 20px;
+  margin-left: 20px;
 `;
 
 const MyPetImage = styled.div`
@@ -69,8 +71,8 @@ const MyPetImage = styled.div`
   overflow: hidden;
   // positon: absolute;
   // vertical-align: middle;
-  margin-top: 20px;
-  margin-right: 30px;
+  margin-right: 50px;
+  margin-top: 10px;
 `;
 
 const MyPetContentContainer = styled.div`
