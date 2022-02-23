@@ -13,9 +13,9 @@ import {
   Container,
   Input,
   Image,
-  DropDown,
+  // DropDown,
 } from '../../common/components';
-
+import DropDown from '../MyPet/Dropdown';
 const ResultPage = (props) => {
   const { history } = props;
   const dispatch = useDispatch();
@@ -37,6 +37,18 @@ const ResultPage = (props) => {
       <Header />
       <Navbar />
       <DropDown />
+      {/* <MenuList>
+          <Item>
+            <Text color="red">마이페이지</Text>
+          </Item>
+          <Item>
+            <Text>인트로</Text>
+          </Item>
+          <Item>
+            <Text>팀</Text>
+          </Item>
+        </MenuList> */}
+
       <Grid margin="1rem auto">
         <Text type="mainTitle" color="main">
           반려견 감정 상태 결과
@@ -100,7 +112,25 @@ const ResultPage = (props) => {
           OO이에게 필요한 것
         </Text>
         <Grid is_flex margin="0 0 3rem 0">
+          {/* <DropDown
+            small
+            title="lulu"
+            src="https://w7.pngwing.com/pngs/639/26/png-transparent-arrow-computer-icons-drop-down-list-arrow-angle-black-%D0%B7%D0%BD%D0%B0%D1%87%D0%BA%D0%B8.png"
+          > */}
           <Image size="8" />
+
+          <MenuList>
+            <Item>
+              <Text color="red">마이페이지</Text>
+            </Item>
+            <Item>
+              <Text>인트로</Text>
+            </Item>
+            <Item>
+              <Text>팀</Text>
+            </Item>
+          </MenuList>
+          {/* </DropDown> */}
           <Image size="8" />
           <Image size="8" />
           <Image size="8" />
@@ -175,6 +205,21 @@ const EmotionBox = styled.div`
   color: var(--white);
   font-weight: 600;
   border: 1px solid var(--main);
+`;
+
+const MenuList = styled.ul`
+  width: 10rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+`;
+
+const Item = styled.li`
+  border-bottom: 1px solid #dddddd;
+  text-decoration: none;
+  color: red;
+  padding: 15px 20px;
+  display: block;
 `;
 
 export default ResultPage;
