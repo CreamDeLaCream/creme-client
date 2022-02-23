@@ -5,9 +5,11 @@ const GlobalStyle = createGlobalStyle`
         --main: #f69269;
         --lightorange: #fae5d6;
         --cream: #f5e9d5;
+        --lightcream: #fdf7ec;
+        --darkcream: #d6b4a1;
         --white: #ffffff;
         --gray: #a2a2a2;
-        --lightgray: lightgray;
+        --lightgray: #fff7ea;
     }
 
     @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
