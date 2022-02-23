@@ -57,7 +57,7 @@ const IntroPage = () => {
             size="20px"
             color="var(--white)"
             cursor
-            onClisk={concatImage}
+            onClick={concatImage}
           >
             더보기
           </Button>
@@ -74,8 +74,6 @@ const MyPetWrapper = styled.div`
   background-color: var(--lightcream);
   border: solid 1px var(--lightcream);
   border-radius: 15px;
-
-  position: relative;
 `;
 const RecordWrapper = styled.div`
   margin-top: 50px;

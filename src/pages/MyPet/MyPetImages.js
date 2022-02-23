@@ -20,7 +20,7 @@ const MyPetImage = styled.div`
   width: 280px;
   height: 280px;
   border-radius: 50%;
-  border: 2px solid var(--cream);
+  border: 13px solid var(--cream);
   background-color: var(--main);
   overflow: hidden;
   // positon: absolute;

@@ -9,10 +9,10 @@ const TestItems = () => {
   const [emotionSelected, setEmotionSelected] = useState(0);
 
   const emotions = [
-    { name: 'emotion', emotion: 'happy', id: '1' },
-    { name: 'emotion', emotion: 'sad', id: '2' },
-    { name: 'emotion', emotion: 'angry', id: '3' },
-    { name: 'emotion', emotion: 'bored', id: '4' },
+    { name: 'emotion', emotion: 'happy', id: '0' },
+    { name: 'emotion', emotion: 'sad', id: '1' },
+    { name: 'emotion', emotion: 'angry', id: '2' },
+    { name: 'emotion', emotion: 'bored', id: '3' },
   ];
 
   const handleEmotion = (e, idx) => {
@@ -29,11 +29,11 @@ const TestItems = () => {
       <Button
         width="80px"
         height="80px"
-        bg="var(--main)"
+        bg="var(--cream)"
         radius="50%"
-        color="var(--white)"
+        color="var(--darkcream)"
         size="20px"
-        margin="0 20px 0 0"
+        margin="0 10px 0 0"
         onClick={handleEmotion}
       >
         {itemData.emotion}

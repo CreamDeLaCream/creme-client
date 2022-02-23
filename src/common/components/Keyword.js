@@ -14,7 +14,7 @@ const Keyword = () => {
       <Button
         width="70px"
         height="23px"
-        bg="var(--main)"
+        bg="var(--darkcream)"
         color="var(--white)"
         radius="10px"
         margin="0 5px 3px 0"

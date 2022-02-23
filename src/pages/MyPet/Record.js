@@ -59,11 +59,4 @@ const RecordCard = styled.div`
   }
 `;
 
-const CardContent = styled.div`
-  font-size: 25px;
-  margin-top: 75px;
-  position: absolute;
-  opacity: 0.1;
-  color: var(--cream);
-`;
 export default Record;

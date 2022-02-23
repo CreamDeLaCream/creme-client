@@ -87,7 +87,7 @@ const MyPetContent = styled.div`
 const MyPetName = styled.div`
   width: 440px;
   font-size: 30px;
-  color: var(--gray);
+  color: var(--darkcream);
 `;
 
 const MyPetKeyword = styled.div`
