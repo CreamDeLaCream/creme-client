@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { Text } from '../../common/components';
 import useDetectOutsideClick from '../../common/utils/useDetectOutsideClick';
 
-const DropDown = (props) => {
+const Dropdown = (props) => {
   const dropdownRef = useRef(null);
   const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
   const onClick = () => setIsActive(!isActive);
@@ -105,4 +105,4 @@ const Item = styled.li`
   padding: 15px 20px;
 `;
 
-export default DropDown;
+export default Dropdown;
