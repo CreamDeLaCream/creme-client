@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 
 // components
-import { Logo, Modal, Text, Image, Grid, Button } from './';
+import { Logo, Modal, Text, Image, Grid, Button, Input } from './';
 
 const Header = (props) => {
   const history = useHistory();
@@ -35,7 +35,7 @@ const Header = (props) => {
         </InsideBox>
       </Container>
       {modalOpen && (
-        <Modal setOpenModal={setModalOpen}>
+        <Modal width="31rem" height="31rem" setOpenModal={setModalOpen}>
           <Grid display="flex" justifyContent="center" margin="1rem 0 3rem 0">
             <Image shape="bigcircle" size="14" />
           </Grid>
