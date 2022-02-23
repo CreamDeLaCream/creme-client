@@ -34,8 +34,8 @@ const ModalBackground = styled.section`
 `;
 
 const ModalContainer = styled.div`
-  width: 31rem;
-  height: 31rem;
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
   border-radius: 12px;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;

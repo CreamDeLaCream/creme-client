@@ -72,7 +72,7 @@ const MainPage = (props) => {
     };
     console.log(post);
     dispatch(postActions.addPostAX(post));
-    history.push('/result');
+    history.push('/analysis');
   };
 
   const changeName = (e) => {
@@ -127,7 +127,7 @@ const MainPage = (props) => {
             color="var(--white)"
             radius="5px"
             cursor
-            _onClick={() => history.push('/analysis')}
+            _onClick={addPost}
             // _onClick={() => history.push('/result')}
           >
             <Text type="button" color="white">
