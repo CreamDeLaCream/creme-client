@@ -5,6 +5,7 @@ export const MembersData = [
     name: '레아',
     github: 'https://github.com/leaisrevolution',
     info: 'Elice Easy frontEnd. 와프 누구보다 빠르게 쌉가능..와프 뚝딱이에요',
+    character: ['다소난폭', '게으름', '관종'],
   },
 
   {
@@ -13,6 +14,7 @@ export const MembersData = [
     name: '진제로',
     github: 'https://github.com/leaisrevolution',
     info: '리액트 넘나 쉬운 것. 프론트엔드, AI 둘 다 쌉가능',
+    character: ['다소난폭', '게으름', '개쫄보'],
   },
 
   {

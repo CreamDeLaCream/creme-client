@@ -23,7 +23,6 @@ const AnalysisPage = () => {
       <TestContentWarpper>
         <TestSetion>
           <EmotionTest />
-          <EmotionTest />
         </TestSetion>
         <ImageSetion>
           <img

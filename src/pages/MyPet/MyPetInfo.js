@@ -23,7 +23,6 @@ export const MyPetInfo = () => {
           </MyPetName>
           <MyPetKeyword>
             <Keyword />
-            {/* <CurrentEmotion>현재의 감정</CurrentEmotion> */}
           </MyPetKeyword>
           <CurrentEmotion>
             오늘의 댕댕이 감정상태는?
