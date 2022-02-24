@@ -46,7 +46,7 @@ const AnalysisPage = (props) => {
             size="20px"
             color="var(--white)"
             cursor
-            _onClick={() => history.push('/result')}
+            _onClick={() => history.push('/main')}
           >
             <Text type="button" color="var(--white)">
               댕댕이 <br /> 결과
