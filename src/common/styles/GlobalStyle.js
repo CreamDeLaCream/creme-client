@@ -8,7 +8,8 @@ const GlobalStyle = createGlobalStyle`
         --lightcream: #fdf7ec;
         --darkcream: #d6b4a1;
         --blackcream: #927d71;
-        --darkbrown: #221e1c;
+        --deepcream: #6c584d;
+        --darkbrown: #564132;
         --white: #ffffff;
         --gray: #a2a2a2;
         --lightgray: #fff7ea;

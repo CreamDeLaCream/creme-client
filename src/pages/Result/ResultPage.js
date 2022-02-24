@@ -13,6 +13,7 @@ import {
   Container,
   Input,
   Modal,
+  Keyword,
 } from '../../common/components';
 import Dropdown from '../Result/Dropdown';
 import AddPetModal from '../MyPet/AddPetModal';
@@ -57,7 +58,9 @@ const ResultPage = (props) => {
           <Text type="mainTitle" color="var(--main)" marginBottom="2rem">
             LULU, 6살
           </Text>
-          <Text type="subTitle">keyword</Text>
+          <Text type="subTitle">
+            <Keyword />
+          </Text>
         </Grid>
 
         <Grid margin="2rem auto">
@@ -79,16 +82,16 @@ const ResultPage = (props) => {
           </Grid>
         </Grid>
         <Grid margin="2rem auto">
-          <Text type="subTitle" color="var(--main)">
+          <Text type="subTitle" color="var(--main)" marginBottom="15px">
             현재 OO의 감정 상태
           </Text>
 
           <Grid>
-            <Text type="body" color="var(--main)">
+            <Text type="body" color="var(--darkcream)" marginBottom="10px">
               #행복함 #즐거움 #여유로움 #슬픔
             </Text>
 
-            <Text>
+            <Text color="var(--deepcream)">
               루루는 지금 행복한 감정을 느끼고 있어요. 루루는 지금 행복한 감정을
               느끼고 있어요. 루루는 지금 행복한 감정을 느끼고 있어요. 루루는
               지금 행복한 감정을 느끼고 있어요. 루루는 지금 행복한 감정을 느끼고
@@ -97,7 +100,7 @@ const ResultPage = (props) => {
           </Grid>
         </Grid>
         <Grid margin="2rem auto">
-          <Text type="subTitle" color="var(--main)">
+          <Text type="subTitle" color="var(--main)" marginBottom="15px">
             OO의 솔루션
           </Text>
           <Text type="body">
@@ -105,7 +108,7 @@ const ResultPage = (props) => {
           </Text>
         </Grid>
         <Grid margin="2rem auto">
-          <Text type="subTitle" color="var(--main)">
+          <Text type="subTitle" color="var(--main)" marginBottom="15px">
             OO이에게 필요한 것
           </Text>
           <Grid is_flex margin="0 0 3rem 0">
@@ -118,7 +121,7 @@ const ResultPage = (props) => {
           </Grid>
         </Grid>
         <Grid margin="2rem auto">
-          <Text type="subTitle" color="var(--main)">
+          <Text type="subTitle" color="var(--main)" marginBottom="15px">
             오늘의 감정일기(메모)
           </Text>
           <Input multiLine placeholder="반려인의 간단한 기록 작성 공간" />
@@ -187,10 +190,10 @@ const EmotionBox = styled.div`
   margin-bottom: 0.6rem;
   align-items: space-between;
   text-align: center;
-  background-color: var(--main);
+  background-color: var(--darkcream);
   color: var(--white);
   font-weight: 600;
-  border: 1px solid var(--main);
+  /* border: 1px solid var(--main); */
 `;
 
 export default ResultPage;
