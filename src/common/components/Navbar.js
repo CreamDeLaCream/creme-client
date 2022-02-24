@@ -51,11 +51,12 @@ const Navbar = (props) => {
 
 const Container = styled.div`
   position: fixed;
-  top: 5rem;
+  top: 8rem;
   left: 0;
   z-index: 20;
   width: 100%;
-  background-color: white;
+  background-color: transparent;
+  // background-color: white;
   ${({ theme }) => theme.device.mobile} {
     /* min-width: 20rem; */
     flex-wrap: nowrap;

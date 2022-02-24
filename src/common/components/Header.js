@@ -31,12 +31,13 @@ const Header = (props) => {
 
 const Container = styled.header`
   position: fixed;
-  top: 0;
+  top: 2rem;
   left: 0;
   z-index: 20;
   width: 100%;
   height: 5rem;
-  background-color: white;
+  background-color: transparent;
+  // background-color: white;
   /* border: 1px solid black; */
   ${({ theme }) => theme.device.mobile} {
     min-width: 20rem;

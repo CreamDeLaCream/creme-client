@@ -1,9 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react';
+
+// Data
+import KeywordData from './KeywordData';
+
+// Components
+import Button from './Button';
 
 const Keyword = () => {
-  return (
-    <div>Keyword</div>
-  )
-}
+  let [keywordList, setKeywordList] = useState(KeywordData);
 
-export default Keyword
+  function Keywords({ typekeywords }) {
+    return (
+      <Button
+        width="70px"
+        height="23px"
+        bg="var(--darkcream)"
+        color="var(--white)"
+        radius="10px"
+        margin="0 5px 3px 0"
+      >
+        {typekeywords.character}
+      </Button>
+    );
+  }
+  return (
+    <>
+      {keywordList.map((typekeywords, i) => {
+        return <Keywords typekeywords={typekeywords} />;
+      })}
+    </>
+  );
+};
+
+export default Keyword;
