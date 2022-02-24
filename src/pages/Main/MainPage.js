@@ -14,8 +14,10 @@ import {
   Input,
   Navbar,
   Image,
+  Modal,
 } from '../../common/components';
 import { useDropzone } from 'react-dropzone';
+import HowTo from './HowTo';
 // import api from '../../common/utils/API';
 
 const MainPage = (props) => {
@@ -24,6 +26,9 @@ const MainPage = (props) => {
   const [files, setFiles] = useState([]);
   const [age, setAge] = useState('');
   const [name, setName] = useState('');
+
+  // 업로드 방식 모달
+  const [modalOpen, setModalOpen] = useState(false);
 
   const { getRootProps, getInputProps } = useDropzone({
     accept: 'image/*',
@@ -139,95 +144,110 @@ const MainPage = (props) => {
     </Container>;
 
   return (
-    <Container height="100vh">
-      <Header />
-      <Navbar />
+    <>
+      <Container height="100vh">
+        <Header />
+        <Navbar />
 
-      <Grid margin="2rem auto">
-        <Text type="mainTitle" color="main">
-          반려견과 반려인의 첫 걸음,
-          <br /> 지금 당신의 반려견 감정 상태를 분석해보세요.
-        </Text>
-      </Grid>
-
-      <Grid margin="2rem auto">
-        {/* <input {...getInputProps()} /> */}
-        <div>{images}</div>
-      </Grid>
-
-      <Grid display="flex" justifyContent="flex-end">
-        <Button padding="0.5rem" bg="transparent" radius="5px" cursor>
-          <Text type="body" color="main">
-            이미지 업로드 방식
+        <Grid margin="2rem auto">
+          <Text type="mainTitle" color="main">
+            반려견과 반려인의 첫 걸음,
+            <br /> 지금 당신의 반려견 감정 상태를 분석해보세요.
           </Text>
-        </Button>
-      </Grid>
-      <Grid margin="2rem auto">
-        <Grid is_flex margin="0 0 3rem 0">
-          <Input
-            placeholder="댕댕이의 이름을 입력해주세요."
-            value={name}
-            _onChange={changeName}
-          />
         </Grid>
 
-        <Grid is_flex margin="0 0 1rem 0">
-          <Input
-            placeholder="댕댕이의 나이를 입력해주세요."
-            value={age}
-            _onChange={changeAge}
-          />
+        <Grid margin="2rem auto">
+          {/* <input {...getInputProps()} /> */}
+          <div>{images}</div>
         </Grid>
-      </Grid>
 
-      <Grid>
-        <div style={{ flexGrow: 1, margin: 'auto' }}>
-          <label htmlFor="img-upload">
-            <div>
-              <div></div>
-            </div>
-          </label>
-        </div>
-      </Grid>
-
-      <Grid margin="1rem auto">
-        <Grid is_flex width="100%">
-          <Wrapper {...getRootProps()}>
-            <Button
-              width="100%"
-              padding="0.5rem"
-              bg="var(--main)"
-              color="var(--white)"
-              radius="5px"
-              cursor
-              // 중간 점검 이후 변경 예정
-              // _onClick={() => history.push('/login')}
-            >
-              <Text type="button" color="white">
-                사진 찍기/ 업로드
-              </Text>
-            </Button>
-          </Wrapper>
-
-          <Wrapper>
-            <Button
-              width="100%"
-              padding="0.5rem"
-              bg="var(--main)"
-              color="var(--white)"
-              radius="5px"
-              cursor
-              _onClick={addPost}
-              // _onClick={() => history.push('/result')}
-            >
-              <Text type="button" color="white">
-                분석 시작
-              </Text>
-            </Button>
-          </Wrapper>
+        <Grid display="flex" justifyContent="flex-end">
+          <Button
+            padding="0.5rem"
+            bg="transparent"
+            radius="5px"
+            cursor
+            _onClick={() => {
+              setModalOpen(true);
+            }}
+          >
+            <Text type="body" color="main">
+              이미지 업로드 방식
+            </Text>
+          </Button>
         </Grid>
-      </Grid>
-    </Container>
+        <Grid margin="2rem auto">
+          <Grid is_flex margin="0 0 3rem 0">
+            <Input
+              placeholder="댕댕이의 이름을 입력해주세요."
+              value={name}
+              _onChange={changeName}
+            />
+          </Grid>
+
+          <Grid is_flex margin="0 0 1rem 0">
+            <Input
+              placeholder="댕댕이의 나이를 입력해주세요."
+              value={age}
+              _onChange={changeAge}
+            />
+          </Grid>
+        </Grid>
+
+        <Grid>
+          <div style={{ flexGrow: 1, margin: 'auto' }}>
+            <label htmlFor="img-upload">
+              <div>
+                <div></div>
+              </div>
+            </label>
+          </div>
+        </Grid>
+
+        <Grid margin="1rem auto">
+          <Grid is_flex width="100%">
+            <Wrapper {...getRootProps()}>
+              <Button
+                width="100%"
+                padding="0.5rem"
+                bg="var(--main)"
+                color="var(--white)"
+                radius="5px"
+                cursor
+                // 중간 점검 이후 변경 예정
+                // _onClick={() => history.push('/login')}
+              >
+                <Text type="button" color="white">
+                  사진 찍기/ 업로드
+                </Text>
+              </Button>
+            </Wrapper>
+
+            <Wrapper>
+              <Button
+                width="100%"
+                padding="0.5rem"
+                bg="var(--main)"
+                color="var(--white)"
+                radius="5px"
+                cursor
+                _onClick={addPost}
+                // _onClick={() => history.push('/result')}
+              >
+                <Text type="button" color="white">
+                  분석 시작
+                </Text>
+              </Button>
+            </Wrapper>
+          </Grid>
+        </Grid>
+      </Container>
+      {modalOpen && (
+        <Modal width="30rem" height="40rem" setOpenModal={setModalOpen}>
+          <HowTo />
+        </Modal>
+      )}
+    </>
   );
 };
 

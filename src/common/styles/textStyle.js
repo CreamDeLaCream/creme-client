@@ -28,7 +28,7 @@ export const body = css`
 `;
 
 export const desc = css`
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   /* line-height: 1rem; */
 `;
 
