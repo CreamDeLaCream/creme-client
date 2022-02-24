@@ -41,7 +41,7 @@ const AddPetModal = () => {
         cursor
         // _onClick={() => history.push('/main')}
       >
-        <Text type="button" color="white">
+        <Text type="button" color="var(--white)">
           업로드
         </Text>
       </Button>

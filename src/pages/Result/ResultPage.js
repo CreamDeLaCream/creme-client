@@ -143,7 +143,7 @@ const ResultPage = (props) => {
                 setModalOpen(true);
               }}
             >
-              <Text type="button" color="white">
+              <Text type="button" color="var(--white)">
                 URL 복사하기
               </Text>
             </Button>
@@ -158,7 +158,7 @@ const ResultPage = (props) => {
                 setModalOpen(true);
               }}
             >
-              <Text type="button" color="white">
+              <Text type="button" color="var(--white)">
                 카카오톡 공유
               </Text>
             </Button>
@@ -171,7 +171,7 @@ const ResultPage = (props) => {
               cursor
               _onClick={() => history.push('/main')}
             >
-              <Text type="button" color="white">
+              <Text type="button" color="var(--white)">
                 검사 다시하기
               </Text>
             </Button>

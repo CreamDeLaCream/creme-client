@@ -46,7 +46,7 @@ const AnalysisPage = () => {
             color="var(--white)"
             cursor
           >
-            <Text type="button" color="white">
+            <Text type="button" color="var(--white)">
               댕댕이 <br /> 결과
             </Text>
           </Button>

@@ -121,7 +121,7 @@ const MainPage = (props) => {
             // 중간 점검 이후 변경 예정
             // _onClick={() => history.push('/login')}
           >
-            <Text type="button" color="white">
+            <Text type="button" color="var(--white)">
               사진찍기 / 업로드
             </Text>
           </Button>
@@ -135,7 +135,7 @@ const MainPage = (props) => {
             _onClick={addPost}
             // _onClick={() => history.push('/result')}
           >
-            <Text type="button" color="white">
+            <Text type="button" color="var(--white)">
               분석 시작
             </Text>
           </Button>
@@ -217,7 +217,7 @@ const MainPage = (props) => {
                 // 중간 점검 이후 변경 예정
                 // _onClick={() => history.push('/login')}
               >
-                <Text type="button" color="white">
+                <Text type="button" color="var(--white)">
                   사진 찍기/ 업로드
                 </Text>
               </Button>
@@ -234,7 +234,7 @@ const MainPage = (props) => {
                 _onClick={addPost}
                 // _onClick={() => history.push('/result')}
               >
-                <Text type="button" color="white">
+                <Text type="button" color="var(--white)">
                   분석 시작
                 </Text>
               </Button>

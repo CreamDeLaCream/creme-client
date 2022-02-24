@@ -49,7 +49,7 @@ const Header = (props) => {
               radius="5px"
               cursor
             >
-              <Text type="button" color="white">
+              <Text type="button" color="var(--white)">
                 카카오톡으로 시작하기
               </Text>
             </Button>
