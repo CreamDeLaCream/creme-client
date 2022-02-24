@@ -3,10 +3,13 @@ import styled from 'styled-components';
 
 const Grid = (props) => {
   const {
+    flexDirection,
     display,
     justifyContent,
     alignItems,
     is_flex,
+    is_flex_start,
+    is_flex_center,
     width,
     margin,
     padding,
@@ -18,10 +21,13 @@ const Grid = (props) => {
   } = props;
 
   const styles = {
+    flexDirection: flexDirection,
     display: display,
     justifyContent: justifyContent,
     alignItems: alignItems,
     is_flex: is_flex,
+    is_flex_start: is_flex_start,
+    is_flex_center: is_flex_center,
     width: width,
     height: height,
     margin: margin,
@@ -51,6 +57,8 @@ Grid.defaultProps = {
 const GridBox = styled.div`
   width: ${(props) => props.width};
   box-sizing: border-box;
+  ${(props) =>
+    props.flexDirection ? `flex-direction: ${props.flexDirection};` : ''}
   ${(props) => (props.display ? `display: ${props.display};` : '')}
   ${(props) => (props.alignItems ? `align-items: ${props.alignItems};` : '')}
   ${(props) =>
@@ -65,6 +73,14 @@ const GridBox = styled.div`
   ${(props) =>
     props.is_flex
       ? `display: flex; align-items: center; justify-content: space-between;`
+      : ''}
+  ${(props) =>
+    props.is_flex_start
+      ? `display: flex; align-items: center; justify-content: flex-start;`
+      : ''}
+  ${(props) =>
+    props.is_flex_center
+      ? `display: flex; align-items: center; justify-content: center;`
       : ''}
 `;
 
