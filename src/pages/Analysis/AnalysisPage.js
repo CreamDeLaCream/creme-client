@@ -18,7 +18,7 @@ const AnalysisPage = () => {
       <Container>
         <Header />
         <Navbar />
-        <Text type="mainTitle" color="main">
+        <Text type="mainTitle" color="var(--main)">
           <Loading />
         </Text>
         <TestContentWarpper>
@@ -30,7 +30,7 @@ const AnalysisPage = () => {
               height="300px"
             />
           </ImgSeiton>
-          <Text type="subTitle" color="main"></Text>
+          <Text type="subTitle" color="var(--main)"></Text>
           <TestSetion>
             <EmotionTest />
           </TestSetion>

@@ -25,7 +25,7 @@ const Dropdown = (props) => {
       >
         <MenuList>
           <Item>
-            <Text color="gray">
+            <Text color="var(--gray)">
               이것은 병아리다. 알에서 태어난 병아리는 곧 닭이 된다. 닭은 곧 알을
               낳고, 그 알은 또 부화한다.
             </Text>

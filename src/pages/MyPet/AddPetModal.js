@@ -9,7 +9,7 @@ const AddPetModal = () => {
       </Grid>
 
       <Grid is_flex>
-        <Text type="subTitle" color="main">
+        <Text type="subTitle" color="var(--main)">
           댕댕이의 이름을 입력해주세요.
         </Text>
       </Grid>
@@ -18,7 +18,7 @@ const AddPetModal = () => {
         <Input />
       </Grid>
       <Grid is_flex>
-        <Text type="subTitle" color="main">
+        <Text type="subTitle" color="var(--main)">
           댕댕이의 나이를 입력해주세요.
         </Text>
       </Grid>
@@ -27,7 +27,7 @@ const AddPetModal = () => {
         <Input />
       </Grid>
       <Grid is_flex margin="0 0 3rem 0">
-        <Text type="subTitle" color="main">
+        <Text type="subTitle" color="var(--main)">
           댕댕이의 키워드를 입력해주세요.
         </Text>
       </Grid>

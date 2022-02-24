@@ -9,7 +9,7 @@ const Howto = () => {
     <>
       <Grid flexDirection="column">
         <Grid is_flex margin="2rem auto">
-          <Text type="subTitle" color="main">
+          <Text type="subTitle" color="var(--main)">
             이미지 업로드 하는 방법
           </Text>
         </Grid>
@@ -20,7 +20,7 @@ const Howto = () => {
             <ImageItems />
           </Grid>
 
-          <Text type="desc" color="main">
+          <Text type="desc" color="var(--main)">
             사진은 정면 사진으로 강아지의 얼굴이 잘 보이도록 업로드 해주세용{' '}
           </Text>
         </Grid>
@@ -30,7 +30,7 @@ const Howto = () => {
             <ImageItems />
             <ImageItems />
           </Grid>
-          <Text type="desc" color="main">
+          <Text type="desc" color="var(--main)">
             사진은 정면 사진으로 강아지의 얼굴이 잘 보이도록 업로드 해주세용{' '}
           </Text>
         </Grid>
@@ -40,7 +40,7 @@ const Howto = () => {
             <ImageItems />
             <ImageItems />
           </Grid>
-          <Text type="desc" color="main">
+          <Text type="desc" color="var(--main)">
             사진은 정면 사진으로 강아지의 얼굴이 잘 보이도록 업로드 해주세용{' '}
           </Text>
         </Grid>

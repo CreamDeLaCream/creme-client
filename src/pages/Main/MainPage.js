@@ -95,7 +95,7 @@ const MainPage = (props) => {
       <Navbar />
 
       <Grid margin="2rem auto">
-        <Text type="mainTitle" color="main">
+        <Text type="mainTitle" color="var(--main)">
           감정상태를 분석할 댕댕이를 골라주세요.
         </Text>
       </Grid>
@@ -150,7 +150,7 @@ const MainPage = (props) => {
         <Navbar />
 
         <Grid margin="2rem auto">
-          <Text type="mainTitle" color="main">
+          <Text type="mainTitle" color="var(--main)">
             반려견과 반려인의 첫 걸음,
             <br /> 지금 당신의 반려견 감정 상태를 분석해보세요.
           </Text>
@@ -171,7 +171,7 @@ const MainPage = (props) => {
               setModalOpen(true);
             }}
           >
-            <Text type="body" color="main">
+            <Text type="body" color="var(--main)">
               이미지 업로드 방식
             </Text>
           </Button>

@@ -25,13 +25,13 @@ const Dropdown = () => {
       >
         <MenuList>
           <Item>
-            <Text color="gray">마이페이지</Text>
+            <Text color="var(--gray)">마이페이지</Text>
           </Item>
           <Item>
-            <Text color="gray">인트로</Text>
+            <Text color="var(--gray)">인트로</Text>
           </Item>
           <Item>
-            <Text color="gray">팀</Text>
+            <Text color="var(--gray)">팀</Text>
           </Item>
         </MenuList>
       </Nav>

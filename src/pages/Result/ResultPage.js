@@ -54,27 +54,27 @@ const ResultPage = (props) => {
         </MenuList> */}
 
         <Grid margin="1rem auto">
-          <Text type="mainTitle" color="main">
+          <Text type="mainTitle" color="var(--main)">
             반려견 감정 상태 결과
           </Text>
         </Grid>
         <ResultBox></ResultBox>
 
         <Grid margin="2rem auto">
-          <Text type="mainTitle" color="main" marginBottom="2rem">
+          <Text type="mainTitle" color="var(--main)" marginBottom="2rem">
             LULU, 6살
           </Text>
           <Text type="subTitle">keyword</Text>
         </Grid>
 
         <Grid margin="2rem auto">
-          <Text type="subTitle" color="main" marginBottom="2rem">
+          <Text type="subTitle" color="var(--main)" marginBottom="2rem">
             당신이 생각하는 OO의 감정상태 일치도는?
           </Text>
 
           <Grid is_flex>
             <Grid width="20rem">
-              <Text fontSize="5rem" color="main">
+              <Text fontSize="5rem" color="var(--main)">
                 일치
               </Text>
             </Grid>
@@ -86,12 +86,12 @@ const ResultPage = (props) => {
           </Grid>
         </Grid>
         <Grid margin="2rem auto">
-          <Text type="subTitle" color="main">
+          <Text type="subTitle" color="var(--main)">
             현재 OO의 감정 상태
           </Text>
 
           <Grid>
-            <Text type="body" color="main">
+            <Text type="body" color="var(--main)">
               #행복함 #즐거움 #여유로움 #슬픔
             </Text>
 
@@ -104,7 +104,7 @@ const ResultPage = (props) => {
           </Grid>
         </Grid>
         <Grid margin="2rem auto">
-          <Text type="subTitle" color="main">
+          <Text type="subTitle" color="var(--main)">
             OO의 솔루션
           </Text>
           <Text type="body">
@@ -112,7 +112,7 @@ const ResultPage = (props) => {
           </Text>
         </Grid>
         <Grid margin="2rem auto">
-          <Text type="subTitle" color="main">
+          <Text type="subTitle" color="var(--main)">
             OO이에게 필요한 것
           </Text>
           <Grid is_flex margin="0 0 3rem 0">
@@ -125,7 +125,7 @@ const ResultPage = (props) => {
           </Grid>
         </Grid>
         <Grid margin="2rem auto">
-          <Text type="subTitle" color="main">
+          <Text type="subTitle" color="var(--main)">
             오늘의 감정일기(메모)
           </Text>
           <Input multiLine placeholder="반려인의 간단한 기록 작성 공간" />

@@ -35,7 +35,11 @@ const Wrapper = styled.div`
         return;
     }
   }};
-  color: ${(props) => (props.color ? `var(--${props.color})` : `black`)};
+  /* color: ${(props) =>
+    props.color ? `var(--${props.color})` : `#f69269`}; */
+  /* color: ${(props) =>
+    props.color ? `var(--${props.color})` : `#f69269`}; */
+  color: ${(props) => props.color};
   width: ${(props) => props.width};
   margin: ${(props) => props.margin};
   margin-bottom: ${(props) => props.marginBottom};

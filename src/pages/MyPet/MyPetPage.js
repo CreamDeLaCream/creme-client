@@ -32,7 +32,7 @@ const IntroPage = () => {
     <Container height="200vh">
       <Header />
       <Navbar />
-      <Text type="mainTitle" color="main">
+      <Text type="mainTitle" color="var(--main)">
         나의 사랑스러운 댕댕이를
         <br />
         추가하고 감정기록들을 관리하세요.
@@ -42,7 +42,7 @@ const IntroPage = () => {
       </MyPetWrapper>
 
       <RecordWrapper>
-        <Text type="mainTitle" color="main" padding-top="30px">
+        <Text type="mainTitle" color="var(--main)" padding-top="30px">
           마이펫 감정 기록
         </Text>
         <RecordCardWrapper>
