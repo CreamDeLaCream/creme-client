@@ -12,7 +12,8 @@ import {
 import { EmotionTest } from './EmotionTest';
 import Loading from '../Analysis/Loading';
 
-const AnalysisPage = () => {
+const AnalysisPage = (props) => {
+  const { history } = props;
   return (
     <Analysisbg>
       <Container>
@@ -45,6 +46,7 @@ const AnalysisPage = () => {
             size="20px"
             color="var(--white)"
             cursor
+            _onClick={() => history.push('/result')}
           >
             <Text type="button" color="var(--white)">
               댕댕이 <br /> 결과

@@ -25,6 +25,10 @@ const ResultPage = (props) => {
   // (임시) 마이펫 페이지 모달
   const [modalOpen, setModalOpen] = useState(false);
 
+  // _onClick={() => {
+  //   setModalOpen(true);
+  // }}
+
   // React.useEffect(() => {
   //   if (post_list.length === 0) {
   //     dispatch(postActions.getPostAX());
@@ -41,17 +45,6 @@ const ResultPage = (props) => {
       <Container>
         <Header />
         <Navbar />
-        {/* <MenuList>
-          <Item>
-            <Text color="red">마이페이지</Text>
-          </Item>
-          <Item>
-            <Text>인트로</Text>
-          </Item>
-          <Item>
-            <Text>팀</Text>
-          </Item>
-        </MenuList> */}
 
         <Grid margin="1rem auto">
           <Text type="mainTitle" color="var(--main)">
@@ -139,9 +132,6 @@ const ResultPage = (props) => {
               color="var(--white)"
               radius="5px"
               cursor
-              _onClick={() => {
-                setModalOpen(true);
-              }}
             >
               <Text type="button" color="var(--white)">
                 URL 복사하기
@@ -154,9 +144,6 @@ const ResultPage = (props) => {
               color="var(--white)"
               radius="5px"
               cursor
-              _onClick={() => {
-                setModalOpen(true);
-              }}
             >
               <Text type="button" color="var(--white)">
                 카카오톡 공유
