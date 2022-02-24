@@ -14,7 +14,9 @@ const Image = (props) => {
   if (shape === 'circle') {
     return <ImageCircle {...styles} onClick={_onClick}></ImageCircle>;
   }
-
+  if (shape === 'bigcircle') {
+    return <ImageBigCircle {...styles} onClick={_onClick}></ImageBigCircle>;
+  }
   return <ImageDefault {...styles}></ImageDefault>;
 };
 
@@ -46,6 +48,20 @@ const ImageCircle = styled.div`
   min-width: var(--size);
   ${({ theme }) => theme.device.mobile} {
     --size: 6.5rem;
+  }
+`;
+
+const ImageBigCircle = styled.div`
+  --size: ${(props) => props.size}rem;
+  width: var(--size);
+  height: var(--size);
+  border-radius: var(--size);
+  background-image: url('${(props) => props.src}');
+  background-size: cover;
+  margin: 0.6rem;
+  min-width: var(--size);
+  ${({ theme }) => theme.device.mobile} {
+    --size: 12rem;
   }
 `;
 

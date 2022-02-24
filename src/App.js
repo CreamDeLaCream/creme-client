@@ -33,8 +33,8 @@ function App() {
         {/* <Center> */}
         <Template>
           <Switch>
-            <Route exact path="/" component={MainPage} />
-            <Route exact path="/intro" component={IntroPage} />
+            <Route exact path="/" component={IntroPage} />
+            <Route exact path="/main" component={MainPage} />
             <Route exact path="/analysis" component={AnalysisPage} />
             <Route exact path="/result" component={ResultPage} />
             <Route exact path="/mypet" component={MyPetPage} />

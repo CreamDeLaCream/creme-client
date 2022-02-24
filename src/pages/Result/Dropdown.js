@@ -5,15 +5,15 @@ import styled from 'styled-components';
 import { Text } from '../../common/components';
 import useDetectOutsideClick from '../../common/utils/useDetectOutsideClick';
 
-const Dropdown = () => {
+const Dropdown = (props) => {
   const dropdownRef = useRef(null);
   const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
   const onClick = () => setIsActive(!isActive);
-
+  // const { children } = props;
   return (
     <MenuContainer>
       <TriggerButton onClick={onClick}>
-        <MenuTitle>DropDown</MenuTitle>
+        {/* <MenuTitle>DropDown</MenuTitle> */}
         <Image
           src="https://mblogthumb-phinf.pstatic.net/20141020_84/ribbonchick_1413740254883HpC05_JPEG/01.jpg?type=w420"
           alt="arrow"
@@ -25,15 +25,13 @@ const Dropdown = () => {
       >
         <MenuList>
           <Item>
-            <Text color="gray">마이페이지</Text>
-          </Item>
-          <Item>
-            <Text color="gray">인트로</Text>
-          </Item>
-          <Item>
-            <Text color="gray">팀</Text>
+            <Text color="gray">
+              이것은 병아리다. 알에서 태어난 병아리는 곧 닭이 된다. 닭은 곧 알을
+              낳고, 그 알은 또 부화한다.
+            </Text>
           </Item>
         </MenuList>
+        {/* {children} */}
       </Nav>
     </MenuContainer>
   );
@@ -54,9 +52,9 @@ const TriggerButton = styled.button`
   padding: 4px 6px;
   transition: box-shadow 0.4s ease;
   cursor: pointer;
-  :hover {
+  /* :hover { 
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
-  }
+  } */
 `;
 
 const MenuTitle = styled.span`
@@ -67,8 +65,8 @@ const MenuTitle = styled.span`
 `;
 
 const Image = styled.img`
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 8rem;
+  height: 8rem;
   border-radius: 90px;
 `;
 
@@ -77,7 +75,7 @@ const Nav = styled.nav`
   position: absolute;
   border-radius: 8px;
   background: var(--white);
-  top: 70px;
+  /* top: 70px; */
   /* right: 0; */
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
   opacity: 0;

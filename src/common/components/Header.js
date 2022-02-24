@@ -1,31 +1,62 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 
 // components
-import { Logo } from './';
+import { Logo, Modal, Text, Image, Grid, Button, Input } from './';
 
 const Header = (props) => {
   const history = useHistory();
+  const [modalOpen, setModalOpen] = useState(false);
   return (
-    <Container>
-      <InsideBox>
-        <LeftSide>
-          <LogoBox onClick={() => history.push('/')}>
-            <Logo />
-          </LogoBox>
-        </LeftSide>
-        <RightSide>
-          {props.page === 'headermenu' ? (
-            <Nav>
-              <List>
-                <Item onClick={() => history.push('/login')}>로그인</Item>
-              </List>
-            </Nav>
-          ) : null}
-        </RightSide>
-      </InsideBox>
-    </Container>
+    <>
+      <Container>
+        <InsideBox>
+          <LeftSide>
+            <LogoBox onClick={() => history.push('/')}>
+              <Logo />
+            </LogoBox>
+          </LeftSide>
+          <RightSide>
+            {props.page === 'headermenu' ? (
+              <Nav>
+                <List>
+                  <Item
+                    onClick={() => {
+                      setModalOpen(true);
+                    }}
+                  >
+                    로그인
+                  </Item>
+                </List>
+              </Nav>
+            ) : null}
+          </RightSide>
+        </InsideBox>
+      </Container>
+      {modalOpen && (
+        <Modal width="31rem" height="31rem" setOpenModal={setModalOpen}>
+          <Grid display="flex" justifyContent="center" margin="1rem 0 3rem 0">
+            <Image shape="bigcircle" size="14" />
+          </Grid>
+
+          <Wrapper>
+            <Button
+              width="25rem"
+              padding="0.5rem"
+              bg="var(--main)"
+              color="var(--white)"
+              radius="5px"
+              cursor
+            >
+              <Text type="button" color="white">
+                카카오톡으로 시작하기
+              </Text>
+            </Button>
+          </Wrapper>
+        </Modal>
+      )}
+    </>
   );
 };
 
@@ -81,6 +112,13 @@ const Item = styled.li`
   padding: 0.3rem 2rem;
   color: var(--main);
   cursor: pointer;
+`;
+
+const Wrapper = styled.div`
+  ${({ theme }) => theme.device.mobile} {
+    display: flex;
+    justify-content: center;
+  }
 `;
 
 export default Header;
