@@ -63,7 +63,7 @@ export const EmotionTest = () => {
   function TestList({ questionlist }) {
     return (
       <EmotionTestWapper>
-        <Text type="subTitle" color="var(--darkcream)" margin="45px 0 0 0">
+        <Text type="subTitle" color="var(--blackcream)" margin="45px 0 0 0">
           {questionlist.question.Question}
         </Text>
         <TestContent>

@@ -5,7 +5,7 @@ export const MembersData = [
     name: '레아',
     github: 'https://github.com/leaisrevolution',
     info: 'Elice Easy frontEnd. 와프 누구보다 빠르게 쌉가능..와프 뚝딱이에요',
-    character: ['다소난폭', '게으름', '관종'],
+    character: ['다소난폭', '게으름', '관종', '똑똑'],
   },
 
   {
@@ -23,6 +23,7 @@ export const MembersData = [
     name: '영광',
     github: 'https://github.com/2ykwang',
     info: '개발이 제일 쉬웠어요.',
+    character: ['내적관종', '주인잘따름', '충성심폭발', '얌전'],
   },
 
   {
@@ -40,6 +41,7 @@ export const MembersData = [
     name: '강한욕망',
     github: 'https://github.com/rigyeonghong',
     info: '세상아 덤벼랏!!!!!!!',
+    character: ['이중인격', '충성심폭발', '얌전'],
   },
 
   {
@@ -48,6 +50,7 @@ export const MembersData = [
     name: '영어천재',
     github: 'https://github.com/soyoungh913',
     info: '전 심지어 영어까지 잘해요.',
+    character: ['이중인격', '충성심폭발', '얌전'],
   },
 ];
 

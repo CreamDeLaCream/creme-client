@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { Keyword } from '../../common/components';
+import { Keywords } from '../../common/components/Keyword';
 import { MyPetImages } from '../MyPet/MyPetImages';
 import MembersData from './MembersData';
 
@@ -19,7 +20,9 @@ export const TeamMembers = () => {
               <br /> <b style={{ color: 'var(--main)' }}>{membersdatas.name}</b>
             </MemberName>
             <KeywordWrapper>
-              <Keyword />
+              {membersdatas.character.map((memberscharacter, i) => {
+                return <Keywords typekeywords={memberscharacter} />;
+              })}
             </KeywordWrapper>
             <TeamInfo>
               {membersdatas.info} <br /> {membersdatas.github}

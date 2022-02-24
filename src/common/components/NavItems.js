@@ -7,7 +7,7 @@ import { Text } from './';
 const NavItems = ({ menu }) => {
   return (
     <Wrapper>
-      <Text type="sub_1" color="var(--main)">
+      <Text type="sub_1" color="var(--blackcream)">
         {menu.name}
       </Text>
     </Wrapper>
