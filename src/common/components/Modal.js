@@ -28,7 +28,7 @@ const ModalBackground = styled.section`
   height: 100%;
   display: flex;
   justify-content: center;
-  background-color: var(--lightgray);
+  background-color: transparent;
   align-items: center;
   z-index: 30;
 `;
@@ -37,8 +37,9 @@ const ModalContainer = styled.div`
   width: ${(props) => props.width};
   height: ${(props) => props.height};
   border-radius: 12px;
-  background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: var(--bggray);
+  border: 2px solid var(--cream);
+  /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
   display: flex;
   flex-direction: column;
   padding: 25px;

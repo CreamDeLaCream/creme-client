@@ -70,7 +70,7 @@ const MembersImage = styled.div`
   // positon: absolute;
   // vertical-align: middle;
   margin-right: 50px;
-  margin-top: 10px;
+  margin-top: 17px;
 `;
 
 const MyPetImage = styled.div`

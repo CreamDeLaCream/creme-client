@@ -24,12 +24,12 @@ const Navbar = (props) => {
               to={menu.path}
               key={index}
               style={{
-                // color: 'gray',
+                color: 'var(--blackcream)',
                 fontSize: '1.1rem',
                 textDecoration: 'none',
                 margin: '0 20px 0 0',
               }}
-              activeStyle={{ fontWeight: 'bold' }}
+              activeStyle={{ fontWeight: 'bold', color: 'var(--main)' }}
             >
               <NavItems menu={menu} />
             </NavLink>
