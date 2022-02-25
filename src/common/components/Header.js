@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 
 // components
-import { Logo, Modal, Text, Image, Grid, Button, Input } from './';
+import { Logo, Modal, Text, Image, Grid, Button } from './';
 
 const Header = (props) => {
   const history = useHistory();
@@ -26,7 +26,7 @@ const Header = (props) => {
                       setModalOpen(true);
                     }}
                   >
-                    로그인
+                    <Text width="3rem">로그인</Text>
                   </Item>
                 </List>
               </Nav>
@@ -107,6 +107,7 @@ const List = styled.ul`
 `;
 
 const Item = styled.li`
+  /* width: 5rem; */
   list-style: none;
   margin: 0;
   padding: 0.3rem 2rem;
