@@ -17,11 +17,18 @@ import {
 } from '../../common/components';
 import Dropdown from '../Result/Dropdown';
 import AddPetModal from '../MyPet/AddPetModal';
+import { resultData } from './ResultData';
 
 const ResultPage = (props) => {
   const { history } = props;
   const dispatch = useDispatch();
   const post_list = useSelector((state) => state.post.list);
+
+  // const checkTab = (keyword) => {
+  //   if (history.location.pathname.includes(keyword) === true)
+  //    return true;
+  //   else return false;
+  // };
 
   // (임시) 마이펫 페이지 모달
   const [modalOpen, setModalOpen] = useState(false);
@@ -52,11 +59,13 @@ const ResultPage = (props) => {
             반려견 감정 상태 결과
           </Text>
         </Grid>
-        <ResultBox></ResultBox>
+        <ResultBox>
+          <img src={resultData[0].dog_img} alt="" />
+        </ResultBox>
 
         <Grid margin="2rem auto">
           <Text type="mainTitle" color="var(--main)" marginBottom="2rem">
-            LULU, 6살
+            {resultData[0].dog_name}, {resultData[0].dog_age}살
           </Text>
           <Text type="subTitle">
             <Keyword />
@@ -65,13 +74,17 @@ const ResultPage = (props) => {
 
         <Grid margin="2rem auto">
           <Text type="subTitle" color="var(--main)" marginBottom="2rem">
-            당신이 생각하는 OO의 감정상태 일치도는?
+            당신이 생각하는 {resultData[0].dog_name}의 감정상태 일치도는?
           </Text>
 
           <Grid is_flex>
             <Grid width="20rem">
               <Text fontSize="5rem" color="var(--main)">
-                일치
+                {resultData[0].match === true ? (
+                  <div>일치</div>
+                ) : (
+                  <div>불일치</div>
+                )}
               </Text>
             </Grid>
 
@@ -83,7 +96,7 @@ const ResultPage = (props) => {
         </Grid>
         <Grid margin="2rem auto">
           <Text type="subTitle" color="var(--main)" marginBottom="15px">
-            현재 OO의 감정 상태
+            현재 {resultData[0].dog_name}의 감정 상태
           </Text>
 
           <Grid>
@@ -101,15 +114,15 @@ const ResultPage = (props) => {
         </Grid>
         <Grid margin="2rem auto">
           <Text type="subTitle" color="var(--main)" marginBottom="15px">
-            OO의 솔루션
+            {resultData[0].dog_name}의 솔루션
           </Text>
-          <Text type="body">
-            지금처럼 루루와의 시간을 보내면서 행복도를 유지시켜주세요.
+          <Text type="body" color="var(--deepcream)">
+            {resultData[0].emotion_description}
           </Text>
         </Grid>
         <Grid margin="2rem auto">
           <Text type="subTitle" color="var(--main)" marginBottom="15px">
-            OO이에게 필요한 것
+            {resultData[0].dog_name}에게 필요한 것
           </Text>
           <Grid is_flex margin="0 0 3rem 0">
             <Dropdown />
@@ -120,6 +133,7 @@ const ResultPage = (props) => {
             <Dropdown />
           </Grid>
         </Grid>
+
         <Grid margin="2rem auto">
           <Text type="subTitle" color="var(--main)" marginBottom="15px">
             오늘의 감정일기(메모)
@@ -180,7 +194,9 @@ const ResultPage = (props) => {
 
 const ResultBox = styled.div`
   width: 100%;
-  height: 30rem;
+  /* height: 30rem; */
+
+  background-size: cover;
   border: 2px solid var(--lightgray);
 `;
 
