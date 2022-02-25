@@ -12,7 +12,7 @@ export const MembersData = [
     id: 1,
     position: 'front-end',
     name: '진제로',
-    github: 'https://github.com/leaisrevolution',
+    github: 'https://github.com/greencoffee1635',
     info: '리액트 넘나 쉬운 것. 프론트엔드, AI 둘 다 쌉가능',
     character: ['다소난폭', '게으름', '개쫄보'],
   },
@@ -41,7 +41,7 @@ export const MembersData = [
     name: '강한욕망',
     github: 'https://github.com/rigyeonghong',
     info: '세상아 덤벼랏!!!!!!!',
-    character: ['이중인격', '충성심폭발', '얌전'],
+    character: ['이중인격', '주인잘따름'],
   },
 
   {

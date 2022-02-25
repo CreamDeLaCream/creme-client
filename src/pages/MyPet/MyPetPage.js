@@ -32,7 +32,7 @@ const IntroPage = () => {
     <Container height="200vh">
       <Header />
       <Navbar />
-      <Text type="mainTitle" color="var(--main)">
+      <Text type="mainTitle" color="var(--blackcream)">
         나의 사랑스러운 댕댕이를
         <br />
         추가하고 감정기록들을 관리하세요.
