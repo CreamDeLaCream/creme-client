@@ -9,12 +9,12 @@ import {
   Container,
   Button,
 } from '../../common/components';
-import { MyPet } from './MyPet';
-import { Plusbutton } from './Plusbutton';
+
 import Record from './Record';
-import { MyPetList } from './MyPetList';
-import { MyPetInfo } from './MyPetInfo';
+
+import { MypetCard } from './MypetCard';
 import AnalysisData from './AnalysisData';
+import { UserCard } from './UserCard';
 
 const IntroPage = () => {
   let [petImage, setPetImage] = useState(AnalysisData);
@@ -29,7 +29,7 @@ const IntroPage = () => {
   };
 
   return (
-    <Container height="200vh">
+    <Container height="300vh">
       <Header />
       <Navbar />
       <Text type="mainTitle" color="var(--blackcream)">
@@ -37,9 +37,8 @@ const IntroPage = () => {
         <br />
         추가하고 감정기록들을 관리하세요.
       </Text>
-      <MyPetWrapper>
-        <MyPetInfo />
-      </MyPetWrapper>
+      <MypetCard />
+      <UserCard />
 
       <RecordWrapper>
         <Text type="mainTitle" color="var(--main)" padding-top="30px">
@@ -67,14 +66,6 @@ const IntroPage = () => {
   );
 };
 
-const MyPetWrapper = styled.div`
-  display: flex;
-  margin-top: 30px;
-  flex-direction: row;
-  background-color: var(--lightcream);
-  border: solid 2px var(--cream);
-  border-radius: 15px;
-`;
 const RecordWrapper = styled.div`
   margin-top: 50px;
 `;
