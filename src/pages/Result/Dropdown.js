@@ -1,6 +1,5 @@
 import React, { useRef } from 'react';
 import styled from 'styled-components';
-// import { Link } from 'react-router-dom';
 
 import { Text } from '../../common/components';
 import useDetectOutsideClick from '../../common/utils/useDetectOutsideClick';
@@ -9,11 +8,10 @@ const Dropdown = (props) => {
   const dropdownRef = useRef(null);
   const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
   const onClick = () => setIsActive(!isActive);
-  // const { children } = props;
+
   return (
     <MenuContainer>
       <TriggerButton onClick={onClick}>
-        {/* <MenuTitle>DropDown</MenuTitle> */}
         <Image
           src="https://mblogthumb-phinf.pstatic.net/20141020_84/ribbonchick_1413740254883HpC05_JPEG/01.jpg?type=w420"
           alt="arrow"
@@ -31,7 +29,6 @@ const Dropdown = (props) => {
             </Text>
           </Item>
         </MenuList>
-        {/* {children} */}
       </Nav>
     </MenuContainer>
   );
@@ -55,13 +52,6 @@ const TriggerButton = styled.button`
   /* :hover { 
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
   } */
-`;
-
-const MenuTitle = styled.span`
-  font-size: 14px;
-  font-weight: 700;
-  vertical-align: middle;
-  margin: 0 10px;
 `;
 
 const Image = styled.img`
@@ -98,7 +88,6 @@ const MenuList = styled.ul`
 const Item = styled.li`
   display: block;
   text-decoration: none;
-  /* color: #333333; */
   border-bottom: 1px solid #dddddd;
   padding: 15px 20px;
 `;
