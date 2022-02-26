@@ -47,13 +47,9 @@ const TriggerButton = styled.button`
   border: none;
   border-radius: 8px;
   background: var(--white);
-  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); */
   padding: 4px 6px;
   transition: box-shadow 0.4s ease;
   cursor: pointer;
-  /* :hover { 
-    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
-  } */
 `;
 
 const Image = styled.img`
@@ -77,7 +73,6 @@ const Nav = styled.nav`
   &.menu.active {
     opacity: 1;
     visibility: visible;
-    /* transform: translateY(0); */
   }
 `;
 
