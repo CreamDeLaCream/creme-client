@@ -44,6 +44,7 @@ const Wrapper = styled.div`
   margin: ${(props) => props.margin};
   margin-bottom: ${(props) => props.marginBottom};
   font-size: ${(props) => props.fontSize};
+  white-space: ${(props) => props.whiteSpace};
 `;
 
 export default Text;
