@@ -87,9 +87,9 @@ const InputForm = styled.input`
   ::placeholder {
     color: var(--blackcream);
   }
-  ${({ theme }) => theme.device.mobile} {
+  /* ${({ theme }) => theme.device.mobile} {
     min-width: 20rem;
-  }
+  } */
 `;
 
 export default Input;

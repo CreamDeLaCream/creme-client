@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import styled from 'styled-components';
 
-import { Text } from '../../common/components';
+import { Text, Circle } from '../../common/components';
 import useDetectOutsideClick from '../../common/utils/useDetectOutsideClick';
 
 const Dropdown = (props) => {
@@ -12,10 +12,7 @@ const Dropdown = (props) => {
   return (
     <MenuContainer>
       <TriggerButton onClick={onClick}>
-        <Image
-          src="https://mblogthumb-phinf.pstatic.net/20141020_84/ribbonchick_1413740254883HpC05_JPEG/01.jpg?type=w420"
-          alt="arrow"
-        />
+        <Circle size="9" />
       </TriggerButton>
       <Nav
         ref={dropdownRef}
@@ -50,12 +47,6 @@ const TriggerButton = styled.button`
   padding: 4px 6px;
   transition: box-shadow 0.4s ease;
   cursor: pointer;
-`;
-
-const Image = styled.img`
-  width: 8rem;
-  height: 8rem;
-  border-radius: 90px;
 `;
 
 const Nav = styled.nav`

@@ -5,6 +5,7 @@ import { actionCreators as postActions } from '../../common/redux/modules/post';
 
 // components
 import {
+  Circle,
   Container,
   Header,
   Text,
@@ -17,6 +18,7 @@ import {
 } from '../../common/components';
 import { useDropzone } from 'react-dropzone';
 import HowTo from './HowTo';
+
 // import api from '../../common/utils/API';
 
 const MainPage = (props) => {
@@ -43,21 +45,17 @@ const MainPage = (props) => {
   });
 
   const images = files.map((file) => (
-    // <div key={file.name}>
     <div>
-      {/* <div style={{ display: 'flex', justifyContent: 'center' }}> */}
       <img
         src={file.preview}
         style={{
           width: '13rem',
           height: '13rem',
           borderRadius: '13rem',
-          // border: '13px solid var(--cream)',
         }}
         alt="preview"
         center
       />
-      {/* </div> */}
     </div>
   ));
 
@@ -161,28 +159,19 @@ const MainPage = (props) => {
           </Text>
         </Grid>
 
-        <Grid is_flex>
-          <SectionWrapper>
+        <SectionWrapper>
+          <Grid >
             <Grid margin="2rem auto" display="flex" justifyContent="center">
               <div {...getRootProps()}>
                 <input {...getInputProps()} />
-                <div
-                  style={{
-                    // display: 'flex',
-                    // justifyContent: 'center',
-                    width: '15rem',
-                    height: '15rem',
-                    borderRadius: '15rem',
-                    border: '1rem solid var(--cream)',
-                  }}
-                >
+                <Circle size="15" cursor>
                   {isDragActive ? null : <div>{images}</div>}
-                </div>
+                </Circle>
               </div>
             </Grid>
-          </SectionWrapper>
+          </Grid>
 
-          <SectionWrapper>
+          <Grid>
             <Grid display="flex" justifyContent="flex-end">
               <Button
                 padding="0.5rem"
@@ -216,7 +205,7 @@ const MainPage = (props) => {
               </Grid>
             </Grid>
 
-            <Grid margin="1rem auto">
+            <Grid margin="1rem auto" width="100%">
               <Grid is_flex width="100%">
                 <ButtonWrapper {...getRootProps()}>
                   <Button
@@ -257,8 +246,8 @@ const MainPage = (props) => {
                 </ButtonWrapper>
               </Grid>
             </Grid>
-          </SectionWrapper>
-        </Grid>
+          </Grid>
+        </SectionWrapper>
       </Container>
       {modalOpen && (
         <Modal width="30rem" height="40rem" setOpenModal={setModalOpen}>
@@ -270,12 +259,28 @@ const MainPage = (props) => {
 };
 
 const SectionWrapper = styled.section`
-  width: 48%;
+  /* width: 48%; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  ${({ theme }) => theme.device.mobile} {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
 `;
 
 const ButtonWrapper = styled.div`
-  width: 48%;
   justify-content: space-between;
+  width: 48%;
+  ${({ theme }) => theme.device.mobile} {
+    width: 48%;
+    min-width: 10rem;
+  }
+  ${({ theme }) => theme.device.fold} {
+    min-width: 48%;
+  }
 `;
 
 export default MainPage;
