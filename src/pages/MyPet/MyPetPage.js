@@ -29,7 +29,7 @@ const IntroPage = () => {
   };
 
   return (
-    <Container height="300vh">
+    <Container height="400vh">
       <Header />
       <Navbar />
       <Text type="mainTitle" color="var(--blackcream)">

@@ -44,7 +44,7 @@ export const MypetCard = () => {
 
 const MyPetWrapper = styled.div`
   display: flex;
-  margin-top: 30px;
+  margin-top: 20px;
   flex-direction: row;
   background-color: var(--lightcream);
   border: solid 1px var(--cream);
@@ -53,7 +53,7 @@ const MyPetWrapper = styled.div`
 
 const MyPetInfoCard = styled.div`
   width: 100%;
-  height: 320px;
+  height: 280px;
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
@@ -67,7 +67,7 @@ const MyPetContentContainer = styled.div`
   color: var(--main);
 
   p {
-    margin-top: 30px;
+    margin-top: 15px;
     font-size: 20px;
     width: 440px;
   }
@@ -75,16 +75,15 @@ const MyPetContentContainer = styled.div`
 
 const MyPetContent = styled.div`
   margin-left: 30px;
+  width: 440px;
 `;
 
 const MyPetName = styled.div`
-  width: 440px;
   font-size: 30px;
   color: var(--darkcream);
 `;
 
 const MyPetKeyword = styled.div`
-  width: 440px;
   margin-top: 20px;
 `;
 
