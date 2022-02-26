@@ -6,6 +6,8 @@ import { Text } from '../../common/components';
 import HighlightText from '../../common/styles/HighlightText';
 
 export const Intro3rd = () => {
+  const env = process.env;
+  env.PUBLIC_URL = env.PUBLIC_URL || '';
   return (
     <IntroBg>
       <IntroTitle>
@@ -13,9 +15,14 @@ export const Intro3rd = () => {
           <HighlightText color="var(--lightcream)">반려견</HighlightText>과
           <HighlightText color="var(--lightcream)">반려인</HighlightText>에게{' '}
           <br />
-          <span style={{ color: 'var(--main)' }}>오늘의 마이펫</span>이<br />{' '}
+          <span style={{ color: 'var(--main)' }}>오늘의 마이펫</span>이 <br />
           필요한 이유
         </Text>
+        <img
+          alt=""
+          src={process.env.PUBLIC_URL + `/Image/partner2.png`}
+          width="500px"
+        ></img>
       </IntroTitle>
       <IntroContent></IntroContent>
     </IntroBg>
@@ -23,7 +30,7 @@ export const Intro3rd = () => {
 };
 
 const IntroBg = styled.div`
-  background-color: var(--lightorange);
+  background-color: var(--bgpink);
   width: 100%;
   height: 700px;
   display: flex;
@@ -34,6 +41,10 @@ const IntroTitle = styled.div`
   height: 100%;
   margin-left: 70px;
   margin-top: 80px;
+
+  img {
+    margin-top: 120px;
+  }
 `;
 
 const IntroContent = styled.div`
