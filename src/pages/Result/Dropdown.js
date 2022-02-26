@@ -34,10 +34,12 @@ const Dropdown = (props) => {
   );
 };
 
-const MenuContainer = styled.div``;
+const MenuContainer = styled.div`
+  position: relative;
+`;
 
 const TriggerButton = styled.button`
-  width: 10rem;
+  width: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -65,17 +67,17 @@ const Nav = styled.nav`
   position: absolute;
   border-radius: 8px;
   background: var(--white);
-  /* top: 70px; */
-  /* right: 0; */
+  top: 100%;
+  left: 50%;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-20px);
+  transform: translateX(-50%);
   transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
   &.menu.active {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+    /* transform: translateY(0); */
   }
 `;
 
