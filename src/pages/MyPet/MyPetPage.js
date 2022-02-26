@@ -50,7 +50,7 @@ const IntroPage = () => {
           마이펫 감정 기록
         </Text>
         <RecordCardWrapper>
-          <Record />
+          <Record petImages={petImage} />
         </RecordCardWrapper>
         <ButtonWrapper>
           <Button
@@ -61,7 +61,7 @@ const IntroPage = () => {
             size="20px"
             color="var(--white)"
             cursor
-            onClick={concatImage}
+            _onClick={concatImage}
           >
             더보기
           </Button>
