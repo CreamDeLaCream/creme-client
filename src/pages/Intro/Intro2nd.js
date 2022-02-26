@@ -2,6 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { Text } from '../../common/components';
+import HighlightText from '../../common/styles/HighlightText';
+import { Keywords } from '../../common/components/Keyword';
+import { UserKeywords } from './UserKeywords';
 
 export const Intro2nd = () => {
   return (
@@ -9,27 +12,32 @@ export const Intro2nd = () => {
       <MainDogImg>
         <img
           alt=""
-          src={process.env.PUBLIC_URL + `/Image/bgdog2.png`}
+          src={process.env.PUBLIC_URL + `/Image/partner1.png`}
           width="300px"
-          height="300px"
         />
       </MainDogImg>
       <TitleContent>
         <Text color="var(--deepcream)" fontSize="40px">
-          나의 댕댕이는 과연 <br />
+          반려인 <HighlightText color="var(--cream)">최서연</HighlightText>
+          님, <br />
+          그녀는{' '}
           <span style={{ color: 'var(--main)', fontSize: '40px' }}>
-            무슨 감정
-          </span>
-          을<br />
-          느끼고 있을까요?
+            왜
+          </span>{' '}
+          옥자와
+          <br />
+          멀어졌을까요?
         </Text>
-        <p>
+        <br />
+        <UserKeywords />
+
+        {/* <p>
           나의 사랑하는 댕댕이가 어떤 감정을 느끼고 있는지 궁금하시죠?
           <br />
           creme de la creme은 현재 댕댕이가
           <br />
           어떤 감정을 가지고 있는지 분석해드립니다.
-        </p>
+        </p> */}
       </TitleContent>
     </IntroBg>
   );
@@ -45,8 +53,9 @@ const IntroBg = styled.div`
 const TitleContent = styled.div`
   width: 500px;
   height: 100%;
-  margin-top: 150px;
-  margin-left: 30px;
+  margin-top: 100px;
+  margin-right: 70px;
+  text-align: right;
 
   p {
     // font-family: normal;

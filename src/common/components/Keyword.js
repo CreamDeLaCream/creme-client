@@ -9,7 +9,7 @@ import Button from './Button';
 export function Keywords({ typekeywords }) {
   return (
     <Button
-      width="70px"
+      // width="70px"
       height="23px"
       bg="var(--darkcream)"
       color="var(--white)"
