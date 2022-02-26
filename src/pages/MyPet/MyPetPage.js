@@ -32,13 +32,18 @@ const IntroPage = () => {
     <Container height="400vh">
       <Header />
       <Navbar />
-      <Text type="mainTitle" color="var(--blackcream)">
+      <Text type="mainTitle" color="var(--main)" padding-top="30px">
+        마이펫 / 파트너
+      </Text>
+      {/* <Text type="mainTitle" color="var(--blackcream)">
         나의 사랑스러운 댕댕이를
         <br />
         추가하고 감정기록들을 관리하세요.
-      </Text>
-      <MypetCard />
-      <UserCard />
+      </Text> */}
+      <MypetPartnerWrapper>
+        <MypetCard />
+        <UserCard />
+      </MypetPartnerWrapper>
 
       <RecordWrapper>
         <Text type="mainTitle" color="var(--main)" padding-top="30px">
@@ -66,6 +71,9 @@ const IntroPage = () => {
   );
 };
 
+const MypetPartnerWrapper = styled.div`
+  margin-top: 20px;
+`;
 const RecordWrapper = styled.div`
   margin-top: 50px;
 `;

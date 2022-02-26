@@ -11,7 +11,7 @@ import { Intro3rd } from './Intro3rd';
 const IntroPage = (props) => {
   const { history } = props;
   return (
-    <Container height="200vh">
+    <Container height="250vh">
       <Header page="headermenu" />
       <Navbar page="navbarmenu" />
       <Text type="mainTitle" color="var(--main)"></Text>

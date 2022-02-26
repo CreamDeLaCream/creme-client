@@ -15,7 +15,8 @@ export const MypetCard = () => {
           <MyPetContent>
             <p>MyPet</p>
             <MyPetName>
-              레아님의 댕댕이
+              <span style={{ color: 'var(--blackcream)' }}>레아</span>님의
+              댕댕이
               <br /> <b style={{ color: 'var(--main)' }}>SUMMER, 6살</b>
             </MyPetName>
             <MyPetKeyword>
@@ -44,7 +45,6 @@ export const MypetCard = () => {
 
 const MyPetWrapper = styled.div`
   display: flex;
-  margin-top: 20px;
   flex-direction: row;
   background-color: var(--lightcream);
   border: solid 1px var(--cream);

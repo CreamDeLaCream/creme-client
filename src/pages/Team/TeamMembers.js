@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import { Keyword } from '../../common/components';
 import { Keywords } from '../../common/components/Keyword';
-import { MyPetImages } from '../MyPet/MyPetImages';
+
 import MembersData from './MembersData';
 
 export const TeamMembers = () => {

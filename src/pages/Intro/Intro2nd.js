@@ -1,21 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Text } from '../../common/components';
+import { Text, Button } from '../../common/components';
 import HighlightText from '../../common/styles/HighlightText';
-import { Keywords } from '../../common/components/Keyword';
 import { UserKeywords } from './UserKeywords';
 
-export const Intro2nd = () => {
+export const Intro2nd = (props) => {
+  const { history } = props;
   return (
     <IntroBg>
-      <MainDogImg>
+      <MainPartnerImg>
         <img
           alt=""
           src={process.env.PUBLIC_URL + `/Image/partner1.png`}
           width="300px"
+          // style={{ margin: '50px 0 0 0' }}
         />
-      </MainDogImg>
+      </MainPartnerImg>
       <TitleContent>
         <Text color="var(--deepcream)" fontSize="40px">
           반려인 <HighlightText color="var(--cream)">최서연</HighlightText>
@@ -30,6 +31,22 @@ export const Intro2nd = () => {
         </Text>
         <br />
         <UserKeywords />
+        <Button
+          width="80px"
+          height="80px"
+          bg="var(--cream)"
+          radius="50%"
+          size="20px"
+          color="var(--deepcream)"
+          margin="20px 0 0 0"
+          _onClick={() => {
+            console.log('넘어감');
+            history.push('/mypet');
+          }}
+          cursor
+        >
+          lifestyle
+        </Button>
 
         {/* <p>
           나의 사랑하는 댕댕이가 어떤 감정을 느끼고 있는지 궁금하시죠?
@@ -46,14 +63,14 @@ export const Intro2nd = () => {
 const IntroBg = styled.div`
   background-color: var(--lightcream);
   width: 100%;
-  height: 700px;
+  height: 500px;
   display: flex;
 `;
 
 const TitleContent = styled.div`
   width: 500px;
   height: 100%;
-  margin-top: 100px;
+  margin-top: 70px;
   margin-right: 70px;
   text-align: right;
 
@@ -63,13 +80,13 @@ const TitleContent = styled.div`
   }
 `;
 
-const MainDogImg = styled.div`
+const MainPartnerImg = styled.div`
   width: 500px;
   height: 100%;
   // background-color: var(--cream);
 
   img {
-    margin-top: 120px;
+    margin-top: 80px;
     margin-left: 70px;
   }
 `;
