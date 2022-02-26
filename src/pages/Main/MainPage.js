@@ -1,9 +1,8 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-// import { createUser } from '../../common/redux/modules/userSlice';
 import { useDispatch } from 'react-redux';
 import { actionCreators as postActions } from '../../common/redux/modules/post';
-import axios from 'axios';
+
 // components
 import {
   Container,
@@ -151,7 +150,7 @@ const MainPage = (props) => {
 
   return (
     <>
-      <Container height="100vh">
+      <Container>
         <Header />
         <Navbar />
 
@@ -162,131 +161,103 @@ const MainPage = (props) => {
           </Text>
         </Grid>
 
-        <Grid margin="2rem auto" display="flex" justifyContent="center">
-          <div {...getRootProps()}>
-            <input {...getInputProps()} />
-            <div
-              style={{
-                // display: 'flex',
-                // justifyContent: 'center',
-                width: '15rem',
-                height: '15rem',
-                borderRadius: '15rem',
-                border: '1rem solid var(--cream)',
-              }}
-            >
-              {isDragActive ? null : <div>{images}</div>}
-
-              {/* <div>{images}</div> */}
-            </div>
-            {/* )} */}
-            {/* <img src={preview} alt="" /> */}
-          </div>
-        </Grid>
-
-        <Grid display="flex" justifyContent="flex-end">
-          <Button
-            padding="0.5rem"
-            bg="transparent"
-            radius="5px"
-            cursor
-            _onClick={() => {
-              setModalOpen(true);
-            }}
-          >
-            <Text type="body" color="var(--main)">
-              이미지 업로드 방식
-            </Text>
-          </Button>
-        </Grid>
-        <Grid margin="2rem auto">
-          <Grid is_flex margin="0 0 3rem 0">
-            <Input
-              placeholder="댕댕이의 이름을 입력해주세요."
-              value={name}
-              _onChange={changeName}
-            />
-          </Grid>
-
-          <Grid is_flex margin="0 0 1rem 0">
-            <Input
-              placeholder="댕댕이의 나이를 입력해주세요."
-              value={age}
-              _onChange={changeAge}
-            />
-          </Grid>
-        </Grid>
-
-        <Grid>
-          <div style={{ flexGrow: 1, margin: 'auto' }}>
-            <label htmlFor="img-upload">
-              <div>
-                <div></div>
+        <Grid is_flex>
+          <SectionWrapper>
+            <Grid margin="2rem auto" display="flex" justifyContent="center">
+              <div {...getRootProps()}>
+                <input {...getInputProps()} />
+                <div
+                  style={{
+                    // display: 'flex',
+                    // justifyContent: 'center',
+                    width: '15rem',
+                    height: '15rem',
+                    borderRadius: '15rem',
+                    border: '1rem solid var(--cream)',
+                  }}
+                >
+                  {isDragActive ? null : <div>{images}</div>}
+                </div>
               </div>
-            </label>
-          </div>
-        </Grid>
+            </Grid>
+          </SectionWrapper>
 
-        <Grid margin="1rem auto">
-          <Grid is_flex width="100%">
-            <Wrapper {...getRootProps()}>
-              {/* <Wrapper> */}
+          <SectionWrapper>
+            <Grid display="flex" justifyContent="flex-end">
               <Button
-                width="100%"
                 padding="0.5rem"
-                bg="var(--main)"
-                color="var(--white)"
+                bg="transparent"
                 radius="5px"
                 cursor
-                // _onClick={(event) => {
-                //   event.preventDefault();
-                //   fileInputRef.current.click();
-                //   uploadVideo();
-                // }}
-              >
-                {/* <div
-                style={{
-                  width: '100%',
-                  padding: '0.5rem',
-                  bg: 'var(--main)',
-                  color: 'var(--white)',
-                  borderRadius: '5px',
-                  backgroundColor: 'var(--main)',
-                  cursor: 'pointer',
-                  textAlign: 'center',
+                _onClick={() => {
+                  setModalOpen(true);
                 }}
-              > */}
-                <input
-                  id="img-upload"
-                  // accept="image/jpg, image/png, image/jpeg"
-                  type="file"
-                  capture="camera"
-                  hidden
-                />
-                <Text type="button" color="var(--white)">
-                  사진 찍기/ 업로드
-                </Text>
-                {/* </div> */}
-              </Button>
-            </Wrapper>
-
-            <Wrapper>
-              <Button
-                width="100%"
-                padding="0.5rem"
-                bg="var(--main)"
-                color="var(--white)"
-                radius="5px"
-                cursor
-                _onClick={addPost}
-                // _onClick={() => history.push('/result')}
               >
-                <Text type="button" color="var(--white)">
-                  분석 시작
+                <Text type="body" color="var(--main)">
+                  이미지 업로드 방식
                 </Text>
               </Button>
-            </Wrapper>
-          </Grid>
+            </Grid>
+            <Grid margin="2rem auto">
+              <Grid is_flex margin="0 0 3rem 0">
+                <Input
+                  placeholder="댕댕이의 이름을 입력해주세요."
+                  value={name}
+                  _onChange={changeName}
+                />
+              </Grid>
+
+              <Grid is_flex margin="0 0 1rem 0">
+                <Input
+                  placeholder="댕댕이의 나이를 입력해주세요."
+                  value={age}
+                  _onChange={changeAge}
+                />
+              </Grid>
+            </Grid>
+
+            <Grid margin="1rem auto">
+              <Grid is_flex width="100%">
+                <ButtonWrapper {...getRootProps()}>
+                  <Button
+                    width="100%"
+                    padding="0.5rem"
+                    bg="var(--main)"
+                    color="var(--white)"
+                    radius="5px"
+                    cursor
+                  >
+                    <input
+                      id="img-upload"
+                      // accept="image/jpg, image/png, image/jpeg"
+                      type="file"
+                      capture="camera"
+                      hidden
+                    />
+                    <Text type="button" color="var(--white)">
+                      사진 찍기/ 업로드
+                    </Text>
+                  </Button>
+                </ButtonWrapper>
+
+                <ButtonWrapper>
+                  <Button
+                    width="100%"
+                    padding="0.5rem"
+                    bg="var(--main)"
+                    color="var(--white)"
+                    radius="5px"
+                    cursor
+                    _onClick={addPost}
+                  >
+                    <Text type="button" color="var(--white)">
+                      분석 시작
+                    </Text>
+                  </Button>
+                </ButtonWrapper>
+              </Grid>
+            </Grid>
+          </SectionWrapper>
         </Grid>
       </Container>
       {modalOpen && (
@@ -298,7 +269,11 @@ const MainPage = (props) => {
   );
 };
 
-const Wrapper = styled.div`
+const SectionWrapper = styled.section`
+  width: 48%;
+`;
+
+const ButtonWrapper = styled.div`
   width: 48%;
   justify-content: space-between;
 `;
