@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { actionCreators as postActions } from '../../common/redux/modules/post';
 import BarChart from './BarChart';
-import { Bar } from 'react-chartjs-2';
+// import { Bar } from 'react-chartjs-2';
 
 // components
 import {
@@ -106,6 +106,10 @@ const ResultPage = (props) => {
             </Grid>
           </Grid>
         </Grid>
+        <Grid>
+          <BarChart />
+        </Grid>
+
         <Grid margin="2rem auto">
           <Text type="subTitle" color="var(--main)" marginBottom="15px">
             현재 {resultData[0].dog_name}의 감정 상태
@@ -190,8 +194,6 @@ const ResultPage = (props) => {
               </Text>
             </Button>
           </Grid>
-
-          {/* <BarChart /> */}
         </Grid>
       </Container>
 
