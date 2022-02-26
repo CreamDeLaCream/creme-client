@@ -6,10 +6,15 @@ import styled from 'styled-components';
 import { Keyword } from '../../common/components';
 import { Button } from '../../common/components';
 import { MyPetImages } from './MyPetImages';
+import PetListButton from './PetListButton';
 
-export const MypetCard = () => {
+export const MypetCard = ({ myPetData, cardNum, onClickAnotherCard }) => {
   return (
     <MyPetWrapper>
+      <PetListButton
+        cardNum={cardNum}
+        onClickAnotherCard={onClickAnotherCard}
+      />
       <MyPetInfoCard>
         <MyPetContentContainer>
           <MyPetContent>
@@ -17,23 +22,34 @@ export const MypetCard = () => {
             <MyPetName>
               <span style={{ color: 'var(--blackcream)' }}>레아</span>님의
               댕댕이
-              <br /> <b style={{ color: 'var(--main)' }}>SUMMER, 6살</b>
+              <br />{' '}
+              <b style={{ color: 'var(--main)' }}>
+                {myPetData.name}, {myPetData.age}살
+              </b>
             </MyPetName>
             <MyPetKeyword>
-              <Keyword />
+              <Keyword keywordList={myPetData.character} />
             </MyPetKeyword>
             <CurrentEmotion>
               오늘의 댕댕이 감정상태는?
-              <Button
-                width="70px"
-                height="23px"
-                bg="var(--cream)"
-                color="var(--main)"
-                radius="10px"
-                margin="0 0 0 5px"
-              >
-                Test Go!
-              </Button>
+              {myPetData.emotionState === null ? (
+                <>
+                  <Button
+                    width="70px"
+                    height="23px"
+                    bg="var(--cream)"
+                    color="var(--main)"
+                    radius="10px"
+                    margin="0 0 0 5px"
+                  >
+                    Test Go!
+                  </Button>
+                </>
+              ) : (
+                <span style={{ marginLeft: '5px' }}>
+                  {myPetData.emotionState}
+                </span>
+              )}
             </CurrentEmotion>
           </MyPetContent>
         </MyPetContentContainer>

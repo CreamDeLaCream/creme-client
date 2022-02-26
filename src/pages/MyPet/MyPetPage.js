@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
+// Data
+import MyPetData from '../../common/components/MyPetData';
+
 // components
 import {
   Header,
@@ -27,6 +30,14 @@ const IntroPage = () => {
     //   setCard(temp);
     // })
   };
+  let [myPetData, setMyPetData] = useState(MyPetData[0]);
+  const [cardNum, setCardNum] = useState(0);
+  const onClickAnotherCard = (num) => {
+    if (cardNum !== num) {
+      setCardNum(num);
+      setMyPetData(MyPetData[num]);
+    }
+  };
 
   return (
     <Container height="400vh">
@@ -41,7 +52,11 @@ const IntroPage = () => {
         추가하고 감정기록들을 관리하세요.
       </Text> */}
       <MypetPartnerWrapper>
-        <MypetCard />
+        <MypetCard
+          myPetData={myPetData}
+          cardNum={cardNum}
+          onClickAnotherCard={onClickAnotherCard}
+        />
         <UserCard />
       </MypetPartnerWrapper>
 
