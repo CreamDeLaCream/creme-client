@@ -16,7 +16,7 @@ export function Keywords({ typekeywords }) {
       radius="10px"
       margin="0 5px 3px 0"
     >
-      {typekeywords}
+      <span style={{ fontFamily: 'IBM Plex Sans KR' }}>{typekeywords}</span>
     </Button>
   );
 }

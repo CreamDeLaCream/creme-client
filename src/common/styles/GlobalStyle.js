@@ -6,7 +6,7 @@ const GlobalStyle = createGlobalStyle`
         --lightorange: #fae5d6;
         --darkmain: #c65c31;
         --cream: #f5e9d5;
-        --lightcream: #fdf7ec;
+        --lightcream: #fdf7f1;
         --darkcream: #d6b4a1;
         --blackcream: #927d71;
         --deepcream: #6c584d;
@@ -16,10 +16,10 @@ const GlobalStyle = createGlobalStyle`
         --lightgray: #fff7ea;
         --bggray: #fffdfa;
     }
-
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
   * {
-        font-family: 'Jua', sans-serif;
+        font-family: 'Jua';
         box-sizing: border-box;
     }
 
@@ -27,6 +27,7 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0;
     }
+
 
 `;
 
