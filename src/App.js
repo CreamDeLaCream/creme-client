@@ -4,6 +4,7 @@ import GlobalStyle from './common/styles/GlobalStyle';
 import { Switch, Route } from 'react-router-dom';
 import { ConnectedRouter } from 'connected-react-router';
 import { history } from './common/redux/configureStore';
+import ScrollToTop from './common/utils/ScrollToTop';
 // import { useDispatch, useSelector } from 'react-redux';
 
 // pages
@@ -32,6 +33,7 @@ function App() {
         <GlobalStyle />
         {/* <Center> */}
         <Template>
+          <ScrollToTop />
           <Switch>
             <Route exact path="/" component={IntroPage} />
             <Route exact path="/main" component={MainPage} />
