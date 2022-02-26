@@ -85,7 +85,7 @@ const InputForm = styled.input`
     }
   }
   ::placeholder {
-    color: var(--main);
+    color: var(--blackcream);
   }
   ${({ theme }) => theme.device.mobile} {
     min-width: 20rem;

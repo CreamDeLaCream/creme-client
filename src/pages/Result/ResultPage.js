@@ -71,6 +71,9 @@ const ResultPage = (props) => {
           <Text type="subTitle">
             <Keyword />
           </Text>
+          <Text type="subTitle">
+            <Keyword />
+          </Text>
         </Grid>
 
         <Grid margin="2rem auto">

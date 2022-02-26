@@ -11,7 +11,7 @@ const TeamPage = () => {
       <Container height="100vh">
         <Header />
         <Navbar />
-        <Text type="mainTitle" color="var(--main)">
+        <Text type="mainTitle" color="var(--blackcream)">
           Elice 3기 14팀 Creme de la Creme의 멤버를 소개합니다.
         </Text>
         <TeamMemberWrapper>

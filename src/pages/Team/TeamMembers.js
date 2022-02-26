@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import { Keyword } from '../../common/components';
-import { MyPetImages } from '../MyPet/MyPetImages';
+import { Keywords } from '../../common/components/Keyword';
+
 import MembersData from './MembersData';
 
 export const TeamMembers = () => {
@@ -19,7 +19,9 @@ export const TeamMembers = () => {
               <br /> <b style={{ color: 'var(--main)' }}>{membersdatas.name}</b>
             </MemberName>
             <KeywordWrapper>
-              <Keyword />
+              {membersdatas.character.map((memberscharacter, i) => {
+                return <Keywords typekeywords={memberscharacter} />;
+              })}
             </KeywordWrapper>
             <TeamInfo>
               {membersdatas.info} <br /> {membersdatas.github}
@@ -67,7 +69,7 @@ const MembersImage = styled.div`
   // positon: absolute;
   // vertical-align: middle;
   margin-right: 50px;
-  margin-top: 10px;
+  margin-top: 17px;
 `;
 
 const MyPetImage = styled.div`
