@@ -22,8 +22,8 @@ export const Intro1st = (props) => {
           을<br />
           느끼고 있을까요?
         </Text>
-        <p>
-          나의 사랑하는 댕댕이가 오늘은 어떤 감정을 느끼고 있는지 궁금하시죠?
+        <p style={{ fontFamily: 'IBM Plex Sans KR' }}>
+          나의 댕댕이가 오늘은 어떤 감정을 느끼고 있는지 궁금하시죠?
           <br />
           혹시, 가까웠던 댕댕이와의 관계가 소홀해지셨나요?
           <br />
