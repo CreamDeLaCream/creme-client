@@ -5,7 +5,7 @@ const BarChart = () => {
   return (
     <div>
       <Bar
-        type="bar"
+        // type="bar"
         data={{
           labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
           datasets: [

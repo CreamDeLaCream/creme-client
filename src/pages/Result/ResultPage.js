@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { actionCreators as postActions } from '../../common/redux/modules/post';
-import BarChart from './BarChart.js';
-
+import BarChart from './BarChart';
+import { Bar } from 'react-chartjs-2';
 // components
 import {
   Text,
@@ -182,7 +182,7 @@ const ResultPage = (props) => {
             </Button>
           </Grid>
 
-          <BarChart />
+          {/* <BarChart /> */}
         </Grid>
       </Container>
 
