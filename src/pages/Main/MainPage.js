@@ -150,7 +150,7 @@ const MainPage = (props) => {
         <Navbar />
 
         <Grid margin="2rem auto">
-          <Text type="mainTitle" color="var(--main)">
+          <Text type="mainTitle" color="var(--blackcream)">
             반려견과 반려인의 첫 걸음,
             <br /> 지금 당신의 반려견 감정 상태를 분석해보세요.
           </Text>

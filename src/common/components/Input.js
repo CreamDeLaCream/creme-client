@@ -61,7 +61,7 @@ const TextareaForm = styled.textarea`
     }
   }
   ::placeholder {
-    color: var(--main);
+    color: var(--blackcream);
     text-align: center;
     padding: 1rem 0 0 0;
   }
@@ -85,7 +85,7 @@ const InputForm = styled.input`
     }
   }
   ::placeholder {
-    color: var(--main);
+    color: var(--blackcream);
   }
   ${({ theme }) => theme.device.mobile} {
     min-width: 20rem;

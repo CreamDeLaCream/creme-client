@@ -9,16 +9,16 @@ export const MyPetImages = () => {
       <img
         alt=""
         src={process.env.PUBLIC_URL + `/Image/cat0.png`}
-        width="300px"
-        height="300px"
+        width="250px"
+        height="250px"
       />
     </MyPetImage>
   );
 };
 
 const MyPetImage = styled.div`
-  width: 280px;
-  height: 280px;
+  width: 260px;
+  height: 260px;
   border-radius: 50%;
   border: 13px solid var(--cream);
   background-color: var(--main);
@@ -26,5 +26,4 @@ const MyPetImage = styled.div`
   // positon: absolute;
   // vertical-align: middle;
   margin-right: 50px;
-  margin-top: 10px;
 `;

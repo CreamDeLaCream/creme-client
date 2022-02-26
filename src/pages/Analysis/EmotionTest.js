@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 // Compo
@@ -44,23 +44,47 @@ export const EmotionTest = () => {
     },
   ];
 
-  function AnswerList({ answerlist }) {
+  const [testAnswer, setTestAnswer] = useState({
+    0: null,
+    1: null,
+    2: null,
+    3: null,
+  });
+
+  console.log(testAnswer);
+
+  const clickButton = (name, value) => {
+    setTestAnswer((prev) => {
+      return {
+        ...prev,
+        [name]: value,
+      };
+    });
+  };
+
+  function AnswerList({ answerlist, clickButton, questionNum, answerNum }) {
     return (
       <Button
         width="80px"
         height="80px"
-        bg="var(--cream)"
+        bg={
+          testAnswer[questionNum] === answerNum ? 'var(--main)' : 'var(--cream)'
+        }
         radius="50%"
         color="var(--darkcream)"
         size="15px"
         margin="0 10px 0 0"
+        cursor="pointer"
+        _onClick={() => {
+          clickButton(questionNum, answerNum);
+        }}
       >
         {answerlist.emotion}
       </Button>
     );
   }
 
-  function TestList({ questionlist }) {
+  function TestList({ questionlist, questionNum, clickButton }) {
     return (
       <EmotionTestWapper>
         <Text type="subTitle" color="var(--darkcream)" margin="45px 0 0 0">
@@ -68,7 +92,14 @@ export const EmotionTest = () => {
         </Text>
         <TestContent>
           {questionlist.answer.map((answerlist, index) => {
-            return <AnswerList answerlist={answerlist} />;
+            return (
+              <AnswerList
+                answerlist={answerlist}
+                clickButton={clickButton}
+                questionNum={questionNum}
+                answerNum={index}
+              />
+            );
           })}
         </TestContent>
       </EmotionTestWapper>
@@ -78,7 +109,13 @@ export const EmotionTest = () => {
   return (
     <>
       {testQnA.map((questionlist, index) => {
-        return <TestList questionlist={questionlist} />;
+        return (
+          <TestList
+            questionlist={questionlist}
+            questionNum={index}
+            clickButton={clickButton}
+          />
+        );
       })}
     </>
   );
@@ -87,9 +124,9 @@ export const EmotionTest = () => {
 const EmotionTestWapper = styled.div`
   width: 470px;
   height: 230px;
-  background-color: var(--lightcream);
+  background-color: var(—lightcream);
   border-radius: 30px;
-  border: 2px solid var(--cream);
+  border: 2px solid var(—cream);
   margin-top: 25px;
 
   display: flex;
