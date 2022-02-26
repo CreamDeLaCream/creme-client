@@ -10,8 +10,8 @@ export default function PetListButton({ cardNum, onClickAnotherCard }) {
           console.log('hi');
           onClickAnotherCard(0);
         }}
-        width="15px"
-        height="15px"
+        width="13px"
+        height="13px"
         radius="50%"
         bg={cardNum === 0 ? 'var(--deepcream)' : 'var(--darkcream)'}
       />
@@ -19,8 +19,8 @@ export default function PetListButton({ cardNum, onClickAnotherCard }) {
         _onClick={() => {
           onClickAnotherCard(1);
         }}
-        width="15px"
-        height="15px"
+        width="13px"
+        height="13px"
         radius="50%"
         bg={cardNum === 1 ? 'var(--deepcream)' : 'var(--darkcream)'}
       />
@@ -31,11 +31,11 @@ export default function PetListButton({ cardNum, onClickAnotherCard }) {
 const PetListButtonWrapper = styled.div`
   position: absolute;
 
-  top: 100px;
-  right: 50px;
+  top: 110px;
+  right: 55px;
 
-  width: 35px;
-  height: 20px;
+  width: 30px;
+  height: 12px;
 
   display: flex;
   justify-content: space-between;

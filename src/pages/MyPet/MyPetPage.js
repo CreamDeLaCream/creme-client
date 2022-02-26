@@ -40,7 +40,7 @@ const IntroPage = () => {
   };
 
   return (
-    <Container height="400vh">
+    <Container height="200vh">
       <Header />
       <Navbar />
       <Text type="mainTitle" color="var(--main)" padding-top="30px">
