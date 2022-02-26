@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { actionCreators as postActions } from '../../common/redux/modules/post';
 import BarChart from './BarChart';
 import { Bar } from 'react-chartjs-2';
+
 // components
 import {
   Text,
@@ -14,11 +15,11 @@ import {
   Container,
   Input,
   Modal,
-  Keyword,
 } from '../../common/components';
 import Dropdown from '../Result/Dropdown';
 import AddPetModal from '../MyPet/AddPetModal';
 import { resultData } from './ResultData';
+import { Keywords } from '../../common/components/Keyword';
 
 const ResultPage = (props) => {
   const { history } = props;
@@ -69,10 +70,7 @@ const ResultPage = (props) => {
             {resultData[0].dog_name}, {resultData[0].dog_age}살
           </Text>
           <Text type="subTitle">
-            <Keyword />
-          </Text>
-          <Text type="subTitle">
-            <Keyword />
+            <Keywords typekeywords={resultData[0].dog.emotion} />
           </Text>
         </Grid>
 
@@ -93,8 +91,18 @@ const ResultPage = (props) => {
             </Grid>
 
             <Grid width="40rem">
-              <EmotionBox>지루함 50%</EmotionBox>
-              <EmotionBox>행복함 50%</EmotionBox>
+              <Grid is_flex_start>
+                <EmotionBox>{resultData[0].dog.emotion}</EmotionBox>
+                <Text margin="0 0 0 1rem">
+                  {Math.round(resultData[0].dog.prob * 100)}%
+                </Text>
+              </Grid>
+              <Grid is_flex_start>
+                <EmotionBox>{resultData[0].human_emotion.emotion}</EmotionBox>
+                <Text margin="0 0 0 1rem">
+                  {Math.round(resultData[0].human_emotion.prob * 100)}%
+                </Text>
+              </Grid>
             </Grid>
           </Grid>
         </Grid>
@@ -129,8 +137,6 @@ const ResultPage = (props) => {
             {resultData[0].dog_name}에게 필요한 것
           </Text>
           <Grid is_flex margin="0 0 3rem 0">
-            <Dropdown />
-            <Dropdown />
             <Dropdown />
             <Dropdown />
             <Dropdown />
