@@ -48,7 +48,7 @@ const Input = (props) => {
 };
 
 const TextareaForm = styled.textarea`
-  border: 2px solid var(--lightgray);
+  border: 2px solid var(--cream);
   width: 100%;
   font-size: 1.1rem;
   color: gray;
@@ -61,7 +61,7 @@ const TextareaForm = styled.textarea`
     }
   }
   ::placeholder {
-    color: var(--blackcream);
+    color: var(--deepcream);
     text-align: center;
     padding: 1rem 0 0 0;
   }
@@ -73,7 +73,7 @@ const TextareaForm = styled.textarea`
 const InputForm = styled.input`
   width: 100%;
   height: 2.4rem;
-  border: 2px solid var(--lightgray);
+  border: 2px solid var(--cream);
   border-radius: 5px;
   padding: 0px 0px 0px 5px;
   font-size: 1.1rem;

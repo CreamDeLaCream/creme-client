@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 // import { createUser } from '../../common/redux/modules/userSlice';
 import { useDispatch } from 'react-redux';
 import { actionCreators as postActions } from '../../common/redux/modules/post';
-
+import axios from 'axios';
 // components
 import {
   Container,
@@ -30,8 +30,8 @@ const MainPage = (props) => {
   // 업로드 방식 모달
   const [modalOpen, setModalOpen] = useState(false);
 
-  const { getRootProps, getInputProps } = useDropzone({
-    accept: 'image/*',
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    accept: 'image/jpg, image/png, image/jpeg',
     onDrop: (acceptedFiles) => {
       setFiles(
         acceptedFiles.map((file) =>
@@ -44,15 +44,21 @@ const MainPage = (props) => {
   });
 
   const images = files.map((file) => (
-    <div key={file.name}>
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <img
-          src={file.preview}
-          style={{ width: '250px' }}
-          alt="preview"
-          center
-        />
-      </div>
+    // <div key={file.name}>
+    <div>
+      {/* <div style={{ display: 'flex', justifyContent: 'center' }}> */}
+      <img
+        src={file.preview}
+        style={{
+          width: '13rem',
+          height: '13rem',
+          borderRadius: '13rem',
+          // border: '13px solid var(--cream)',
+        }}
+        alt="preview"
+        center
+      />
+      {/* </div> */}
     </div>
   ));
 
@@ -89,6 +95,7 @@ const MainPage = (props) => {
 
   const _session_key = null;
   const is_login = sessionStorage.getItem(_session_key);
+
   if (is_login)
     <Container height="100vh">
       <Header />
@@ -117,7 +124,6 @@ const MainPage = (props) => {
             color="var(--white)"
             radius="5px"
             cursor
-            mobileWidth
             // 중간 점검 이후 변경 예정
             // _onClick={() => history.push('/login')}
           >
@@ -156,9 +162,26 @@ const MainPage = (props) => {
           </Text>
         </Grid>
 
-        <Grid margin="2rem auto">
-          {/* <input {...getInputProps()} /> */}
-          <div>{images}</div>
+        <Grid margin="2rem auto" display="flex" justifyContent="center">
+          <div {...getRootProps()}>
+            <input {...getInputProps()} />
+            <div
+              style={{
+                // display: 'flex',
+                // justifyContent: 'center',
+                width: '15rem',
+                height: '15rem',
+                borderRadius: '15rem',
+                border: '1rem solid var(--cream)',
+              }}
+            >
+              {isDragActive ? null : <div>{images}</div>}
+
+              {/* <div>{images}</div> */}
+            </div>
+            {/* )} */}
+            {/* <img src={preview} alt="" /> */}
+          </div>
         </Grid>
 
         <Grid display="flex" justifyContent="flex-end">
@@ -207,6 +230,7 @@ const MainPage = (props) => {
         <Grid margin="1rem auto">
           <Grid is_flex width="100%">
             <Wrapper {...getRootProps()}>
+              {/* <Wrapper> */}
               <Button
                 width="100%"
                 padding="0.5rem"
@@ -214,12 +238,35 @@ const MainPage = (props) => {
                 color="var(--white)"
                 radius="5px"
                 cursor
-                // 중간 점검 이후 변경 예정
-                // _onClick={() => history.push('/login')}
+                // _onClick={(event) => {
+                //   event.preventDefault();
+                //   fileInputRef.current.click();
+                //   uploadVideo();
+                // }}
               >
+                {/* <div
+                style={{
+                  width: '100%',
+                  padding: '0.5rem',
+                  bg: 'var(--main)',
+                  color: 'var(--white)',
+                  borderRadius: '5px',
+                  backgroundColor: 'var(--main)',
+                  cursor: 'pointer',
+                  textAlign: 'center',
+                }}
+              > */}
+                <input
+                  id="img-upload"
+                  // accept="image/jpg, image/png, image/jpeg"
+                  type="file"
+                  capture="camera"
+                  hidden
+                />
                 <Text type="button" color="var(--white)">
                   사진 찍기/ 업로드
                 </Text>
+                {/* </div> */}
               </Button>
             </Wrapper>
 

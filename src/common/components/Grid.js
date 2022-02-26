@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const Grid = (props) => {
   const {
+    border,
     flexDirection,
     display,
     justifyContent,
@@ -21,6 +22,7 @@ const Grid = (props) => {
   } = props;
 
   const styles = {
+    border: border,
     flexDirection: flexDirection,
     display: display,
     justifyContent: justifyContent,
@@ -59,6 +61,7 @@ const GridBox = styled.div`
   box-sizing: border-box;
   ${(props) =>
     props.flexDirection ? `flex-direction: ${props.flexDirection};` : ''}
+  ${(props) => (props.border ? `border: ${props.border};` : '')}
   ${(props) => (props.display ? `display: ${props.display};` : '')}
   ${(props) => (props.alignItems ? `align-items: ${props.alignItems};` : '')}
   ${(props) =>
