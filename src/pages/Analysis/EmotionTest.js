@@ -71,7 +71,11 @@ export const EmotionTest = () => {
           testAnswer[questionNum] === answerNum ? 'var(--main)' : 'var(--cream)'
         }
         radius="50%"
-        color="var(--darkcream)"
+        color={
+          testAnswer[questionNum] === answerNum
+            ? 'var(--white)'
+            : 'var(--darkcream)'
+        }
         size="15px"
         margin="0 10px 0 0"
         cursor="pointer"
