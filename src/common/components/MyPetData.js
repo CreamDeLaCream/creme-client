@@ -13,6 +13,7 @@ export const MyPetData = [
       '충성심폭발',
     ],
     emotionState: null,
+    imgUrl: '/Image/cat0.png',
   },
   {
     id: 1,
@@ -28,6 +29,7 @@ export const MyPetData = [
       '충성심폭발',
     ],
     emotionState: 'happy',
+    imgUrl: '/Image/cat1.png',
   },
 ];
 

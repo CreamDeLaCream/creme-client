@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export const MyPetImages = () => {
+export const MyPetImages = ({ imgUrl }) => {
   const env = process.env;
   env.PUBLIC_URL = env.PUBLIC_URL || '';
   return (
     <MyPetImage>
       <img
         alt=""
-        src={process.env.PUBLIC_URL + `/Image/cat0.png`}
+        src={process.env.PUBLIC_URL + `${imgUrl}`}
         width="250px"
         height="250px"
       />

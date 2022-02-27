@@ -59,7 +59,7 @@ export const MypetCard = ({ myPetData, cardNum, onClickAnotherCard }) => {
             </CurrentEmotion>
           </MyPetContent>
         </MyPetContentContainer>
-        <MyPetImages />
+        <MyPetImages imgUrl={myPetData.imgUrl} />
       </MyPetInfoCard>
     </MyPetWrapper>
   );
