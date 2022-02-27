@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
 
-// Data
-import KeywordData from './KeywordData';
-
 // Components
 import Button from './Button';
 
@@ -24,16 +21,12 @@ export function Keywords({ typekeywords }) {
 // character가 없을 경우엔 typekeywords를 쓰겠다.
 // keyword 랑 keywords 변경
 
-const Keyword = () => {
-  let [keywordList, setKeywordList] = useState(KeywordData);
-
+const Keyword = ({ keywordList }) => {
   return (
     <>
-      {keywordList
-        .map((e) => e.character)
-        .map((typekeywords, i) => {
-          return <Keywords typekeywords={typekeywords} />;
-        })}
+      {keywordList.map((typekeywords, i) => {
+        return <Keywords typekeywords={typekeywords} />;
+      })}
     </>
   );
 };

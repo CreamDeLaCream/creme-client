@@ -4,8 +4,7 @@ import styled from 'styled-components';
 // Data
 import AnalysisData from './AnalysisData';
 
-const Record = ({ recordcards }) => {
-  let [recordImage, setRecordImage] = useState(AnalysisData);
+const Record = ({ petImages }) => {
   const env = process.env;
   env.PUBLIC_URL = env.PUBLIC_URL || '';
 
@@ -28,7 +27,7 @@ const Record = ({ recordcards }) => {
   }
   return (
     <>
-      {recordImage.map((recordcards, i) => {
+      {petImages.map((recordcards, i) => {
         return <ImageList recordcards={recordcards} />;
       })}
     </>
