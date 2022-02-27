@@ -91,7 +91,7 @@ const ResultPage = (props) => {
             </Grid>
 
             <Grid width="40rem">
-              <Grid is_flex_start>
+              {/* <Grid is_flex_start>
                 <EmotionBox>{resultData[0].dog.emotion}</EmotionBox>
                 <Text margin="0 0 0 1rem">
                   {Math.round(resultData[0].dog.prob * 100)}%
@@ -102,12 +102,10 @@ const ResultPage = (props) => {
                 <Text margin="0 0 0 1rem">
                   {Math.round(resultData[0].human_emotion.prob * 100)}%
                 </Text>
-              </Grid>
+              </Grid> */}
+              <BarChart />
             </Grid>
           </Grid>
-        </Grid>
-        <Grid>
-          <BarChart />
         </Grid>
 
         <Grid margin="2rem auto">

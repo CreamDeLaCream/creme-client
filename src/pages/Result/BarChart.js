@@ -20,55 +20,80 @@ ChartJS.register(
 );
 
 const BarChart = () => {
-  const options = {
-    indexAxis: 'y',
-    elements: {
-      bar: {
+  const data = {
+    type: 'bar',
+    labels: [''],
+    datasets: [
+      {
+        label: '지루함',
+        data: [20],
+        // 바탕색
+        backgroundColor: ['rgba(255, 206, 86, 0.2)', 'rgba(75, 192, 192, 0.2)'],
+        // 테두리색
+        borderColor: ['rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'],
+        // 테두리 선 굵기
         borderWidth: 2,
       },
-    },
+      {
+        label: '행복함',
+        data: [80],
+        backgroundColor: ['rgba(75, 192, 192, 0.2)'],
+        borderColor: ['rgba(75, 192, 192, 1)'],
+        borderWidth: 2,
+      },
+    ],
+  };
+
+  const options = {
+    indexAxis: 'y',
     responsive: true,
     plugins: {
       legend: {
-        position: 'right',
+        // position: 'right',
+        display: false,
       },
       title: {
-        display: true,
+        display: false,
         text: 'Chart.js Horizontal Bar Chart',
+      },
+    },
+    options: {
+      scales: {
+        xAxes: [
+          {
+            gridLines: {
+              display: false,
+              // drawBorder: false,
+              // borderDash: [3, 3],
+              // zeroLineColor: 'blue',
+            },
+
+            categoryPercentage: 0.7,
+            barPercentage: 0.9,
+            ticks: {
+              beginAtZero: true,
+            },
+          },
+        ],
+        yAxes: [
+          {
+            display: false,
+            gridLines: {
+              display: false,
+              // zeroLineColor: 'transparent',
+            },
+            ticks: {
+              beginAtZero: true,
+            },
+          },
+        ],
       },
     },
   };
 
   return (
     <div>
-      <Bar
-        options={options}
-        type="horizontalBar"
-        data={{
-          labels: ['Yellow', 'Green'],
-          options: {
-            elements: {
-              bar: {
-                borderWidth: 2,
-              },
-            },
-          },
-          datasets: [
-            {
-              label: '# of votes',
-              data: [12, 19, 3, 5, 2, 3],
-              backgroundColor: [
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-              ],
-              borderColor: ['rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)'],
-              // borderWidth: 2,
-            },
-          ],
-        }}
-        height={50}
-        width={50}
-      />
+      <Bar data={data} options={options} height={3} width={10} />
     </div>
   );
 };
