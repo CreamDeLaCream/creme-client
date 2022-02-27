@@ -1,36 +1,36 @@
 export const MyPetData = [
-  {
-    id: 0,
-    name: 'SUMMER',
-    age: 6,
-    character: [
-      '애교많음',
-      '관종',
-      '게으름',
-      '얌전',
-      '주인잘따름',
-      '개쫄보',
-      '충성심폭발',
-    ],
-    emotionState: null,
-    imgUrl: '/Image/cat0.png',
-  },
-  {
-    id: 1,
-    name: 'lulu',
-    age: 6,
-    character: [
-      '애교많음',
-      '얌전',
-      '똑똑',
-      '주인잘따름',
-      '이중인격',
-      '개쫄보',
-      '충성심폭발',
-    ],
-    emotionState: 'happy',
-    imgUrl: '/Image/cat1.png',
-  },
+  // {
+  //   id: 0,
+  //   name: 'SUMMER',
+  //   age: 6,
+  //   character: [
+  //     '애교많음',
+  //     '관종',
+  //     '게으름',
+  //     '얌전',
+  //     '주인잘따름',
+  //     '개쫄보',
+  //     '충성심폭발',
+  //   ],
+  //   emotionState: null,
+  //   imgUrl: '/Image/cat0.png',
+  // },
+  // {
+  //   id: 1,
+  //   name: 'lulu',
+  //   age: 6,
+  //   character: [
+  //     '애교많음',
+  //     '얌전',
+  //     '똑똑',
+  //     '주인잘따름',
+  //     '이중인격',
+  //     '개쫄보',
+  //     '충성심폭발',
+  //   ],
+  //   emotionState: 'happy',
+  //   imgUrl: '/Image/cat1.png',
+  // },
 ];
 
 // '애교많음','관종', '게으름', '얌전', '똑똑', '주인잘따름','이중인격','개쫄보','충성심폭발'

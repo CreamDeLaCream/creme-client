@@ -15,52 +15,68 @@ export const MypetCard = ({ myPetData, cardNum, onClickAnotherCard }) => {
         cardNum={cardNum}
         onClickAnotherCard={onClickAnotherCard}
       />
-      <MyPetInfoCard>
-        <MyPetContentContainer>
-          <MyPetContent>
-            <p>MyPet</p>
-            <MyPetName>
-              <span style={{ color: 'var(--blackcream)' }}>레아</span>님의
-              댕댕이
-              <br />{' '}
-              <b style={{ color: 'var(--main)' }}>
-                {myPetData.name}, {myPetData.age}살
-              </b>
-            </MyPetName>
-            <MyPetKeyword>
-              <Keyword keywordList={myPetData.character} />
-            </MyPetKeyword>
-            <CurrentEmotion>
-              오늘의 댕댕이 감정상태는?
-              {myPetData.emotionState === null ? (
-                <>
+      {myPetData ? (
+        <MyPetInfoCard>
+          <MyPetContentContainer>
+            <MyPetContent>
+              <p>MyPet</p>
+              <MyPetName>
+                <span style={{ color: 'var(--blackcream)' }}>레아</span>님의
+                댕댕이
+                <br />{' '}
+                <b style={{ color: 'var(--main)' }}>
+                  {myPetData.name}, {myPetData.age}살
+                </b>
+              </MyPetName>
+              <MyPetKeyword>
+                <Keyword keywordList={myPetData.character} />
+              </MyPetKeyword>
+              <CurrentEmotion>
+                오늘의 댕댕이 감정상태는?
+                {myPetData.emotionState === null ? (
+                  <>
+                    <Button
+                      width="70px"
+                      height="23px"
+                      bg="var(--cream)"
+                      color="var(--main)"
+                      radius="10px"
+                      margin="0 0 0 5px"
+                    >
+                      Test Go!
+                    </Button>
+                  </>
+                ) : (
                   <Button
-                    width="70px"
                     height="23px"
                     bg="var(--cream)"
                     color="var(--main)"
                     radius="10px"
                     margin="0 0 0 5px"
                   >
-                    Test Go!
+                    {myPetData.emotionState}
                   </Button>
-                </>
-              ) : (
-                <Button
-                  height="23px"
-                  bg="var(--cream)"
-                  color="var(--main)"
-                  radius="10px"
-                  margin="0 0 0 5px"
-                >
-                  {myPetData.emotionState}
-                </Button>
-              )}
-            </CurrentEmotion>
-          </MyPetContent>
-        </MyPetContentContainer>
-        <MyPetImages imgUrl={myPetData.imgUrl} />
-      </MyPetInfoCard>
+                )}
+              </CurrentEmotion>
+            </MyPetContent>
+          </MyPetContentContainer>
+          <MyPetImages imgUrl={myPetData.imgUrl} />
+        </MyPetInfoCard>
+      ) : (
+        <MyPetInfoCard>
+          <MyPetContentContainer>
+            <MyPetContent>
+              <p>MyPet</p>
+              <MyPetName>
+                <span style={{ color: 'var(--blackcream)' }}>
+                  동물을 추가해주세요
+                </span>
+                <Button>추가하기</Button>
+              </MyPetName>
+            </MyPetContent>
+          </MyPetContentContainer>
+        </MyPetInfoCard>
+      )}
     </MyPetWrapper>
   );
 };

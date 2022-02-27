@@ -70,7 +70,7 @@ const ResultPage = (props) => {
           </Text>
           <Text type="subTitle">
             {/* TODO: Keyword에 props에 .character 추가하기 */}
-            <Keyword />
+            {/* <Keyword /> */}
           </Text>
         </Grid>
         <Grid margin="2rem auto">

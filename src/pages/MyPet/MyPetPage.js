@@ -18,6 +18,7 @@ import Record from './Record';
 import { MypetCard } from './MypetCard';
 import AnalysisData from './AnalysisData';
 import { UserCard } from './UserCard';
+import { useEffect } from 'react';
 
 const IntroPage = () => {
   let [petImage, setPetImage] = useState(AnalysisData);
@@ -25,11 +26,12 @@ const IntroPage = () => {
   const concatImage = () => {
     const temp = petImage.concat(AnalysisData);
     setPetImage(temp);
-    // axios.get('api/userlist/${number}').then((res) => {
-    //   const temp = card.concat(res.data.users);
+    // axios.get('api/mypet/${number}').then((res) => {
+    //   const temp = card.concat(res.data.mypetImage);
     //   setCard(temp);
     // })
   };
+  //axios 연결 하면 null 담아주기
   let [myPetData, setMyPetData] = useState(MyPetData[0]);
   const [cardNum, setCardNum] = useState(0);
   const onClickAnotherCard = (num) => {
@@ -38,6 +40,16 @@ const IntroPage = () => {
       setMyPetData(MyPetData[num]);
     }
   };
+
+  // useEffect(() => {
+  //   axios.get('/mypetdata').then((res) => {
+  //     setMyPetData(res);
+  //   });
+  // }, []);
+
+  // if (myPetData === null) {
+  //  retrun <> // 컴포넌트 넣기
+  // };
 
   return (
     <Container height="200vh">
