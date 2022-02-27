@@ -160,11 +160,11 @@ const MainPage = (props) => {
         </Grid>
 
         <SectionWrapper>
-          <Grid >
+          <Grid>
             <Grid margin="2rem auto" display="flex" justifyContent="center">
               <div {...getRootProps()}>
                 <input {...getInputProps()} />
-                <Circle size="15" cursor>
+                <Circle size="15" border="1rem solid var(--cream)" cursor>
                   {isDragActive ? null : <div>{images}</div>}
                 </Circle>
               </div>

@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import styled from 'styled-components';
 
-import { Text, Circle } from '../../common/components';
+import { Grid, Text, Circle } from '../../common/components';
 import useDetectOutsideClick from '../../common/utils/useDetectOutsideClick';
 
 const Dropdown = (props) => {
@@ -12,7 +12,9 @@ const Dropdown = (props) => {
   return (
     <MenuContainer>
       <TriggerButton onClick={onClick}>
-        <Circle size="9" />
+        <Circle size="9" border="0.7rem solid var(--cream)" is_flex_center>
+          <Text type="subTitle">산책</Text>
+        </Circle>
       </TriggerButton>
       <Nav
         ref={dropdownRef}
