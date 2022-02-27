@@ -27,23 +27,24 @@ const BarChart = () => {
       {
         label: '지루함',
         data: [20],
+
         // 바탕색
-        backgroundColor: ['rgba(255, 206, 86, 0.2)'],
-        // backgroundColor: ['rgba(214, 180, 161, 0.2)'],
+        // backgroundColor: ['rgba(255, 206, 86, 0.2)'],
+        backgroundColor: ['rgba(214, 180, 161, 1)'],
         // 테두리색
-        borderColor: ['rgba(255, 206, 86, 1)'],
+        // borderColor: ['rgba(255, 206, 86, 1)'],
         // borderColor: ['rgba(214, 180, 161, 1)'],
         // 테두리 선 굵기
-        borderWidth: 2,
+        // borderWidth: 2,
       },
       {
         label: '행복함',
         data: [80],
-        backgroundColor: ['rgba(75, 192, 192, 0.2)'],
-        // backgroundColor: ['rgba(214, 180, 161, 0.2)'],
-        borderColor: ['rgba(75, 192, 192, 1)'],
-        // borderColor: ['rgba(214, 180, 161, 1)'],
-        borderWidth: 2,
+        // backgroundColor: ['rgba(75, 192, 192, 0.2)'],
+        backgroundColor: ['rgba(246, 146, 105, 1)'],
+        // borderColor: ['rgba(75, 192, 192, 1)'],
+        // borderColor: ['rgba(246, 146, 105, 1)'],
+        // borderWidth: 2,
       },
     ],
   };
