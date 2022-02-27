@@ -69,13 +69,10 @@ const ResultPage = (props) => {
             {resultData[0].dog_name}, {resultData[0].dog_age}살
           </Text>
           <Text type="subTitle">
-            <Keyword />
-          </Text>
-          <Text type="subTitle">
-            <Keyword />
+            {/* TODO: Keyword에 props에 .character 추가하기 */}
+            {/* <Keyword /> */}
           </Text>
         </Grid>
-
         <Grid margin="2rem auto">
           <Text type="subTitle" color="var(--main)" marginBottom="2rem">
             당신이 생각하는 {resultData[0].dog_name}의 감정상태 일치도는?

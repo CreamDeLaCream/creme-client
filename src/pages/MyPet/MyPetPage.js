@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
+// Data
+import MyPetData from '../../common/components/MyPetData';
+
 // components
 import {
   Header,
@@ -15,6 +18,7 @@ import Record from './Record';
 import { MypetCard } from './MypetCard';
 import AnalysisData from './AnalysisData';
 import { UserCard } from './UserCard';
+import { useEffect } from 'react';
 
 const IntroPage = () => {
   let [petImage, setPetImage] = useState(AnalysisData);
@@ -22,14 +26,33 @@ const IntroPage = () => {
   const concatImage = () => {
     const temp = petImage.concat(AnalysisData);
     setPetImage(temp);
-    // axios.get('api/userlist/${number}').then((res) => {
-    //   const temp = card.concat(res.data.users);
+    // axios.get('api/mypet/${number}').then((res) => {
+    //   const temp = card.concat(res.data.mypetImage);
     //   setCard(temp);
     // })
   };
+  //axios 연결 하면 null 담아주기
+  let [myPetData, setMyPetData] = useState(MyPetData[0]);
+  const [cardNum, setCardNum] = useState(0);
+  const onClickAnotherCard = (num) => {
+    if (cardNum !== num) {
+      setCardNum(num);
+      setMyPetData(MyPetData[num]);
+    }
+  };
+
+  // useEffect(() => {
+  //   axios.get('/mypetdata').then((res) => {
+  //     setMyPetData(res);
+  //   });
+  // }, []);
+
+  // if (myPetData === null) {
+  //  retrun <> // 컴포넌트 넣기
+  // };
 
   return (
-    <Container height="400vh">
+    <Container height="200vh">
       <Header />
       <Navbar />
       <Text type="mainTitle" color="var(--main)" padding-top="30px">
@@ -41,7 +64,11 @@ const IntroPage = () => {
         추가하고 감정기록들을 관리하세요.
       </Text> */}
       <MypetPartnerWrapper>
-        <MypetCard />
+        <MypetCard
+          myPetData={myPetData}
+          cardNum={cardNum}
+          onClickAnotherCard={onClickAnotherCard}
+        />
         <UserCard />
       </MypetPartnerWrapper>
 
@@ -50,7 +77,7 @@ const IntroPage = () => {
           마이펫 감정 기록
         </Text>
         <RecordCardWrapper>
-          <Record />
+          <Record petImages={petImage} />
         </RecordCardWrapper>
         <ButtonWrapper>
           <Button
@@ -61,7 +88,7 @@ const IntroPage = () => {
             size="20px"
             color="var(--white)"
             cursor
-            onClick={concatImage}
+            _onClick={concatImage}
           >
             더보기
           </Button>
