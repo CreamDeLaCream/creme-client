@@ -31,8 +31,8 @@ export default function PetListButton({ cardNum, onClickAnotherCard }) {
 const PetListButtonWrapper = styled.div`
   position: absolute;
 
-  top: 110px;
-  right: 55px;
+  top: 115px;
+  right: 70px;
 
   width: 30px;
   height: 12px;

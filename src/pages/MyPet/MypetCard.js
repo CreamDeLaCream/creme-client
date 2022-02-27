@@ -46,9 +46,15 @@ export const MypetCard = ({ myPetData, cardNum, onClickAnotherCard }) => {
                   </Button>
                 </>
               ) : (
-                <span style={{ marginLeft: '5px' }}>
+                <Button
+                  height="23px"
+                  bg="var(--cream)"
+                  color="var(--main)"
+                  radius="10px"
+                  margin="0 0 0 5px"
+                >
                   {myPetData.emotionState}
-                </span>
+                </Button>
               )}
             </CurrentEmotion>
           </MyPetContent>
