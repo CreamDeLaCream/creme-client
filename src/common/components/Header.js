@@ -26,7 +26,7 @@ const Header = (props) => {
                       setModalOpen(true);
                     }}
                   >
-                    <Text width="3rem">로그인</Text>
+                    <Text whiteSpace="nowrap">로그인</Text>
                   </Item>
                 </List>
               </Nav>

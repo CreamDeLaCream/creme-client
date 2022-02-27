@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import styled from 'styled-components';
 
-import { Text } from '../../common/components';
+import { Grid, Text, Circle } from '../../common/components';
 import useDetectOutsideClick from '../../common/utils/useDetectOutsideClick';
 
 const Dropdown = (props) => {
@@ -12,10 +12,9 @@ const Dropdown = (props) => {
   return (
     <MenuContainer>
       <TriggerButton onClick={onClick}>
-        <Image
-          src="https://mblogthumb-phinf.pstatic.net/20141020_84/ribbonchick_1413740254883HpC05_JPEG/01.jpg?type=w420"
-          alt="arrow"
-        />
+        <Circle size="9" border="0.7rem solid var(--cream)" is_flex_center>
+          <Text type="subTitle">산책</Text>
+        </Circle>
       </TriggerButton>
       <Nav
         ref={dropdownRef}
@@ -34,10 +33,12 @@ const Dropdown = (props) => {
   );
 };
 
-const MenuContainer = styled.div``;
+const MenuContainer = styled.div`
+  position: relative;
+`;
 
 const TriggerButton = styled.button`
-  width: 10rem;
+  width: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -45,19 +46,9 @@ const TriggerButton = styled.button`
   border: none;
   border-radius: 8px;
   background: var(--white);
-  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); */
   padding: 4px 6px;
   transition: box-shadow 0.4s ease;
   cursor: pointer;
-  /* :hover { 
-    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
-  } */
-`;
-
-const Image = styled.img`
-  width: 8rem;
-  height: 8rem;
-  border-radius: 90px;
 `;
 
 const Nav = styled.nav`
@@ -65,17 +56,16 @@ const Nav = styled.nav`
   position: absolute;
   border-radius: 8px;
   background: var(--white);
-  /* top: 70px; */
-  /* right: 0; */
+  top: 100%;
+  left: 50%;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-20px);
+  transform: translateX(-50%);
   transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
   &.menu.active {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
   }
 `;
 

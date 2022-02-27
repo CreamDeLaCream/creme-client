@@ -8,7 +8,7 @@ export const resultData = [
     match: true,
     dog: { emotion: 'Happy', prob: 0.9054175019 },
     dog_coordinate: 'x1, y1, x2, y2',
-    human_emotion: { emotion: 'sad', prob: 0.9054175019 },
+    human_emotion: { emotion: 'sad', prob: 0.2054175019 },
     human_coordinate: 'x1, y1, x2, y2',
     emotion_description:
       '루루는 지금 행복한 감정을 느끼고 있어요. 루루는 지금 행복한 감정을 느끼고 있어요. 루루는 지금 행복한 감정을 느끼고 있어요. 루루는 지금 행복한 감정을 느끼고 있어요. 루루는 지금 행복한 감정을 느끼고 있어요. 루루는 지금 행복한 감정을 느끼고 있어요.',

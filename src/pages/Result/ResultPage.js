@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { actionCreators as postActions } from '../../common/redux/modules/post';
 import BarChart from './BarChart';
-import { Bar } from 'react-chartjs-2';
+// import { Bar } from 'react-chartjs-2';
+
 // components
 import {
   Text,
@@ -14,11 +15,11 @@ import {
   Container,
   Input,
   Modal,
-  Keyword,
 } from '../../common/components';
 import Dropdown from '../Result/Dropdown';
 import AddPetModal from '../MyPet/AddPetModal';
 import { resultData } from './ResultData';
+import { Keywords } from '../../common/components/Keyword';
 
 const ResultPage = (props) => {
   const { history } = props;
@@ -69,6 +70,7 @@ const ResultPage = (props) => {
             {resultData[0].dog_name}, {resultData[0].dog_age}살
           </Text>
           <Text type="subTitle">
+            <Keywords typekeywords={resultData[0].dog.emotion} />
             {/* TODO: Keyword에 props에 .character 추가하기 */}
             {/* <Keyword /> */}
           </Text>
@@ -90,11 +92,23 @@ const ResultPage = (props) => {
             </Grid>
 
             <Grid width="40rem">
-              <EmotionBox>지루함 50%</EmotionBox>
-              <EmotionBox>행복함 50%</EmotionBox>
+              {/* <Grid is_flex_start>
+                <EmotionBox>{resultData[0].dog.emotion}</EmotionBox>
+                <Text margin="0 0 0 1rem">
+                  {Math.round(resultData[0].dog.prob * 100)}%
+                </Text>
+              </Grid>
+              <Grid is_flex_start>
+                <EmotionBox>{resultData[0].human_emotion.emotion}</EmotionBox>
+                <Text margin="0 0 0 1rem">
+                  {Math.round(resultData[0].human_emotion.prob * 100)}%
+                </Text>
+              </Grid> */}
+              <BarChart />
             </Grid>
           </Grid>
         </Grid>
+
         <Grid margin="2rem auto">
           <Text type="subTitle" color="var(--main)" marginBottom="15px">
             현재 {resultData[0].dog_name}의 감정 상태
@@ -126,8 +140,6 @@ const ResultPage = (props) => {
             {resultData[0].dog_name}에게 필요한 것
           </Text>
           <Grid is_flex margin="0 0 3rem 0">
-            <Dropdown />
-            <Dropdown />
             <Dropdown />
             <Dropdown />
             <Dropdown />
@@ -181,8 +193,6 @@ const ResultPage = (props) => {
               </Text>
             </Button>
           </Grid>
-
-          {/* <BarChart /> */}
         </Grid>
       </Container>
 

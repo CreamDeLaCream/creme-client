@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { BsXLg } from 'react-icons/bs';
 
 const Modal = ({ setOpenModal, children, ...rest }) => {
   return (
@@ -11,7 +12,7 @@ const Modal = ({ setOpenModal, children, ...rest }) => {
               setOpenModal(false);
             }}
           >
-            X
+            <BsXLg />
           </Button>
         </TitleCloseBtn>
         <ModalContent>{children}</ModalContent>

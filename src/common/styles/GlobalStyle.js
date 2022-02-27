@@ -24,6 +24,13 @@ const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
     }
 
+    html {
+        overflow-x: hidden;
+        ${({ theme }) => theme.device.mobile} {
+            font-size: 14px;
+        }
+    }
+
     body {
         margin: 0;
         padding: 0;
