@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 
 // components
-import { Circle, Grid, Input, Button, Text } from '../../common/components';
+import { Circle, Grid, Input } from '../../common/components';
 import { useDropzone } from 'react-dropzone';
 
 const InputBox = (props) => {
@@ -12,6 +12,22 @@ const InputBox = (props) => {
   const [files, setFiles] = useState([]);
   const [age, setAge] = useState('');
   const [name, setName] = useState('');
+
+  // 이미지 업로드
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    accept: 'image/jpg, image/png, image/jpeg',
+    onDrop: (acceptedFiles) => {
+      setFiles(
+        acceptedFiles.map((file) =>
+          Object.assign(file, {
+            preview: URL.createObjectURL(file),
+          }),
+        ),
+      );
+    },
+  });
+
+  // 프리뷰
   const images = files.map((file) => (
     <div>
       <img
@@ -26,6 +42,14 @@ const InputBox = (props) => {
       />
     </div>
   ));
+
+  // 이름 및 나이 입력
+  const changeName = (e) => {
+    setName(e.target.value);
+  };
+  const changeAge = (e) => {
+    setAge(e.target.value);
+  };
 
   // const addPost = () => {
   //   if (files.length === 0) {
@@ -42,26 +66,6 @@ const InputBox = (props) => {
   //   }
   //   history.push('/analysis');
   // };
-
-  const changeName = (e) => {
-    setName(e.target.value);
-  };
-  const changeAge = (e) => {
-    setAge(e.target.value);
-  };
-
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({
-    accept: 'image/jpg, image/png, image/jpeg',
-    onDrop: (acceptedFiles) => {
-      setFiles(
-        acceptedFiles.map((file) =>
-          Object.assign(file, {
-            preview: URL.createObjectURL(file),
-          }),
-        ),
-      );
-    },
-  });
 
   return (
     <SectionWrapper>
@@ -98,6 +102,7 @@ const InputBox = (props) => {
     </SectionWrapper>
   );
 };
+
 const SectionWrapper = styled.section`
   display: flex;
   justify-content: space-between;
