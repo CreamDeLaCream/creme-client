@@ -16,8 +16,8 @@ const IntroPage = (props) => {
       <Navbar page="navbarmenu" />
       <Text type="mainTitle" color="var(--main)"></Text>
       <Intro1st history={history} />
-      <Intro2nd />
-      <Intro3rd />
+      <Intro2nd history={history} />
+      <Intro3rd history={history} />
     </Container>
   );
 };
