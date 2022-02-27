@@ -15,6 +15,8 @@ import {
   ResultPage,
   MyPetPage,
   TeamPage,
+  AddPetPage,
+  AddUserLifePage,
 } from './pages';
 import { Template } from './common/components';
 
@@ -41,6 +43,8 @@ function App() {
             <Route exact path="/result" component={ResultPage} />
             <Route exact path="/mypet" component={MyPetPage} />
             <Route exact path="/team" component={TeamPage} />
+            <Route exact path="/addpet" component={AddPetPage} />
+            <Route exact path="/adduserlife" component={AddUserLifePage} />
           </Switch>
         </Template>
         {/* </Center> */}

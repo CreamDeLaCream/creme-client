@@ -13,7 +13,11 @@ const Wrapper = styled.div`
   background-image: url('${(props) => props.src}');
   background-size: cover;
   min-width: var(--size);
-  border: 1rem solid var(--cream);
+  ${(props) => (props.border ? `border: ${props.border};` : '')}
+  ${(props) =>
+    props.is_flex_center
+      ? `display: flex; align-items: center; justify-content: center;`
+      : ''}
   ${(props) => (props.cursor ? `cursor: pointer;` : '')};
   ${({ theme }) => theme.device.mobile} {
     --size: ${(props) => props.size}rem;
