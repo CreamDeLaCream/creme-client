@@ -35,7 +35,7 @@ const BarChart = () => {
         // borderColor: ['rgba(255, 206, 86, 1)'],
         // borderColor: ['rgba(214, 180, 161, 1)'],
         // 테두리 선 굵기
-        // borderWidth: 2,
+        borderWidth: 0,
       },
       {
         label: '행복함',
@@ -44,7 +44,7 @@ const BarChart = () => {
         backgroundColor: ['rgba(246, 146, 105, 1)'],
         // borderColor: ['rgba(75, 192, 192, 1)'],
         // borderColor: ['rgba(246, 146, 105, 1)'],
-        // borderWidth: 2,
+        borderWidth: 0,
       },
     ],
   };
