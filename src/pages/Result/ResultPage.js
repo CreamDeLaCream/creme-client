@@ -20,6 +20,7 @@ import Dropdown from '../Result/Dropdown';
 import AddPetModal from '../MyPet/AddPetModal';
 import { resultData } from './ResultData';
 import { Keywords } from '../../common/components/Keyword';
+import CopyURL from './CopyURL';
 
 const ResultPage = (props) => {
   const { history } = props;
@@ -155,18 +156,7 @@ const ResultPage = (props) => {
         </Grid>
         <Grid margin="1rem auto" display="flex" justifyContent="flex-end">
           <Grid is_flex width="34rem">
-            <Button
-              width="10rem"
-              padding="0.5rem"
-              bg="var(--main)"
-              color="var(--white)"
-              radius="5px"
-              cursor
-            >
-              <Text type="button" color="var(--white)">
-                URL 복사하기
-              </Text>
-            </Button>
+            <CopyURL />
             <Button
               width="10rem"
               padding="0.5rem"
