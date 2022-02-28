@@ -1,5 +1,8 @@
 import React from 'react';
-import { Button, Text } from '../../common/components';
+
+// components
+import { Button } from '../../common/components';
+import { BsShareFill } from 'react-icons/bs';
 
 const CopyURL = () => {
   const LinkCopy = (text) => {
@@ -43,17 +46,15 @@ const CopyURL = () => {
   return (
     <>
       <Button
-        width="10rem"
-        padding="0.5rem"
-        bg="var(--main)"
-        color="var(--white)"
-        radius="5px"
-        _onClick={() => LinkCopy(window.location.href)}
+        circle
+        size="3.5"
+        bg="transparent"
+        border="0.15rem solid var(--gray)"
+        is_flex_center
         cursor
+        _onClick={() => LinkCopy(window.location.href)}
       >
-        <Text type="button" color="var(--white)">
-          URL 복사하기
-        </Text>
+        <BsShareFill size="1.4rem" />
       </Button>
     </>
   );

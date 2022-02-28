@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { actionCreators as postActions } from '../../common/redux/modules/post';
-import BarChart from './BarChart';
-// import { Bar } from 'react-chartjs-2';
 
 // components
 import {
@@ -21,6 +19,8 @@ import AddPetModal from '../MyPet/AddPetModal';
 import { resultData } from './ResultData';
 import { Keywords } from '../../common/components/Keyword';
 import CopyURL from './CopyURL';
+import BarChart from './BarChart';
+import { BsHeartFill } from 'react-icons/bs';
 
 const ResultPage = (props) => {
   const { history } = props;
@@ -65,6 +65,32 @@ const ResultPage = (props) => {
         <ResultBox>
           <img src={resultData[0].dog_img} alt="" />
         </ResultBox>
+        {/* <Button>
+        </Button> */}
+        <Grid is_flex_end>
+          <Button
+            circle
+            size="3.5"
+            bg="transparent"
+            border="0.15rem solid var(--gray)"
+            is_flex_center
+            cursor
+          >
+            <BsHeartFill size="1.4rem" color="red" />
+          </Button>
+          <CopyURL />
+          <Button
+            circle
+            size="3.5"
+            bg="transparent"
+            border="0.15rem solid var(--gray)"
+            is_flex_center
+            cursor
+          >
+            <p>Kakao</p>
+            {/* <SiKakao size="" color="" /> */}
+          </Button>
+        </Grid>
 
         <Grid margin="2rem auto">
           <Text type="mainTitle" color="var(--main)" marginBottom="2rem">
@@ -93,18 +119,6 @@ const ResultPage = (props) => {
             </Grid>
 
             <Grid width="40rem">
-              {/* <Grid is_flex_start>
-                <EmotionBox>{resultData[0].dog.emotion}</EmotionBox>
-                <Text margin="0 0 0 1rem">
-                  {Math.round(resultData[0].dog.prob * 100)}%
-                </Text>
-              </Grid>
-              <Grid is_flex_start>
-                <EmotionBox>{resultData[0].human_emotion.emotion}</EmotionBox>
-                <Text margin="0 0 0 1rem">
-                  {Math.round(resultData[0].human_emotion.prob * 100)}%
-                </Text>
-              </Grid> */}
               <BarChart />
             </Grid>
           </Grid>
@@ -144,10 +158,6 @@ const ResultPage = (props) => {
             {resultData[0].needs.map((need, index) => {
               return <Dropdown title={need.title} desc={need.desc} />;
             })}
-            {/* <Dropdown />
-            <Dropdown />
-            <Dropdown />
-            <Dropdown /> */}
           </Grid>
         </Grid>
 
@@ -157,36 +167,34 @@ const ResultPage = (props) => {
           </Text>
           <Input multiLine placeholder="반려인의 간단한 기록 작성 공간" />
         </Grid>
-        <Grid margin="1rem auto" display="flex" justifyContent="flex-end">
-          <Grid is_flex width="34rem">
-            <CopyURL />
-            <Button
-              width="10rem"
-              padding="0.5rem"
-              bg="var(--main)"
-              color="var(--white)"
-              radius="5px"
-              cursor
-            >
-              <Text type="button" color="var(--white)">
-                카카오톡 공유
-              </Text>
-            </Button>
-            <Button
-              width="10rem"
-              padding="0.5rem"
-              bg="var(--main)"
-              color="var(--white)"
-              radius="5px"
-              cursor
-              _onClick={() => history.push('/main')}
-            >
-              <Text type="button" color="var(--white)">
-                검사 다시하기
-              </Text>
-            </Button>
-          </Grid>
+        <Grid is_flex margin="1rem auto">
+          <Button
+            width="48%"
+            padding="0.5rem"
+            bg="var(--main)"
+            color="var(--white)"
+            radius="5px"
+            cursor
+          >
+            <Text type="button" color="var(--white)">
+              검사 다시하기
+            </Text>
+          </Button>
+          <Button
+            width="48%"
+            padding="0.5rem"
+            bg="var(--main)"
+            color="var(--white)"
+            radius="5px"
+            cursor
+            _onClick={() => history.push('/mypet')}
+          >
+            <Text type="button" color="var(--white)">
+              마이펫 페이지
+            </Text>
+          </Button>
         </Grid>
+        {/* </Grid> */}
       </Container>
 
       {modalOpen && (

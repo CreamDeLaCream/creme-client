@@ -172,7 +172,7 @@ const MainPage = (props) => {
           </Grid>
 
           <Grid>
-            <Grid display="flex" justifyContent="flex-end">
+            <Grid is_flex_end>
               <Button
                 padding="0.5rem"
                 bg="transparent"

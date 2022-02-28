@@ -11,6 +11,7 @@ const Grid = (props) => {
     is_flex,
     is_flex_start,
     is_flex_center,
+    is_flex_end,
     width,
     margin,
     padding,
@@ -30,6 +31,7 @@ const Grid = (props) => {
     is_flex: is_flex,
     is_flex_start: is_flex_start,
     is_flex_center: is_flex_center,
+    is_flex_end: is_flex_end,
     width: width,
     height: height,
     margin: margin,
@@ -84,6 +86,10 @@ const GridBox = styled.div`
   ${(props) =>
     props.is_flex_center
       ? `display: flex; align-items: center; justify-content: center;`
+      : ''}
+  ${(props) =>
+    props.is_flex_end
+      ? `display: flex; align-items: center; justify-content: flex-end;`
       : ''}
 `;
 
