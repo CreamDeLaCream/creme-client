@@ -15,6 +15,8 @@ const Button = (props) => {
     size,
     cursor,
     border,
+    circle,
+    is_flex_center,
   } = props;
 
   const styles = {
@@ -28,8 +30,16 @@ const Button = (props) => {
     size: size,
     cursor: cursor,
     border: border,
+    is_flex_center: is_flex_center,
   };
 
+  if (circle) {
+    return (
+      <CircleButtonForm {...styles} onClick={_onClick}>
+        {children}
+      </CircleButtonForm>
+    );
+  }
   return (
     <ButtonForm {...styles} onClick={_onClick}>
       {children}
@@ -65,6 +75,22 @@ const ButtonForm = styled.button`
   ${(props) => (props.margin ? `margin: ${props.margin};` : '')};
   ${(props) => (props.cursor ? `cursor: pointer;` : '')};
   ${(props) => (props.border ? `border: ${props.border}` : '')};
+`;
+
+const CircleButtonForm = styled.button`
+  --size: ${(props) => props.size}rem;
+  width: var(--size);
+  height: var(--size);
+  border-radius: var(--size);
+  ${(props) => (props.bg ? `background-color: ${props.bg};` : '')};
+  ${(props) => (props.border ? `border: ${props.border};` : '')}
+  ${(props) => (props.padding ? `padding: ${props.padding};` : '')};
+  ${(props) => (props.margin ? `margin: ${props.margin};` : '')};
+  ${(props) => (props.cursor ? `cursor: pointer;` : '')};
+  ${(props) =>
+    props.is_flex_center
+      ? `display: flex; align-items: center; justify-content: center;`
+      : ''}/* ${(props) => (props.cursor ? `cursor: pointer;` : '')}; */
 `;
 
 export default Button;
