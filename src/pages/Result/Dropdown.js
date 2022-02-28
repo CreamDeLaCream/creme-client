@@ -1,10 +1,10 @@
 import React, { useRef } from 'react';
 import styled from 'styled-components';
 
-import { Grid, Text, Circle } from '../../common/components';
+import { Text, Circle } from '../../common/components';
 import useDetectOutsideClick from '../../common/utils/useDetectOutsideClick';
 
-const Dropdown = (props) => {
+const Dropdown = ({ title, desc }) => {
   const dropdownRef = useRef(null);
   const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
   const onClick = () => setIsActive(!isActive);
@@ -13,7 +13,9 @@ const Dropdown = (props) => {
     <MenuContainer>
       <TriggerButton onClick={onClick}>
         <Circle size="9" border="0.7rem solid var(--cream)" is_flex_center>
-          <Text type="subTitle">산책</Text>
+          <Text type="subTitle" color="var(--deepcream)">
+            {title}
+          </Text>
         </Circle>
       </TriggerButton>
       <Nav
@@ -22,10 +24,7 @@ const Dropdown = (props) => {
       >
         <MenuList>
           <Item>
-            <Text color="var(--gray)">
-              이것은 병아리다. 알에서 태어난 병아리는 곧 닭이 된다. 닭은 곧 알을
-              낳고, 그 알은 또 부화한다.
-            </Text>
+            <Text color="var(--gray)">{desc}</Text>
           </Item>
         </MenuList>
       </Nav>

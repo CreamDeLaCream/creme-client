@@ -141,10 +141,13 @@ const ResultPage = (props) => {
             {resultData[0].dog_name}에게 필요한 것
           </Text>
           <Grid is_flex margin="0 0 3rem 0">
+            {resultData[0].needs.map((need, index) => {
+              return <Dropdown title={need.title} desc={need.desc} />;
+            })}
+            {/* <Dropdown />
             <Dropdown />
             <Dropdown />
-            <Dropdown />
-            <Dropdown />
+            <Dropdown /> */}
           </Grid>
         </Grid>
 
@@ -197,8 +200,11 @@ const ResultPage = (props) => {
 
 const ResultBox = styled.div`
   width: 100%;
-  /* height: 30rem; */
-
+  height: auto;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  object-fit: cover;
   background-size: cover;
   border: 2px solid var(--lightgray);
 `;

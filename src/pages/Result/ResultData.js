@@ -10,6 +10,12 @@ export const resultData = [
     dog_coordinate: 'x1, y1, x2, y2',
     human_emotion: { emotion: 'sad', prob: 0.2054175019 },
     human_coordinate: 'x1, y1, x2, y2',
+    needs: [
+      { title: '산책', desc: '산책하세요' },
+      { title: '간식', desc: '육포주세요' },
+      { title: '놀이', desc: '놀아주세요' },
+      { title: '밥', desc: '밥주세요' },
+    ],
     emotion_description:
       '루루는 지금 행복한 감정을 느끼고 있어요. 루루는 지금 행복한 감정을 느끼고 있어요. 루루는 지금 행복한 감정을 느끼고 있어요. 루루는 지금 행복한 감정을 느끼고 있어요. 루루는 지금 행복한 감정을 느끼고 있어요. 루루는 지금 행복한 감정을 느끼고 있어요.',
     solution: {
