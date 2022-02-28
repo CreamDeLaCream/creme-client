@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Text } from '../../common/components';
 
 const CopyURL = () => {
-  const doCopy = (text) => {
+  const LinkCopy = (text) => {
     // 흐름 1.
     if (navigator.clipboard) {
       // (IE는 사용 못하고, 크롬은 66버전 이상일때 사용 가능합니다.)
@@ -49,7 +49,7 @@ const CopyURL = () => {
         bg="var(--main)"
         color="var(--white)"
         radius="5px"
-        _onClick={() => doCopy(window.location.href)}
+        _onClick={() => LinkCopy(window.location.href)}
         cursor
       >
         <Text type="button" color="var(--white)">
