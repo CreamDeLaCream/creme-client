@@ -20,7 +20,8 @@ import AnalysisData from './AnalysisData';
 import { UserCard } from './UserCard';
 import { useEffect } from 'react';
 
-const IntroPage = () => {
+const MyPetPage = (props) => {
+  const { history } = props;
   let [petImage, setPetImage] = useState(AnalysisData);
 
   const concatImage = () => {
@@ -68,6 +69,7 @@ const IntroPage = () => {
           myPetData={myPetData}
           cardNum={cardNum}
           onClickAnotherCard={onClickAnotherCard}
+          history={history}
         />
         <UserCard />
       </MypetPartnerWrapper>
@@ -121,4 +123,4 @@ const ButtonWrapper = styled.div`
   margin-bottom: 50px;
 `;
 
-export default IntroPage;
+export default MyPetPage;

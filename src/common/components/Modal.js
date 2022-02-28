@@ -12,7 +12,7 @@ const Modal = ({ setOpenModal, children, ...rest }) => {
               setOpenModal(false);
             }}
           >
-            <BsXLg />
+            <BsXLg color="var(--main)" />
           </Button>
         </TitleCloseBtn>
         <ModalContent>{children}</ModalContent>

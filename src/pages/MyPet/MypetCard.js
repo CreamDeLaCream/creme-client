@@ -8,7 +8,12 @@ import { Button } from '../../common/components';
 import { MyPetImages } from './MyPetImages';
 import PetListButton from './PetListButton';
 
-export const MypetCard = ({ myPetData, cardNum, onClickAnotherCard }) => {
+export const MypetCard = ({
+  myPetData,
+  cardNum,
+  onClickAnotherCard,
+  history,
+}) => {
   return (
     <MyPetWrapper>
       <PetListButton
@@ -41,6 +46,10 @@ export const MypetCard = ({ myPetData, cardNum, onClickAnotherCard }) => {
                       color="var(--main)"
                       radius="10px"
                       margin="0 0 0 5px"
+                      _onClick={() => {
+                        console.log('넘어감');
+                        history.push('/addpet');
+                      }}
                     >
                       Test Go!
                     </Button>
@@ -76,6 +85,11 @@ export const MypetCard = ({ myPetData, cardNum, onClickAnotherCard }) => {
                 bg="var(--cream)"
                 color="var(--main)"
                 radius="10px"
+                margin="10px 0 0 0"
+                // _onClick={() => {
+                //   console.log('넘어감');
+                //   history.push('/addpet');
+                // }}
               >
                 마이펫 추가하기
               </Button>
