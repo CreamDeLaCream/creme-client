@@ -14,13 +14,26 @@ const Wrapper = styled.div`
   background-size: cover;
   min-width: var(--size);
   ${(props) => (props.border ? `border: ${props.border};` : '')}
+  ${(props) => (props.cursor ? `cursor: pointer;` : '')};
   ${(props) =>
     props.is_flex_center
       ? `display: flex; align-items: center; justify-content: center;`
       : ''}
-  ${(props) => (props.cursor ? `cursor: pointer;` : '')};
   ${({ theme }) => theme.device.mobile} {
-    --size: ${(props) => props.size}rem;
+    ${(props) =>
+      props.mobileSize
+        ? `--size: 8rem; 
+        width: var(--size); height: var(--size);
+        border-radius: var(--size);  min-width: var(--size);`
+        : ''};
+  }
+  ${({ theme }) => theme.device.fold} {
+    ${(props) =>
+      props.foldSize
+        ? `--size: 7rem; 
+        width: var(--size); height: var(--size);
+        border-radius: var(--size);  min-width: var(--size);`
+        : ''};
   }
 `;
 

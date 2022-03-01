@@ -45,6 +45,9 @@ const Wrapper = styled.div`
   margin-bottom: ${(props) => props.marginBottom};
   font-size: ${(props) => props.fontSize};
   white-space: ${(props) => props.whiteSpace};
+  ${({ theme }) => theme.device.mobile} {
+    ${(props) => (props.center ? `text-align: center;` : '')}
+  }
 `;
 
 export default Text;

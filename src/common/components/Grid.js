@@ -20,6 +20,8 @@ const Grid = (props) => {
     center,
     height,
     marginBottom,
+    flexWrap,
+    mobileColumn,
   } = props;
 
   const styles = {
@@ -39,6 +41,8 @@ const Grid = (props) => {
     bg: bg,
     center: center,
     marginBottom: marginBottom,
+    flexWrap: flexWrap,
+    mobileColumn: mobileColumn,
   };
   return (
     <React.Fragment>
@@ -75,6 +79,7 @@ const GridBox = styled.div`
     props.marginBottom ? `margin-bottom: ${props.marginBottom};` : ''}
   ${(props) => (props.bg ? `background-color: ${props.bg};` : '')}
   ${(props) => (props.center ? `text-align: center;` : '')}
+  ${(props) => (props.flexWrap ? `flex-wrap:${props.flexWrap};` : '')}
   ${(props) =>
     props.is_flex
       ? `display: flex; align-items: center; justify-content: space-between;`
@@ -91,6 +96,12 @@ const GridBox = styled.div`
     props.is_flex_end
       ? `display: flex; align-items: center; justify-content: flex-end;`
       : ''}
+  ${({ theme }) => theme.device.mobile} {
+    ${(props) =>
+      props.mobileColumn
+        ? `display: flex; flex-direction: column;  justify-content: center; `
+        : ''};
+  }
 `;
 
 export default Grid;

@@ -65,9 +65,6 @@ const TextareaForm = styled.textarea`
     text-align: center;
     padding: 1rem 0 0 0;
   }
-  ${({ theme }) => theme.device.mobile} {
-    min-width: 20rem;
-  }
 `;
 
 const InputForm = styled.input`

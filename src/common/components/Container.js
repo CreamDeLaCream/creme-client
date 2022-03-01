@@ -12,7 +12,6 @@ const Form = styled.section`
   height: ${(props) => props.height};
   display: flex;
   flex-direction: column;
-  // border: 1px solid green;
   padding: 2rem;
   ${({ theme }) => theme.device.fold} {
     width: 320px;

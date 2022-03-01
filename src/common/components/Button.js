@@ -17,6 +17,7 @@ const Button = (props) => {
     border,
     circle,
     is_flex_center,
+    foldSize,
   } = props;
 
   const styles = {
@@ -31,6 +32,7 @@ const Button = (props) => {
     cursor: cursor,
     border: border,
     is_flex_center: is_flex_center,
+    foldSize: foldSize,
   };
 
   if (circle) {
@@ -90,7 +92,10 @@ const CircleButtonForm = styled.button`
   ${(props) =>
     props.is_flex_center
       ? `display: flex; align-items: center; justify-content: center;`
-      : ''}/* ${(props) => (props.cursor ? `cursor: pointer;` : '')}; */
+      : ''}
+  ${({ theme }) => theme.device.fold} {
+    ${(props) => (props.foldSize ? `--size: 3rem;` : '')};
+  }
 `;
 
 export default Button;
