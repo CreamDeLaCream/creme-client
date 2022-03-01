@@ -17,19 +17,18 @@ const Header = (props) => {
               <Logo />
             </LogoBox>
           </LeftSide>
+
           <RightSide>
             {props.page === 'headermenu' ? (
-              <Nav>
-                <List>
-                  <Item
-                    onClick={() => {
-                      setModalOpen(true);
-                    }}
-                  >
-                    <Text whiteSpace="nowrap">로그인</Text>
-                  </Item>
-                </List>
-              </Nav>
+              <LoginButton
+                onClick={() => {
+                  setModalOpen(true);
+                }}
+              >
+                <Text whiteSpace="nowrap" type="button" color="var(--main)">
+                  로그인
+                </Text>
+              </LoginButton>
             ) : null}
           </RightSide>
         </InsideBox>
@@ -68,11 +67,6 @@ const Container = styled.header`
   width: 100%;
   height: 5rem;
   background-color: transparent;
-  // background-color: white;
-  /* border: 1px solid black; */
-  ${({ theme }) => theme.device.mobile} {
-    min-width: 20rem;
-  }
 `;
 
 const InsideBox = styled.div`
@@ -89,30 +83,25 @@ const LeftSide = styled.section`
   flex-shrink: 0;
 `;
 
-const RightSide = styled.section`
-  margin-right: -1rem;
-`;
-
 const LogoBox = styled.div`
   cursor: pointer;
 `;
 
-const Nav = styled.nav`
-  margin-top: 1.6rem;
-`;
+const RightSide = styled.section``;
 
-const List = styled.ul`
+const LoginButton = styled.button`
   display: flex;
   align-items: center;
-`;
-
-const Item = styled.li`
-  /* width: 5rem; */
-  list-style: none;
-  margin: 0;
-  padding: 0.3rem 2rem;
-  color: var(--main);
+  background-color: transparent;
   cursor: pointer;
+  border: none;
+  margin-bottom: -0.8rem;
+  ${({ theme }) => theme.device.mobile} {
+    margin-left: 1.7rem;
+  }
+  ${({ theme }) => theme.device.fold} {
+    margin-left: 0.8rem;
+  }
 `;
 
 const Wrapper = styled.div`

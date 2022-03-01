@@ -3,9 +3,6 @@ import { css } from 'styled-components';
 export const logo = css`
   font-size: 1.8rem;
   font-weight: 600;
-  ${({ theme }) => theme.device.mobile} {
-    /* margin: 0 3rem 0 3rem; */
-  }
 `;
 
 export const menu = css`
