@@ -18,35 +18,42 @@ ChartJS.register(
   Tooltip,
   Legend,
 );
-
-const BarChart = () => {
+const backgroundColors = ['rgba(214, 180, 161, 1)', 'rgba(246, 146, 105, 1)'];
+const BarChart = (props) => {
   const data = {
     type: 'bar',
     labels: [''],
-    datasets: [
-      {
-        label: '지루함',
-        data: [20],
+    datasets: props.data.map((item, index) => {
+      return {
+        label: item.label,
+        data: [item.value],
+        backgroundColor: [backgroundColors[index]],
+      };
+    }),
+    // datasets: [
+    //   {
+    //     label: '지루함',
+    //     data: [20],
 
-        // 바탕색
-        // backgroundColor: ['rgba(255, 206, 86, 0.2)'],
-        backgroundColor: ['rgba(214, 180, 161, 1)'],
-        // 테두리색
-        // borderColor: ['rgba(255, 206, 86, 1)'],
-        // borderColor: ['rgba(214, 180, 161, 1)'],
-        // 테두리 선 굵기
-        borderWidth: 0,
-      },
-      {
-        label: '행복함',
-        data: [80],
-        // backgroundColor: ['rgba(75, 192, 192, 0.2)'],
-        backgroundColor: ['rgba(246, 146, 105, 1)'],
-        // borderColor: ['rgba(75, 192, 192, 1)'],
-        // borderColor: ['rgba(246, 146, 105, 1)'],
-        borderWidth: 0,
-      },
-    ],
+    //     // 바탕색
+    //     // backgroundColor: ['rgba(255, 206, 86, 0.2)'],
+    //     backgroundColor: ['rgba(214, 180, 161, 1)'],
+    //     // 테두리색
+    //     // borderColor: ['rgba(255, 206, 86, 1)'],
+    //     // borderColor: ['rgba(214, 180, 161, 1)'],
+    //     // 테두리 선 굵기
+    //     borderWidth: 0,
+    //   },
+    //   {
+    //     label: '행복함',
+    //     data: [80],
+    //     // backgroundColor: ['rgba(75, 192, 192, 0.2)'],
+    //     backgroundColor: ['rgba(246, 146, 105, 1)'],
+    //     // borderColor: ['rgba(75, 192, 192, 1)'],
+    //     // borderColor: ['rgba(246, 146, 105, 1)'],
+    //     borderWidth: 0,
+    //   },
+    // ],
   };
 
   // const options = {

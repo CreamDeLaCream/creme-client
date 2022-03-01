@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { actionCreators as postActions } from '../../common/redux/modules/post';
@@ -130,7 +130,18 @@ const ResultPage = (props) => {
             </Grid>
 
             <Grid>
-              <BarChart />
+              <BarChart
+                data={[
+                  {
+                    label: resultData[0].dog.emotion,
+                    value: resultData[0].dog.prob * 100,
+                  },
+                  {
+                    label: resultData[0].human_emotion.emotion,
+                    value: resultData[0].human_emotion.prob * 100,
+                  },
+                ]}
+              />
             </Grid>
           </Grid>
         </Grid>
