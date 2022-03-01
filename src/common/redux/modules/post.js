@@ -16,18 +16,17 @@ const initialState = {
 };
 
 // middleware
-const addPostAX = (name, age, image) => {
+const addPostAX = ({ name, age, image }) => {
   return function (dispatch, getState, { history }) {
-    const formData = new FormData();
-    // formData.append('file', image);
+    let formData = new FormData();
+    formData.append('dog_name', name);
+    formData.append('dog_age', age);
+    formData.append('image', image);
     api
-      .post(`/post`, formData, {
+      .post(`/analysis/pet`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
-        name: name,
-        age: age,
-        image: ``,
       })
       .then((response) => {
         // dispatch(writeTextPage(response.data.comments));
@@ -43,7 +42,7 @@ const addPostAX = (name, age, image) => {
 const setPostAX = () => {
   return function (dispatch, getState, { history }) {
     api
-      .get(`/`)
+      .get(`/api/analysis/pet`)
       .then((res) => {
         let post_list = [];
         res.data.forEach((_post) => {
