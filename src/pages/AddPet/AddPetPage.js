@@ -66,7 +66,7 @@ const AddPetSection = styled.div`
   border-radius: 15px;
   margin-top: 20px;
 
-  height: 550px;
+  height: 580px;
 
   p {
     font-size: 20px;
