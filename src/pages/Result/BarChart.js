@@ -28,8 +28,11 @@ const BarChart = (props) => {
         label: item.label,
         data: [item.value],
         backgroundColor: [backgroundColors[index]],
+        borderWidth: 0,
+        // 데이터 리스트 안에 없는 데이터 => 배열로 작성하여 불러옴.
       };
     }),
+
     // datasets: [
     //   {
     //     label: '지루함',
