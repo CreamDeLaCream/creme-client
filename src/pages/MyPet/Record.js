@@ -21,7 +21,7 @@ const Record = ({ petImages }) => {
           고양이
           {recordcards.name} {recordcards.date}
         </CardContent> */}
-        고양이
+        <p>고양이</p>
       </RecordCard>
     );
   }
@@ -46,10 +46,19 @@ const RecordCard = styled.div`
   background-size: contain;
 
   margin-top: 7px;
-  text-align: center;
   line-height: 310px;
 
   position: relative;
+
+  p {
+    text-align: center;
+  }
+
+  img {
+    object-fit: cover;
+    background-size: contain;
+    position: absolute;
+  }
 
   img:hover {
     opacity: 0.1;
