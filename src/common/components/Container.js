@@ -14,6 +14,10 @@ const Form = styled.section`
   flex-direction: column;
   // border: 1px solid green;
   padding: 2rem;
+  ${({ theme }) => theme.device.fold} {
+    width: 320px;
+    padding: 2rem;
+  }
 `;
 
 export default Container;
