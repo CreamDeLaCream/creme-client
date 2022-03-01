@@ -159,7 +159,7 @@ const MainPage = (props) => {
           </Text>
         </Grid>
 
-        <SectionWrapper>
+        <Grid is_flex mobileColumn>
           <Grid>
             <Grid margin="2rem auto" display="flex" justifyContent="center">
               <div {...getRootProps()}>
@@ -206,7 +206,7 @@ const MainPage = (props) => {
             </Grid>
 
             <Grid margin="1rem auto" width="100%">
-              <Grid is_flex width="100%">
+              <Grid foldColumn is_flex width="100%">
                 <ButtonWrapper {...getRootProps()}>
                   <Button
                     width="100%"
@@ -223,7 +223,11 @@ const MainPage = (props) => {
                       capture="camera"
                       hidden
                     />
-                    <Text type="button" color="var(--white)">
+                    <Text
+                      type="button"
+                      color="var(--white)"
+                      whiteSpace="nowrap"
+                    >
                       사진 찍기/ 업로드
                     </Text>
                   </Button>
@@ -247,7 +251,7 @@ const MainPage = (props) => {
               </Grid>
             </Grid>
           </Grid>
-        </SectionWrapper>
+        </Grid>
       </Container>
       {modalOpen && (
         <Modal width="30rem" height="40rem" setOpenModal={setModalOpen}>
@@ -258,28 +262,29 @@ const MainPage = (props) => {
   );
 };
 
-const SectionWrapper = styled.section`
-  /* width: 48%; */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  ${({ theme }) => theme.device.mobile} {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-  }
-`;
+// const SectionWrapper = styled.section`
+//   /* width: 48%; */
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   ${({ theme }) => theme.device.mobile} {
+//     display: flex;
+//     flex-direction: column;
+//     flex-wrap: wrap;
+//     justify-content: flex-start;
+//   }
+// `;
 
 const ButtonWrapper = styled.div`
-  justify-content: space-between;
   width: 48%;
+  justify-content: space-between;
   ${({ theme }) => theme.device.mobile} {
     width: 48%;
     min-width: 10rem;
   }
   ${({ theme }) => theme.device.fold} {
-    min-width: 48%;
+    min-width: 100%;
+    margin-bottom: 1rem;
   }
 `;
 

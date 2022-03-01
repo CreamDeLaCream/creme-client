@@ -22,6 +22,7 @@ const Grid = (props) => {
     marginBottom,
     flexWrap,
     mobileColumn,
+    foldColumn,
   } = props;
 
   const styles = {
@@ -43,6 +44,7 @@ const Grid = (props) => {
     marginBottom: marginBottom,
     flexWrap: flexWrap,
     mobileColumn: mobileColumn,
+    foldColumn: foldColumn,
   };
   return (
     <React.Fragment>
@@ -99,7 +101,13 @@ const GridBox = styled.div`
   ${({ theme }) => theme.device.mobile} {
     ${(props) =>
       props.mobileColumn
-        ? `display: flex; flex-direction: column;  justify-content: center; `
+        ? `display: flex; flex-direction: column;  justify-content: center;`
+        : ''};
+  }
+  ${({ theme }) => theme.device.fold} {
+    ${(props) =>
+      props.foldColumn
+        ? `display: flex; flex-direction: column;  justify-content: center;`
         : ''};
   }
 `;
