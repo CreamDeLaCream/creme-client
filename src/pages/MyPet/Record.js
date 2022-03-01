@@ -25,14 +25,9 @@ const Record = ({ petImages }) => {
             width="315px"
             height="315px"
           />
-          {/* <CardContent>
-          고양이
-          {recordcards.name} {recordcards.date}
-        </CardContent> */}
-          <RecordContent>
-            LuLu <br />
-            2022/03/01
-          </RecordContent>
+          <CardContent>
+            {recordcards.name} {recordcards.date}
+          </CardContent>
         </RecordCard>
       </RecordWrapper>
     );
@@ -93,11 +88,11 @@ const RecordCard = styled.div`
   }
 `;
 
-const RecordContent = styled.div`
-  width: 100%;
-  text-align: center;
-  font-size: 30px;
-  color: var(--white);
+const CardContent = styled.div`
+  margin-top: 275px;
+  margin-left: 20px;
+  font-size: 20px;
+  color: var(--main);
 `;
 
 export default Record;
