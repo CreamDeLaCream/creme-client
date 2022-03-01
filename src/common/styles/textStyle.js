@@ -9,7 +9,10 @@ export const logo = css`
 `;
 
 export const menu = css`
-  line-height: 2.2rem;
+  font-size: 1.1rem;
+  ${({ theme }) => theme.device.mobile} {
+    font-size: 1rem;
+  }
 `;
 
 export const mainTitle = css`
