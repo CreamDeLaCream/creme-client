@@ -139,7 +139,7 @@ const BarChart = () => {
   };
 
   return (
-    <div style={{}}>
+    <div>
       <Bar data={data} options={options} height={3} width={10} />
     </div>
   );
