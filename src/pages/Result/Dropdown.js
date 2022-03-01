@@ -12,7 +12,13 @@ const Dropdown = ({ title, desc }) => {
   return (
     <MenuContainer>
       <TriggerButton onClick={onClick}>
-        <Circle size="9" border="0.7rem solid var(--cream)" is_flex_center>
+        <Circle
+          foldSize
+          mobileSize
+          size="9"
+          border="0.7rem solid var(--cream)"
+          is_flex_center
+        >
           <Text type="subTitle" color="var(--deepcream)">
             {title}
           </Text>

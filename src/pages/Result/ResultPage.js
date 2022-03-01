@@ -62,34 +62,38 @@ const ResultPage = (props) => {
             반려견 감정 상태 결과
           </Text>
         </Grid>
+
         <ResultBox>
-          <img src={resultData[0].dog_img} alt="" />
+          <img width="100%" src={resultData[0].dog_img} alt="dog_image" />
         </ResultBox>
-        {/* <Button>
-        </Button> */}
-        <Grid is_flex_end>
-          <Button
-            circle
-            size="3.5"
-            bg="transparent"
-            border="0.15rem solid var(--gray)"
-            is_flex_center
-            cursor
-          >
-            <BsHeartFill size="1.4rem" color="red" />
-          </Button>
-          <CopyURL />
-          <Button
-            circle
-            size="3.5"
-            bg="transparent"
-            border="0.15rem solid var(--gray)"
-            is_flex_center
-            cursor
-          >
-            <p>Kakao</p>
-            {/* <SiKakao size="" color="" /> */}
-          </Button>
+
+        <Grid is_flex_end margin="-2rem 0 0 0">
+          <ButtonWrapper>
+            {/* <Grid is_flex width="13rem"> */}
+            <Button
+              circle
+              foldSize
+              size="3.5"
+              bg="var(--white)"
+              border="0.15rem solid var(--gray)"
+              is_flex_center
+              cursor
+            >
+              <BsHeartFill size="1.4rem" color="red" />
+            </Button>
+            <CopyURL />
+            <Button
+              circle
+              foldSize
+              size="3.5"
+              bg="var(--white)"
+              border="0.15rem solid var(--gray)"
+              is_flex_center
+              cursor
+            >
+              <p>Kakao</p>
+            </Button>
+          </ButtonWrapper>
         </Grid>
 
         <Grid margin="2rem auto">
@@ -107,18 +111,25 @@ const ResultPage = (props) => {
             당신이 생각하는 {resultData[0].dog_name}의 감정상태 일치도는?
           </Text>
 
-          <Grid is_flex>
-            <Grid width="20rem">
-              <Text fontSize="5rem" color="var(--main)">
-                {resultData[0].match === true ? (
-                  <div>일치</div>
-                ) : (
-                  <div>불일치</div>
-                )}
-              </Text>
+          <Grid is_flex mobileColumn>
+            <Grid display="flex" jutiyfyContent="space-around">
+              <Grid>
+                <Text
+                  center
+                  fontSize="5rem"
+                  color="var(--main)"
+                  whiteSpace="nowrap"
+                >
+                  {resultData[0].match === true ? (
+                    <div>일치</div>
+                  ) : (
+                    <div>불일치</div>
+                  )}
+                </Text>
+              </Grid>
             </Grid>
 
-            <Grid width="40rem">
+            <Grid>
               <BarChart />
             </Grid>
           </Grid>
@@ -130,15 +141,12 @@ const ResultPage = (props) => {
           </Text>
 
           <Grid>
-            <Text type="body" color="var(--darkcream)" marginBottom="10px">
+            {/* <Text type="body" color="var(--darkcream)" marginBottom="10px">
               #행복함 #즐거움 #여유로움 #슬픔
-            </Text>
+            </Text> */}
 
-            <Text color="var(--deepcream)">
-              루루는 지금 행복한 감정을 느끼고 있어요. 루루는 지금 행복한 감정을
-              느끼고 있어요. 루루는 지금 행복한 감정을 느끼고 있어요. 루루는
-              지금 행복한 감정을 느끼고 있어요. 루루는 지금 행복한 감정을 느끼고
-              있어요. 루루는 지금 행복한 감정을 느끼고 있어요.
+            <Text type="body" color="var(--deepcream)">
+              {resultData[0].emotion_description}
             </Text>
           </Grid>
         </Grid>
@@ -147,16 +155,24 @@ const ResultPage = (props) => {
             {resultData[0].dog_name}의 솔루션
           </Text>
           <Text type="body" color="var(--deepcream)">
-            {resultData[0].emotion_description}
+            {resultData[0].solution[1]}
+            &nbsp;
+            {resultData[0].solution[2]}
+            &nbsp;
+            {resultData[0].solution[3]}
+            &nbsp;
+            {resultData[0].solution[4]}
           </Text>
         </Grid>
         <Grid margin="2rem auto">
           <Text type="subTitle" color="var(--main)" marginBottom="15px">
             {resultData[0].dog_name}에게 필요한 것
           </Text>
-          <Grid is_flex margin="0 0 3rem 0">
+          <Grid flexWrap="wrap" width="100%" is_flex margin="0 0 3rem 0">
             {resultData[0].needs.map((need, index) => {
-              return <Dropdown title={need.title} desc={need.desc} />;
+              return (
+                <Dropdown title={need.title} desc={need.desc} key={index} />
+              );
             })}
           </Grid>
         </Grid>
@@ -175,6 +191,7 @@ const ResultPage = (props) => {
             color="var(--white)"
             radius="5px"
             cursor
+            _onClick={() => history.push('/main')}
           >
             <Text type="button" color="var(--white)">
               검사 다시하기
@@ -194,7 +211,6 @@ const ResultPage = (props) => {
             </Text>
           </Button>
         </Grid>
-        {/* </Grid> */}
       </Container>
 
       {modalOpen && (
@@ -217,16 +233,13 @@ const ResultBox = styled.div`
   border: 2px solid var(--lightgray);
 `;
 
-const EmotionBox = styled.div`
-  width: 15rem;
-  padding: 0.7rem;
-  margin-bottom: 0.6rem;
-  align-items: space-between;
-  text-align: center;
-  background-color: var(--darkcream);
-  color: var(--white);
-  font-weight: 600;
-  /* border: 1px solid var(--main); */
+const ButtonWrapper = styled.div`
+  width: 12rem;
+  display: flex;
+  justify-content: space-between;
+  ${({ theme }) => theme.device.fold} {
+    width: 10rem;
+  }
 `;
 
 export default ResultPage;
