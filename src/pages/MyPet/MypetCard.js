@@ -8,6 +8,7 @@ import { Button } from '../../common/components';
 import { MyPetImages } from './MyPetImages';
 import PetListButton from './PetListButton';
 
+//props는 {} 사용 X
 export const MypetCard = ({
   myPetData,
   cardNum,
@@ -48,7 +49,7 @@ export const MypetCard = ({
                       margin="0 0 0 5px"
                       _onClick={() => {
                         console.log('넘어감');
-                        history.push('/addpet');
+                        history.push('/main');
                       }}
                     >
                       Test Go!
@@ -86,10 +87,10 @@ export const MypetCard = ({
                 color="var(--main)"
                 radius="10px"
                 margin="10px 0 0 0"
-                // _onClick={() => {
-                //   console.log('넘어감');
-                //   history.push('/addpet');
-                // }}
+                _onClick={() => {
+                  console.log('넘어감');
+                  history.push('/addpet');
+                }}
               >
                 마이펫 추가하기
               </Button>
