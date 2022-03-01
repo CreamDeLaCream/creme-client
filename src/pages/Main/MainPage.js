@@ -263,19 +263,6 @@ const MainPage = (props) => {
   );
 };
 
-// const SectionWrapper = styled.section`
-//   /* width: 48%; */
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-//   ${({ theme }) => theme.device.mobile} {
-//     display: flex;
-//     flex-direction: column;
-//     flex-wrap: wrap;
-//     justify-content: flex-start;
-//   }
-// `;
-
 const ButtonWrapper = styled.div`
   width: 48%;
   justify-content: space-between;
