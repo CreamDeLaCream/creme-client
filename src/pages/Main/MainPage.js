@@ -42,6 +42,7 @@ const MainPage = (props) => {
         ),
       );
     },
+    multiple: false,
   });
 
   const images = files.map((file) => (
