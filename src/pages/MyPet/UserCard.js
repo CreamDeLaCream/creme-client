@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Keywords } from '../../common/components/Keyword';
 
-export const UserCard = () => {
+export const UserCard = ({ isLoggedIN }) => {
   const CrrentUserKeywordData = [
     '28세',
     '부모님과 함께 삼',
@@ -18,9 +18,21 @@ export const UserCard = () => {
     <MyUserCard>
       <UserContent>
         <p>Partner</p>
-        <UserName>
-          반가운 <span style={{ color: 'var(--blackcream)' }}>레아</span>님의{' '}
-          <span style={{ color: 'var(--main)' }}>라이프스타일</span>
+        <UserName
+          isLoggedIN
+          onClick={() => {
+            if (isLoggedIN) {
+              //
+            } else {
+              //
+            }
+          }}
+        >
+          {isLoggedIN
+            ? '반가운 레아님의 라이프스타일'
+            : '나의 라이프 스타일을 등록해주세요.'}
+          {/* 반가운 <span style={{ color: 'var(--blackcream)' }}>레아</span>님의{' '}
+          <span style={{ color: 'var(--main)' }}>라이프스타일</span> */}
         </UserName>
 
         <KeywordsWrapper>
