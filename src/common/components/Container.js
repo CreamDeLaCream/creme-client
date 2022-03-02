@@ -7,8 +7,7 @@ const Container = ({ children, ...rest }) => {
 
 const Form = styled.section`
   position: relative;
-  /* width: 100%; */
-  width: 64rem;
+  width: 100%;
   top: 4rem;
   height: ${(props) => props.height};
   display: flex;

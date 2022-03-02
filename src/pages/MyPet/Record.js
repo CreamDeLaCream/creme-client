@@ -4,25 +4,32 @@ import styled from 'styled-components';
 // Data
 import AnalysisData from './AnalysisData';
 
+//Icons
+
+import { BsHeartFill } from 'react-icons/bs';
+
 const Record = ({ petImages }) => {
   const env = process.env;
   env.PUBLIC_URL = env.PUBLIC_URL || '';
 
   function ImageList({ recordcards }) {
     return (
-      <RecordCard>
-        <img
-          alt=""
-          src={process.env.PUBLIC_URL + `/Image/cat0.png`}
-          width="315px"
-          height="315px"
-        />
-        {/* <CardContent>
-          고양이
-          {recordcards.name} {recordcards.date}
-        </CardContent> */}
-        고양이
-      </RecordCard>
+      <RecordWrapper>
+        <ILikePetBt>
+          <BsHeartFill color="var(--cream)" size="30px" />
+        </ILikePetBt>
+        <RecordCard>
+          <img
+            alt=""
+            src={process.env.PUBLIC_URL + `/Image/cat0.png`}
+            width="315px"
+            height="315px"
+          />
+          <CardContent>
+            {recordcards.name} {recordcards.date}
+          </CardContent>
+        </RecordCard>
+      </RecordWrapper>
     );
   }
   return (
@@ -34,28 +41,58 @@ const Record = ({ petImages }) => {
   );
 };
 
+const RecordWrapper = styled.div`
+  positon: relative;
+`;
+
+const ILikePetBt = styled.div`
+  left: 300px;
+  margin-top: 280px;
+  cursor: pointer;
+
+  position: absolute;
+`;
+
 const RecordCard = styled.div`
   width: 315px;
   height: 315px;
   overflow: hidden;
 
   cursor: pointer;
-  background-color: var(--main);
+  background-color: var(--cream);
 
   object-fit: cover;
   background-size: contain;
 
   margin-top: 7px;
-  text-align: center;
-  line-height: 310px;
 
   position: relative;
 
+  p {
+    text-align: center;
+    font-size: 30px;
+    color: var(--white);
+    margin-top: 110px;
+  }
+
+  img {
+    object-fit: cover;
+    background-size: contain;
+    position: absolute;
+  }
+
   img:hover {
-    opacity: 0.1;
+    opacity: 0.7;
     transition: all 0.25s linear;
     transform: scale(1.25);
   }
+`;
+
+const CardContent = styled.div`
+  margin-top: 275px;
+  margin-left: 20px;
+  font-size: 20px;
+  color: var(--main);
 `;
 
 export default Record;

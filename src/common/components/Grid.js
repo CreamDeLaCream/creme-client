@@ -11,6 +11,7 @@ const Grid = (props) => {
     is_flex,
     is_flex_start,
     is_flex_center,
+    is_flex_end,
     width,
     margin,
     padding,
@@ -19,6 +20,9 @@ const Grid = (props) => {
     center,
     height,
     marginBottom,
+    flexWrap,
+    mobileColumn,
+    foldColumn,
   } = props;
 
   const styles = {
@@ -30,6 +34,7 @@ const Grid = (props) => {
     is_flex: is_flex,
     is_flex_start: is_flex_start,
     is_flex_center: is_flex_center,
+    is_flex_end: is_flex_end,
     width: width,
     height: height,
     margin: margin,
@@ -37,6 +42,9 @@ const Grid = (props) => {
     bg: bg,
     center: center,
     marginBottom: marginBottom,
+    flexWrap: flexWrap,
+    mobileColumn: mobileColumn,
+    foldColumn: foldColumn,
   };
   return (
     <React.Fragment>
@@ -55,7 +63,6 @@ Grid.defaultProps = {
   bg: false,
   center: false,
 };
-
 const GridBox = styled.div`
   width: ${(props) => props.width};
   box-sizing: border-box;
@@ -73,6 +80,8 @@ const GridBox = styled.div`
     props.marginBottom ? `margin-bottom: ${props.marginBottom};` : ''}
   ${(props) => (props.bg ? `background-color: ${props.bg};` : '')}
   ${(props) => (props.center ? `text-align: center;` : '')}
+  ${(props) => (props.flexWrap ? `flex-wrap:${props.flexWrap};` : '')}
+
   ${(props) =>
     props.is_flex
       ? `display: flex; align-items: center; justify-content: space-between;`
@@ -85,6 +94,22 @@ const GridBox = styled.div`
     props.is_flex_center
       ? `display: flex; align-items: center; justify-content: center;`
       : ''}
+  ${(props) =>
+    props.is_flex_end
+      ? `display: flex; align-items: center; justify-content: flex-end;`
+      : ''}
+  ${({ theme }) => theme.device.mobile} {
+    ${(props) =>
+      props.mobileColumn
+        ? `display: flex; flex-direction: column;  justify-content: center;`
+        : ''};
+  }
+  ${({ theme }) => theme.device.fold} {
+    ${(props) =>
+      props.foldColumn
+        ? `display: flex; flex-direction: column;  justify-content: center;`
+        : ''};
+  }
 `;
 
 export default Grid;
