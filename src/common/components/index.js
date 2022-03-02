@@ -12,6 +12,7 @@ import Header from './Header';
 import NavItems from './NavItems';
 import Navbar from './Navbar';
 import Template from './Template';
+import Dropzone from './Dropzone';
 
 export {
   Grid,
@@ -28,4 +29,5 @@ export {
   NavItems,
   Navbar,
   Template,
+  Dropzone,
 };

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { actionCreators as postActions } from '../../common/redux/modules/post';
@@ -16,9 +16,8 @@ import {
   Image,
   Modal,
 } from '../../common/components';
-import { useDropzone } from 'react-dropzone';
 import HowTo from './HowTo';
-
+import { Dropzone } from '../../common/components';
 // import api from '../../common/utils/API';
 
 const MainPage = (props) => {
@@ -31,19 +30,19 @@ const MainPage = (props) => {
   // 업로드 방식 모달
   const [modalOpen, setModalOpen] = useState(false);
 
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({
-    accept: 'image/jpg, image/png, image/jpeg',
-    onDrop: (acceptedFiles) => {
-      setFiles(
-        acceptedFiles.map((file) =>
-          Object.assign(file, {
-            preview: URL.createObjectURL(file),
-          }),
-        ),
-      );
-    },
-    multiple: false,
-  });
+  // const { getRootProps, getInputProps, isDragActive } = useDropzone({
+  //   accept: 'image/jpg, image/png, image/jpeg',
+  //   onDrop: (acceptedFiles) => {
+  //     setFiles(
+  //       acceptedFiles.map((file) =>
+  //         Object.assign(file, {
+  //           preview: URL.createObjectURL(file),
+  //         }),
+  //       ),
+  //     );
+  //   },
+  //   multiple: false,
+  // });
 
   const images = files.map((file) => (
     <div>
@@ -59,6 +58,29 @@ const MainPage = (props) => {
       />
     </div>
   ));
+
+  const onDrop = useCallback((acceptedFiles) => {
+    console.log(acceptedFiles);
+    // Loop through accepted files
+    acceptedFiles.map((file) => {
+      // Initialize FileReader browser API
+      const reader = new FileReader();
+      // onload callback gets called after the reader reads the file data
+      reader.onload = function (e) {
+        // add the image into the state. Since FileReader reading process is asynchronous, its better to get the latest snapshot state (i.e., prevState) and update it.
+        setFiles(
+          acceptedFiles.map((file) =>
+            Object.assign(file, {
+              preview: URL.createObjectURL(file),
+            }),
+          ),
+        );
+      };
+      // Read the file as Data URL (since we accept only images)
+      reader.readAsDataURL(file);
+      return file;
+    });
+  }, []);
 
   const addPost = () => {
     if (files.length === 0) {
@@ -163,12 +185,16 @@ const MainPage = (props) => {
         <Grid is_flex mobileColumn>
           <Grid>
             <Grid margin="2rem auto" display="flex" justifyContent="center">
-              <div {...getRootProps()}>
-                <input {...getInputProps()} />
-                <Circle size="15" border="1rem solid var(--cream)" cursor>
-                  {isDragActive ? null : <div>{images}</div>}
+              <Dropzone onDrop={onDrop} preview>
+                <Circle
+                  is_flex_center
+                  size="15"
+                  border="1rem solid var(--cream)"
+                  cursor
+                >
+                  <div>{images}</div>
                 </Circle>
-              </div>
+              </Dropzone>
             </Grid>
           </Grid>
 
@@ -208,7 +234,7 @@ const MainPage = (props) => {
 
             <Grid margin="1rem auto" width="100%">
               <Grid foldColumn is_flex width="100%">
-                <ButtonWrapper {...getRootProps()}>
+                <ButtonWrapper>
                   <Button
                     width="100%"
                     padding="0.5rem"
@@ -217,23 +243,17 @@ const MainPage = (props) => {
                     radius="5px"
                     cursor
                   >
-                    <input
-                      id="img-upload"
-                      // accept="image/jpg, image/png, image/jpeg"
-                      type="file"
-                      capture="camera"
-                      hidden
-                    />
-                    <Text
-                      type="button"
-                      color="var(--white)"
-                      whiteSpace="nowrap"
-                    >
-                      사진 찍기/ 업로드
-                    </Text>
+                    <Dropzone onDrop={onDrop}>
+                      <Text
+                        type="button"
+                        color="var(--white)"
+                        whiteSpace="nowrap"
+                      >
+                        사진 찍기/ 업로드
+                      </Text>
+                    </Dropzone>
                   </Button>
                 </ButtonWrapper>
-
                 <ButtonWrapper>
                   <Button
                     width="100%"
