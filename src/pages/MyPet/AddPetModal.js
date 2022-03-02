@@ -1,9 +1,10 @@
 import React from 'react';
 import { Text, Button, Grid, Input, Image } from '../../common/components';
+import styled from 'styled-components';
 
 const AddPetModal = () => {
   return (
-    <>
+    <AddPetWrapper>
       <Grid display="flex" justifyContent="center" margin="1rem 0 3rem 0">
         <Image shape="bigcircle" size="14" />
       </Grid>
@@ -45,8 +46,10 @@ const AddPetModal = () => {
           업로드
         </Text>
       </Button>
-    </>
+    </AddPetWrapper>
   );
 };
+
+const AddPetWrapper = styled.div``;
 
 export default AddPetModal;

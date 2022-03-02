@@ -68,7 +68,7 @@ const InputBox = (props) => {
   // };
 
   return (
-    <SectionWrapper>
+    <Grid is_flex mobileColumn>
       <Grid>
         <Grid margin="2rem auto" display="flex" justifyContent="center">
           <div {...getRootProps()}>
@@ -99,7 +99,7 @@ const InputBox = (props) => {
           </Grid>
         </Grid>
       </Grid>
-    </SectionWrapper>
+    </Grid>
   );
 };
 

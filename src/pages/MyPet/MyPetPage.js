@@ -71,7 +71,7 @@ const MyPetPage = (props) => {
           onClickAnotherCard={onClickAnotherCard}
           history={history}
         />
-        <UserCard />
+        <UserCard history={history} />
       </MypetPartnerWrapper>
 
       <RecordWrapper>
