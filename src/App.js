@@ -1,11 +1,14 @@
 import React from 'react';
 import GlobalStyle from './common/styles/GlobalStyle';
 
+// redux
 import { Switch, Route } from 'react-router-dom';
 import { ConnectedRouter } from 'connected-react-router';
 import { history } from './common/redux/configureStore';
+
+// components
+import { Template } from './common/components';
 import ScrollToTop from './common/utils/ScrollToTop';
-// import { useDispatch, useSelector } from 'react-redux';
 
 // pages
 import {
@@ -17,23 +20,14 @@ import {
   TeamPage,
   AddPetPage,
   AddUserLifePage,
+  KakaoRedirect,
 } from './pages';
-import { Template } from './common/components';
-
-// const Center = styled.div`
-//   height: 100vh;
-//   display: flex;
-//   flex-direction: row;
-//   border: 2px solid purple;
-//   max-width: 1440px;
-// `;
 
 function App() {
   return (
     <React.Fragment>
       <ConnectedRouter history={history}>
         <GlobalStyle />
-        {/* <Center> */}
         <Template>
           <ScrollToTop />
           <Switch>
@@ -46,9 +40,12 @@ function App() {
             <Route exact path="/team" component={TeamPage} />
             <Route exact path="/addpet" component={AddPetPage} />
             <Route exact path="/adduserlife" component={AddUserLifePage} />
+            <Route
+              path="/oauth/callback/kakao"
+              component={KakaoRedirect}
+            ></Route>
           </Switch>
         </Template>
-        {/* </Center> */}
       </ConnectedRouter>
     </React.Fragment>
   );
