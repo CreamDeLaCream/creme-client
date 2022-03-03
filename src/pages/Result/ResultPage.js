@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { actionCreators as postActions } from '../../common/redux/modules/post';
+import { actionCreators as postActions } from '../../common/redux/modules/petimage';
 
 // components
 import {
@@ -25,15 +25,15 @@ const ResultPage = (props) => {
   const { history } = props;
   const { id } = useParams();
   const dispatch = useDispatch();
-  const post_list = useSelector((state) => state.post.list);
+  const pet_image_list = useSelector((state) => state.petimage.list);
   useEffect(() => {
     console.log(id);
   }, [id]);
 
   // React.useEffect(() => {
-  //   if (post_list.length === 0) {
+  //   if (pet_image_list.length === 0) {
   //     dispatch(postActions.getPostAX());
-  //     console.log(post_list);
+  //     console.log(pet_image_list);
   //   }
   //   console.log(props);
   //   if (props.search_result) {

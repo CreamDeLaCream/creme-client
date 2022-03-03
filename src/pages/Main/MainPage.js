@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
-import { actionCreators as postActions } from '../../common/redux/modules/post';
+import { actionCreators as postActions } from '../../common/redux/modules/petimage';
 
 // components
 import {
@@ -44,13 +44,13 @@ const MainPage = (props) => {
       window.alert('댕댕이의 나이를 입력해주세요');
       return;
     }
-    let post = {
+    let petimage = {
       name: name,
       age: age,
       image: files[0],
     };
-    console.log(post);
-    dispatch(postActions.addPostAX(post));
+    console.log(petimage);
+    dispatch(postActions.addPetImageAX(petimage));
     history.push('/analysis');
   };
 
