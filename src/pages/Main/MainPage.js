@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { actionCreators as postActions } from '../../common/redux/modules/post';
@@ -15,10 +15,10 @@ import {
   Navbar,
   Image,
   Modal,
+  Dropzone,
+  Preview,
 } from '../../common/components';
 import HowTo from './HowTo';
-import { Dropzone } from '../../common/components';
-// import api from '../../common/utils/API';
 
 const MainPage = (props) => {
   const { history } = props;
@@ -29,58 +29,6 @@ const MainPage = (props) => {
 
   // 업로드 방식 모달
   const [modalOpen, setModalOpen] = useState(false);
-
-  // const { getRootProps, getInputProps, isDragActive } = useDropzone({
-  //   accept: 'image/jpg, image/png, image/jpeg',
-  //   onDrop: (acceptedFiles) => {
-  //     setFiles(
-  //       acceptedFiles.map((file) =>
-  //         Object.assign(file, {
-  //           preview: URL.createObjectURL(file),
-  //         }),
-  //       ),
-  //     );
-  //   },
-  //   multiple: false,
-  // });
-
-  const images = files.map((file) => (
-    <div>
-      <img
-        src={file.preview}
-        style={{
-          width: '13rem',
-          height: '13rem',
-          borderRadius: '13rem',
-        }}
-        alt="preview"
-        center
-      />
-    </div>
-  ));
-
-  const onDrop = useCallback((acceptedFiles) => {
-    console.log(acceptedFiles);
-    // Loop through accepted files
-    acceptedFiles.map((file) => {
-      // Initialize FileReader browser API
-      const reader = new FileReader();
-      // onload callback gets called after the reader reads the file data
-      reader.onload = function (e) {
-        // add the image into the state. Since FileReader reading process is asynchronous, its better to get the latest snapshot state (i.e., prevState) and update it.
-        setFiles(
-          acceptedFiles.map((file) =>
-            Object.assign(file, {
-              preview: URL.createObjectURL(file),
-            }),
-          ),
-        );
-      };
-      // Read the file as Data URL (since we accept only images)
-      reader.readAsDataURL(file);
-      return file;
-    });
-  }, []);
 
   const addPost = () => {
     if (files.length === 0) {
@@ -109,6 +57,7 @@ const MainPage = (props) => {
   const changeName = (e) => {
     setName(e.target.value);
   };
+
   const changeAge = (e) => {
     setAge(e.target.value);
   };
@@ -185,14 +134,14 @@ const MainPage = (props) => {
         <Grid is_flex mobileColumn>
           <Grid>
             <Grid margin="2rem auto" display="flex" justifyContent="center">
-              <Dropzone onDrop={onDrop} preview>
+              <Dropzone onDrop setFiles={setFiles}>
                 <Circle
                   is_flex_center
                   size="15"
                   border="1rem solid var(--cream)"
                   cursor
                 >
-                  <div>{images}</div>
+                  <Preview files={files} />
                 </Circle>
               </Dropzone>
             </Grid>
@@ -243,7 +192,7 @@ const MainPage = (props) => {
                     radius="5px"
                     cursor
                   >
-                    <Dropzone onDrop={onDrop}>
+                    <Dropzone onDrop setFiles={setFiles}>
                       <Text
                         type="button"
                         color="var(--white)"
