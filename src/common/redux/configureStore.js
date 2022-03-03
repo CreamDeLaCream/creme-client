@@ -4,7 +4,7 @@ import { createBrowserHistory } from 'history';
 import { connectRouter } from 'connected-react-router';
 
 // // reducer
-// import User from './modules/user';
+import User from './modules/user';
 import Post from './modules/post';
 
 // 브라우저 히스토리를 만듭니다.
@@ -12,7 +12,7 @@ export const history = createBrowserHistory(); // connected-react-router에 필�
 
 // 가져온 리듀서를 루트 리듀서로 묶어줍니다.
 const rootReducer = combineReducers({
-  // user: User,
+  user: User,
   post: Post,
   router: connectRouter(history),
 });
