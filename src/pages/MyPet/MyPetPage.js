@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 // Data
 import MyPetData from '../../common/components/MyPetData';
+import { EmotionButton } from './EmotionButton';
 
 // components
 import {
@@ -75,9 +76,12 @@ const MyPetPage = (props) => {
       </MypetPartnerWrapper>
 
       <RecordWrapper>
-        <Text type="mainTitle" color="var(--main)" padding-top="30px">
-          마이펫 감정 기록
-        </Text>
+        <RecordMenu>
+          <RecordTitle>마이펫 감정 기록</RecordTitle>
+          <RecordMenuEmotion>
+            <EmotionButton />
+          </RecordMenuEmotion>
+        </RecordMenu>
         <RecordCardWrapper>
           <Record petImages={petImage} />
         </RecordCardWrapper>
@@ -106,6 +110,22 @@ const MypetPartnerWrapper = styled.div`
 const RecordWrapper = styled.div`
   margin-top: 50px;
 `;
+
+const RecordTitle = styled.div`
+  width: 30%;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--main);
+`;
+
+const RecordMenu = styled.div`
+  display: flex;
+`;
+
+const RecordMenuEmotion = styled.div`
+  width: 30%;
+`;
+
 const RecordCardWrapper = styled.div`
   margin-top: 20px;
   display: flex;

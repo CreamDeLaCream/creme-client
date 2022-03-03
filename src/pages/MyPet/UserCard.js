@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Keywords } from '../../common/components/Keyword';
+import { Button } from '../../common/components';
 
-export const UserCard = ({ isLoggedIN }) => {
+export const UserCard = ({ isLoggedIN, history }) => {
   const CrrentUserKeywordData = [
     '28세',
     '부모님과 함께 삼',
@@ -30,19 +31,31 @@ export const UserCard = ({ isLoggedIN }) => {
         >
           {isLoggedIN
             ? '반가운 레아님의 라이프스타일'
-            : '나의 라이프 스타일을 등록해주세요.'}
+            : '당신의 라이프스타일은 어떠한가요?'}
           {/* 반가운 <span style={{ color: 'var(--blackcream)' }}>레아</span>님의{' '}
           <span style={{ color: 'var(--main)' }}>라이프스타일</span> */}
         </UserName>
 
         <KeywordsWrapper>
-          {CrrentUserKeywordData.map((userlifestyle, i) => {
-            return (
-              <>
-                <Keywords typekeywords={userlifestyle} />
-              </>
-            );
-          })}
+          {isLoggedIN ? (
+            CrrentUserKeywordData.map((userlifestyle, i) => {
+              return <Keywords typekeywords={userlifestyle} />;
+            })
+          ) : (
+            <Button
+              height="23px"
+              bg="var(--cream)"
+              color="var(--main)"
+              radius="10px"
+              margin="4px 0 0 0"
+              _onClick={() => {
+                console.log('넘어감');
+                history.push('/adduserlife');
+              }}
+            >
+              라이프스타일 등록하기
+            </Button>
+          )}
         </KeywordsWrapper>
       </UserContent>
     </MyUserCard>
