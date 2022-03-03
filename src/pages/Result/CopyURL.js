@@ -25,12 +25,12 @@ const CopyURL = () => {
         foldSize
         size="3.5"
         bg="var(--white)"
-        border="0.15rem solid var(--gray)"
+        border="0.15rem solid var(--darkcream)"
         is_flex_center
         cursor
         _onClick={() => LinkCopy(window.location.href)}
       >
-        <BsShareFill size="1.4rem" />
+        <BsShareFill size="1.4rem" color="var(--darkcream)" />
       </Button>
     </>
   );

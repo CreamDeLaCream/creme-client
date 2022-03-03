@@ -63,11 +63,11 @@ const ResultPage = (props) => {
             foldSize
             size="3.5"
             bg="var(--white)"
-            border="0.15rem solid var(--gray)"
+            border="0.15rem solid var(--darkcream)"
             is_flex_center
             cursor
           >
-            <BsHeartFill size="1.4rem" color="red" />
+            <BsHeartFill size="1.4rem" color="var(--darkcream)" />
           </Button>
           <CopyURL />
           <Button
@@ -75,7 +75,7 @@ const ResultPage = (props) => {
             foldSize
             size="3.5"
             bg="var(--white)"
-            border="0.15rem solid var(--gray)"
+            border="0.15rem solid var(--darkcream)"
             is_flex_center
             cursor
           >
