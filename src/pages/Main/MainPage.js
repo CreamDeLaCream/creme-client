@@ -35,7 +35,6 @@ const MainPage = (props) => {
       window.alert('이미지를 업로드해주세요');
       return;
     }
-
     if (!name) {
       window.alert('댕댕이의 이름을 입력해주세요');
       return;

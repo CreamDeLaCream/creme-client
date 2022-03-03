@@ -7,6 +7,7 @@ import { connectRouter } from 'connected-react-router';
 import User from './modules/user';
 // import Post from './modules/post';
 import PetImage from './modules/petimage';
+import Memo from './modules/memo';
 
 // 브라우저 히스토리를 만듭니다.
 export const history = createBrowserHistory(); // connected-react-router에 필요
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
   user: User,
   // post: Post,
   petimage: PetImage,
+  Memo: Memo,
   router: connectRouter(history),
 });
 

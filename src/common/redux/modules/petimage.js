@@ -3,14 +3,14 @@ import { produce } from 'immer';
 import api from '../../utils/API';
 
 // Action
-const GET_PET_IMAGE = 'GET_PET_IMAGE';
 const ADD_PET_IMAGE = 'ADD_PET_IMAGE';
+const SET_PET_IMAGE = 'SET_PET_IMAGE';
 
 // Action Creator
-const setPetImage = createAction(GET_PET_IMAGE, (pet_image_list) => ({
+const addPetImage = createAction(ADD_PET_IMAGE, (pet_image) => ({ pet_image }));
+const setPetImage = createAction(SET_PET_IMAGE, (pet_image_list) => ({
   pet_image_list,
 }));
-const addPetImage = createAction(ADD_PET_IMAGE, (pet_image) => ({ pet_image }));
 
 // InitialState
 const initialState = {
@@ -67,22 +67,22 @@ const setPetImageAX = () => {
 // Reducer
 export default handleActions(
   {
-    [GET_PET_IMAGE]: (state, action) =>
-      produce(state, (draft) => {
-        draft.list.push(...action.payload.petimagelist);
-      }),
     [ADD_PET_IMAGE]: (state, action) =>
       produce(state, (draft) => {
         draft.comment.push(action.payload.petimage);
+      }),
+    [SET_PET_IMAGE]: (state, action) =>
+      produce(state, (draft) => {
+        draft.list.push(...action.payload.petimagelist);
       }),
   },
   initialState,
 );
 
 const actionCreators = {
-  setPetImage,
   addPetImage,
   addPetImageAX,
+  setPetImage,
   setPetImageAX,
 };
 
