@@ -6,7 +6,7 @@ const Logo = () => {
   return (
     <div>
       <Text type="logo" color="var(--main)">
-        Creme de la Creme
+        오늘의 마이펫
       </Text>
     </div>
   );
