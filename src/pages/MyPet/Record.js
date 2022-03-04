@@ -15,9 +15,11 @@ const Record = ({ petImages }) => {
   function ImageList({ recordcards }) {
     return (
       <RecordWrapper>
-        <ILikePetBt>
-          <BsHeartFill color="var(--cream)" size="30px" />
-        </ILikePetBt>
+        {recordcards.isLiked && (
+          <ILikePetBt>
+            <BsHeartFill color="var(--main)" size="30px" />
+          </ILikePetBt>
+        )}
         <RecordCard>
           <img
             alt=""
@@ -25,9 +27,7 @@ const Record = ({ petImages }) => {
             width="315px"
             height="315px"
           />
-          <CardContent>
-            {recordcards.name} {recordcards.date}
-          </CardContent>
+          {recordcards.name} {recordcards.date}
         </RecordCard>
       </RecordWrapper>
     );
@@ -42,13 +42,14 @@ const Record = ({ petImages }) => {
 };
 
 const RecordWrapper = styled.div`
-  positon: relative;
+  position: relative;
 `;
 
 const ILikePetBt = styled.div`
-  left: 300px;
-  margin-top: 280px;
+  left: 270px;
+  top: 280px;
   cursor: pointer;
+  z-index: 2;
 
   position: absolute;
 `;
@@ -86,13 +87,6 @@ const RecordCard = styled.div`
     transition: all 0.25s linear;
     transform: scale(1.25);
   }
-`;
-
-const CardContent = styled.div`
-  margin-top: 275px;
-  margin-left: 20px;
-  font-size: 20px;
-  color: var(--main);
 `;
 
 export default Record;

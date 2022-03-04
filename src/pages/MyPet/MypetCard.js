@@ -30,7 +30,12 @@ export const MypetCard = ({
                 <span style={{ color: 'var(--blackcream)' }}>레아</span>님의
                 댕댕이
                 <br />{' '}
-                <b style={{ color: 'var(--main)' }}>
+                <b
+                  style={{
+                    color: 'var(--main)',
+                    fontFamily: 'IBM Plex Sans KR',
+                  }}
+                >
                   {myPetData.name}, {myPetData.age}살
                 </b>
               </MyPetName>
@@ -140,6 +145,7 @@ const MyPetContent = styled.div`
 const MyPetName = styled.div`
   font-size: 30px;
   color: var(--darkcream);
+  font-family: 'IBM Plex Sans KR';
 `;
 
 const MyPetKeyword = styled.div`
@@ -151,4 +157,5 @@ const CurrentEmotion = styled.div`
   color: var(--main);
   margin-top: 20px;
   cusor: pointer;
+  // font-family: 'IBM Plex Sans KR';
 `;
