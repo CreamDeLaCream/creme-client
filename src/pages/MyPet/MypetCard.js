@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-// Compo
-
+// components
 import { Keyword } from '../../common/components';
 import { Button } from '../../common/components';
 import { MyPetImages } from './MyPetImages';
@@ -52,7 +51,7 @@ export const MypetCard = ({
                       color="var(--main)"
                       radius="10px"
                       margin="0 0 0 5px"
-                      _onClick={() => {
+                      onClick={() => {
                         console.log('넘어감');
                         history.push('/main');
                       }}
@@ -92,7 +91,7 @@ export const MypetCard = ({
                 color="var(--main)"
                 radius="10px"
                 margin="10px 0 0 0"
-                _onClick={() => {
+                onClick={() => {
                   console.log('넘어감');
                   history.push('/addpet');
                 }}

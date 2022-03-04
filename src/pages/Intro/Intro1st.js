@@ -1,11 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
 
+// components
 import { Text, Button } from '../../common/components';
 import HighlightText from '../../common/styles/HighlightText';
 
 export const Intro1st = (props) => {
-  const { history } = props;
+  const history = useHistory();
   const env = process.env;
   env.PUBLIC_URL = env.PUBLIC_URL || '';
 
@@ -39,7 +41,7 @@ export const Intro1st = (props) => {
           size="20px"
           color="var(--main)"
           margin="20px 0 0 0"
-          _onClick={() => {
+          onClick={() => {
             console.log('넘어감');
             history.push('/main');
           }}

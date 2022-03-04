@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
+// components
 import { Keywords } from '../../common/components/Keyword';
 
 import MembersData from './MembersData';

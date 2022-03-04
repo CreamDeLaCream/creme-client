@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Image = (props) => {
-  const { _onClick, cursor, radius, M_width, shape, src, size } = props;
+  const { onClick, cursor, radius, M_width, shape, src, size } = props;
   const styles = {
     cursor,
     radius,
@@ -12,10 +12,10 @@ const Image = (props) => {
   };
 
   if (shape === 'circle') {
-    return <ImageCircle {...styles} onClick={_onClick}></ImageCircle>;
+    return <ImageCircle {...styles} onClick={onClick}></ImageCircle>;
   }
   if (shape === 'bigcircle') {
-    return <ImageBigCircle {...styles} onClick={_onClick}></ImageBigCircle>;
+    return <ImageBigCircle {...styles} onClick={onClick}></ImageBigCircle>;
   }
   return <ImageDefault {...styles}></ImageDefault>;
 };
@@ -25,7 +25,7 @@ Image.defaultProps = {
   src: 'https://mblogthumb-phinf.pstatic.net/20141020_84/ribbonchick_1413740254883HpC05_JPEG/01.jpg?type=w420',
   size: 3.6,
   radius: '',
-  _onClick: () => {},
+  onClick: () => {},
 };
 
 const ImageDefault = styled.div`

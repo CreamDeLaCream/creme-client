@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-// utill
+// utils
 import useMotion from '../../common/utils/useMotion';
 
 const Loading = () => {

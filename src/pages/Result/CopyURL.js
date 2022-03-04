@@ -28,7 +28,7 @@ const CopyURL = () => {
         border="0.15rem solid var(--darkcream)"
         is_flex_center
         cursor
-        _onClick={() => LinkCopy(window.location.href)}
+        onClick={() => LinkCopy(window.location.href)}
       >
         <BsShareFill size="1.4rem" color="var(--darkcream)" />
       </Button>

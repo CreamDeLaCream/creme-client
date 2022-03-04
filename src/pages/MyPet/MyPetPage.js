@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
 
 // Data
 import MyPetData from '../../common/components/MyPetData';
@@ -22,7 +23,7 @@ import { UserCard } from './UserCard';
 import { useEffect } from 'react';
 
 const MyPetPage = (props) => {
-  const { history } = props;
+  const history = useHistory();
   let [petImage, setPetImage] = useState(AnalysisData);
 
   const concatImage = () => {
@@ -94,7 +95,7 @@ const MyPetPage = (props) => {
             size="20px"
             color="var(--white)"
             cursor
-            _onClick={concatImage}
+            onClick={concatImage}
           >
             더보기
           </Button>

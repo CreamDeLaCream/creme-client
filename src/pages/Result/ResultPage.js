@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
+
+// redux
 import { useDispatch, useSelector } from 'react-redux';
 import { actionCreators as postActions } from '../../common/redux/modules/memo';
 
@@ -22,7 +24,7 @@ import BarChart from './BarChart';
 import { BsHeartFill } from 'react-icons/bs';
 
 const ResultPage = (props) => {
-  const { history } = props;
+  const history = useHistory();
   const { id } = useParams();
   const dispatch = useDispatch();
   const [memo, setMemo] = useState('');
@@ -212,7 +214,7 @@ const ResultPage = (props) => {
           color="var(--white)"
           radius="5px"
           cursor
-          _onClick={() => history.push('/main')}
+          onClick={() => history.push('/main')}
         >
           <Text type="button" color="var(--white)">
             검사 다시하기
@@ -225,7 +227,7 @@ const ResultPage = (props) => {
           color="var(--white)"
           radius="5px"
           cursor
-          _onClick={addMemo}
+          onClick={addMemo}
         >
           <Text type="button" color="var(--white)">
             마이펫 페이지

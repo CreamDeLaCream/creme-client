@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
+
+// redux
 import { useDispatch } from 'react-redux';
 import { actionCreators as postActions } from '../../common/redux/modules/petimage';
 
@@ -21,7 +24,7 @@ import {
 import HowTo from './HowTo';
 
 const MainPage = (props) => {
-  const { history } = props;
+  const history = useHistory();
   const dispatch = useDispatch();
   const [files, setFiles] = useState([]);
   const [age, setAge] = useState('');
@@ -93,7 +96,7 @@ const MainPage = (props) => {
             radius="5px"
             cursor
             // 중간 점검 이후 변경 예정
-            // _onClick={() => history.push('/login')}
+            // onClick={() => history.push('/login')}
           >
             <Text type="button" color="var(--white)">
               사진찍기 / 업로드
@@ -106,8 +109,8 @@ const MainPage = (props) => {
             color="var(--white)"
             radius="5px"
             cursor
-            _onClick={addPost}
-            // _onClick={() => history.push('/result')}
+            onClick={addPost}
+            // onClick={() => history.push('/result')}
           >
             <Text type="button" color="var(--white)">
               분석 시작
@@ -153,7 +156,7 @@ const MainPage = (props) => {
                 bg="transparent"
                 radius="5px"
                 cursor
-                _onClick={() => {
+                onClick={() => {
                   setModalOpen(true);
                 }}
               >
@@ -210,7 +213,7 @@ const MainPage = (props) => {
                     color="var(--white)"
                     radius="5px"
                     cursor
-                    _onClick={addPost}
+                    onClick={addPost}
                   >
                     <Text type="button" color="var(--white)">
                       분석 시작

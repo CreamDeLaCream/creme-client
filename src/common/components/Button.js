@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Button = (props) => {
   const {
-    _onClick,
+    onClick,
     children,
     margin,
     width,
@@ -37,13 +37,13 @@ const Button = (props) => {
 
   if (circle) {
     return (
-      <CircleButtonForm {...styles} onClick={_onClick}>
+      <CircleButtonForm {...styles} onClick={onClick}>
         {children}
       </CircleButtonForm>
     );
   }
   return (
-    <ButtonForm {...styles} onClick={_onClick}>
+    <ButtonForm {...styles} onClick={onClick}>
       {children}
     </ButtonForm>
   );
@@ -51,7 +51,7 @@ const Button = (props) => {
 
 Button.defaultProps = {
   children: null,
-  _onClick: () => {},
+  onClick: () => {},
   margin: false,
   width: '',
   // height: '',

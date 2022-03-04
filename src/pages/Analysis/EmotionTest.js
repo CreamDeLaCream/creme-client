@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-// Compo
+// components
 import { Text, Button } from '../../common/components';
 
 export const EmotionTest = () => {
@@ -79,7 +79,7 @@ export const EmotionTest = () => {
         size="15px"
         margin="0 10px 0 0"
         cursor="pointer"
-        _onClick={() => {
+        onClick={() => {
           clickButton(questionNum, answerNum);
         }}
       >

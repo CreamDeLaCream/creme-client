@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-// Components
+// components
 import Button from './Button';
 
 export function Keywords({ typekeywords }) {

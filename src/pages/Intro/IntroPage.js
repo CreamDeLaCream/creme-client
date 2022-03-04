@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 // components
 import { Header, Navbar, Text, Container } from '../../common/components';
@@ -9,7 +10,7 @@ import { Intro2nd } from './Intro2nd';
 import { Intro3rd } from './Intro3rd';
 
 const IntroPage = (props) => {
-  const { history } = props;
+  const history = useHistory();
   return (
     <Container height="250vh">
       <Header page="headermenu" />

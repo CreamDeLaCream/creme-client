@@ -49,7 +49,7 @@ const Header = (props) => {
               color="var(--white)"
               radius="5px"
               cursor
-              _onClick={() => {
+              onClick={() => {
                 window.location.href = KAKAO_AUTH_URL;
               }}
             >

@@ -6,7 +6,7 @@ export default function PetListButton({ cardNum, onClickAnotherCard }) {
   return (
     <PetListButtonWrapper>
       <Button
-        _onClick={() => {
+        onClick={() => {
           console.log('hi');
           onClickAnotherCard(0);
         }}
@@ -16,7 +16,7 @@ export default function PetListButton({ cardNum, onClickAnotherCard }) {
         bg={cardNum === 0 ? 'var(--main)' : 'var(--darkcream)'}
       />
       <Button
-        _onClick={() => {
+        onClick={() => {
           onClickAnotherCard(1);
         }}
         width="13px"

@@ -1,12 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
 
+// components
 import { Text, Button } from '../../common/components';
 import HighlightText from '../../common/styles/HighlightText';
 import { UserKeywords } from './UserKeywords';
 
 export const Intro2nd = (props) => {
-  const { history } = props;
+  const history = useHistory();
   return (
     <IntroBg>
       <MainPartnerImg>
@@ -39,7 +41,7 @@ export const Intro2nd = (props) => {
           size="20px"
           color="var(--deepcream)"
           margin="20px 0 0 0"
-          _onClick={() => {
+          onClick={() => {
             console.log('넘어감');
             history.push('/mypet');
           }}

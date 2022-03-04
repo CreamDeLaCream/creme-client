@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-// Compo
+// components
 import { Text } from '../../common/components';
 import HighlightText from '../../common/styles/HighlightText';
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
 
 // components
 import {
@@ -13,7 +14,7 @@ import { EmotionTest } from './EmotionTest';
 import Loading from '../Analysis/Loading';
 
 const AnalysisPage = (props) => {
-  const { history } = props;
+  const history = useHistory();
   return (
     <Analysisbg>
       <Container>
@@ -46,7 +47,7 @@ const AnalysisPage = (props) => {
             size="20px"
             color="var(--white)"
             cursor
-            _onClick={() => history.push('/result')}
+            onClick={() => history.push('/result')}
           >
             <Text type="button" color="var(--white)">
               댕댕이 <br /> 결과

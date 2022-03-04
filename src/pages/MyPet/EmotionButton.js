@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-//compo
+// components
 import { Button } from '../../common/components';
 import { Keywords } from '../../common/components/Keyword';
 

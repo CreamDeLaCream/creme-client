@@ -4,8 +4,7 @@ import styled from 'styled-components';
 // Data
 import AnalysisData from './AnalysisData';
 
-//Icons
-
+// Icons
 import { BsHeartFill } from 'react-icons/bs';
 
 const Record = ({ petImages }) => {

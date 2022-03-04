@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
 
 // components
 import {
@@ -14,7 +15,7 @@ import { MyPetData } from './MyPetData';
 import InputBox from './InputBox';
 
 const AddPetPage = (props) => {
-  const { history } = props;
+  const history = useHistory();
   const [myPetData, setMyPetData] = useState(MyPetData);
   return (
     <Container>
@@ -48,7 +49,7 @@ const AddPetPage = (props) => {
           size="20px"
           color="var(--white)"
           cursor
-          _onClick={() => {
+          onClick={() => {
             console.log('완료');
             history.push('/mypet');
           }}
