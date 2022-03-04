@@ -4,10 +4,12 @@ import { useHistory } from 'react-router-dom';
 
 // components
 import { Logo, Modal, Text, Image, Grid, Button } from './';
+import { KAKAO_AUTH_URL } from '../utils/OAuth';
 
 const Header = (props) => {
   const history = useHistory();
   const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <>
       <Container>
@@ -47,6 +49,9 @@ const Header = (props) => {
               color="var(--white)"
               radius="5px"
               cursor
+              _onClick={() => {
+                window.location.href = KAKAO_AUTH_URL;
+              }}
             >
               <Text type="button" color="var(--white)">
                 카카오톡으로 시작하기

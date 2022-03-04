@@ -21,18 +21,18 @@ const Button = (props) => {
   } = props;
 
   const styles = {
-    margin: margin,
-    width: width,
-    height: height,
-    padding: padding,
-    bg: bg,
-    color: color,
-    radius: radius,
-    size: size,
-    cursor: cursor,
-    border: border,
-    is_flex_center: is_flex_center,
-    foldSize: foldSize,
+    margin,
+    width,
+    height,
+    padding,
+    bg,
+    color,
+    radius,
+    size,
+    cursor,
+    border,
+    is_flex_center,
+    foldSize,
   };
 
   if (circle) {

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { actionCreators as postActions } from '../../common/redux/modules/post';
+import { actionCreators as postActions } from '../../common/redux/modules/memo';
 
 // components
 import {
@@ -25,21 +25,44 @@ const ResultPage = (props) => {
   const { history } = props;
   const { id } = useParams();
   const dispatch = useDispatch();
-  const post_list = useSelector((state) => state.post.list);
+  const [memo, setMemo] = useState('');
+  const pet_image_list = useSelector((state) => state.petimage.list);
   useEffect(() => {
     console.log(id);
   }, [id]);
 
   // React.useEffect(() => {
-  //   if (post_list.length === 0) {
+  //   if (pet_image_list.length === 0) {
   //     dispatch(postActions.getPostAX());
-  //     console.log(post_list);
+  //     console.log(pet_image_list);
   //   }
   //   console.log(props);
   //   if (props.search_result) {
   //     console.log(props.search_result);
   //   }
   // }, []);
+
+  const changeMemo = (e) => {
+    setMemo(e.target.value);
+  };
+
+  const addMemo = () => {
+    if (!memo) {
+      window.alert('로그인이 필요합니다.');
+      return;
+    }
+    if (memo === 0) {
+      return;
+    }
+    let petmemo = {
+      // slug: slug,
+      memo: memo,
+    };
+    console.log(petmemo);
+    window.alert('일기가 저장됩니다.');
+    dispatch(postActions.addMemoAX(petmemo));
+    history.push('/mypet');
+  };
 
   return (
     <Container>
@@ -63,11 +86,11 @@ const ResultPage = (props) => {
             foldSize
             size="3.5"
             bg="var(--white)"
-            border="0.15rem solid var(--gray)"
+            border="0.15rem solid var(--darkcream)"
             is_flex_center
             cursor
           >
-            <BsHeartFill size="1.4rem" color="red" />
+            <BsHeartFill size="1.4rem" color="var(--darkcream)" />
           </Button>
           <CopyURL />
           <Button
@@ -75,7 +98,7 @@ const ResultPage = (props) => {
             foldSize
             size="3.5"
             bg="var(--white)"
-            border="0.15rem solid var(--gray)"
+            border="0.15rem solid var(--darkcream)"
             is_flex_center
             cursor
           >
@@ -174,7 +197,12 @@ const ResultPage = (props) => {
         <Text type="subTitle" color="var(--main)" marginBottom="15px">
           오늘의 감정일기(메모)
         </Text>
-        <Input multiLine placeholder="반려인의 간단한 기록 작성 공간" />
+        <Input
+          multiLine
+          value={memo}
+          _onChange={changeMemo}
+          placeholder="반려인의 간단한 기록 작성 공간"
+        />
       </Grid>
       <Grid is_flex margin="1rem auto">
         <Button
@@ -197,7 +225,7 @@ const ResultPage = (props) => {
           color="var(--white)"
           radius="5px"
           cursor
-          _onClick={() => history.push('/mypet')}
+          _onClick={addMemo}
         >
           <Text type="button" color="var(--white)">
             마이펫 페이지

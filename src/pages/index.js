@@ -6,6 +6,7 @@ import ResultPage from './Result/ResultPage';
 import TeamPage from './Team/TeamPage';
 import AddPetPage from './AddPet/AddPetPage';
 import AddUserLifePage from './AddUserLife/AddUserLifePage';
+import KakaoRedirect from './Login/KakaoRedirect';
 
 export {
   IntroPage,
@@ -16,4 +17,5 @@ export {
   TeamPage,
   AddPetPage,
   AddUserLifePage,
+  KakaoRedirect,
 };

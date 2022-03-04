@@ -13,6 +13,7 @@ import NavItems from './NavItems';
 import Navbar from './Navbar';
 import Template from './Template';
 import Dropzone from './Dropzone';
+import Preview from './Preview';
 
 export {
   Grid,
@@ -30,4 +31,5 @@ export {
   Navbar,
   Template,
   Dropzone,
+  Preview,
 };

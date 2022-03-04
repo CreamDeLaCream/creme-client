@@ -4,11 +4,11 @@ import styled from 'styled-components';
 const Image = (props) => {
   const { _onClick, cursor, radius, M_width, shape, src, size } = props;
   const styles = {
-    cursor: cursor,
-    radius: radius,
-    M_width: M_width,
-    src: src,
-    size: size,
+    cursor,
+    radius,
+    M_width,
+    src,
+    size,
   };
 
   if (shape === 'circle') {
