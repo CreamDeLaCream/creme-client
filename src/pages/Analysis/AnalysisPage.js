@@ -15,6 +15,35 @@ import Loading from '../Analysis/Loading';
 
 const AnalysisPage = (props) => {
   const history = useHistory();
+
+  // // redux example
+  // import { useDispatch } from 'react-redux';
+  // import { actionCreators as postActions } from '../../common/redux/modules/petimage';
+  // const history = useHistory();
+  // const dispatch = useDispatch();
+  // const addPost = () => {
+  //   if (files.length === 0) {
+  //     window.alert('이미지를 업로드해주세요');
+  //     return;
+  //   }
+  //   if (!name) {
+  //     window.alert('댕댕이의 이름을 입력해주세요');
+  //     return;
+  //   }
+  //   if (!age) {
+  //     window.alert('댕댕이의 나이를 입력해주세요');
+  //     return;
+  //   }
+  //   let petimage = {
+  //     name: name,
+  //     age: age,
+  //     image: files[0],
+  //   };
+  //   console.log(petimage);
+  //   dispatch(postActions.addPetImageAX(petimage));
+  //   history.push('/analysis');
+  // };
+
   return (
     <Analysisbg>
       <Container>
