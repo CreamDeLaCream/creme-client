@@ -21,9 +21,9 @@ const setMemoAX = () => {
     api
       .get(`/api/analysis/pet`)
       .then((res) => {
-        let memo_list = [];
+        const memo_list = [];
         res.data.forEach((_post) => {
-          let post = {
+          const post = {
             post_id: _post.id,
             name: _post.name,
             profile_image: _post.profile_image,
@@ -41,7 +41,7 @@ const setMemoAX = () => {
 
 const addMemoAX = ({ slug, petmemo }) => {
   return function (dispatch, getState, { history }) {
-    let formData = new FormData();
+    const formData = new FormData();
     formData.append('slug', slug);
     formData.append('memo', petmemo);
     api

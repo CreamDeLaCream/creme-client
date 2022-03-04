@@ -20,7 +20,7 @@ const initialState = {
 // middleware
 const addPetImageAX = ({ name, age, image }) => {
   return function (dispatch, getState, { history }) {
-    let formData = new FormData();
+    const formData = new FormData();
     formData.append('dog_name', name);
     formData.append('dog_age', age);
     formData.append('image', image);
@@ -46,9 +46,9 @@ const setPetImageAX = () => {
     api
       .get(`/api/analysis/pet`)
       .then((res) => {
-        let pet_image_list = [];
+        const pet_image_list = [];
         res.data.forEach((_post) => {
-          let post = {
+          const post = {
             post_id: _post.id,
             name: _post.name,
             profile_image: _post.profile_image,

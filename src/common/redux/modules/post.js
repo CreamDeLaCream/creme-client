@@ -8,7 +8,7 @@
 
 // // Action Creator
 // const setPost = createAction(SET_POST, (post_list) => ({ post_list }));
-// const addPost = createAction(ADD_POST, (test) => ({ test }));
+// const addPost = createAction(ADD_POST, (post) => ({ post }));
 
 // // InitialState
 // const initialState = {
@@ -18,7 +18,7 @@
 // // middleware
 // const addPostAX = ({ name, age, image }) => {
 //   return function (dispatch, getState, { history }) {
-//     let formData = new FormData();
+//     const formData = new FormData();
 //     formData.append('dog_name', name);
 //     formData.append('dog_age', age);
 //     formData.append('image', image);
@@ -44,9 +44,9 @@
 //     api
 //       .get(`/api/analysis/pet`)
 //       .then((res) => {
-//         let post_list = [];
+//         const post_list = [];
 //         res.data.forEach((_post) => {
-//           let post = {
+//           const post = {
 //             post_id: _post.id,
 //             name: _post.name,
 //             profile_image: _post.profile_image,
