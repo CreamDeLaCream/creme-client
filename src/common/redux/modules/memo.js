@@ -4,11 +4,11 @@ import api from '../../utils/API';
 
 // Action
 const ADD_MEMO = 'ADD_MEMO';
-const SET_MEMO = 'SET_MEMO';
+// const SET_MEMO = 'SET_MEMO';
 
 // Action Creator
 const addMemo = createAction(ADD_MEMO, (petmemo) => ({ petmemo }));
-const setMemo = createAction(SET_MEMO, (memo_list) => ({ memo_list }));
+// const setMemo = createAction(SET_MEMO, (memo_list) => ({ memo_list }));
 
 // InitialState
 const initialState = {
@@ -16,28 +16,6 @@ const initialState = {
 };
 
 // middleware
-const setMemoAX = () => {
-  return function (dispatch, getState, { history }) {
-    api
-      .get(`/api/analysis/pet`)
-      .then((res) => {
-        const memo_list = [];
-        res.data.forEach((_post) => {
-          const post = {
-            post_id: _post.id,
-            name: _post.name,
-            profile_image: _post.profile_image,
-            content: _post.content,
-          };
-          memo_list.push(post);
-        });
-        dispatch(setMemo(memo_list));
-      })
-      .catch((e) => {
-        console.log('불러오기 에러', e);
-      });
-  };
-};
 
 const addMemoAX = ({ slug, petmemo }) => {
   return function (dispatch, getState, { history }) {
@@ -61,6 +39,29 @@ const addMemoAX = ({ slug, petmemo }) => {
   };
 };
 
+// const setMemoAX = () => {
+//   return function (dispatch, getState, { history }) {
+//     api
+//       .get(`/api/analysis/pet`)
+//       .then((res) => {
+//         const memo_list = [];
+//         res.data.forEach((_post) => {
+//           const post = {
+//             post_id: _post.id,
+//             name: _post.name,
+//             profile_image: _post.profile_image,
+//             content: _post.content,
+//           };
+//           memo_list.push(post);
+//         });
+//         dispatch(setMemo(memo_list));
+//       })
+//       .catch((e) => {
+//         console.log('불러오기 에러', e);
+//       });
+//   };
+// };
+
 // Reducer
 export default handleActions(
   {
@@ -68,10 +69,10 @@ export default handleActions(
       produce(state, (draft) => {
         draft.comment.push(action.payload.post);
       }),
-    [SET_MEMO]: (state, action) =>
-      produce(state, (draft) => {
-        draft.list.push(...action.payload.postlist);
-      }),
+    // [SET_MEMO]: (state, action) =>
+    //   produce(state, (draft) => {
+    //     draft.list.push(...action.payload.postlist);
+    //   }),
   },
   initialState,
 );
@@ -79,8 +80,8 @@ export default handleActions(
 const actionCreators = {
   addMemo,
   addMemoAX,
-  setMemo,
-  setMemoAX,
+  // setMemo,
+  // setMemoAX,
 };
 
 export { actionCreators };

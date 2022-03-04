@@ -17,7 +17,7 @@ const rootReducer = combineReducers({
   user: User,
   // post: Post,
   petimage: PetImage,
-  Memo: Memo,
+  memo: Memo,
   router: connectRouter(history),
 });
 
