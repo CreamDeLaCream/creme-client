@@ -6,15 +6,19 @@ export const FilterRecord = () => {
   return (
     <>
       {myPetEmotion.map((emotionwords, i) => {
-        <Button
-          height="23px"
-          bg="var(--main)"
-          color="var(--white)"
-          radius="10px"
-          emotionwords={emotionwords}
-        />;
+        return (
+          <Button
+            height="23px"
+            bg="var(--main)"
+            color="var(--white)"
+            radius="10px"
+            margin="0 5px 0 0"
+            emotionwords={emotionwords}
+          >
+            {emotionwords}
+          </Button>
+        );
       })}
-      ;
     </>
   );
 };

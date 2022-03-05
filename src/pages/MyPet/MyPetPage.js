@@ -4,7 +4,6 @@ import { useHistory } from 'react-router-dom';
 
 // Data
 import MyPetData from '../../common/components/MyPetData';
-import { EmotionButton } from './EmotionButton';
 
 // components
 import {
@@ -21,6 +20,7 @@ import { MypetCard } from './MypetCard';
 import AnalysisData from './AnalysisData';
 import { UserCard } from './UserCard';
 import { useEffect } from 'react';
+import { FilterRecord } from './FilterRecord';
 
 const MyPetPage = (props) => {
   const history = useHistory();
@@ -80,7 +80,7 @@ const MyPetPage = (props) => {
         <RecordMenu>
           <RecordTitle>마이펫 감정 기록</RecordTitle>
           <RecordMenuEmotion>
-            <EmotionButton />
+            <FilterRecord />
           </RecordMenuEmotion>
         </RecordMenu>
         <RecordCardWrapper>
