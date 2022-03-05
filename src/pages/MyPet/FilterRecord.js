@@ -12,7 +12,7 @@ export const FilterRecord = () => {
             bg="var(--main)"
             color="var(--white)"
             radius="10px"
-            margin="0 5px 0 0"
+            margin="30px 5px 0 5px"
             emotionwords={emotionwords}
           >
             {emotionwords}

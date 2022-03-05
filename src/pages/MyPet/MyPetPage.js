@@ -110,19 +110,23 @@ const MyPetPage = (props) => {
 const MypetPartnerWrapper = styled.div`
   margin-top: 20px;
 `;
+
 const RecordWrapper = styled.div`
   margin-top: 50px;
+  height: 70px;
 `;
 
 const RecordTitle = styled.div`
-  width: 30%;
+  width: 200px;
   font-size: 1.6rem;
   font-weight: 600;
   color: var(--main);
+  margin-top: 30px;
 `;
 
 const RecordMenu = styled.div`
   display: flex;
+  // background-color: var(--cream);
 `;
 
 const RecordMenuEmotion = styled.div`
@@ -131,7 +135,7 @@ const RecordMenuEmotion = styled.div`
 `;
 
 const RecordCardWrapper = styled.div`
-  margin-top: 20px;
+  margin-top: 10px;
   display: flex;
   flex-direction: row;
   margin-top: 30px;

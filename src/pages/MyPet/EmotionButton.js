@@ -1,8 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
 
 // components
-import { Button } from '../../common/components';
 import { Keywords } from '../../common/components/Keyword';
 
 export const EmotionButton = () => {
