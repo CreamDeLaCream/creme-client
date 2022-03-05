@@ -21,6 +21,7 @@ import AnalysisData from './AnalysisData';
 import { UserCard } from './UserCard';
 import { useEffect } from 'react';
 import { FilterRecord } from './FilterRecord';
+import { FilterMyPet } from './FilterMyPet';
 
 const MyPetPage = (props) => {
   const history = useHistory();
@@ -80,6 +81,7 @@ const MyPetPage = (props) => {
         <RecordMenu>
           <RecordTitle>마이펫 감정 기록</RecordTitle>
           <RecordMenuEmotion>
+            <FilterMyPet />
             <FilterRecord />
           </RecordMenuEmotion>
         </RecordMenu>
@@ -125,6 +127,7 @@ const RecordMenu = styled.div`
 
 const RecordMenuEmotion = styled.div`
   width: 30%;
+  display: flex;
 `;
 
 const RecordCardWrapper = styled.div`
