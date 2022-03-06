@@ -28,19 +28,6 @@ const ResultPage = (props) => {
   const dispatch = useDispatch();
   const [memo, setMemo] = useState('');
   const petimage = useSelector((state) => state.petimage.list);
-  // useEffect(() => {
-  //   console.log(id);
-  // }, [id]);
-  // React.useEffect(() => {
-  //   if (pet_image_list.length === 0) {
-  //     dispatch(postActions.getPostAX());
-  //     console.log(pet_image_list);
-  //   }
-  //   console.log(props);
-  //   if (props.search_result) {
-  //     console.log(props.search_result);
-  //   }
-  // }, []);
 
   const changeMemo = (e) => {
     setMemo(e.target.value);
@@ -64,19 +51,62 @@ const ResultPage = (props) => {
     history.push('/mypet');
   };
 
+  const canvas = useRef();
+  let ctx = null;
+
+  // initialize the canvas context
+  useEffect(() => {
+    // dynamically assign the width and height to canvas
+    const canvasEle = canvas.current;
+    canvasEle.width = canvasEle.clientWidth;
+    canvasEle.height = canvasEle.clientHeight;
+
+    // get context of the canvas
+    ctx = canvasEle.getContext('2d');
+  }, []);
+
+  useEffect(() => {
+    const r1Info = { x: 50, y: 50, w: 150, h: 80 };
+    const r1Style = { borderColor: 'red', borderWidth: 10 };
+    drawRect(r1Info, r1Style);
+
+    const r2Info = { x: 50, y: 50, w: 80, h: 150 };
+    const r2Style = { borderColor: 'blue', borderWidth: 10 };
+    drawRect(r2Info, r2Style);
+  }, []);
+
+  const drawRect = (info, style = {}) => {
+    const { x, y, w, h } = info;
+    const { borderColor = 'black', borderWidth = 1 } = style;
+
+    ctx.beginPath();
+    ctx.strokeStyle = borderColor;
+    ctx.lineWidth = borderWidth;
+    ctx.rect(x, y, w, h);
+    ctx.stroke();
+  };
+
+  const resetHandler = () => {
+    dispatch(postActions.initialState(petimage));
+    history.replace('/main');
+  };
+
   return (
     <Container>
       <Header />
       <Navbar />
-
       <Grid margin="1rem auto">
         <Text type="mainTitle" color="var(--main)">
           반려견 감정 상태 결과
         </Text>
       </Grid>
-
       <ResultBox>
-        <img width="100%" src={petimage[0].image} alt="dog_image" />
+        <div style={{ width: '100%', position: 'relative' }}>
+          <div>
+            <canvas ref={canvas}></canvas>
+          </div>
+          <img width="100%" src={petimage[0].image} alt="dog_image" />
+        </div>
       </ResultBox>
 
       <Grid is_flex_end margin="-2rem 0 0 0">
@@ -106,7 +136,6 @@ const ResultPage = (props) => {
           </Button>
         </ButtonWrapper>
       </Grid>
-
       <Grid margin="2rem auto">
         <Text type="mainTitle" color="var(--main)" marginBottom="2rem">
           {petimage[0].dog_name}, {petimage[0].dog_age}살
@@ -191,7 +220,6 @@ const ResultPage = (props) => {
           })}
         </Grid>
       </Grid>
-
       <Grid margin="2rem auto">
         <Text type="subTitle" color="var(--main)" marginBottom="15px">
           오늘의 감정일기(메모)
@@ -211,7 +239,8 @@ const ResultPage = (props) => {
           color="var(--white)"
           radius="5px"
           cursor
-          onClick={() => history.push('/main')}
+          onClick={resetHandler}
+          // onClick={() => history.push('/main')}
         >
           <Text type="button" color="var(--white)">
             검사 다시하기
@@ -256,3 +285,55 @@ const ButtonWrapper = styled.div`
 `;
 
 export default ResultPage;
+
+{
+  /* <div>
+<div style={{ position: 'relative' }}>
+  <div>
+    <canvas id="canvas" width="150" height="150"></canvas>
+    <img
+      id="frame"
+      src="https://mdn.mozillademos.org/files/242/Canvas_picture_frame.png"
+      width="132"
+      height="150"
+      alt=""
+    />
+  </div>
+  <img width="100%" src={petimage[0].image} alt="dog_image" />
+</div>
+<canvas ref={canvas} width={600} height={256 + 80} />
+<img width="100%" src={petimage[0].image} alt="dog_image" />
+</div> */
+}
+
+{
+  /* <canvas width="320" height="320"></canvas> */
+}
+{
+  /* <canvas id="stockGraph" width="150" height="150">
+          current stock price: $3.15 +0.15
+        </canvas>
+        <canvas id="clock" width="150" height="150">
+          <img src="images/clock.png" width="150" height="150" alt="" />
+        </canvas> */
+}
+{
+  /* <body onload="draw()">
+          <div style={{ position: 'relative' }}>
+            <div>
+              <canvas id="canvas" width="150" height="150"></canvas>
+              <img
+                id="frame"
+                src="https://mdn.mozillademos.org/files/242/Canvas_picture_frame.png"
+                width="132"
+                height="150"
+                alt=""
+              />
+            </div>
+            <img width="100%" src={petimage[0].image} alt="dog_image" />
+          </div>
+        </body> */
+}
+{
+  /* <img width="100%" src={resultData[0].dog_img} alt="dog_image" /> */
+}
