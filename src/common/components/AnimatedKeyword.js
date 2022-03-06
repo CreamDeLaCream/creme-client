@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import Matter from 'matter-js';
 import { MyPetKeywordsData } from './MyPetKeywordsData';
+import styled from 'styled-components';
+import Button from './Button';
 
 export const AnimatedKeyword = () => {
   const [keywordBalls, setKeywordBalls] = useState(MyPetKeywordsData);
@@ -141,23 +143,33 @@ export const AnimatedKeyword = () => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
       <div ref={scene} style={{ width: '100%', height: '100%' }} />
+      <span style={{ color: 'var(--blackcream)', margin: '20px 0 0 0' }}>
+        나의 댕댕이 성격은?
+      </span>
       <div
         style={{
           display: 'flex',
           flexDirection: 'row',
-          margin: '25px 0 0 0',
+          margin: '20px 0 0 0',
           color: 'var(--blackcream)',
         }}
         onClick={() => {
           console.log(keywordBalls);
         }}
       >
-        {clickedKeywords.map((clickedKeyword, index) => {
-          if (index === clickedKeywords.length - 1) {
-            return <div>{clickedKeyword}</div>;
-          }
+        {clickedKeywords.map((clickedKeyword) => {
           if (clickedKeyword !== '빈공') {
-            return <div>{clickedKeyword} / &nbsp;</div>;
+            return (
+              <Button
+                height="23px"
+                bg="var(--darkcream)"
+                color="var(--white)"
+                radius="10px"
+                margin="0 5px 3px 0"
+              >
+                {clickedKeyword}
+              </Button>
+            );
           }
         })}
       </div>
