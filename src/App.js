@@ -41,7 +41,7 @@ function App() {
             <Route exact path="/addpet" component={AddPetPage} />
             <Route exact path="/adduserlife" component={AddUserLifePage} />
             <Route
-              path="/oauth/callback/kakao"
+              path="/users/kakao/callback"
               component={KakaoRedirect}
             ></Route>
           </Switch>

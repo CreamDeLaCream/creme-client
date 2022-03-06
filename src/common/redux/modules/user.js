@@ -6,14 +6,14 @@ import api from '../../utils/API';
 
 // Action
 const SET_USER = 'SET_USER';
-const LOGOUT = 'LOGOUT';
+const LOG_OUT = 'LOG_OUT';
 const GET_USER = 'GET_USER';
 
 // Action Creator
 const setUser = createAction(SET_USER, (user_info) => ({ user_info }));
-const logOut = createAction(LOGOUT, () => {});
+// const logOut = createAction(LOGOUT, () => {});
 const getUser = createAction(GET_USER, (user_cookie) => ({ user_cookie }));
-
+const logOut = createAction(LOG_OUT, (user) => ({ user }));
 // initial State
 const initialState = {
   user: null,
@@ -27,7 +27,7 @@ const getUserAX = () => {
     console.log('getuser 들어옴');
     api
       // (
-      .get('/user/login')
+      .get('/users/login')
       .then((res) => {
         console.log(res);
         // let token = res.res;
@@ -54,36 +54,42 @@ const kakaoLogin = (code) => {
     console.log('test');
     api({
       method: 'GET',
-      url: `/Oauth/user/kakao/callback?code=${code}`,
+      // url: `/Oauth/user/kakao/callback?code=${code}`,
+      url: `/users/kakao/callback?code=${code}`,
+      //
     })
       .then((res) => {
         console.log(res); // 토큰이 넘어올 것임
-        const ACCESS_TOKEN = res.data.token;
+        const ACCESS_TOKEN = res.data.access;
+        const REFRESH_TOKEN = res.data.refresh;
 
-        localStorage.setItem('token', ACCESS_TOKEN); //예시로 로컬에 저장함
+        // localStorage.setItem('token', ACCESS_TOKEN); //예시로 로컬에 저장함
+        sessionStorage.setItem('token', ACCESS_TOKEN);
+        sessionStorage.setItem('refresh', REFRESH_TOKEN);
 
-        history.replace('/main'); // 토큰 받았았고 로그인됐으니 화면 전환시켜줌(메인으로)
+        history.replace('/'); // 토큰 받았았고 로그인됐으니 화면 전환시켜줌(메인으로)
 
-        api
-          .get('/user/info', {
-            // headers: header,
-          })
-          .then((res) => {
-            console.log(res);
-            dispatch(
-              setUser({
-                is_login: res.data.res,
-                user_email: res.data.user_email,
-              }),
-            );
+        // api
+        //   .get('/users/login', {
+        //     // headers: header,
+        //   })
+        //   .then((res) => {
+        //     console.log(res);
+        //     dispatch(
+        //       setUser({
+        //         is_login: res.data.res,
+        //         user_nickname: res.user_nickname,
+        //         user_email: res.data.user_email,
+        //       }),
+        //     );
 
-            window.alert(`로그인에 성공하였습니다.`);
-            // history.replace('/');
-            window.location.replace('/');
-          })
-          .catch((e) => {
-            console.log('user 정보 조회 에러', e);
-          });
+        //     window.alert(`로그인에 성공하였습니다.`);
+        //     // history.replace('/');
+        //     window.location.replace('/');
+        //   })
+        //     .catch((e) => {
+        //       console.log('user 정보 조회 에러', e);
+        //     });
       })
       .catch((err) => {
         console.log('소셜로그인 에러', err);
@@ -98,7 +104,7 @@ const loginCheck = () => {
     const token = sessionStorage.getItem('token');
     if (token) {
       const header = {
-        'X-AUTH-TOKEN': `${token}`,
+        Authorization: `Bearer ${token}`,
       };
       api
         .get('/user/login', { headers: header })
@@ -122,6 +128,23 @@ const loginCheck = () => {
   };
 };
 
+const kakaoLogOut = (code) => {
+  return function (dispatch, getState, { history }) {
+    api({
+      method: 'POST',
+      url: `/users/logout`,
+    })
+      .then((res) => {
+        sessionStorage.removeItem('token');
+        sessionStorage.removeItem('refresh');
+      })
+      .catch((err) => {
+        window.alert('로그아웃에 실패하였습니다.');
+        history.replace('/'); // 로그인 실패하면 로그인화면으로 돌려보냄
+      });
+  };
+};
+
 // Reducer
 export default handleActions(
   {
@@ -132,12 +155,17 @@ export default handleActions(
         draft.is_login = true;
         console.log(draft.user);
       }),
-    [LOGOUT]: (state, action) =>
+    [LOG_OUT]: (state, action) =>
       produce(state, (draft) => {
         sessionStorage.removeItem('token');
         draft.user = null;
         draft.is_login = false;
       }),
+    // [LOG_OUT]: (state, action) =>
+    //   produce(state, (draft) => {
+    //     draft.user = null;
+    //     draft.is_login = false;
+    //   }),
     [GET_USER]: (state, action) =>
       produce(state, (draft) => {
         // let cookie = action.payload.user_cookie;
@@ -154,6 +182,7 @@ const actionCreators = {
   getUserAX,
   kakaoLogin,
   loginCheck,
+  kakaoLogOut,
 };
 
 export { actionCreators };
