@@ -9,7 +9,7 @@ export const FilterRecord = () => {
         return (
           <Button
             height="23px"
-            bg="var(--main)"
+            bg="var(--darkcream)"
             color="var(--white)"
             radius="10px"
             margin="30px 5px 0 5px"

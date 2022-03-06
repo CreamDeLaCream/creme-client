@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
+import { AnimatedKeyword } from '../../common/components/AnimatedKeyword';
 
 // components
 import {
@@ -33,9 +34,10 @@ const AddPetPage = (props) => {
         <KeywordsSection>
           <p>Keywords</p>
           <KeywordWrapper>
-            {myPetData.map((myPetDataSelect, i) => {
+            <AnimatedKeyword />
+            {/* {myPetData.map((myPetDataSelect, i) => {
               return <Keywords typekeywords={myPetDataSelect} />;
-            })}
+            })} */}
           </KeywordWrapper>
         </KeywordsSection>
       </AddPetSection>
@@ -67,7 +69,7 @@ const AddPetSection = styled.div`
   border-radius: 15px;
   margin-top: 20px;
 
-  height: 580px;
+  height: 1000px;
 
   p {
     font-size: 20px;
