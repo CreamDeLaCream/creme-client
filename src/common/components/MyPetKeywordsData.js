@@ -5,7 +5,7 @@ const CLICKED_RADIUS = 40;
 
 export const MyPetKeywordsData = [
   {
-    x: 10,
+    x: 770,
     y: 20,
     keyword: '개쫄보',
     img: baseImg.개쫄보,
@@ -15,7 +15,7 @@ export const MyPetKeywordsData = [
     isClicked: false,
   },
   {
-    x: 50,
+    x: 700,
     y: 70,
     keyword: '게으름',
     img: baseImg.게으름,
@@ -35,7 +35,7 @@ export const MyPetKeywordsData = [
     isClicked: false,
   },
   {
-    x: 150,
+    x: 620,
     y: 200,
     keyword: '난폭',
     img: baseImg.난폭,
@@ -45,7 +45,7 @@ export const MyPetKeywordsData = [
     isClicked: false,
   },
   {
-    x: 50,
+    x: 680,
     y: 70,
     keyword: '다소난폭',
     img: baseImg.다소난폭,
@@ -55,7 +55,7 @@ export const MyPetKeywordsData = [
     isClicked: false,
   },
   {
-    x: 80,
+    x: 700,
     y: 220,
     keyword: '도도함',
     img: baseImg.도도함,
@@ -75,7 +75,7 @@ export const MyPetKeywordsData = [
     isClicked: false,
   },
   {
-    x: 100,
+    x: 200,
     y: 280,
     keyword: '반려인바라기',
     img: baseImg.반려인바라기,
@@ -125,7 +125,7 @@ export const MyPetKeywordsData = [
     isClicked: false,
   },
   {
-    x: 100,
+    x: 300,
     y: 225,
     keyword: '얌전',
     img: baseImg.얌전,
@@ -155,7 +155,7 @@ export const MyPetKeywordsData = [
     isClicked: false,
   },
   {
-    x: 50,
+    x: 450,
     y: 70,
     keyword: '자신감 많음',
     img: baseImg.자신감많음,
@@ -165,8 +165,8 @@ export const MyPetKeywordsData = [
     isClicked: false,
   },
   {
-    x: 60,
-    y: 100,
+    x: 460,
+    y: 150,
     keyword: '잘짖음',
     img: baseImg.잘짖음,
     clickedImg: clickedImg.on잘짖음,
@@ -175,7 +175,7 @@ export const MyPetKeywordsData = [
     isClicked: false,
   },
   {
-    x: 80,
+    x: 550,
     y: 150,
     keyword: '장난 심함',
     img: baseImg.장난심함,
@@ -185,7 +185,7 @@ export const MyPetKeywordsData = [
     isClicked: false,
   },
   {
-    x: 30,
+    x: 500,
     y: 100,
     keyword: '애교많음',
     img: baseImg.애교많음,
@@ -329,6 +329,46 @@ export const MyPetKeywordsData = [
   {
     x: 500,
     y: 120,
+    keyword: '빈공',
+    img: baseImg.base,
+    clickedImg: clickedImg.clickedBase,
+    radius: RADIUS,
+    clickedRadius: CLICKED_RADIUS,
+    isClicked: false,
+  },
+  {
+    x: 700,
+    y: 50,
+    keyword: '빈공',
+    img: baseImg.base,
+    clickedImg: clickedImg.clickedBase,
+    radius: RADIUS,
+    clickedRadius: CLICKED_RADIUS,
+    isClicked: false,
+  },
+  {
+    x: 690,
+    y: 30,
+    keyword: '빈공',
+    img: baseImg.base,
+    clickedImg: clickedImg.clickedBase,
+    radius: RADIUS,
+    clickedRadius: CLICKED_RADIUS,
+    isClicked: false,
+  },
+  {
+    x: 30,
+    y: 10,
+    keyword: '빈공',
+    img: baseImg.base,
+    clickedImg: clickedImg.clickedBase,
+    radius: RADIUS,
+    clickedRadius: CLICKED_RADIUS,
+    isClicked: false,
+  },
+  {
+    x: 40,
+    y: 130,
     keyword: '빈공',
     img: baseImg.base,
     clickedImg: clickedImg.clickedBase,

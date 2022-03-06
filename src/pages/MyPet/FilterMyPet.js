@@ -14,7 +14,7 @@ export const FilterMyPet = () => {
   return (
     <MyPetSelectWrapper>
       <FormControl variant="standard" sx={{ m: 1, minWidth: 170 }}>
-        <InputLabel id="demo-simple-select-standard-label">MyPet</InputLabel>
+        <InputLabel style={{ color: 'var(--main)' }}>MyPet</InputLabel>
         <Select
           labelId="demo-simple-select-standard-label"
           id="demo-simple-select-standard"

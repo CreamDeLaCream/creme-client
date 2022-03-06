@@ -145,14 +145,17 @@ export const AnimatedKeyword = () => {
         style={{
           display: 'flex',
           flexDirection: 'row',
-          margin: '15px 0 0 0',
-          color: 'var(--deepcream)',
+          margin: '25px 0 0 0',
+          color: 'var(--blackcream)',
         }}
         onClick={() => {
           console.log(keywordBalls);
         }}
       >
-        {clickedKeywords.map((clickedKeyword) => {
+        {clickedKeywords.map((clickedKeyword, index) => {
+          if (index === clickedKeywords.length - 1) {
+            return <div>{clickedKeyword}</div>;
+          }
           if (clickedKeyword !== '빈공') {
             return <div>{clickedKeyword} / &nbsp;</div>;
           }
