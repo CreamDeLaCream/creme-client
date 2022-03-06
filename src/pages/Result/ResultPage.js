@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { useHistory, useParams } from 'react-router-dom';
 
@@ -25,14 +25,12 @@ import { BsHeartFill } from 'react-icons/bs';
 
 const ResultPage = (props) => {
   const history = useHistory();
-  const { id } = useParams();
   const dispatch = useDispatch();
   const [memo, setMemo] = useState('');
-  const pet_image_list = useSelector((state) => state.petimage.list);
-  useEffect(() => {
-    console.log(id);
-  }, [id]);
-
+  const petimage = useSelector((state) => state.petimage.list);
+  // useEffect(() => {
+  //   console.log(id);
+  // }, [id]);
   // React.useEffect(() => {
   //   if (pet_image_list.length === 0) {
   //     dispatch(postActions.getPostAX());
@@ -78,7 +76,7 @@ const ResultPage = (props) => {
       </Grid>
 
       <ResultBox>
-        <img width="100%" src={resultData[0].dog_img} alt="dog_image" />
+        <img width="100%" src={petimage[0].image} alt="dog_image" />
       </ResultBox>
 
       <Grid is_flex_end margin="-2rem 0 0 0">
@@ -111,7 +109,7 @@ const ResultPage = (props) => {
 
       <Grid margin="2rem auto">
         <Text type="mainTitle" color="var(--main)" marginBottom="2rem">
-          {resultData[0].dog_name}, {resultData[0].dog_age}살
+          {petimage[0].dog_name}, {petimage[0].dog_age}살
         </Text>
         <Text type="subTitle">
           <Keywords typekeywords={resultData[0].dog.emotion} />
@@ -121,7 +119,7 @@ const ResultPage = (props) => {
       </Grid>
       <Grid margin="2rem auto">
         <Text type="subTitle" color="var(--main)" marginBottom="2rem">
-          당신이 생각하는 {resultData[0].dog_name}의 감정상태 일치도는?
+          당신이 생각하는 {petimage[0].dog_name}의 감정상태 일치도는?
         </Text>
 
         <Grid is_flex mobileColumn>
@@ -158,10 +156,9 @@ const ResultPage = (props) => {
           </Grid>
         </Grid>
       </Grid>
-
       <Grid margin="2rem auto">
         <Text type="subTitle" color="var(--main)" marginBottom="15px">
-          현재 {resultData[0].dog_name}의 감정 상태
+          현재 {petimage[0].dog_name}의 감정 상태
         </Text>
 
         <Grid>
@@ -172,7 +169,7 @@ const ResultPage = (props) => {
       </Grid>
       <Grid margin="2rem auto">
         <Text type="subTitle" color="var(--main)" marginBottom="15px">
-          {resultData[0].dog_name}의 솔루션
+          {petimage[0].dog_name}의 솔루션
         </Text>
         <Text type="body" color="var(--deepcream)">
           {resultData[0].solution[1]}
@@ -186,7 +183,7 @@ const ResultPage = (props) => {
       </Grid>
       <Grid margin="2rem auto">
         <Text type="subTitle" color="var(--main)" marginBottom="15px">
-          {resultData[0].dog_name}에게 필요한 것
+          {petimage[0].dog_name}에게 필요한 것
         </Text>
         <Grid flexWrap="wrap" width="100%" is_flex margin="0 0 3rem 0">
           {resultData[0].needs.map((need, index) => {
