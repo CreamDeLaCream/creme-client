@@ -5,12 +5,16 @@ import api from '../../utils/API';
 // Action
 const ADD_PET_IMAGE = 'ADD_PET_IMAGE';
 const SET_PET_IMAGE = 'SET_PET_IMAGE';
+// const RESET_PET_IMAGE = 'RESET_PET_IMAGE';
 
 // Action Creator
 const addPetImage = createAction(ADD_PET_IMAGE, (pet_image) => ({ pet_image }));
 const setPetImage = createAction(SET_PET_IMAGE, (pet_image_list) => ({
   pet_image_list,
 }));
+// const resetPetImage = createAction(RESET_PET_IMAGE, (pet_image_list) => ({
+//   pet_image_list,
+// }));
 
 // InitialState
 const initialState = {
@@ -82,6 +86,15 @@ const setPetImageAX = ({ slug }) => {
       });
   };
 };
+
+// const DeleteImageAX = () => {
+//   return function (dispatch, getState, { history }) {
+//     auth.signOut().then(() => {
+//       dispatch(logOut());
+//       history.replace('/');
+//     });
+//   };
+// };
 
 // Reducer
 export default handleActions(

@@ -90,7 +90,7 @@ export const EmotionTest = () => {
 
   function TestList({ questionlist, questionNum, clickButton }) {
     return (
-      <EmotionTestWapper>
+      <EmotionTestWrapper>
         <Text type="subTitle" color="var(--darkcream)" margin="45px 0 0 0">
           {questionlist.question.Question}
         </Text>
@@ -106,7 +106,7 @@ export const EmotionTest = () => {
             );
           })}
         </TestContent>
-      </EmotionTestWapper>
+      </EmotionTestWrapper>
     );
   }
 
@@ -125,7 +125,7 @@ export const EmotionTest = () => {
   );
 };
 
-const EmotionTestWapper = styled.div`
+const EmotionTestWrapper = styled.div`
   width: 470px;
   height: 230px;
   background-color: var(—lightcream);

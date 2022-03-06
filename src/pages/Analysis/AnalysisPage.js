@@ -56,20 +56,20 @@ const AnalysisPage = (props) => {
         <Text type="mainTitle" color="var(--main)">
           <Loading />
         </Text>
-        <TestContentWarpper>
-          <ImgSeiton>
+        <TestContentWrapper>
+          <ImgSection>
             <img
               alt=""
               src={process.env.PUBLIC_URL + `/Image/dog3.gif`}
               width="400px"
               height="300px"
             />
-          </ImgSeiton>
+          </ImgSection>
           <Text type="subTitle" color="var(--main)"></Text>
-          <TestSetion>
+          <TestSection>
             <EmotionTest />
-          </TestSetion>
-        </TestContentWarpper>
+          </TestSection>
+        </TestContentWrapper>
 
         <ButtonWrapper>
           <Button
@@ -98,7 +98,7 @@ const Analysisbg = styled.div`
   height: calc(160vh - 100px);
 `;
 
-const TestContentWarpper = styled.div`
+const TestContentWrapper = styled.div`
   width: 100%;
   // background-color: var(--main);
   display: flex;
@@ -106,7 +106,7 @@ const TestContentWarpper = styled.div`
   margin-top: 50px;
 `;
 
-const ImgSeiton = styled.div`
+const ImgSection = styled.div`
   width: 100%;
   height: 300px;
   display: flex;
@@ -126,7 +126,7 @@ const Ment = styled.div`
   width: 100%;
 `;
 
-const TestSetion = styled.div`
+const TestSection = styled.div`
   width: 100%;
   color: var(--darkcream);
   // background-color: var(--cream);

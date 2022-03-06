@@ -96,8 +96,6 @@ const MainPage = (props) => {
             color="var(--white)"
             radius="5px"
             cursor
-            // 중간 점검 이후 변경 예정
-            // onClick={() => history.push('/login')}
           >
             <Text type="button" color="var(--white)">
               사진찍기 / 업로드
