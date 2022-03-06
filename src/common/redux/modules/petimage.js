@@ -30,10 +30,24 @@ const addPetImageAX = ({ name, age, image }) => {
           'Content-Type': 'multipart/form-data',
         },
       })
-      .then((response) => {
-        // dispatch(writeTextPage(response.data.comments));
-        dispatch(addPetImage(response.data.images));
+      .then((res) => {
+        // console.log(res.data.slug);
+        // dispatch(writeTextPage(res.data.comments));
         // window.location.reload();
+
+        const petimage = {
+          slug: res.data.slug,
+          dog: res.data.dog_emotion,
+          dog_name: res.data.dog_name,
+          dog_age: res.data.dog_age,
+          image: res.data.image,
+          // url: `/${res.data.slug}`,
+          // image: `${api.baseURL}/${_post.slug}`,
+        };
+        dispatch(addPetImage(petimage));
+        // pet_image_list.push(petimage);
+        console.log('petimage redux', petimage);
+        // console.log('pet_image_list', pet_image_list);
       })
       .catch((error) => {
         console.log('이미지 전송 실패', error);
@@ -41,22 +55,27 @@ const addPetImageAX = ({ name, age, image }) => {
   };
 };
 
-const setPetImageAX = () => {
+const setPetImageAX = ({ slug }) => {
   return function (dispatch, getState, { history }) {
     api
-      .get(`/api/analysis/pet`)
+      .get(`analysis/result/${slug}`)
       .then((res) => {
-        const pet_image_list = [];
+        console.log('res.data redux', res.data);
+
+        // const pet_image_list = [];
         res.data.forEach((_post) => {
-          const post = {
-            post_id: _post.id,
-            name: _post.name,
-            profile_image: _post.profile_image,
-            content: _post.content,
+          const petimage = {
+            slug: _post.slug,
+            dog: _post.dog_emotion,
+            dog_name: _post.dog_name,
+            dog_age: _post.dog_age,
+            image: _post.image,
+            // image: `${api.baseURL}/${_post.slug}`,
           };
-          pet_image_list.push(post);
+          console.log('rea', petimage);
+          // pet_image_list.push(petimage);
+          dispatch(setPetImage(petimage));
         });
-        dispatch(setPetImage(pet_image_list));
       })
       .catch((e) => {
         console.log('불러오기 에러', e);
@@ -69,11 +88,11 @@ export default handleActions(
   {
     [ADD_PET_IMAGE]: (state, action) =>
       produce(state, (draft) => {
-        draft.comment.push(action.payload.petimage);
+        draft.list.push(action.payload.pet_image);
       }),
     [SET_PET_IMAGE]: (state, action) =>
       produce(state, (draft) => {
-        draft.list.push(...action.payload.petimagelist);
+        draft.list.push(...action.payload.pet_image_list);
       }),
   },
   initialState,

@@ -2,6 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 
+// redux
+import { useDispatch, useSelector } from 'react-redux';
+
 // components
 import {
   Header,
@@ -15,6 +18,7 @@ import Loading from '../Analysis/Loading';
 
 const AnalysisPage = (props) => {
   const history = useHistory();
+  const petimage = useSelector((state) => state.petimage.list);
 
   // // redux example
   // import { useDispatch } from 'react-redux';
@@ -76,7 +80,7 @@ const AnalysisPage = (props) => {
             size="20px"
             color="var(--white)"
             cursor
-            onClick={() => history.push('/result')}
+            onClick={() => history.push(`/result/${petimage[0].slug}`)}
           >
             <Text type="button" color="var(--white)">
               댕댕이 <br /> 결과

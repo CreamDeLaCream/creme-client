@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 
 // redux
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { actionCreators as postActions } from '../../common/redux/modules/petimage';
 
 // components
@@ -29,6 +29,7 @@ const MainPage = (props) => {
   const [files, setFiles] = useState([]);
   const [age, setAge] = useState('');
   const [name, setName] = useState('');
+  // const pet_image_list = useSelector((state) => state.petimage.list);
 
   // 업로드 방식 모달
   const [modalOpen, setModalOpen] = useState(false);
@@ -51,9 +52,9 @@ const MainPage = (props) => {
       age: age,
       image: files[0],
     };
-    console.log(petimage);
     dispatch(postActions.addPetImageAX(petimage));
-    history.push('/analysis');
+    console.log('petimage main', petimage.slug);
+    history.replace(`/analysis`);
   };
 
   const changeName = (e) => {
@@ -67,7 +68,7 @@ const MainPage = (props) => {
   const _session_key = null;
   const is_login = sessionStorage.getItem(_session_key);
 
-  if (is_login)
+  if (!is_login)
     <Container height="100vh">
       <Header />
       <Navbar />

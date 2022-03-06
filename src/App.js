@@ -34,8 +34,8 @@ function App() {
             <Route exact path="/" component={IntroPage} />
             <Route exact path="/main" component={MainPage} />
             <Route exact path="/analysis" component={AnalysisPage} />
-            {/* <Route exact path="/result/:id" component={ResultPage} /> */}
-            <Route exact path="/result" component={ResultPage} />
+            <Route exact path="/result/:slug" component={ResultPage} />
+            {/* <Route exact path="/result" component={ResultPage} /> */}
             <Route exact path="/mypet" component={MyPetPage} />
             <Route exact path="/team" component={TeamPage} />
             <Route exact path="/addpet" component={AddPetPage} />
