@@ -153,7 +153,7 @@ const RecordCardWrapper = styled.div`
   flex-direction: row;
   margin-top: 30px;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-start;
 `;
 
 const ButtonWrapper = styled.div`

@@ -49,6 +49,7 @@ const Record = ({ petImages, clickedEmotion }) => {
 
 const RecordWrapper = styled.div`
   position: relative;
+  margin-right: 5px;
 `;
 const ILikePetBt = styled.div`
   left: 270px;
@@ -69,7 +70,7 @@ const RecordCard = styled.div`
   object-fit: cover;
   background-size: contain;
 
-  margin-top: 7px;
+  margin-top: 5px;
 
   position: relative;
 
