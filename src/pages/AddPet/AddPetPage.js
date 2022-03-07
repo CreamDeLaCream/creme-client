@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 import { AnimatedKeyword } from '../../common/components/AnimatedKeyword';
+import { MyPetKeywordsData } from '../../common/components/MyPetKeywordsData';
 
 // components
 import {
@@ -34,7 +35,7 @@ const AddPetPage = (props) => {
         <KeywordsSection>
           <p>Keywords</p>
           <KeywordWrapper>
-            <AnimatedKeyword />
+            <AnimatedKeyword keywordsData={MyPetKeywordsData} />
             {/* {myPetData.map((myPetDataSelect, i) => {
               return <Keywords typekeywords={myPetDataSelect} />;
             })} */}
