@@ -22,6 +22,7 @@ import { Keywords } from '../../common/components/Keyword';
 import CopyURL from './CopyURL';
 import BarChart from './BarChart';
 import { BsHeartFill } from 'react-icons/bs';
+import KakaoShare from './KakaoShare';
 
 const ResultPage = (props) => {
   const history = useHistory();
@@ -123,17 +124,14 @@ const ResultPage = (props) => {
             <BsHeartFill size="1.4rem" color="var(--darkcream)" />
           </Button>
           <CopyURL />
-          <Button
-            circle
-            foldSize
-            size="3.5"
-            bg="var(--white)"
-            border="0.15rem solid var(--darkcream)"
-            is_flex_center
-            cursor
-          >
-            <p>Kakao</p>
-          </Button>
+          <KakaoShare
+            title={`당신의 반려견 ${petimage[0].dog_name}(이)는 ${petimage[0].dog_age}살 입니다.`}
+            description="당신과 반려견의 궁합은?"
+            imgUrl={petimage[0].image}
+            // buttonTitle="보러 가기"
+            buttonText="다시 검색하기"
+            link="/"
+          />
         </ButtonWrapper>
       </Grid>
       <Grid margin="2rem auto">
@@ -220,6 +218,7 @@ const ResultPage = (props) => {
           })}
         </Grid>
       </Grid>
+
       <Grid margin="2rem auto">
         <Text type="subTitle" color="var(--main)" marginBottom="15px">
           오늘의 감정일기(메모)
