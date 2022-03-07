@@ -5,6 +5,7 @@ import { useHistory, useParams } from 'react-router-dom';
 // redux
 import { useDispatch, useSelector } from 'react-redux';
 import { actionCreators as postActions } from '../../common/redux/modules/memo';
+import { actionCreators as userActions } from '../../common/redux/modules/user';
 
 // components
 import {
@@ -29,6 +30,7 @@ const ResultPage = (props) => {
   const dispatch = useDispatch();
   const [memo, setMemo] = useState('');
   const petimage = useSelector((state) => state.petimage.list);
+  const is_login = useSelector((state) => state.user.is_login);
 
   const changeMemo = (e) => {
     setMemo(e.target.value);
@@ -67,11 +69,11 @@ const ResultPage = (props) => {
   }, []);
 
   useEffect(() => {
-    const r1Info = { x: 50, y: 50, w: 150, h: 80 };
+    const r1Info = { x: 50, y: 50, w: 0, h: 0 };
     const r1Style = { borderColor: 'red', borderWidth: 10 };
     drawRect(r1Info, r1Style);
 
-    const r2Info = { x: 50, y: 50, w: 80, h: 150 };
+    const r2Info = { x: 50, y: 50, w: 0, h: 0 };
     const r2Style = { borderColor: 'blue', borderWidth: 10 };
     drawRect(r2Info, r2Style);
   }, []);
@@ -134,16 +136,20 @@ const ResultPage = (props) => {
           />
         </ButtonWrapper>
       </Grid>
+
       <Grid margin="2rem auto">
         <Text type="mainTitle" color="var(--main)" marginBottom="2rem">
           {petimage[0].dog_name}, {petimage[0].dog_age}살
         </Text>
         <Text type="subTitle">
-          <Keywords typekeywords={resultData[0].dog.emotion} />
+          {!is_login ? null : (
+            <Keywords typekeywords={resultData[0].dog.emotion} />
+          )}
           {/* TODO: Keyword에 props에 .character 추가하기 */}
           {/* <Keyword /> */}
         </Text>
       </Grid>
+
       <Grid margin="2rem auto">
         <Text type="subTitle" color="var(--main)" marginBottom="2rem">
           당신이 생각하는 {petimage[0].dog_name}의 감정상태 일치도는?
@@ -158,11 +164,12 @@ const ResultPage = (props) => {
                 color="var(--main)"
                 whiteSpace="nowrap"
               >
-                {resultData[0].match === true ? (
+                {/* {resultData[0].match === true ? (
                   <div>일치</div>
                 ) : (
                   <div>불일치</div>
-                )}
+                )} */}
+                <div>91%</div>
               </Text>
             </Grid>
           </Grid>
@@ -226,7 +233,7 @@ const ResultPage = (props) => {
         <Input
           multiLine
           value={memo}
-          _onChange={changeMemo}
+          onChange={changeMemo}
           placeholder="반려인의 간단한 기록 작성 공간"
         />
       </Grid>

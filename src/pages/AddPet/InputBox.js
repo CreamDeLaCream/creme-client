@@ -63,7 +63,7 @@ const InputBox = (props) => {
             <Input
               placeholder="댕댕이의 이름을 입력해주세요."
               value={name}
-              _onChange={changeName}
+              onChange={changeName}
             />
           </Grid>
 
@@ -71,7 +71,7 @@ const InputBox = (props) => {
             <Input
               placeholder="댕댕이의 나이를 입력해주세요."
               value={age}
-              _onChange={changeAge}
+              onChange={changeAge}
             />
           </Grid>
         </Grid>

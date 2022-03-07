@@ -4,24 +4,18 @@ import styled from 'styled-components';
 import { Grid } from './';
 
 const Input = (props) => {
-  const {
-    placeholder,
-    _onChange,
-    type,
-    multiLine,
-    value,
-    is_submit,
-    onSubmit,
-  } = props;
+  const { placeholder, onChange, type, multiLine, value, is_submit, onSubmit } =
+    props;
 
   if (multiLine) {
     return (
       <Grid>
         <TextareaForm
+          type={type}
           rows={3}
           value={value}
           placeholder={placeholder}
-          onChange={_onChange}
+          onChange={onChange}
         ></TextareaForm>
       </Grid>
     );
@@ -32,7 +26,7 @@ const Input = (props) => {
         <InputForm
           type={type}
           placeholder={placeholder}
-          onChange={_onChange}
+          onChange={onChange}
           value={value}
           onKeyPress={(e) => {
             if (e.key === 'Enter') {
@@ -41,7 +35,7 @@ const Input = (props) => {
           }}
         />
       ) : (
-        <InputForm type={type} placeholder={placeholder} onChange={_onChange} />
+        <InputForm type={type} placeholder={placeholder} onChange={onChange} />
       )}
     </Grid>
   );
