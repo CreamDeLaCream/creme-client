@@ -36,9 +36,6 @@ const AddPetPage = (props) => {
           <p>Keywords</p>
           <KeywordWrapper>
             <AnimatedKeyword keywordsData={MyPetKeywordsData} />
-            {/* {myPetData.map((myPetDataSelect, i) => {
-              return <Keywords typekeywords={myPetDataSelect} />;
-            })} */}
           </KeywordWrapper>
         </KeywordsSection>
       </AddPetSection>

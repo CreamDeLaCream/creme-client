@@ -4,8 +4,8 @@ import { MyPetKeywordsData } from './MyPetKeywordsData';
 import styled from 'styled-components';
 import Button from './Button';
 
-export const AnimatedKeyword = ({ KeywordsData }) => {
-  const [keywordBalls, setKeywordBalls] = useState(KeywordsData);
+export const AnimatedKeyword = ({ keywordsData }) => {
+  const [keywordBalls, setKeywordBalls] = useState(keywordsData);
   const [clickedKeywords, setClickedKeywords] = useState([]);
   const scene = useRef(null);
   const canvasWidth = 870;
