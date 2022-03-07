@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 // Data
 import MyPetData from '../../common/components/MyPetData';
@@ -24,6 +25,8 @@ import { FilterRecord } from './FilterRecord';
 import { FilterMyPet } from './FilterMyPet';
 
 const MyPetPage = (props) => {
+  const testAnswer = useSelector((state) => state.analysis.emotionResult);
+  console.log(testAnswer);
   const history = useHistory();
   let [petImage, setPetImage] = useState(AnalysisData);
 
