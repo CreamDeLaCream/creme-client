@@ -18,6 +18,7 @@ const logOut = createAction(LOG_OUT, (user) => ({ user }));
 const initialState = {
   user: null,
   is_login: false,
+  // is_login: true,
   // is_cookie: false,
 };
 
@@ -113,7 +114,7 @@ const loginCheck = () => {
             dispatch(
               setUser({
                 is_login: res.data.res,
-                user_id: res.data.user_id,
+                user_nickname: res.data.user_nickname,
                 user_email: res.data.user_email,
               }),
             );

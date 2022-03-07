@@ -16,12 +16,12 @@ import {
   Button,
   Input,
   Navbar,
-  Image,
   Modal,
   Dropzone,
   Preview,
 } from '../../common/components';
 import HowTo from './HowTo';
+import SelectPetName from './SelectPetName';
 
 const MainPage = (props) => {
   const history = useHistory();
@@ -65,65 +65,23 @@ const MainPage = (props) => {
     setAge(e.target.value);
   };
 
-  const _session_key = null;
-  const is_login = sessionStorage.getItem(_session_key);
-
-  if (!is_login)
-    <Container height="100vh">
-      <Header />
-      <Navbar />
-
-      <Grid margin="2rem auto">
-        <Text type="mainTitle" color="var(--main)">
-          감정상태를 분석할 댕댕이를 골라주세요.
-        </Text>
-      </Grid>
-
-      <Grid margin="2rem auto">
-        <Grid is_flex margin="0 0 3rem 0">
-          <Image size="15" />
-          <Image size="15" />
-          <Image size="15" />
-        </Grid>
-      </Grid>
-
-      <Grid margin="1rem auto">
-        <Grid is_flex width="100%">
-          <Button
-            width="48%"
-            padding="0.5rem"
-            bg="var(--main)"
-            color="var(--white)"
-            radius="5px"
-            cursor
-          >
-            <Text type="button" color="var(--white)">
-              사진찍기 / 업로드
-            </Text>
-          </Button>
-          <Button
-            width="48%"
-            padding="0.5rem"
-            bg="var(--main)"
-            color="var(--white)"
-            radius="5px"
-            cursor
-            onClick={addPost}
-            // onClick={() => history.push('/result')}
-          >
-            <Text type="button" color="var(--white)">
-              분석 시작
-            </Text>
-          </Button>
-        </Grid>
-      </Grid>
-    </Container>;
+  const is_login = useSelector((state) => state.user.is_login);
 
   return (
     <>
       <Container>
         <Header />
         <Navbar />
+        {!is_login ? null : (
+          <>
+            <Grid margin="2rem auto">
+              <Text type="mainTitle" color="var(--blackcream)">
+                감정상태를 분석할 댕댕이를 골라주세요.
+              </Text>
+            </Grid>
+            <SelectPetName />
+          </>
+        )}
 
         <Grid margin="2rem auto">
           <Text type="mainTitle" color="var(--blackcream)">
@@ -169,7 +127,8 @@ const MainPage = (props) => {
                 <Input
                   placeholder="댕댕이의 이름을 입력해주세요."
                   value={name}
-                  _onChange={changeName}
+                  onChange={changeName}
+                  type="text"
                 />
               </Grid>
 
@@ -177,7 +136,8 @@ const MainPage = (props) => {
                 <Input
                   placeholder="댕댕이의 나이를 입력해주세요."
                   value={age}
-                  _onChange={changeAge}
+                  onChange={changeAge}
+                  type="number"
                 />
               </Grid>
             </Grid>

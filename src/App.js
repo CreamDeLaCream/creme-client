@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import GlobalStyle from './common/styles/GlobalStyle';
 
 // redux
 import { Switch, Route } from 'react-router-dom';
 import { ConnectedRouter } from 'connected-react-router';
 import { history } from './common/redux/configureStore';
+import { useDispatch } from 'react-redux';
+import { actionCreators as userActions } from './common/redux/modules/user';
 
 // components
 import { Template } from './common/components';
 import ScrollToTop from './common/utils/ScrollToTop';
+import { getCookie } from './common/utils/Cookie';
 
 // pages
 import {
@@ -24,6 +27,15 @@ import {
 } from './pages';
 
 function App() {
+  const dispatch = useDispatch();
+  const token = getCookie('refresh_token');
+
+  useEffect(() => {
+    if (token) {
+      dispatch(userActions.loginCheck());
+    }
+  }, []);
+
   return (
     <React.Fragment>
       <ConnectedRouter history={history}>
