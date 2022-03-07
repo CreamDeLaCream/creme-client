@@ -6,8 +6,9 @@ import AnalysisData from './AnalysisData';
 
 // Icons
 import { BsHeartFill } from 'react-icons/bs';
+import { myPetEmotion } from './MyPetPage';
 
-const Record = ({ petImages }) => {
+const Record = ({ petImages, clickedEmotion }) => {
   const env = process.env;
   env.PUBLIC_URL = env.PUBLIC_URL || '';
 
@@ -22,11 +23,11 @@ const Record = ({ petImages }) => {
         <RecordCard>
           <img
             alt=""
-            src={process.env.PUBLIC_URL + `/Image/cat0.png`}
+            src={process.env.PUBLIC_URL + '/Image/cat0.png'}
             width="315px"
             height="315px"
           />
-          {recordcards.name} {recordcards.date}
+          {recordcards.name} {recordcards.date} {recordcards.emotion}
         </RecordCard>
       </RecordWrapper>
     );
@@ -34,7 +35,13 @@ const Record = ({ petImages }) => {
   return (
     <>
       {petImages.map((recordcards, i) => {
-        return <ImageList recordcards={recordcards} />;
+        if (clickedEmotion.length === myPetEmotion.length) {
+          return <ImageList recordcards={recordcards} />;
+        } else {
+          if (clickedEmotion.indexOf(recordcards.emotion) !== -1) {
+            return <ImageList recordcards={recordcards} />;
+          }
+        }
       })}
     </>
   );
@@ -43,7 +50,6 @@ const Record = ({ petImages }) => {
 const RecordWrapper = styled.div`
   position: relative;
 `;
-
 const ILikePetBt = styled.div`
   left: 270px;
   top: 280px;
@@ -52,7 +58,6 @@ const ILikePetBt = styled.div`
 
   position: absolute;
 `;
-
 const RecordCard = styled.div`
   width: 315px;
   height: 315px;

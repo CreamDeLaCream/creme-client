@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
 
 // Data
 import MyPetData from '../../common/components/MyPetData';
@@ -25,10 +24,8 @@ import { FilterRecord } from './FilterRecord';
 import { FilterMyPet } from './FilterMyPet';
 
 const MyPetPage = (props) => {
-  const testAnswer = useSelector((state) => state.analysis.emotionResult);
-  console.log(testAnswer);
   const history = useHistory();
-  let [petImage, setPetImage] = useState(AnalysisData);
+  const [petImage, setPetImage] = useState(AnalysisData);
 
   const concatImage = () => {
     const temp = petImage.concat(AnalysisData);
@@ -57,6 +54,16 @@ const MyPetPage = (props) => {
   // if (myPetData === null) {
   //  retrun <> // 컴포넌트 넣기
   // };
+  const [clickedEmotion, setClickedEmotion] = useState(myPetEmotion);
+  const onClickEmotion = (emotion) => {
+    if (clickedEmotion.indexOf(emotion) !== -1) {
+      const newArr = clickedEmotion.filter((ele) => ele !== emotion);
+      setClickedEmotion(newArr);
+    } else {
+      const newArr = clickedEmotion.concat(emotion);
+      setClickedEmotion(newArr);
+    }
+  };
 
   return (
     <Container height="200vh">
@@ -85,11 +92,14 @@ const MyPetPage = (props) => {
           <RecordTitle>마이펫 감정 기록</RecordTitle>
           <RecordMenuEmotion>
             <FilterMyPet />
-            <FilterRecord />
+            <FilterRecord
+              clickedEmotion={clickedEmotion}
+              onClickEmotion={onClickEmotion}
+            />
           </RecordMenuEmotion>
         </RecordMenu>
         <RecordCardWrapper>
-          <Record petImages={petImage} />
+          <Record petImages={petImage} clickedEmotion={clickedEmotion} />
         </RecordCardWrapper>
         <ButtonWrapper>
           <Button
@@ -153,5 +163,7 @@ const ButtonWrapper = styled.div`
   margin-top: 50px;
   margin-bottom: 50px;
 `;
+
+export const myPetEmotion = ['happy', 'sad', 'scared', 'angry'];
 
 export default MyPetPage;
