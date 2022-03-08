@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { useDispatch, useSelector } from 'react-redux';
+import { actionCreators as analysicActions } from '../../common/redux/modules/analysis';
 
 // components
 import { Text, Button } from '../../common/components';
 
 export const EmotionTest = () => {
+  const dispatch = useDispatch();
+  const testAnswer = useSelector((state) => state.analysis.emotionResult);
   const testQnA = [
     {
       question: { id: 0, Question: '반려인이 생각하는 댕댕이의 감정은?' },
@@ -44,22 +48,8 @@ export const EmotionTest = () => {
     },
   ];
 
-  const [testAnswer, setTestAnswer] = useState({
-    0: null,
-    1: null,
-    2: null,
-    3: null,
-  });
-
-  console.log(testAnswer);
-
   const clickButton = (name, value) => {
-    setTestAnswer((prev) => {
-      return {
-        ...prev,
-        [name]: value,
-      };
-    });
+    dispatch(analysicActions.addEmotion(name, value));
   };
 
   function AnswerList({ answerlist, clickButton, questionNum, answerNum }) {
