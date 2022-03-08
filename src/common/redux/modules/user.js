@@ -67,12 +67,15 @@ const kakaoLogin = (code) => {
         // localStorage.setItem('token', ACCESS_TOKEN); //예시로 로컬에 저장함
         sessionStorage.setItem('token', ACCESS_TOKEN);
         sessionStorage.setItem('refresh', REFRESH_TOKEN);
+        // const token = sessionStorage.getItem('token');
 
         history.replace('/'); // 토큰 받았았고 로그인됐으니 화면 전환시켜줌(메인으로)
-
+        // const header = {
+        //   Authorization: `Bearer ${token}`,
+        // };
         // api
         //   .get('/users/login', {
-        //     // headers: header,
+        //     headers: header,
         //   })
         //   .then((res) => {
         //     console.log(res);
@@ -80,20 +83,16 @@ const kakaoLogin = (code) => {
         //       setUser({
         //         is_login: res.data.res,
         //         user_nickname: res.user_nickname,
-        //         user_email: res.data.user_email,
+        //         // user_email: res.data.user_email,
         //       }),
         //     );
-
         //     window.alert(`로그인에 성공하였습니다.`);
-        //     // history.replace('/');
         //     window.location.replace('/');
-        //   })
-        //     .catch((e) => {
-        //       console.log('user 정보 조회 에러', e);
-        //     });
+        //     //     window.location.replace('/');
+        //   });
       })
-      .catch((err) => {
-        console.log('소셜로그인 에러', err);
+      .catch((error) => {
+        console.log('user 정보 조회 에러', error);
         window.alert('로그인에 실패하였습니다.');
         history.replace('/'); // 로그인 실패하면 서비스 소개 화면으로 돌려보냄
       });
@@ -108,7 +107,7 @@ const loginCheck = () => {
         Authorization: `Bearer ${token}`,
       };
       api
-        .get('/user/login', { headers: header })
+        .get('/users/login', { headers: header })
         .then((res) => {
           if (res.data.res) {
             dispatch(
@@ -119,7 +118,7 @@ const loginCheck = () => {
               }),
             );
           } else {
-            dispatch(logOut());
+            // dispatch(logOut());
           }
         })
         .catch((e) => {

@@ -69,11 +69,11 @@ const ResultPage = (props) => {
   }, []);
 
   useEffect(() => {
-    const r1Info = { x: 50, y: 50, w: 0, h: 0 };
+    const r1Info = { x: 120, y: 180, w: 200, h: 200 };
     const r1Style = { borderColor: 'red', borderWidth: 10 };
     drawRect(r1Info, r1Style);
 
-    const r2Info = { x: 50, y: 50, w: 0, h: 0 };
+    const r2Info = { x: 600, y: 180, w: 200, h: 200 };
     const r2Style = { borderColor: 'blue', borderWidth: 10 };
     drawRect(r2Info, r2Style);
   }, []);
@@ -90,8 +90,8 @@ const ResultPage = (props) => {
   };
 
   const resetHandler = () => {
-    dispatch(postActions.initialState(petimage));
-    history.replace('/main');
+    // dispatch(postActions.initialState(petimage));
+    history.push('/main');
   };
 
   return (
@@ -103,12 +103,24 @@ const ResultPage = (props) => {
           반려견 감정 상태 결과
         </Text>
       </Grid>
+
       <ResultBox>
-        <div style={{ width: '100%', position: 'relative' }}>
-          <div>
-            <canvas ref={canvas}></canvas>
-          </div>
-          <img width="100%" src={petimage[0].image} alt="dog_image" />
+        <div style={{ width: '1000px', height: '500px', position: 'relative' }}>
+          <img
+            style={{ width: '100%', height: '100%' }}
+            src={petimage[0].image}
+            alt="dog_image"
+          />
+          <canvas
+            style={{
+              width: '100%',
+              height: '100%',
+              position: 'absolute',
+              left: 0,
+              top: 0,
+            }}
+            ref={canvas}
+          ></canvas>
         </div>
       </ResultBox>
 

@@ -41,16 +41,16 @@ const addPetImageAX = ({ name, age, image }) => {
 
         const petimage = {
           slug: res.data.slug,
-          dog: res.data.dog_emotion,
           dog_name: res.data.dog_name,
           dog_age: res.data.dog_age,
           image: res.data.image,
+
           // url: `/${res.data.slug}`,
           // image: `${api.baseURL}/${_post.slug}`,
         };
         dispatch(addPetImage(petimage));
         // pet_image_list.push(petimage);
-        console.log('petimage redux', petimage);
+        // console.log('petimage redux', petimage);
         // console.log('pet_image_list', pet_image_list);
       })
       .catch((error) => {
@@ -61,24 +61,28 @@ const addPetImageAX = ({ name, age, image }) => {
 
 const setPetImageAX = ({ slug }) => {
   return function (dispatch, getState, { history }) {
+    console.log('testasdfsdfasdfasdf');
+    const formData = new FormData();
+    formData.append('slug', slug);
     api
       .get(`analysis/result/${slug}`)
       .then((res) => {
         console.log('res.data redux', res.data);
 
         // const pet_image_list = [];
-        res.data.forEach((_post) => {
-          const petimage = {
-            slug: _post.slug,
-            dog: _post.dog_emotion,
-            dog_name: _post.dog_name,
-            dog_age: _post.dog_age,
-            image: _post.image,
-            // image: `${api.baseURL}/${_post.slug}`,
+        res.data.forEach(() => {
+          const pet_image_list = {
+            dog_emotion: res.data.dog_emotion,
+            dog_emotion_percentage: res.data.dog_emotion_percentage,
+            human_emotion: res.data.human_emotion,
+            human_emotion_percentage: res.data.human_emotion_percentage,
+            chemistry_percentage: res.data.chemistry_percentage,
+            // image: `${api.baseURL}/${res.data.slug}`,
           };
-          console.log('rea', petimage);
           // pet_image_list.push(petimage);
-          dispatch(setPetImage(petimage));
+          dispatch(setPetImage(pet_image_list));
+          console.log('petimage redux', pet_image_list);
+          console.log('res.data redux', res.data);
         });
       })
       .catch((e) => {
