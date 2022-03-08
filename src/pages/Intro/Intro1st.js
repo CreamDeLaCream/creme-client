@@ -18,13 +18,13 @@ export const Intro1st = (props) => {
           우리집 <HighlightText color="var(--cream)">옥자</HighlightText>는{' '}
           <br />
           오늘{' '}
-          <span style={{ color: 'var(--lightcream)', fontSize: '40px' }}>
+          <span style={{ color: 'var(--main)', fontSize: '40px' }}>
             무슨 감정
           </span>
           을<br />
           느끼고 있을까요?
         </Text>
-        <p style={{ fontFamily: 'IBM Plex Sans KR', color: 'var(--cream)' }}>
+        <p style={{ fontFamily: 'IBM Plex Sans KR', color: 'var(--main)' }}>
           나의 댕댕이가 오늘은 어떤 감정을 느끼고 있는지 궁금하시죠?
           <br />
           혹시, 가까웠던 댕댕이와의 관계가 소홀해지셨나요?
@@ -36,10 +36,10 @@ export const Intro1st = (props) => {
         <Button
           width="80px"
           height="80px"
-          bg="var(--lightcream)"
+          bg="var(--main)"
           radius="50%"
           size="20px"
-          color="var(--main)"
+          color="var(--lightcream)"
           margin="20px 0 0 0"
           onClick={() => {
             console.log('넘어감');
@@ -63,7 +63,7 @@ export const Intro1st = (props) => {
 };
 
 const MainTitleBg = styled.div`
-  background-color: var(--main);
+  background-color: var(--white);
   width: 100%;
   display: flex;
   ${({ theme }) => theme.device.mobile} {
@@ -74,8 +74,8 @@ const MainTitleBg = styled.div`
 
 const TitleContent = styled.div`
   flex: 1;
-  margin-top: 100px;
-  margin-left: 70px;
+  margin-top: 50px;
+  margin-left: 50px;
   ${({ theme }) => theme.device.mobile} {
     text-align: center;
     margin-left: 0px;

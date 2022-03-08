@@ -74,7 +74,9 @@ const IntroBg = styled.div`
 
 const TitleContent = styled.div`
   margin-top: 70px;
-  margin-right: 70px;
+  margin-right: 50px;
+  width: 100%;
+  // background-color: var(--main);
   text-align: right;
   ${({ theme }) => theme.device.mobile} {
     margin-right: 0px;

@@ -38,7 +38,7 @@ const IntroBg = styled.div`
 
 const IntroTitle = styled.div`
   display: flex;
-  margin-left: 70px;
+  margin-left: 50px;
   margin-top: 80px;
 
   img {

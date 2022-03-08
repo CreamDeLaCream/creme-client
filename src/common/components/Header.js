@@ -86,14 +86,15 @@ const Header = (props) => {
   );
 };
 
-const Container = styled.header`
+const Container = styled.div`
   position: fixed;
-  top: 2rem;
+  top: 0rem;
   left: 0;
   z-index: 20;
   width: 100%;
-  height: 5rem;
-  background-color: transparent;
+  height: 10rem;
+  // background-color: transparent;
+  background-color: var(--white);
 `;
 
 const InsideBox = styled.div`
