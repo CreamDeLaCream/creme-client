@@ -4,7 +4,6 @@ import { useHistory } from 'react-router-dom';
 
 // Data
 import MyPetData from '../../common/components/MyPetData';
-import { EmotionButton } from './EmotionButton';
 
 // components
 import {
@@ -21,10 +20,12 @@ import { MypetCard } from './MypetCard';
 import AnalysisData from './AnalysisData';
 import { UserCard } from './UserCard';
 import { useEffect } from 'react';
+import { FilterRecord } from './FilterRecord';
+import { FilterMyPet } from './FilterMyPet';
 
 const MyPetPage = (props) => {
   const history = useHistory();
-  let [petImage, setPetImage] = useState(AnalysisData);
+  const [petImage, setPetImage] = useState(AnalysisData);
 
   const concatImage = () => {
     const temp = petImage.concat(AnalysisData);
@@ -53,6 +54,16 @@ const MyPetPage = (props) => {
   // if (myPetData === null) {
   //  retrun <> // 컴포넌트 넣기
   // };
+  const [clickedEmotion, setClickedEmotion] = useState(myPetEmotion);
+  const onClickEmotion = (emotion) => {
+    if (clickedEmotion.indexOf(emotion) !== -1) {
+      const newArr = clickedEmotion.filter((ele) => ele !== emotion);
+      setClickedEmotion(newArr);
+    } else {
+      const newArr = clickedEmotion.concat(emotion);
+      setClickedEmotion(newArr);
+    }
+  };
 
   return (
     <Container height="200vh">
@@ -80,11 +91,15 @@ const MyPetPage = (props) => {
         <RecordMenu>
           <RecordTitle>마이펫 감정 기록</RecordTitle>
           <RecordMenuEmotion>
-            <EmotionButton />
+            <FilterMyPet />
+            <FilterRecord
+              clickedEmotion={clickedEmotion}
+              onClickEmotion={onClickEmotion}
+            />
           </RecordMenuEmotion>
         </RecordMenu>
         <RecordCardWrapper>
-          <Record petImages={petImage} />
+          <Record petImages={petImage} clickedEmotion={clickedEmotion} />
         </RecordCardWrapper>
         <ButtonWrapper>
           <Button
@@ -108,32 +123,37 @@ const MyPetPage = (props) => {
 const MypetPartnerWrapper = styled.div`
   margin-top: 20px;
 `;
+
 const RecordWrapper = styled.div`
   margin-top: 50px;
+  height: 70px;
 `;
 
 const RecordTitle = styled.div`
-  width: 30%;
+  width: 200px;
   font-size: 1.6rem;
   font-weight: 600;
   color: var(--main);
+  margin-top: 30px;
 `;
 
 const RecordMenu = styled.div`
   display: flex;
+  // background-color: var(--cream);
 `;
 
 const RecordMenuEmotion = styled.div`
   width: 30%;
+  display: flex;
 `;
 
 const RecordCardWrapper = styled.div`
-  margin-top: 20px;
+  margin-top: 10px;
   display: flex;
   flex-direction: row;
   margin-top: 30px;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-start;
 `;
 
 const ButtonWrapper = styled.div`
@@ -143,5 +163,7 @@ const ButtonWrapper = styled.div`
   margin-top: 50px;
   margin-bottom: 50px;
 `;
+
+export const myPetEmotion = ['happy', 'sad', 'scared', 'angry'];
 
 export default MyPetPage;
