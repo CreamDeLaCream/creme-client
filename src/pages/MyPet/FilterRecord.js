@@ -9,6 +9,7 @@ export const FilterRecord = ({ clickedEmotion, onClickEmotion }) => {
         return (
           <Button
             height="23px"
+            size="18px"
             bg={
               clickedEmotion.indexOf(emotionwords) !== -1
                 ? 'var(--darkcream)'
