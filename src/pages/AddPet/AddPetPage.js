@@ -35,7 +35,10 @@ const AddPetPage = (props) => {
         <KeywordsSection>
           <p>Keywords</p>
           <KeywordWrapper>
-            <AnimatedKeyword keywordsData={MyPetKeywordsData} />
+            <AnimatedKeyword
+              keywordsData={MyPetKeywordsData}
+              questionTitle="나의 댕댕이의 성격은?"
+            />
           </KeywordWrapper>
         </KeywordsSection>
       </AddPetSection>

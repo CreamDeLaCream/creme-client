@@ -27,6 +27,7 @@ import on소확행 from './clickedImg/on소확행.png';
 import on싱글 from './clickedImg/on싱글.png';
 import on썸타는중 from './clickedImg/on썸타는중.png';
 import on야근 from './clickedImg/on야근.png';
+import on육아 from './clickedImg/on육아.png';
 import on욜로 from './clickedImg/on욜로.png';
 import on워라벨추구 from './clickedImg/on워라벨추구.png';
 import on일인가구 from './clickedImg/on일인가구.png';
@@ -70,6 +71,7 @@ export const clickedImg = {
   on썸타는중,
   on야근,
   on욜로,
+  on육아,
   on워라벨추구,
   on일인가구,
   on취준생,

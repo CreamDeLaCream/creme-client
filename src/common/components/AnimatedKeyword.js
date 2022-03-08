@@ -4,7 +4,7 @@ import { MyPetKeywordsData } from './MyPetKeywordsData';
 import styled from 'styled-components';
 import Button from './Button';
 
-export const AnimatedKeyword = ({ keywordsData }) => {
+export const AnimatedKeyword = ({ keywordsData, questionTitle }) => {
   const [keywordBalls, setKeywordBalls] = useState(keywordsData);
   const [clickedKeywords, setClickedKeywords] = useState([]);
   const scene = useRef(null);
@@ -144,7 +144,7 @@ export const AnimatedKeyword = ({ keywordsData }) => {
     <div style={{ display: 'flex', flexDirection: 'column' }}>
       <div ref={scene} style={{ width: '100%', height: '100%' }} />
       <span style={{ color: 'var(--blackcream)', margin: '20px 0 0 0' }}>
-        나의 댕댕이 성격은?
+        {questionTitle}
       </span>
       <div
         style={{

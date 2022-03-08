@@ -25,7 +25,7 @@ export const UserKeywordsData = [
     isClicked: false,
   },
   {
-    x: 80,
+    x: 770,
     y: 120,
     keyword: '디지털노마드',
     img: baseImg.디지털노마드,
@@ -277,7 +277,7 @@ export const UserKeywordsData = [
     isClicked: false,
   },
   {
-    x: 40,
+    x: 760,
     y: 130,
     keyword: '빈공',
     img: baseImg.base,
