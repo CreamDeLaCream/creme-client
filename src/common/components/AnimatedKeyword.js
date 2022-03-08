@@ -150,7 +150,7 @@ export const AnimatedKeyword = ({ keywordsData, questionTitle }) => {
         style={{
           display: 'flex',
           flexDirection: 'row',
-          margin: '20px 0 0 0',
+          margin: '10px 0 0 0',
           color: 'var(--blackcream)',
         }}
         onClick={() => {
@@ -165,7 +165,7 @@ export const AnimatedKeyword = ({ keywordsData, questionTitle }) => {
                 bg="var(--darkcream)"
                 color="var(--white)"
                 radius="10px"
-                margin="0 5px 3px 0"
+                margin="0 5px 0 0"
               >
                 {clickedKeyword}
               </Button>

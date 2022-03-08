@@ -7,6 +7,8 @@ import { Button } from '../../common/components';
 import { MyPetImages } from './MyPetImages';
 import PetListButton from './PetListButton';
 
+import { BsCalendarCheck } from 'react-icons/bs';
+
 //props는 {} 사용 X
 export const MypetCard = ({
   myPetData,
@@ -60,15 +62,19 @@ export const MypetCard = ({
                     </Button>
                   </>
                 ) : (
-                  <Button
-                    height="23px"
-                    bg="var(--cream)"
-                    color="var(--main)"
-                    radius="10px"
-                    margin="0 0 0 5px"
-                  >
-                    {myPetData.emotionState}
-                  </Button>
+                  <>
+                    <Button
+                      height="23px"
+                      bg="var(--cream)"
+                      color="var(--main)"
+                      radius="10px"
+                      margin="0 0 0 5px"
+                    >
+                      {myPetData.emotionState}
+                    </Button>
+                    <p>이번주 댕댕이의 감정 상태는?</p>
+                    <BsCalendarCheck color="var(--main)" size="10px" />
+                  </>
                 )}
               </CurrentEmotion>
             </MyPetContent>
