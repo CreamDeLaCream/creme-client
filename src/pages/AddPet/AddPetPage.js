@@ -14,11 +14,27 @@ import {
 } from '../../common/components';
 import { Keywords } from '../../common/components/Keyword';
 import { MyPetData } from './MyPetData';
-import InputBox from './InputBox';
+import InputBox from '../../common/components/InputBox';
 
 const AddPetPage = (props) => {
   const history = useHistory();
   const [myPetData, setMyPetData] = useState(MyPetData);
+  const [inputData, setInputData] = useState({
+    age: '',
+    name: '',
+  });
+
+  const onChangeData = (name, value) => {
+    setInputData({
+      ...inputData,
+      [name]: value,
+    });
+  };
+
+  const [files, setFiles] = useState([]);
+
+  const [clickedKeywords, setClickedKeywords] = useState([]);
+
   return (
     <Container>
       <Header />
@@ -30,7 +46,12 @@ const AddPetPage = (props) => {
       <AddPetSection>
         <InfoWrapper>
           <p>MyPet</p>
-          <InputBox />
+          <InputBox
+            data={inputData}
+            files={files}
+            onChangeData={onChangeData}
+            onChangeFile={setFiles}
+          />
         </InfoWrapper>
         <KeywordsSection>
           <p>Keywords</p>
@@ -38,6 +59,8 @@ const AddPetPage = (props) => {
             <AnimatedKeyword
               keywordsData={MyPetKeywordsData}
               questionTitle="나의 댕댕이의 성격은?"
+              clickedKeywords={clickedKeywords}
+              onChangeClickedKeywords={setClickedKeywords}
             />
           </KeywordWrapper>
         </KeywordsSection>

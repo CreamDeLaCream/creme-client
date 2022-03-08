@@ -8,16 +8,19 @@ export const FilterRecord = ({ clickedEmotion, onClickEmotion }) => {
       {myPetEmotion.map((emotionwords, i) => {
         return (
           <Button
-            height="23px"
-            size="18px"
+            width="45px"
+            height="45px"
+            // size="18px"
             bg={
               clickedEmotion.indexOf(emotionwords) !== -1
                 ? 'var(--darkcream)'
                 : 'var(--cream)'
             }
             color="var(--white)"
-            radius="10px"
-            margin="30px 5px 0 5px"
+            radius="50%"
+            size="12px"
+            margin="15px 5px 0 5px"
+            cursor
             emotionwords={emotionwords}
             onClick={() => {
               onClickEmotion(emotionwords);

@@ -8,7 +8,7 @@ import AnalysisData from './AnalysisData';
 import { BsHeartFill } from 'react-icons/bs';
 import { myPetEmotion } from './MyPetPage';
 
-const Record = ({ petImages, clickedEmotion }) => {
+const Record = ({ petImages, clickedMyPet, clickedEmotion }) => {
   const env = process.env;
   env.PUBLIC_URL = env.PUBLIC_URL || '';
 
@@ -23,7 +23,7 @@ const Record = ({ petImages, clickedEmotion }) => {
         <RecordCard>
           <img
             alt=""
-            src={process.env.PUBLIC_URL + '/Image/cat0.png'}
+            src={process.env.PUBLIC_URL + `/Image/cat0.png`}
             width="315px"
             height="315px"
           />
@@ -36,10 +36,20 @@ const Record = ({ petImages, clickedEmotion }) => {
     <>
       {petImages.map((recordcards, i) => {
         if (clickedEmotion.length === myPetEmotion.length) {
-          return <ImageList recordcards={recordcards} />;
+          if (clickedMyPet === 'all') {
+            return <ImageList recordcards={recordcards} />;
+          }
+          if (clickedMyPet === recordcards.name) {
+            return <ImageList recordcards={recordcards} />;
+          }
         } else {
           if (clickedEmotion.indexOf(recordcards.emotion) !== -1) {
-            return <ImageList recordcards={recordcards} />;
+            if (clickedMyPet === 'all') {
+              return <ImageList recordcards={recordcards} />;
+            }
+            if (clickedMyPet === recordcards.name) {
+              return <ImageList recordcards={recordcards} />;
+            }
           }
         }
       })}
@@ -51,6 +61,7 @@ const RecordWrapper = styled.div`
   position: relative;
   margin-right: 5px;
 `;
+
 const ILikePetBt = styled.div`
   left: 270px;
   top: 280px;
@@ -59,6 +70,7 @@ const ILikePetBt = styled.div`
 
   position: absolute;
 `;
+
 const RecordCard = styled.div`
   width: 315px;
   height: 315px;
@@ -70,7 +82,7 @@ const RecordCard = styled.div`
   object-fit: cover;
   background-size: contain;
 
-  margin-top: 5px;
+  // margin-top: 4px;
 
   position: relative;
 

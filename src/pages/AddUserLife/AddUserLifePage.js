@@ -13,10 +13,25 @@ import {
 import { AnimatedKeyword } from '../../common/components/AnimatedKeyword';
 import { UserKeywordsData } from '../../common/components/UserKeywordsData';
 
-import InputBox from './InputBox';
+import InputBox from '../../common/components/InputBox';
 
 const AddUserLifePage = (props) => {
   const history = useHistory();
+  const [inputData, setInputData] = useState({
+    age: '',
+    name: '',
+  });
+
+  const onChangeData = (name, value) => {
+    setInputData({
+      ...inputData,
+      [name]: value,
+    });
+  };
+
+  const [files, setFiles] = useState([]);
+  const [clickedKeywords, setClickedKeywords] = useState([]);
+
   return (
     <Container>
       <Header />
@@ -27,7 +42,12 @@ const AddUserLifePage = (props) => {
       <AddUserSection>
         <InfoWrapper>
           <p>Partner</p>
-          <InputBox />
+          <InputBox
+            data={inputData}
+            onChangeData={onChangeData}
+            files={files}
+            onChangeFile={setFiles}
+          />
         </InfoWrapper>
 
         <KeywordsSection>
@@ -36,6 +56,8 @@ const AddUserLifePage = (props) => {
             <AnimatedKeyword
               keywordsData={UserKeywordsData}
               questionTitle="나의 라이프스타일은?"
+              clickedKeywords={clickedKeywords}
+              onChangeClickedKeywords={setClickedKeywords}
             />
           </KeywordWrapper>
         </KeywordsSection>

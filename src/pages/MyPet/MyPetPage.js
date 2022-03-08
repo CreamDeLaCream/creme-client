@@ -65,6 +65,11 @@ const MyPetPage = (props) => {
     }
   };
 
+  const [clickedMyPet, setClickedMyPet] = useState('all');
+  const onClickMyPet = (e) => {
+    setClickedMyPet(e.target.value);
+  };
+
   return (
     <Container height="200vh">
       <Header />
@@ -91,7 +96,10 @@ const MyPetPage = (props) => {
         <RecordMenu>
           <RecordTitle>마이펫 감정 기록</RecordTitle>
           <RecordMenuEmotion>
-            <FilterMyPet />
+            <FilterMyPet
+              clickedMyPet={clickedMyPet}
+              onClickMyPet={onClickMyPet}
+            />
             <FilterRecord
               clickedEmotion={clickedEmotion}
               onClickEmotion={onClickEmotion}
@@ -99,7 +107,11 @@ const MyPetPage = (props) => {
           </RecordMenuEmotion>
         </RecordMenu>
         <RecordCardWrapper>
-          <Record petImages={petImage} clickedEmotion={clickedEmotion} />
+          <Record
+            petImages={petImage}
+            clickedMyPet={clickedMyPet}
+            clickedEmotion={clickedEmotion}
+          />
         </RecordCardWrapper>
         <ButtonWrapper>
           <Button
@@ -139,12 +151,14 @@ const RecordTitle = styled.div`
 
 const RecordMenu = styled.div`
   display: flex;
-  // background-color: var(--cream);
+  height: 60px;
+  background-color: var(—cream);
 `;
 
 const RecordMenuEmotion = styled.div`
-  width: 30%;
   display: flex;
+  width: 80%;
+  // background-color: red;
 `;
 
 const RecordCardWrapper = styled.div`
@@ -153,7 +167,7 @@ const RecordCardWrapper = styled.div`
   flex-direction: row;
   margin-top: 30px;
   flex-wrap: wrap;
-  justify-content: space-start;
+  justify-content: start;
 `;
 
 const ButtonWrapper = styled.div`
