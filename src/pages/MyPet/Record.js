@@ -82,7 +82,7 @@ const RecordCard = styled.div`
   object-fit: cover;
   background-size: contain;
 
-  // margin-top: 4px;
+  margin-bottom: 5px;
 
   position: relative;
 
