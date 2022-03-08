@@ -24,7 +24,7 @@ export const Intro1st = (props) => {
           을<br />
           느끼고 있을까요?
         </Text>
-        <p style={{ fontFamily: 'IBM Plex Sans KR' }}>
+        <p style={{ fontFamily: 'IBM Plex Sans KR', color: 'var(--cream)' }}>
           나의 댕댕이가 오늘은 어떤 감정을 느끼고 있는지 궁금하시죠?
           <br />
           혹시, 가까웠던 댕댕이와의 관계가 소홀해지셨나요?
@@ -65,29 +65,30 @@ export const Intro1st = (props) => {
 const MainTitleBg = styled.div`
   background-color: var(--main);
   width: 100%;
-  height: 550px;
   display: flex;
+  ${({ theme }) => theme.device.mobile} {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const TitleContent = styled.div`
-  width: 500px;
-  height: 100%;
+  flex: 1;
   margin-top: 100px;
   margin-left: 70px;
-
-  p {
-    // font-family: normal;
-    color: var(--lightcream);
+  ${({ theme }) => theme.device.mobile} {
+    text-align: center;
+    margin-left: 0px;
   }
 `;
 
 const MainDogImg = styled.div`
-  width: 500px;
-  height: 100%;
-  // background-color: var(--cream);
-
+  flex: 1;
   img {
     margin-top: 150px;
     margin-left: 20px;
+    ${({ theme }) => theme.device.mobile} {
+      margin: 0px;
+    }
   }
 `;

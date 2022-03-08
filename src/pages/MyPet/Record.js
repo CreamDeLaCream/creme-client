@@ -7,6 +7,7 @@ import AnalysisData from './AnalysisData';
 // Icons
 import { BsHeartFill } from 'react-icons/bs';
 import { myPetEmotion } from './MyPetPage';
+import { Button } from '../../common/components';
 
 const Record = ({ petImages, clickedMyPet, clickedEmotion }) => {
   const env = process.env;
@@ -20,6 +21,35 @@ const Record = ({ petImages, clickedMyPet, clickedEmotion }) => {
             <BsHeartFill color="var(--main)" size="30px" />
           </ILikePetBt>
         )}
+        <MyPetInfo>
+          <Button
+            height="23px"
+            radius="10px"
+            bg="var(--cream)"
+            color="var(--blackcream)"
+            margin="0 10px 0 10px"
+          >
+            {recordcards.name}
+          </Button>
+          <Button
+            height="23px"
+            radius="10px"
+            bg="var(--cream)"
+            color="var(--blackcream)"
+            margin="0 10px 0 0"
+          >
+            {recordcards.date}
+          </Button>
+          <Button
+            height="23px"
+            radius="10px"
+            bg="var(--cream)"
+            color="var(--blackcream)"
+            margin="0 10px 0 0"
+          >
+            {recordcards.emotion}
+          </Button>
+        </MyPetInfo>
         <RecordCard>
           <img
             alt=""
@@ -27,7 +57,6 @@ const Record = ({ petImages, clickedMyPet, clickedEmotion }) => {
             width="315px"
             height="315px"
           />
-          {recordcards.name} {recordcards.date} {recordcards.emotion}
         </RecordCard>
       </RecordWrapper>
     );
@@ -64,7 +93,7 @@ const RecordWrapper = styled.div`
 
 const ILikePetBt = styled.div`
   left: 270px;
-  top: 280px;
+  top: 275px;
   cursor: pointer;
   z-index: 2;
 
@@ -100,10 +129,16 @@ const RecordCard = styled.div`
   }
 
   img:hover {
-    opacity: 0.7;
+    // opacity: 0.7;
     transition: all 0.25s linear;
     transform: scale(1.25);
   }
+`;
+
+const MyPetInfo = styled.div`
+  z-index: 2;
+  top: 280px;
+  position: absolute;
 `;
 
 export default Record;

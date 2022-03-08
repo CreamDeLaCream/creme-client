@@ -63,32 +63,37 @@ export const Intro2nd = (props) => {
 };
 
 const IntroBg = styled.div`
+  display: flex;
   background-color: var(--lightcream);
   width: 100%;
-  height: 500px;
-  display: flex;
+  ${({ theme }) => theme.device.mobile} {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
 `;
 
 const TitleContent = styled.div`
-  width: 500px;
-  height: 100%;
   margin-top: 70px;
   margin-right: 70px;
   text-align: right;
-
+  ${({ theme }) => theme.device.mobile} {
+    margin-right: 0px;
+    text-align: center;
+  }
   p {
     // font-family: normal;
-    color: var(--darkcream);
+    color: var(—darkcream);
   }
 `;
 
 const MainPartnerImg = styled.div`
   width: 500px;
-  height: 100%;
-  // background-color: var(--cream);
-
+  // background-color: var(—cream);
   img {
     margin-top: 80px;
     margin-left: 70px;
+    ${({ theme }) => theme.device.mobile} {
+      margin: 0px;
+    }
   }
 `;
