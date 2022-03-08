@@ -5,10 +5,12 @@ import api from '../../utils/API';
 // Action
 const ADD_MEMO = 'ADD_MEMO';
 // const SET_MEMO = 'SET_MEMO';
+const INITIALIZE_MEMO = 'INITIALIZE_MEMO';
 
 // Action Creator
 const addMemo = createAction(ADD_MEMO, (petmemo) => ({ petmemo }));
 // const setMemo = createAction(SET_MEMO, (memo_list) => ({ memo_list }));
+const initializeMemo = createAction(INITIALIZE_MEMO, () => ({}));
 
 // InitialState
 const initialState = {
@@ -16,7 +18,6 @@ const initialState = {
 };
 
 // middleware
-
 const addMemoAX = ({ slug, petmemo }) => {
   return function (dispatch, getState, { history }) {
     const formData = new FormData();
@@ -69,6 +70,10 @@ export default handleActions(
       produce(state, (draft) => {
         draft.comment.push(action.payload.post);
       }),
+    [INITIALIZE_MEMO]: (state, action) =>
+      produce(state, (draft) => {
+        draft.list = [];
+      }),
     // [SET_MEMO]: (state, action) =>
     //   produce(state, (draft) => {
     //     draft.list.push(...action.payload.postlist);
@@ -80,6 +85,7 @@ export default handleActions(
 const actionCreators = {
   addMemo,
   addMemoAX,
+  initializeMemo,
   // setMemo,
   // setMemoAX,
 };

@@ -6,6 +6,8 @@ import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { actionCreators as postActions } from '../../common/redux/modules/memo';
 import { actionCreators as userActions } from '../../common/redux/modules/user';
+import { actionCreators as petimageActions } from '../../common/redux/modules/petimage';
+import { actionCreators as analysisActions } from '../../common/redux/modules/analysis';
 
 // components
 import {
@@ -90,7 +92,9 @@ const ResultPage = (props) => {
   };
 
   const resetHandler = () => {
-    // dispatch(postActions.initialState(petimage));
+    dispatch(petimageActions.initializeImage());
+    dispatch(postActions.initializeMemo());
+    dispatch(analysisActions.initializeEmotion());
     history.push('/main');
   };
 
@@ -258,7 +262,6 @@ const ResultPage = (props) => {
           radius="5px"
           cursor
           onClick={resetHandler}
-          // onClick={() => history.push('/main')}
         >
           <Text type="button" color="var(--white)">
             검사 다시하기

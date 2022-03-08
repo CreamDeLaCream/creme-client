@@ -6,12 +6,14 @@ import api from '../../utils/API';
 const ADD_PET_IMAGE = 'ADD_PET_IMAGE';
 const SET_PET_IMAGE = 'SET_PET_IMAGE';
 // const RESET_PET_IMAGE = 'RESET_PET_IMAGE';
+const INITIALIZE_IMAGE = 'INITIALIZE_IMAGE';
 
 // Action Creator
 const addPetImage = createAction(ADD_PET_IMAGE, (pet_image) => ({ pet_image }));
 const setPetImage = createAction(SET_PET_IMAGE, (pet_image_list) => ({
   pet_image_list,
 }));
+const initializeImage = createAction(INITIALIZE_IMAGE, () => {});
 // const resetPetImage = createAction(RESET_PET_IMAGE, (pet_image_list) => ({
 //   pet_image_list,
 // }));
@@ -111,6 +113,10 @@ export default handleActions(
       produce(state, (draft) => {
         draft.list.push(...action.payload.pet_image_list);
       }),
+    [INITIALIZE_IMAGE]: (state, action) =>
+      produce(state, (draft) => {
+        draft.list = [];
+      }),
   },
   initialState,
 );
@@ -120,6 +126,7 @@ const actionCreators = {
   addPetImageAX,
   setPetImage,
   setPetImageAX,
+  initializeImage,
 };
 
 export { actionCreators };
