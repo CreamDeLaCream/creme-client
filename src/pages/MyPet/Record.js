@@ -43,8 +43,9 @@ const Record = ({ petImages, clickedMyPet, clickedEmotion }) => {
           <Button
             height="23px"
             radius="10px"
-            bg="var(--cream)"
-            color="var(--blackcream)"
+            bg="rgba( 255, 255, 255, 0 )"
+            border="solid var(--lightcream) 1px"
+            color="var(--lightcream)"
             margin="0 10px 0 0"
           >
             {recordcards.emotion}
