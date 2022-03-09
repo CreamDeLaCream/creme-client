@@ -1,6 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// Icon
+
+import { BsXCircle, BsExclamationCircle } from 'react-icons/bs';
+
 // components
 import { Text, Grid } from '../../common/components';
 
@@ -17,7 +21,7 @@ const Howto = () => {
         </Grid>
 
         <Grid>
-          <Text type="desc" color="var(--main)" margin="10px 0 0 0">
+          <Text type="desc" color="var(--blackcream)" margin="10px 0 10px 0">
             사진은 정면 사진으로 강아지의 얼굴이 잘 보이도록 업로드 해주세용{' '}
           </Text>
           <ImageItems>
@@ -28,8 +32,8 @@ const Howto = () => {
               // style={{ margin: '50px 0 0 0' }}
             />
           </ImageItems>
-          <Text type="desc" color="var(--main)" margin="10px 0 0 0">
-            올바른 예시
+          <Text type="desc" color="var(--blackcream)" margin="10px 0 10px 0">
+            <BsExclamationCircle /> 올바른 예시
           </Text>
         </Grid>
         <Grid>
@@ -41,8 +45,8 @@ const Howto = () => {
               // style={{ margin: '50px 0 0 0' }}
             />
           </ImageItems>
-          <Text type="desc" color="var(--main)" margin="10px 0 0 0">
-            올바르지 않은 예시
+          <Text type="desc" color="var(--blackcream)" margin="10px 0 10px 0">
+            <BsXCircle /> 올바르지 않은 예시
           </Text>
         </Grid>
 
