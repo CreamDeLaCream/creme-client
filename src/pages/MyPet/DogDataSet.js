@@ -4,7 +4,8 @@ import styled from 'styled-components';
 // Icon
 
 // components
-import { Text, Grid, Button } from '../../common/components';
+import { Text, Grid } from '../../common/components';
+import HighlightText from '../../common/styles/HighlightText';
 
 const DogDataSet = () => {
   const env = process.env;
@@ -36,7 +37,11 @@ const DogDataSet = () => {
       <Grid flexDirection="column">
         <Grid>
           <Text type="mainTitle" color="var(--blackcream)" margin="0 0 10px 0">
-            이번 주 댕댕이 평균 감정기록은?
+            이번 주 댕댕이{' '}
+            <HighlightText color="var(--lightcream)">
+              평균 감정기록
+            </HighlightText>
+            은?
           </Text>
           <img
             alt=""
