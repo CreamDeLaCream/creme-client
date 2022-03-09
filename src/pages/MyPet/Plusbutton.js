@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export const Plusbutton = () => {
+const Plusbutton = () => {
   return <MyPetPlusButton>마이펫 추가</MyPetPlusButton>;
 };
 
 const MyPetPlusButton = styled.div`
   width: 230px;
   height: 320px;
-  cusor: pointer;
+  cursor: pointer;
   overflow: hidden;
 
   background-color: var(--white);
@@ -21,3 +21,5 @@ const MyPetPlusButton = styled.div`
 
   font-size: 30px;
 `;
+
+export default Plusbutton;

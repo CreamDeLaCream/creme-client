@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+
+// components
 import { Button } from '../../common/components';
 
-export default function PetListButton({ cardNum, onClickAnotherCard }) {
+const PetListButton = ({ cardNum, onClickAnotherCard }) => {
   return (
     <PetListButtonWrapper>
       <Button
@@ -28,7 +30,7 @@ export default function PetListButton({ cardNum, onClickAnotherCard }) {
       />
     </PetListButtonWrapper>
   );
-}
+};
 
 const PetListButtonWrapper = styled.div`
   position: absolute;
@@ -46,3 +48,5 @@ const PetListButtonWrapper = styled.div`
 
   // background-color: var(--main);
 `;
+
+export default PetListButton;

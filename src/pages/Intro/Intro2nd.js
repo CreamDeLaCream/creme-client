@@ -1,17 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useHistory } from 'react-router-dom';
+
+// redux
+import { history } from '../../common/redux/configureStore';
 
 // components
 import { Text, Button } from '../../common/components';
 import HighlightText from '../../common/styles/HighlightText';
 import { UserKeywords } from './UserKeywords';
 
-// BsFillPersonPlusFill
+// icons
 import { BsFillPersonPlusFill } from 'react-icons/bs';
 
 export const Intro2nd = (props) => {
-  const history = useHistory();
   return (
     <IntroBg>
       <MainPartnerImg>

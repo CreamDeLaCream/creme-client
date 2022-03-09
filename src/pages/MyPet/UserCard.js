@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+
+// components
 import { Keywords } from '../../common/components/Keyword';
 import { Button } from '../../common/components';
 

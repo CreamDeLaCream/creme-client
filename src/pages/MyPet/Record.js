@@ -1,20 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
-// Data
-import AnalysisData from './AnalysisData';
-
-// Icons
-import { BsHeartFill } from 'react-icons/bs';
-
-import { myPetEmotion } from './MyPetPage';
+// components
 import { Button } from '../../common/components';
+import { myPetEmotion } from './MyPetPage';
+
+// icons
+import { BsHeartFill } from 'react-icons/bs';
 
 const Record = ({ petImages, clickedMyPet, clickedEmotion }) => {
   const env = process.env;
   env.PUBLIC_URL = env.PUBLIC_URL || '';
 
-  function ImageList({ recordcards }) {
+  const ImageList = ({ recordcards }) => {
     return (
       <RecordWrapper>
         {recordcards.isLiked && (
@@ -64,7 +62,7 @@ const Record = ({ petImages, clickedMyPet, clickedEmotion }) => {
         </RecordCard>
       </RecordWrapper>
     );
-  }
+  };
   return (
     <>
       {petImages.map((recordcards, i) => {

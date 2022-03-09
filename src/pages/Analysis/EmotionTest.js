@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+
+// redux
 import { useDispatch, useSelector } from 'react-redux';
 import { actionCreators as analysisActions } from '../../common/redux/modules/analysis';
 

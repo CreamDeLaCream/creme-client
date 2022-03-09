@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import { useHistory, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 // redux
+import { history } from '../../common/redux/configureStore';
 import { useDispatch, useSelector } from 'react-redux';
 import { actionCreators as postActions } from '../../common/redux/modules/memo';
 import { actionCreators as userActions } from '../../common/redux/modules/user';
@@ -24,21 +25,15 @@ import { resultData } from './ResultData';
 import { Keywords } from '../../common/components/Keyword';
 import CopyURL from './CopyURL';
 import BarChart from './BarChart';
-import {
-  BsHeartFill,
-  BsReplyAllFill,
-  BsPersonCheckFill,
-  BsArrowCounterclockwise,
-} from 'react-icons/bs';
+import { BsHeartFill, BsReplyAllFill, BsPersonCheckFill } from 'react-icons/bs';
 import KakaoShare from './KakaoShare';
 
 const ResultPage = (props) => {
-  const history = useHistory();
   const dispatch = useDispatch();
   // const slug = props.match.params.slug;
   const [memo, setMemo] = useState('');
   const petimage = useSelector((state) => state.petimage.list);
-  const is_login = useSelector((state) => state.user.is_login);
+  // const is_login = useSelector((state) => state.user.is_login);
   // const petimage = useSelector((state) => state.petimage.list);
   // const resultList = useSelector((state) => state.petimage.list);
   // console.log(resultList);

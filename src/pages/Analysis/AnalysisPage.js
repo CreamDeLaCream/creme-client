@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useHistory } from 'react-router-dom';
 
 // redux
+import { history } from '../../common/redux/configureStore';
 import { useDispatch, useSelector } from 'react-redux';
 import { actionCreators as analysisActions } from '../../common/redux/modules/analysis';
 
@@ -18,7 +18,6 @@ import { EmotionTest } from './EmotionTest';
 import Loading from '../Analysis/Loading';
 
 const AnalysisPage = (props) => {
-  const history = useHistory();
   const dispatch = useDispatch();
   const petimage = useSelector((state) => state.petimage.list);
   const testAnswer = useSelector((state) => state.analysis.emotionResult);
@@ -33,7 +32,6 @@ const AnalysisPage = (props) => {
   // // redux example
   // import { useDispatch } from 'react-redux';
   // import { actionCreators as postActions } from '../../common/redux/modules/petimage';
-  // const history = useHistory();
   // const dispatch = useDispatch();
   // const addPost = () => {
   //   if (files.length === 0) {

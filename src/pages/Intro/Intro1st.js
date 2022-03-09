@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useHistory } from 'react-router-dom';
+
+// redux
+import { history } from '../../common/redux/configureStore';
 
 // components
 import { Text, Button } from '../../common/components';
@@ -8,7 +10,6 @@ import HighlightText from '../../common/styles/HighlightText';
 import Deck from './Deck/Deck';
 
 export const Intro1st = (props) => {
-  const history = useHistory();
   const env = process.env;
   env.PUBLIC_URL = env.PUBLIC_URL || '';
 

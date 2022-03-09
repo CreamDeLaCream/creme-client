@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { useHistory } from 'react-router-dom';
 
-// Data
-import MyPetData from '../../common/components/MyPetData';
-
-// icon
-import { FaAngleDown } from 'react-icons/fa';
+// redux
+import { history } from '../../common/redux/configureStore';
 
 // components
+import MyPetData from '../../common/components/MyPetData';
 import {
   Header,
   Navbar,
@@ -18,16 +15,16 @@ import {
 } from '../../common/components';
 
 import Record from './Record';
-
 import { MypetCard } from './MypetCard';
 import AnalysisData from './AnalysisData';
 import { UserCard } from './UserCard';
-import { useEffect } from 'react';
 import { FilterRecord } from './FilterRecord';
 import { FilterMyPet } from './FilterMyPet';
 
+// icons
+import { FaAngleDown } from 'react-icons/fa';
+
 const MyPetPage = (props) => {
-  const history = useHistory();
   const [petImage, setPetImage] = useState(AnalysisData);
 
   const concatImage = () => {

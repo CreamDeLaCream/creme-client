@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { menu } from '../styles/textStyle';
 
 // components
 import { Text } from './';

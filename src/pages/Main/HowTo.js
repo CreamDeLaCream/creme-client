@@ -1,12 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-// Icon
-
-import { BsXCircle, BsExclamationCircle, BsCameraFill } from 'react-icons/bs';
-
 // components
 import { Text, Grid } from '../../common/components';
+
+// icons
+import { BsXCircle, BsExclamationCircle, BsCameraFill } from 'react-icons/bs';
 
 const Howto = () => {
   const env = process.env;

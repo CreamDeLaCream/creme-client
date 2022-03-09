@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { useHistory, useParams } from 'react-router-dom';
 
 // redux
+import { history } from '../../common/redux/configureStore';
 import { useDispatch, useSelector } from 'react-redux';
 import { actionCreators as postActions } from '../../common/redux/modules/petimage';
 
@@ -23,8 +23,7 @@ import {
 import HowTo from './HowTo';
 import SelectPetName from './SelectPetName';
 
-// Icon
-
+// icons
 import {
   BsCameraFill,
   BsFillCaretRightFill,
@@ -33,7 +32,6 @@ import {
 } from 'react-icons/bs';
 
 const MainPage = (props) => {
-  const history = useHistory();
   const dispatch = useDispatch();
   const [files, setFiles] = useState([]);
   const [age, setAge] = useState('');

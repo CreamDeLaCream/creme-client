@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export const MyPetSelectBox = () => {
+const MyPetSelectBox = () => {
   return (
     <MyPetSelect>
       <select>
@@ -17,3 +17,5 @@ export const MyPetSelectBox = () => {
 };
 
 const MyPetSelect = styled.div``;
+
+export default MyPetSelectBox;

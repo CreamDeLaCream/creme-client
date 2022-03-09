@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { useHistory } from 'react-router-dom';
 import { AnimatedKeyword } from '../../common/components/AnimatedKeyword';
 import { MyPetKeywordsData } from '../../common/components/MyPetKeywordsData';
+
+//redux
+import { history } from '../../common/redux/configureStore';
 
 // components
 import {
@@ -17,7 +19,6 @@ import { MyPetData } from './MyPetData';
 import InputBox from '../../common/components/InputBox';
 
 const AddPetPage = (props) => {
-  const history = useHistory();
   const [myPetData, setMyPetData] = useState(MyPetData);
   const [inputData, setInputData] = useState({
     age: '',

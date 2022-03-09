@@ -1,5 +1,7 @@
-import React, { useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import React from 'react';
+
+// redux
+import { history } from '../../common/redux/configureStore';
 
 // components
 import { Header, Navbar, Text, Container } from '../../common/components';
@@ -8,7 +10,6 @@ import { Intro2nd } from './Intro2nd';
 import { Intro3rd } from './Intro3rd';
 
 const IntroPage = (props) => {
-  const history = useHistory();
   return (
     <Container height="250vh">
       <Header page="headermenu" />

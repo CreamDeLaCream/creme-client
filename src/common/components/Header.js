@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { useHistory } from 'react-router-dom';
 
 // redux
+import { history } from '../redux/configureStore';
 import { useSelector, useDispatch } from 'react-redux';
 import { actionCreators as userActions } from '../../common/redux/modules/user';
 
 // components
-import { Logo, Modal, Text, Image, Grid, Button } from './';
+import { Logo, Modal, Text, Grid, Button } from './';
 import { KAKAO_AUTH_URL } from '../utils/OAuth';
 // import { getCookie } from '../utils/Cookie';
 
 const Header = (props) => {
-  const history = useHistory();
   const [modalOpen, setModalOpen] = useState(false);
   const dispatch = useDispatch();
   // const is_login = useSelector((state) => state.user.user);

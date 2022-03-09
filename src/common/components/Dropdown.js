@@ -2,10 +2,11 @@ import React, { useRef } from 'react';
 import styled from 'styled-components';
 // import { Link } from 'react-router-dom';
 
+// components
 import { Text } from '../../common/components';
 import useDetectOutsideClick from '../../common/utils/useDetectOutsideClick';
 
-// Icon
+// icons
 import { BsCaretDownFill } from 'react-icons/bs';
 
 const Dropdown = ({ clickedValue, onClickValue, menuList }) => {

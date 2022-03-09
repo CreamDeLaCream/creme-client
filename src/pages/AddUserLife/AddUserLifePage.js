@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
+
+// redux
+import { history } from '../../common/redux/configureStore';
 
 // components
 import {
@@ -16,7 +18,6 @@ import { UserKeywordsData } from '../../common/components/UserKeywordsData';
 import InputBox from '../../common/components/InputBox';
 
 const AddUserLifePage = (props) => {
-  const history = useHistory();
   const [inputData, setInputData] = useState({
     age: '',
     name: '',
