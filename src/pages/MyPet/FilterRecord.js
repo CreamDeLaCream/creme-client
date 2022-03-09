@@ -19,7 +19,7 @@ export const FilterRecord = ({ clickedEmotion, onClickEmotion }) => {
             color="var(--white)"
             radius="50%"
             size="12px"
-            margin="15px 5px 0 5px"
+            margin="20px 5px 0 5px"
             cursor
             emotionwords={emotionwords}
             onClick={() => {

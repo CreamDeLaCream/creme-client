@@ -37,7 +37,8 @@ export const MypetCard = ({
                     fontFamily: 'IBM Plex Sans KR',
                   }}
                 >
-                  {myPetData.name}, {myPetData.age}살
+                  <span style={{ color: 'var(--main)' }}>{myPetData.name}</span>
+                  , {myPetData.age}살
                 </b>
               </MyPetName>
               <MyPetKeyword>

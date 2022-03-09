@@ -8,7 +8,7 @@ export const FilterMyPet = ({ clickedMyPet, onClickMyPet }) => {
       <Dropdown
         clickedValue={clickedMyPet}
         onClickValue={onClickMyPet}
-        menuList={['all', 'lulu', 'summer']}
+        menuList={['All', 'Lulu', 'Summer']}
       />
     </MyPetSelectWrapper>
   );
