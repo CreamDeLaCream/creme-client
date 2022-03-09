@@ -4,12 +4,10 @@ import api from '../../utils/API';
 
 // Action
 const ADD_MEMO = 'ADD_MEMO';
-// const SET_MEMO = 'SET_MEMO';
 const INITIALIZE_MEMO = 'INITIALIZE_MEMO';
 
 // Action Creator
 const addMemo = createAction(ADD_MEMO, (petmemo) => ({ petmemo }));
-// const setMemo = createAction(SET_MEMO, (memo_list) => ({ memo_list }));
 const initializeMemo = createAction(INITIALIZE_MEMO, () => ({}));
 
 // InitialState
@@ -24,7 +22,7 @@ const addMemoAX = ({ slug, petmemo }) => {
     formData.append('slug', slug);
     formData.append('memo', petmemo);
     api
-      .post(`/analysis/pet`, formData, {
+      .post(`/analysis/record`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
