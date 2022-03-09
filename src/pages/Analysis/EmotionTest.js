@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
-import { actionCreators as analysicActions } from '../../common/redux/modules/analysis';
+import { actionCreators as analysisActions } from '../../common/redux/modules/analysis';
 
 // components
 import { Text, Button } from '../../common/components';
@@ -49,7 +49,7 @@ export const EmotionTest = () => {
   ];
 
   const clickButton = (name, value) => {
-    dispatch(analysicActions.addEmotion(name, value));
+    dispatch(analysisActions.addEmotion(name, value));
   };
 
   function AnswerList({ answerlist, clickButton, questionNum, answerNum }) {
