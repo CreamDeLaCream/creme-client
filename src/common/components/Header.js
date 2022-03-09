@@ -10,13 +10,16 @@ import { actionCreators as userActions } from '../../common/redux/modules/user';
 import { Logo, Modal, Text, Grid, Button } from './';
 import { KAKAO_AUTH_URL } from '../utils/OAuth';
 // import { getCookie } from '../utils/Cookie';
+// import { actionCreators as userActions } from '../../common/redux/modules/user';
 
 const Header = (props) => {
   const [modalOpen, setModalOpen] = useState(false);
   const dispatch = useDispatch();
   // const is_login = useSelector((state) => state.user.user);
   const is_session = sessionStorage.getItem('token') ? true : false;
-
+  // const setUser = createAction(SET_USER, (user) => ({ user }));
+  // const userName = useSelector((state) => state.user.user);
+  // console.log('asdfa', userName);
   // 로컬 이미지
   const env = process.env;
   env.PUBLIC_URL = env.PUBLIC_URL || '';
