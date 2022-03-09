@@ -56,7 +56,7 @@ const TeamInfoCard = styled.div`
   justify-content: space-between;
   margin-top: 20px;
   background-color: var(--lightcream);
-  border: solid 2px var(--cream);
+  border: solid 1px var(--cream);
   border-radius: 15px;
 `;
 

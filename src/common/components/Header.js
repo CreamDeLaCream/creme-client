@@ -18,6 +18,10 @@ const Header = (props) => {
   // const is_login = useSelector((state) => state.user.user);
   const is_session = sessionStorage.getItem('token') ? true : false;
 
+  // 로컬 이미지
+  const env = process.env;
+  env.PUBLIC_URL = env.PUBLIC_URL || '';
+
   return (
     <>
       <Container>
@@ -36,8 +40,12 @@ const Header = (props) => {
                       setModalOpen(true);
                     }}
                   >
-                    <Text whiteSpace="nowrap" type="button" color="var(--main)">
-                      로그인
+                    <Text
+                      whiteSpace="nowrap"
+                      type="button"
+                      color="var(--white)"
+                    >
+                      LogIn
                     </Text>
                   </LoginButton>
                 ) : null}
@@ -64,14 +72,19 @@ const Header = (props) => {
       {modalOpen && (
         <Modal width="31rem" height="31rem" setOpenModal={setModalOpen}>
           <Grid display="flex" justifyContent="center" margin="1rem 0 3rem 0">
-            <Image shape="bigcircle" size="14" />
+            <img
+              alt=""
+              src={process.env.PUBLIC_URL + `/Image/bgdog1.png`}
+              width="300px"
+              height="300px"
+            />
           </Grid>
 
           <Wrapper>
             <Button
               width="25rem"
               padding="0.5rem"
-              bg="var(--main)"
+              bg="#FEE500"
               color="var(--white)"
               radius="5px"
               cursor
@@ -79,9 +92,7 @@ const Header = (props) => {
                 window.location.href = KAKAO_AUTH_URL;
               }}
             >
-              <Text type="button" color="var(--white)">
-                카카오톡으로 시작하기
-              </Text>
+              <Text type="button">카카오톡으로 시작하기</Text>
             </Button>
           </Wrapper>
         </Modal>
@@ -90,14 +101,15 @@ const Header = (props) => {
   );
 };
 
-const Container = styled.header`
+const Container = styled.div`
   position: fixed;
-  top: 2rem;
+  top: 0rem;
   left: 0;
   z-index: 20;
   width: 100%;
-  height: 5rem;
-  background-color: transparent;
+  height: 10rem;
+  // background-color: transparent;
+  background-color: var(--white);
 `;
 
 const InsideBox = styled.div`
@@ -121,9 +133,12 @@ const LogoBox = styled.div`
 const RightSide = styled.section``;
 
 const LoginButton = styled.button`
+  border-radius: 23px;
   display: flex;
   align-items: center;
-  background-color: transparent;
+  // background-color: transparent;
+  background-color: var(--main);
+  width: 3.5rem;
   cursor: pointer;
   border: none;
   margin-bottom: -0.8rem;

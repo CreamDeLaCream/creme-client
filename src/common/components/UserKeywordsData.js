@@ -2,10 +2,15 @@ import { baseImg, clickedImg } from './Userimage';
 
 const RADIUS = 35;
 const CLICKED_RADIUS = 40;
+const screenwidth =
+  window.innerWidth > 0 ? window.innerWidth : window.screen.width;
+const isTablet = screenwidth > 767;
+// 870 x 350
+// 400 x 400
 
 export const UserKeywordsData = [
   {
-    x: 770,
+    x: isTablet ? 770 : 20,
     y: 20,
     keyword: '가족과함께삼',
     img: baseImg.가족과함께삼,
@@ -15,7 +20,7 @@ export const UserKeywordsData = [
     isClicked: false,
   },
   {
-    x: 700,
+    x: isTablet ? 700 : 50,
     y: 70,
     keyword: '데일리운동',
     img: baseImg.데일리운동,
@@ -25,7 +30,7 @@ export const UserKeywordsData = [
     isClicked: false,
   },
   {
-    x: 770,
+    x: isTablet ? 770 : 50,
     y: 120,
     keyword: '디지털노마드',
     img: baseImg.디지털노마드,
@@ -35,7 +40,7 @@ export const UserKeywordsData = [
     isClicked: false,
   },
   {
-    x: 620,
+    x: isTablet ? 620 : 200,
     y: 200,
     keyword: '산책',
     img: baseImg.산책,
@@ -45,7 +50,7 @@ export const UserKeywordsData = [
     isClicked: false,
   },
   {
-    x: 680,
+    x: isTablet ? 680 : 150,
     y: 70,
     keyword: '새벽피트니스',
     img: baseImg.새벽피트니스,
@@ -55,7 +60,7 @@ export const UserKeywordsData = [
     isClicked: false,
   },
   {
-    x: 700,
+    x: isTablet ? 700 : 20,
     y: 220,
     keyword: '소확행',
     img: baseImg.소확행,
@@ -125,8 +130,8 @@ export const UserKeywordsData = [
     isClicked: false,
   },
   {
-    x: 300,
-    y: 225,
+    x: isTablet ? 300 : 250,
+    y: isTablet ? 225 : 200,
     keyword: '일인가구',
     img: baseImg.일인가구,
     clickedImg: clickedImg.on일인가구,
@@ -155,7 +160,7 @@ export const UserKeywordsData = [
     isClicked: false,
   },
   {
-    x: 450,
+    x: isTablet ? 450 : 350,
     y: 70,
     keyword: '퇴근길러닝',
     img: baseImg.퇴근길러닝,
@@ -165,7 +170,7 @@ export const UserKeywordsData = [
     isClicked: false,
   },
   {
-    x: 460,
+    x: isTablet ? 460 : 200,
     y: 150,
     keyword: '혼술',
     img: baseImg.혼술,
@@ -175,7 +180,7 @@ export const UserKeywordsData = [
     isClicked: false,
   },
   {
-    x: 550,
+    x: isTablet ? 550 : 200,
     y: 150,
     keyword: '혼카페',
     img: baseImg.혼카페,

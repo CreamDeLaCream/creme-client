@@ -1,11 +1,17 @@
 import { baseImg, clickedImg } from './MyPetimage';
 
-const RADIUS = 35;
-const CLICKED_RADIUS = 40;
+const screenwidth =
+  window.innerWidth > 0 ? window.innerWidth : window.screen.width;
+const isTablet = screenwidth > 767;
 
+const RADIUS = 35;
+const CLICKED_RADIUS = isTablet ? 40 : 35;
+
+// 870 x 350
+// 400 x 400
 export const MyPetKeywordsData = [
   {
-    x: 770,
+    x: isTablet ? 770 : 300,
     y: 20,
     keyword: '개쫄보',
     img: baseImg.개쫄보,
@@ -15,7 +21,7 @@ export const MyPetKeywordsData = [
     isClicked: false,
   },
   {
-    x: 700,
+    x: isTablet ? 700 : 200,
     y: 70,
     keyword: '게으름',
     img: baseImg.게으름,
@@ -35,7 +41,7 @@ export const MyPetKeywordsData = [
     isClicked: false,
   },
   {
-    x: 620,
+    x: isTablet ? 620 : 200,
     y: 200,
     keyword: '난폭',
     img: baseImg.난폭,
@@ -45,7 +51,7 @@ export const MyPetKeywordsData = [
     isClicked: false,
   },
   {
-    x: 680,
+    x: isTablet ? 680 : 100,
     y: 70,
     keyword: '다소난폭',
     img: baseImg.다소난폭,
@@ -55,7 +61,7 @@ export const MyPetKeywordsData = [
     isClicked: false,
   },
   {
-    x: 700,
+    x: isTablet ? 700 : 100,
     y: 220,
     keyword: '도도함',
     img: baseImg.도도함,
@@ -115,8 +121,8 @@ export const MyPetKeywordsData = [
     isClicked: false,
   },
   {
-    x: 400,
-    y: 210,
+    x: isTablet ? 400 : 100,
+    y: 110,
     keyword: '야무짐',
     img: baseImg.야무짐,
     clickedImg: clickedImg.on야무짐,
@@ -125,8 +131,8 @@ export const MyPetKeywordsData = [
     isClicked: false,
   },
   {
-    x: 300,
-    y: 225,
+    x: isTablet ? 300 : 50,
+    y: 125,
     keyword: '얌전',
     img: baseImg.얌전,
     clickedImg: clickedImg.on얌전,
@@ -155,7 +161,7 @@ export const MyPetKeywordsData = [
     isClicked: false,
   },
   {
-    x: 450,
+    x: isTablet ? 450 : 250,
     y: 70,
     keyword: '자신감 많음',
     img: baseImg.자신감많음,
@@ -165,7 +171,7 @@ export const MyPetKeywordsData = [
     isClicked: false,
   },
   {
-    x: 460,
+    x: isTablet ? 460 : 80,
     y: 150,
     keyword: '잘짖음',
     img: baseImg.잘짖음,
@@ -175,7 +181,7 @@ export const MyPetKeywordsData = [
     isClicked: false,
   },
   {
-    x: 550,
+    x: isTablet ? 550 : 300,
     y: 150,
     keyword: '장난 심함',
     img: baseImg.장난심함,
@@ -185,7 +191,7 @@ export const MyPetKeywordsData = [
     isClicked: false,
   },
   {
-    x: 500,
+    x: isTablet ? 500 : 100,
     y: 100,
     keyword: '애교많음',
     img: baseImg.애교많음,
@@ -195,7 +201,7 @@ export const MyPetKeywordsData = [
     isClicked: false,
   },
   {
-    x: 670,
+    x: isTablet ? 670 : 180,
     y: 120,
     keyword: '조심스러움',
     img: baseImg.조심스러움,
@@ -205,7 +211,7 @@ export const MyPetKeywordsData = [
     isClicked: false,
   },
   {
-    x: 600,
+    x: isTablet ? 600 : 200,
     y: 220,
     keyword: '집 잘 지킴',
     img: baseImg.집잘지킴,
@@ -215,8 +221,8 @@ export const MyPetKeywordsData = [
     isClicked: false,
   },
   {
-    x: 550,
-    y: 185,
+    x: isTablet ? 550 : 50,
+    y: isTablet ? 185 : 50,
     keyword: '쫄보',
     img: baseImg.쫄보,
     clickedImg: clickedImg.on쫄보,
@@ -225,8 +231,8 @@ export const MyPetKeywordsData = [
     isClicked: false,
   },
   {
-    x: 430,
-    y: 180,
+    x: isTablet ? 430 : 50,
+    y: isTablet ? 180 : 100,
     keyword: '착함',
     img: baseImg.착함,
     clickedImg: clickedImg.on착함,
@@ -235,7 +241,7 @@ export const MyPetKeywordsData = [
     isClicked: false,
   },
   {
-    x: 500,
+    x: isTablet ? 500 : 50,
     y: 165,
     keyword: '충성심 폭발',
     img: baseImg.충성심폭발,
@@ -245,7 +251,7 @@ export const MyPetKeywordsData = [
     isClicked: false,
   },
   {
-    x: 450,
+    x: isTablet ? 450 : 70,
     y: 160,
     keyword: '침착',
     img: baseImg.침착,
@@ -255,7 +261,7 @@ export const MyPetKeywordsData = [
     isClicked: false,
   },
   {
-    x: 550,
+    x: isTablet ? 550 : 200,
     y: 185,
     keyword: '호기심 강함',
     img: baseImg.호기심강함,
@@ -277,7 +283,7 @@ export const MyPetKeywordsData = [
 
   // 빈 공
   {
-    x: 10,
+    x: isTablet ? 10 : 9999,
     y: 20,
     keyword: '빈공',
     img: baseImg.base,
@@ -287,7 +293,7 @@ export const MyPetKeywordsData = [
     isClicked: false,
   },
   {
-    x: 100,
+    x: isTablet ? 100 : 9999,
     y: 120,
     keyword: '빈공',
     img: baseImg.base,
@@ -297,7 +303,7 @@ export const MyPetKeywordsData = [
     isClicked: false,
   },
   {
-    x: 300,
+    x: isTablet ? 300 : 9999,
     y: 520,
     keyword: '빈공',
     img: baseImg.base,
@@ -307,7 +313,7 @@ export const MyPetKeywordsData = [
     isClicked: false,
   },
   {
-    x: 400,
+    x: isTablet ? 400 : 9999,
     y: 20,
     keyword: '빈공',
     img: baseImg.base,
@@ -317,7 +323,7 @@ export const MyPetKeywordsData = [
     isClicked: false,
   },
   {
-    x: 300,
+    x: isTablet ? 300 : 9999,
     y: 320,
     keyword: '빈공',
     img: baseImg.base,
@@ -327,7 +333,7 @@ export const MyPetKeywordsData = [
     isClicked: false,
   },
   {
-    x: 500,
+    x: isTablet ? 500 : 9999,
     y: 120,
     keyword: '빈공',
     img: baseImg.base,
@@ -337,7 +343,7 @@ export const MyPetKeywordsData = [
     isClicked: false,
   },
   {
-    x: 700,
+    x: isTablet ? 700 : 9999,
     y: 50,
     keyword: '빈공',
     img: baseImg.base,
@@ -347,7 +353,7 @@ export const MyPetKeywordsData = [
     isClicked: false,
   },
   {
-    x: 690,
+    x: isTablet ? 690 : 9999,
     y: 30,
     keyword: '빈공',
     img: baseImg.base,
@@ -357,7 +363,7 @@ export const MyPetKeywordsData = [
     isClicked: false,
   },
   {
-    x: 30,
+    x: isTablet ? 30 : 9999,
     y: 10,
     keyword: '빈공',
     img: baseImg.base,
@@ -367,7 +373,7 @@ export const MyPetKeywordsData = [
     isClicked: false,
   },
   {
-    x: 40,
+    x: isTablet ? 40 : 9999,
     y: 130,
     keyword: '빈공',
     img: baseImg.base,
