@@ -45,7 +45,7 @@ const Header = (props) => {
                       type="button"
                       color="var(--white)"
                     >
-                      로그인
+                      LogIn
                     </Text>
                   </LoginButton>
                 ) : null}
@@ -134,7 +134,7 @@ const LoginButton = styled.button`
   align-items: center;
   // background-color: transparent;
   background-color: var(--main);
-  width: 4rem;
+  width: 3.5rem;
   cursor: pointer;
   border: none;
   margin-bottom: -0.8rem;
