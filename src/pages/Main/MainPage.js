@@ -157,8 +157,8 @@ const MainPage = (props) => {
               <Grid foldColumn is_flex width="100%">
                 <ButtonWrapper>
                   <Button
-                    width="80px"
-                    height="80px"
+                    width="4rem"
+                    height="4rem"
                     // padding="0.5rem"
                     bg="var(--main)"
                     color="var(--white)"
@@ -177,8 +177,8 @@ const MainPage = (props) => {
                     </Dropzone>
                   </Button>
                   <Button
-                    width="80px"
-                    height="80px"
+                    width="4rem"
+                    height="4rem"
                     // padding="0.5rem"
                     bg="var(--main)"
                     color="var(--white)"

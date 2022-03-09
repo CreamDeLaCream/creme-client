@@ -35,8 +35,8 @@ export const Intro1st = (props) => {
           어떤 감정을 가지고 있는지 분석해드립니다.
         </p>
         <Button
-          width="80px"
-          height="80px"
+          width="4rem"
+          height="4rem"
           bg="var(--main)"
           radius="50%"
           size="20px"

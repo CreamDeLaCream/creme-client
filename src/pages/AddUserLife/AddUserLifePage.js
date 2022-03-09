@@ -41,7 +41,7 @@ const AddUserLifePage = (props) => {
       </Text>
       <AddUserSection>
         <InfoWrapper>
-          <p>Partner</p>
+          <p style={{ color: 'var(--main)' }}>Partner</p>
           <InputBox
             data={inputData}
             onChangeData={onChangeData}
@@ -51,7 +51,7 @@ const AddUserLifePage = (props) => {
         </InfoWrapper>
 
         <KeywordsSection>
-          <p>Keywords</p>
+          <p style={{ color: 'var(--main)' }}>Keywords</p>
           <KeywordWrapper>
             <AnimatedKeyword
               keywordsData={UserKeywordsData}
@@ -85,16 +85,17 @@ const AddUserLifePage = (props) => {
 };
 
 const AddUserSection = styled.div`
-  background-color: var(--bggray);
-  border: solid 1px var(--cream);
+  background-color: var(—bggray);
+  border: solid 1px var(—cream);
   border-radius: 15px;
   margin-top: 20px;
-
-  height: 1000px;
-
+  //ADD HERE
+  height: 100%;
+  padding-bottom: 50px;
+  //
   p {
     font-size: 20px;
-    color: var(--main);
+    color: var(—main);
     margin-top: 30px;
   }
 `;

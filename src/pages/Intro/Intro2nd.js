@@ -7,6 +7,9 @@ import { Text, Button } from '../../common/components';
 import HighlightText from '../../common/styles/HighlightText';
 import { UserKeywords } from './UserKeywords';
 
+// BsFillPersonPlusFill
+import { BsFillPersonPlusFill } from 'react-icons/bs';
+
 export const Intro2nd = (props) => {
   const history = useHistory();
   return (
@@ -34,8 +37,8 @@ export const Intro2nd = (props) => {
         <br />
         <UserKeywords />
         <Button
-          width="80px"
-          height="80px"
+          width="4rem"
+          height="4rem"
           bg="var(--cream)"
           radius="50%"
           size="20px"
@@ -43,11 +46,11 @@ export const Intro2nd = (props) => {
           margin="30px 0 0 0"
           onClick={() => {
             console.log('넘어감');
-            history.push('/mypet');
+            history.push('/adduserlife');
           }}
           cursor
         >
-          lifestyle
+          <BsFillPersonPlusFill size="2rem" />
         </Button>
 
         {/* <p>

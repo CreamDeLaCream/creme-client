@@ -115,9 +115,10 @@ const MyPetPage = (props) => {
         </RecordCardWrapper>
         <ButtonWrapper>
           <Button
-            width="80px"
-            height="80px"
+            width="4rem"
+            height="4rem"
             bg="var(--main)"
+            margin="0 0 4rem 0"
             radius="50%"
             size="20px"
             color="var(--white)"

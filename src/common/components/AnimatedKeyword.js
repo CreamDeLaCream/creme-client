@@ -12,8 +12,10 @@ export const AnimatedKeyword = ({
 }) => {
   const [keywordBalls, setKeywordBalls] = useState(keywordsData);
   const scene = useRef(null);
-  const canvasWidth = 870;
-  const canvasHeight = 350;
+  const screenwidth =
+    window.innerWidth > 0 ? window.innerWidth : window.screen.width;
+  const canvasWidth = screenwidth > 767 ? 870 : 400;
+  const canvasHeight = screenwidth > 767 ? 350 : 400;
   useEffect(() => {
     const Engine = Matter.Engine;
     const Render = Matter.Render;
@@ -147,7 +149,7 @@ export const AnimatedKeyword = ({
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
       <div ref={scene} style={{ width: '100%', height: '100%' }} />
-      <span style={{ color: 'var(--blackcream)', margin: '20px 0 0 0' }}>
+      <span style={{ color: 'var(--blackcream)', margin: '60px 0 0 0' }}>
         {questionTitle}
       </span>
       <div
@@ -156,6 +158,7 @@ export const AnimatedKeyword = ({
           flexDirection: 'row',
           margin: '10px 0 0 0',
           color: 'var(--blackcream)',
+          flexWrap: 'wrap',
         }}
         onClick={() => {
           console.log(keywordBalls);
@@ -169,7 +172,7 @@ export const AnimatedKeyword = ({
                 bg="var(--darkcream)"
                 color="var(--white)"
                 radius="10px"
-                margin="0 5px 0 0"
+                margin="5px 5px 0 0"
               >
                 {clickedKeyword}
               </Button>

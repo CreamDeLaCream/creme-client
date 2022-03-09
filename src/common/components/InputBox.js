@@ -4,6 +4,9 @@ import { useDispatch } from 'react-redux';
 // components
 import { Circle, Grid, Input, Dropzone, Preview } from '.';
 
+// Icon
+import { BsPlusLg } from 'react-icons/bs';
+
 const InputBox = ({ data, onChangeData, files, onChangeFile }) => {
   // const addPost = () => {
   //   if (files.length === 0) {
@@ -32,6 +35,7 @@ const InputBox = ({ data, onChangeData, files, onChangeFile }) => {
               border="1rem solid var(--cream)"
               cursor
             >
+              <BsPlusLg size="2rem" color="var(--darkcream)" />
               <Preview files={files} />
             </Circle>
           </Dropzone>
