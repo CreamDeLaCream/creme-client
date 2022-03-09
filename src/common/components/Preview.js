@@ -1,8 +1,9 @@
 import React from 'react';
+import styled from 'styled-components';
 
 const Preview = ({ files }) => {
   const images = files.map((file) => (
-    <div>
+    <ImgSection>
       <img
         src={file.preview}
         style={{
@@ -13,9 +14,16 @@ const Preview = ({ files }) => {
         alt="preview"
         center
       />
-    </div>
+    </ImgSection>
   ));
   return <div>{images}</div>;
 };
+
+const ImgSection = styled.div`
+  img {
+    object-fit: cover;
+    background-size: contain;
+  }
+`;
 
 export default Preview;
