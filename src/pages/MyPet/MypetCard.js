@@ -37,8 +37,7 @@ export const MypetCard = ({
                     fontFamily: 'IBM Plex Sans KR',
                   }}
                 >
-                  <span style={{ color: 'var(--main)' }}>{myPetData.name}</span>
-                  , {myPetData.age}살
+                  {myPetData.name}, {myPetData.age}살
                 </b>
               </MyPetName>
               <MyPetKeyword>
@@ -127,19 +126,19 @@ const MyPetInfoCard = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
-  margin-left: 20px;
+  padding-left: 20px;
+  ${({ theme }) => theme.device.mobile} {
+    position: relative;
+  }
 `;
 
 const MyPetContentContainer = styled.div`
-  width: 500px;
-
-  // background-color: var(--cream);
+  flex: 1;
   color: var(--main);
-
   p {
     margin-top: 15px;
     font-size: 20px;
-    width: 440px;
+    max-width: 440px;
   }
 `;
 
@@ -157,12 +156,16 @@ const MyPetName = styled.div`
 const MyPetKeyword = styled.div`
   margin-top: 20px;
   ${({ theme }) => theme.device.mobile} {
+    width: 350px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 `;
 
 const CurrentEmotion = styled.div`
   width: 440px;
-  color: var(--main);
+  color: var(—main);
   margin-top: 20px;
   cusor: pointer;
   // font-family: 'IBM Plex Sans KR';
