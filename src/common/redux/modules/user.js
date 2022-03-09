@@ -105,10 +105,10 @@ const loginCheck = () => {
 
     if (token) {
       const header = {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer Token ${token}`,
       };
       api
-        .get('/users/login', { headers: header })
+        .get('users/', { headers: header })
 
         .then((res) => {
           if (res.data) {
