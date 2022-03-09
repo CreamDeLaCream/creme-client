@@ -10,6 +10,7 @@ const Wrapper = styled.div`
   width: var(--size);
   height: var(--size);
   border-radius: var(--size);
+  background-color: rgba(245, 234, 214, 0.3);
   background-image: url('${(props) => props.src}');
   background-size: cover;
   min-width: var(--size);
@@ -22,7 +23,7 @@ const Wrapper = styled.div`
   ${({ theme }) => theme.device.mobile} {
     ${(props) =>
       props.mobileSize
-        ? `--size: 8rem; 
+        ? `--size: 8rem;
         width: var(--size); height: var(--size);
         border-radius: var(--size);  min-width: var(--size);`
         : ''};
@@ -30,7 +31,7 @@ const Wrapper = styled.div`
   ${({ theme }) => theme.device.fold} {
     ${(props) =>
       props.foldSize
-        ? `--size: 7rem; 
+        ? `--size: 7rem;
         width: var(--size); height: var(--size);
         border-radius: var(--size);  min-width: var(--size);`
         : ''};
