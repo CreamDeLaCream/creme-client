@@ -109,7 +109,7 @@ const MyPetPage = (props) => {
         <RecordCardWrapper>
           <Record
             petImages={petImage}
-            clickedMyPet={clickedMyPet}
+            clickedMyPet={clickedMyPet.toLowerCase()}
             clickedEmotion={clickedEmotion}
           />
         </RecordCardWrapper>
