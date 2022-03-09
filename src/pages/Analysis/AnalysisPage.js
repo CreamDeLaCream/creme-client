@@ -16,6 +16,7 @@ import {
 } from '../../common/components';
 import { EmotionTest } from './EmotionTest';
 import Loading from '../Analysis/Loading';
+import DogDataSet from '../MyPet/DogDataSet';
 
 const AnalysisPage = (props) => {
   const dispatch = useDispatch();
@@ -25,7 +26,7 @@ const AnalysisPage = (props) => {
 
   const sendSlug = (name, value) => {
     // dispatch(analysicActions.addEmotion());
-    dispatch(analysisActions.addEmotion(name, value, petimage[0].slug));
+    dispatch(analysisActions.addEmotionAX(name, value, petimage[0].slug));
     history.push(`/result/${petimage[0].slug}`);
   };
 
@@ -96,6 +97,7 @@ const AnalysisPage = (props) => {
             </Text>
           </Button>
         </ButtonWrapper>
+        <DogDataSet />
       </Container>
     </Analysisbg>
   );

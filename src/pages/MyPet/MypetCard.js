@@ -53,7 +53,7 @@ export const MypetCard = ({
                       color="var(--main)"
                       border="solid 1px var(--cream)"
                       radius="10px"
-                      margin="0 0 0 5px"
+                      margin="0 15px 0 5px"
                       onClick={() => {
                         console.log('넘어감');
                         history.push('/main');
@@ -61,6 +61,10 @@ export const MypetCard = ({
                     >
                       Test Go!
                     </Button>
+                    이번주 댕댕이의 감정 상태는?{' '}
+                    <div style={{ margin: '1px 0 0 7px' }}>
+                      <BsCalendarCheck color="var(--main)" size="1rem" />
+                    </div>
                   </>
                 ) : (
                   <>
@@ -167,7 +171,10 @@ const MyPetKeyword = styled.div`
 `;
 
 const CurrentEmotion = styled.div`
-  width: 440px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 470px;
   color: var(--darkcream);
   margin-top: 20px;
   cusor: pointer;

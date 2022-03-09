@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 // redux
 import { history } from '../../common/redux/configureStore';
-
 // components
 import MyPetData from '../../common/components/MyPetData';
 import {
@@ -25,6 +24,7 @@ import { FilterMyPet } from './FilterMyPet';
 import { FaAngleDown } from 'react-icons/fa';
 
 const MyPetPage = (props) => {
+  // const isLogin = useSelector((state) => state.user.is_login);
   const [petImage, setPetImage] = useState(AnalysisData);
 
   const concatImage = () => {

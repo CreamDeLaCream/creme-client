@@ -3,78 +3,98 @@ import styled from 'styled-components';
 
 // Icon
 
-import { BsXCircle, BsExclamationCircle, BsCameraFill } from 'react-icons/bs';
-
 // components
-import { Text, Grid } from '../../common/components';
+import { Text, Grid, Button } from '../../common/components';
 
 const DogDataSet = () => {
   const env = process.env;
   env.PUBLIC_URL = env.PUBLIC_URL || '';
+
+  //감정, 홀로보낸시간, 산책횟수, 간식횟수
+
+  const DogDatas = [
+    {
+      ques: '제일 많이 느낀 감정',
+      ans: 'happy',
+    },
+    {
+      ques: '홀로 보낸시간',
+      ans: '2시간',
+    },
+    {
+      ques: '산책 횟수',
+      ans: '3번',
+    },
+    {
+      ques: '간식횟수',
+      ans: '2-3번',
+    },
+  ];
+
   return (
     <>
       <Grid flexDirection="column">
         <Grid>
-          <BsCameraFill
-            size="1.5rem"
-            color="var(--darkcream)"
-            margin="5px 0 0 0"
-          />
-        </Grid>
-
-        <Grid>
+          <ImageItems>
+            <img
+              alt=""
+              src={process.env.PUBLIC_URL + `/Image/bgdog1.png`}
+              width="300px"
+              height="300px"
+            />
+          </ImageItems>
           <Text type="subTitle" color="var(--blackcream)" margin="0 0 10px 0">
-            댕댕이의 얼굴이 정면으로 보이도록 업로드 하세요
+            이번 주 댕댕이 평균 감정기록은?
           </Text>
-          <ImageItems>
-            <img
-              alt=""
-              src={process.env.PUBLIC_URL + `/Image/dog10.png`}
-
-              // style={{ margin: '50px 0 0 0' }}
-            />
-          </ImageItems>
-          <Text type="desc" color="var(--blackcream)" margin="10px 0 10px 0">
-            <BsExclamationCircle /> 올바른 예시
-          </Text>
+          <DogDataSeciton>
+            {DogDatas.map((dogData, index) => {
+              return (
+                <DogDataInfo>
+                  <DataQues>{dogData.ques}</DataQues>
+                  <DataAns>{dogData.ans}</DataAns>
+                </DogDataInfo>
+              );
+            })}
+          </DogDataSeciton>
         </Grid>
-        <Grid>
-          <ImageItems>
-            <img
-              alt=""
-              src={process.env.PUBLIC_URL + `/Image/dog11.png`}
-
-              // style={{ margin: '50px 0 0 0' }}
-            />
-          </ImageItems>
-          <Text type="desc" color="var(--blackcream)" margin="10px 0 10px 0">
-            <BsXCircle /> 올바르지 않은 예시
-          </Text>
-        </Grid>
-
-        {/* <Grid>
-          <Grid is_flex>
-            <ImageItems />
-            <ImageItems />
-          </Grid>
-          <Text type="desc" color="var(--main)">
-            사진은 정면 사진으로 강아지의 얼굴이 잘 보이도록 업로드 해주세용{' '}
-          </Text>
-        </Grid>
-
-        <Grid>
-          <Grid is_flex>
-            <ImageItems />
-            <ImageItems />
-          </Grid>
-          <Text type="desc" color="var(--main)">
-            사진은 정면 사진으로 강아지의 얼굴이 잘 보이도록 업로드 해주세용{' '}
-          </Text>
-        </Grid> */}
       </Grid>
     </>
   );
 };
+
+const DogDataInfo = styled.div`
+  width: 8rem;
+  height: 8rem;
+  margin-right: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--bggray);
+  border: 2px solid var(--cream);
+  border-radius: 10px;
+  color: var(--darkcream);
+  font-size: 2rem;
+`;
+
+const DataQues = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 2rem;
+  background-color: var(--darkcream);
+  font-size: 1rem;
+  color: var(--white);
+`;
+
+const DataAns = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 6rem;
+  // background-color: var(--main);
+`;
 
 const ImageItems = styled.div`
   width: 100%;
@@ -87,6 +107,10 @@ const ImageItems = styled.div`
     object-fit: cover;
     background-size: contain;
   }
+`;
+
+const DogDataSeciton = styled.div`
+  display: flex;
 `;
 
 export default DogDataSet;

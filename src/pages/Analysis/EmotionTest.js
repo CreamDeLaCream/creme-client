@@ -57,8 +57,8 @@ export const EmotionTest = () => {
   function AnswerList({ answerlist, clickButton, questionNum, answerNum }) {
     return (
       <Button
-        width="80px"
-        height="80px"
+        width="5rem"
+        height="5rem"
         bg={
           testAnswer[questionNum] === answerNum ? 'var(--main)' : 'var(--cream)'
         }
