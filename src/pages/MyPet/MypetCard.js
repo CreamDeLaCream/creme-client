@@ -79,7 +79,14 @@ export const MypetCard = ({
                       }}
                       style={{ margin: '1px 0 0 7px' }}
                     >
-                      <BsCalendarCheck color="var(--main)" size="1rem" />
+                      <Button
+                        bg="var(--white)"
+                        // bg="rgba(245, 234, 214, 0.46)"
+                        border="solid 1px var(--cream)"
+                        radius="10px"
+                      >
+                        <BsCalendarCheck color="var(--main)" size="1rem" />
+                      </Button>
                     </div>
                   </>
                 ) : (
