@@ -24,7 +24,7 @@ import { resultData } from './ResultData';
 import { Keywords } from '../../common/components/Keyword';
 import CopyURL from './CopyURL';
 import BarChart from './BarChart';
-import { BsHeartFill } from 'react-icons/bs';
+import { BsHeartFill, BsReplyAllFill, BsPersonCheckFill } from 'react-icons/bs';
 import KakaoShare from './KakaoShare';
 
 const ResultPage = (props) => {
@@ -264,7 +264,7 @@ const ResultPage = (props) => {
           onClick={resetHandler}
         >
           <Text type="button" color="var(--white)">
-            검사 다시하기
+            <BsReplyAllFill size="2rem" />
           </Text>
         </Button>
         <Button
@@ -277,7 +277,8 @@ const ResultPage = (props) => {
           onClick={addMemo}
         >
           <Text type="button" color="var(--white)">
-            마이펫 페이지
+            <BsPersonCheckFill size="2rem" />
+            {/* 마이펫 페이지 */}
           </Text>
         </Button>
       </Grid>
