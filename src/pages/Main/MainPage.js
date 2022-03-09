@@ -164,6 +164,7 @@ const MainPage = (props) => {
                     color="var(--white)"
                     radius="50%"
                     cursor
+                    margin="0 10px 0 0"
                   >
                     <Dropzone onDrop setFiles={setFiles}>
                       <Text
@@ -175,8 +176,6 @@ const MainPage = (props) => {
                       </Text>
                     </Dropzone>
                   </Button>
-                </ButtonWrapper>
-                <ButtonWrapper>
                   <Button
                     width="80px"
                     height="80px"
@@ -207,8 +206,9 @@ const MainPage = (props) => {
 };
 
 const ButtonWrapper = styled.div`
-  width: 48%;
-  justify-content: space-between;
+  background-color: var(--cream);
+  width: 100%;
+  // justify-content: space-between;
   ${({ theme }) => theme.device.mobile} {
     width: 48%;
     min-width: 10rem;
