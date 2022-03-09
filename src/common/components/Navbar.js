@@ -44,7 +44,14 @@ const Container = styled.div`
   left: 0;
   z-index: 20;
   width: 100%;
-  background-color: transparent;
+  height: 38px;
+  // background-color: transparent;
+  background-color: var(--white);
+
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 1.5px solid var(--main);
 `;
 
 const NavBox = styled.div`

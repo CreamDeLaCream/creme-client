@@ -39,7 +39,7 @@ const ModalContainer = styled.div`
   height: ${(props) => props.height};
   border-radius: 12px;
   background-color: var(--bggray);
-  border: 2px solid var(--cream);
+  border: 1px solid var(--cream);
   /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
   display: flex;
   flex-direction: column;

@@ -23,6 +23,15 @@ import {
 import HowTo from './HowTo';
 import SelectPetName from './SelectPetName';
 
+// Icon
+
+import {
+  BsCameraFill,
+  BsFillCaretRightFill,
+  BsFillExclamationCircleFill,
+  BsPlusLg,
+} from 'react-icons/bs';
+
 const MainPage = (props) => {
   const history = useHistory();
   const dispatch = useDispatch();
@@ -72,6 +81,9 @@ const MainPage = (props) => {
       <Container>
         <Header />
         <Navbar />
+        <Text type="mainTitle" color="var(--main)" padding-top="30px">
+          반려견 감정상태
+        </Text>
         {!is_login ? null : (
           <>
             <Grid margin="2rem auto">
@@ -85,8 +97,8 @@ const MainPage = (props) => {
 
         <Grid margin="2rem auto">
           <Text type="mainTitle" color="var(--blackcream)">
-            반려견과 반려인의 첫 걸음,
-            <br /> 지금 당신의 반려견 감정 상태를 분석해보세요.
+            반려견과 반려인의 첫 걸음, 지금 당신의 반려견 감정 상태를
+            분석해보세요.
           </Text>
         </Grid>
 
@@ -100,6 +112,7 @@ const MainPage = (props) => {
                   border="1rem solid var(--cream)"
                   cursor
                 >
+                  <BsPlusLg size="2rem" color="var(--darkcream)" />
                   <Preview files={files} />
                 </Circle>
               </Dropzone>
@@ -117,7 +130,8 @@ const MainPage = (props) => {
                   setModalOpen(true);
                 }}
               >
-                <Text type="body" color="var(--main)">
+                <Text type="body" color="var(--darkcream)">
+                  <BsFillExclamationCircleFill color="var(--darkcream)" />{' '}
                   이미지 업로드 방식
                 </Text>
               </Button>
@@ -142,16 +156,18 @@ const MainPage = (props) => {
               </Grid>
             </Grid>
 
-            <Grid margin="1rem auto" width="100%">
-              <Grid foldColumn is_flex width="100%">
+            <Grid>
+              <Grid is_flex_end>
                 <ButtonWrapper>
                   <Button
-                    width="100%"
-                    padding="0.5rem"
+                    width="4rem"
+                    height="4rem"
+                    // padding="0.5rem"
                     bg="var(--main)"
                     color="var(--white)"
-                    radius="5px"
+                    radius="50%"
                     cursor
+                    margin="0 10px 0 0"
                   >
                     <Dropzone onDrop setFiles={setFiles}>
                       <Text
@@ -159,23 +175,22 @@ const MainPage = (props) => {
                         color="var(--white)"
                         whiteSpace="nowrap"
                       >
-                        사진 찍기/ 업로드
+                        <BsCameraFill size="2rem" />
                       </Text>
                     </Dropzone>
                   </Button>
-                </ButtonWrapper>
-                <ButtonWrapper>
                   <Button
-                    width="100%"
-                    padding="0.5rem"
+                    width="4rem"
+                    height="4rem"
+                    // padding="0.5rem"
                     bg="var(--main)"
                     color="var(--white)"
-                    radius="5px"
+                    radius="50%"
                     cursor
                     onClick={addPost}
                   >
                     <Text type="button" color="var(--white)">
-                      분석 시작
+                      <BsFillCaretRightFill size="2rem" />
                     </Text>
                   </Button>
                 </ButtonWrapper>
@@ -185,7 +200,7 @@ const MainPage = (props) => {
         </Grid>
       </Container>
       {modalOpen && (
-        <Modal width="30rem" height="40rem" setOpenModal={setModalOpen}>
+        <Modal width="32rem" height="42rem" setOpenModal={setModalOpen}>
           <HowTo />
         </Modal>
       )}
@@ -194,8 +209,8 @@ const MainPage = (props) => {
 };
 
 const ButtonWrapper = styled.div`
-  width: 48%;
-  justify-content: space-between;
+  // background-color: var(--cream);
+  // justify-content: space-between;
   ${({ theme }) => theme.device.mobile} {
     width: 48%;
     min-width: 10rem;

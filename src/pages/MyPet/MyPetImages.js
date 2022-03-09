@@ -9,16 +9,17 @@ export const MyPetImages = ({ imgUrl }) => {
       <img
         alt=""
         src={process.env.PUBLIC_URL + `${imgUrl}`}
-        width="250px"
-        height="250px"
+        width="100%"
+        height="100%"
       />
     </MyPetImage>
   );
 };
 
 const MyPetImage = styled.div`
-  width: 260px;
-  height: 260px;
+  flex: 1;
+  max-width: 260px;
+  max-height: 260px;
   border-radius: 50%;
   border: 13px solid var(--cream);
   background-color: var(--main);
@@ -26,4 +27,11 @@ const MyPetImage = styled.div`
   // positon: absolute;
   // vertical-align: middle;
   margin-right: 50px;
+  ${({ theme }) => theme.device.mobile} {
+    position: absolute;
+    max-width: 100px;
+    max-height: 100px;
+    right: 15px;
+    top: 50px;
+  }
 `;

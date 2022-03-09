@@ -24,7 +24,12 @@ import { resultData } from './ResultData';
 import { Keywords } from '../../common/components/Keyword';
 import CopyURL from './CopyURL';
 import BarChart from './BarChart';
-import { BsHeartFill } from 'react-icons/bs';
+import {
+  BsHeartFill,
+  BsReplyAllFill,
+  BsPersonCheckFill,
+  BsArrowCounterclockwise,
+} from 'react-icons/bs';
 import KakaoShare from './KakaoShare';
 
 const ResultPage = (props) => {
@@ -244,13 +249,13 @@ const ResultPage = (props) => {
 
       <Grid margin="2rem auto">
         <Text type="subTitle" color="var(--main)" marginBottom="15px">
-          오늘의 감정일기(메모)
+          오늘의 감정일기
         </Text>
         <Input
           multiLine
           value={memo}
           onChange={changeMemo}
-          placeholder="반려인의 간단한 기록 작성 공간"
+          placeholder="결과를 보고 느낀 감정을 작성해주세요."
         />
       </Grid>
       <Grid is_flex margin="1rem auto">
@@ -264,7 +269,7 @@ const ResultPage = (props) => {
           onClick={resetHandler}
         >
           <Text type="button" color="var(--white)">
-            검사 다시하기
+            <BsReplyAllFill size="2rem" />
           </Text>
         </Button>
         <Button
@@ -277,7 +282,8 @@ const ResultPage = (props) => {
           onClick={addMemo}
         >
           <Text type="button" color="var(--white)">
-            마이펫 페이지
+            <BsPersonCheckFill size="2rem" />
+            {/* 마이펫 페이지 */}
           </Text>
         </Button>
       </Grid>
@@ -299,6 +305,7 @@ const ResultBox = styled.div`
 const ButtonWrapper = styled.div`
   width: 12rem;
   display: flex;
+  z-index: 2;
   justify-content: space-between;
   ${({ theme }) => theme.device.fold} {
     width: 10rem;

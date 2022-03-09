@@ -7,6 +7,9 @@ import { Text, Button } from '../../common/components';
 import HighlightText from '../../common/styles/HighlightText';
 import { UserKeywords } from './UserKeywords';
 
+// BsFillPersonPlusFill
+import { BsFillPersonPlusFill } from 'react-icons/bs';
+
 export const Intro2nd = (props) => {
   const history = useHistory();
   return (
@@ -34,20 +37,20 @@ export const Intro2nd = (props) => {
         <br />
         <UserKeywords />
         <Button
-          width="80px"
-          height="80px"
+          width="4rem"
+          height="4rem"
           bg="var(--cream)"
           radius="50%"
           size="20px"
           color="var(--deepcream)"
-          margin="20px 0 0 0"
+          margin="30px 0 0 0"
           onClick={() => {
             console.log('넘어감');
-            history.push('/mypet');
+            history.push('/adduserlife');
           }}
           cursor
         >
-          lifestyle
+          <BsFillPersonPlusFill size="2rem" />
         </Button>
 
         {/* <p>
@@ -63,32 +66,39 @@ export const Intro2nd = (props) => {
 };
 
 const IntroBg = styled.div`
+  display: flex;
   background-color: var(--lightcream);
   width: 100%;
-  height: 500px;
-  display: flex;
+  ${({ theme }) => theme.device.mobile} {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
 `;
 
 const TitleContent = styled.div`
-  width: 500px;
-  height: 100%;
   margin-top: 70px;
-  margin-right: 70px;
+  margin-right: 50px;
+  width: 100%;
+  // background-color: var(--main);
   text-align: right;
-
+  ${({ theme }) => theme.device.mobile} {
+    margin-right: 0px;
+    text-align: center;
+  }
   p {
     // font-family: normal;
-    color: var(--darkcream);
+    color: var(—darkcream);
   }
 `;
 
 const MainPartnerImg = styled.div`
   width: 500px;
-  height: 100%;
-  // background-color: var(--cream);
-
+  // background-color: var(—cream);
   img {
     margin-top: 80px;
     margin-left: 70px;
+    ${({ theme }) => theme.device.mobile} {
+      margin: 0px;
+    }
   }
 `;

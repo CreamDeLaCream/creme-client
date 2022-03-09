@@ -5,6 +5,9 @@ import { useHistory } from 'react-router-dom';
 // Data
 import MyPetData from '../../common/components/MyPetData';
 
+// icon
+import { FaAngleDown } from 'react-icons/fa';
+
 // components
 import {
   Header,
@@ -65,6 +68,11 @@ const MyPetPage = (props) => {
     }
   };
 
+  const [clickedMyPet, setClickedMyPet] = useState('all');
+  const onClickMyPet = (e) => {
+    setClickedMyPet(e);
+  };
+
   return (
     <Container height="200vh">
       <Header />
@@ -91,7 +99,10 @@ const MyPetPage = (props) => {
         <RecordMenu>
           <RecordTitle>마이펫 감정 기록</RecordTitle>
           <RecordMenuEmotion>
-            <FilterMyPet />
+            <FilterMyPet
+              clickedMyPet={clickedMyPet}
+              onClickMyPet={onClickMyPet}
+            />
             <FilterRecord
               clickedEmotion={clickedEmotion}
               onClickEmotion={onClickEmotion}
@@ -99,20 +110,24 @@ const MyPetPage = (props) => {
           </RecordMenuEmotion>
         </RecordMenu>
         <RecordCardWrapper>
-          <Record petImages={petImage} clickedEmotion={clickedEmotion} />
+          <Record
+            petImages={petImage}
+            clickedMyPet={clickedMyPet.toLowerCase()}
+            clickedEmotion={clickedEmotion}
+          />
         </RecordCardWrapper>
         <ButtonWrapper>
           <Button
-            width="80px"
-            height="80px"
+            width="4rem"
+            height="4rem"
             bg="var(--main)"
+            margin="0 0 4rem 0"
             radius="50%"
-            size="20px"
             color="var(--white)"
             cursor
             onClick={concatImage}
           >
-            더보기
+            <FaAngleDown size="2rem" />
           </Button>
         </ButtonWrapper>
       </RecordWrapper>
@@ -139,12 +154,14 @@ const RecordTitle = styled.div`
 
 const RecordMenu = styled.div`
   display: flex;
-  // background-color: var(--cream);
+  height: 60px;
+  background-color: var(—cream);
 `;
 
 const RecordMenuEmotion = styled.div`
-  width: 30%;
   display: flex;
+  width: 80%;
+  // background-color: red;
 `;
 
 const RecordCardWrapper = styled.div`
@@ -153,7 +170,7 @@ const RecordCardWrapper = styled.div`
   flex-direction: row;
   margin-top: 30px;
   flex-wrap: wrap;
-  justify-content: space-start;
+  justify-content: start;
 `;
 
 const ButtonWrapper = styled.div`

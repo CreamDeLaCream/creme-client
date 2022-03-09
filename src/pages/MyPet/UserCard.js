@@ -44,8 +44,9 @@ export const UserCard = ({ isLoggedIN, history }) => {
           ) : (
             <Button
               height="23px"
-              bg="var(--cream)"
+              bg="rgba(245, 234, 214, 0.46)"
               color="var(--main)"
+              border="solid 1px var(--cream)"
               radius="10px"
               margin="4px 0 0 0"
               onClick={() => {
