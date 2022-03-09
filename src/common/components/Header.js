@@ -36,7 +36,11 @@ const Header = (props) => {
                       setModalOpen(true);
                     }}
                   >
-                    <Text whiteSpace="nowrap" type="button" color="var(--main)">
+                    <Text
+                      whiteSpace="nowrap"
+                      type="button"
+                      color="var(--white)"
+                    >
                       로그인
                     </Text>
                   </LoginButton>
@@ -118,9 +122,12 @@ const LogoBox = styled.div`
 const RightSide = styled.section``;
 
 const LoginButton = styled.button`
+  border-radius: 23px;
   display: flex;
   align-items: center;
-  background-color: transparent;
+  // background-color: transparent;
+  background-color: var(--main);
+  width: 100%;
   cursor: pointer;
   border: none;
   margin-bottom: -0.8rem;

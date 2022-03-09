@@ -6,6 +6,8 @@ import { Header, Navbar, Text, Container } from '../../common/components';
 import { TeamMembers } from './TeamMembers';
 
 const TeamPage = () => {
+  const env = process.env;
+  env.PUBLIC_URL = env.PUBLIC_URL || '';
   return (
     <TeamPageBg>
       <Container height="100vh">
@@ -19,6 +21,15 @@ const TeamPage = () => {
           Elice 3기 14팀 Creme de la Creme의 멤버를 소개합니다.
         </Text>
         <TeamMemberWrapper>
+          <TeamIMG>
+            <img
+              alt=""
+              src={process.env.PUBLIC_URL + `/Image/team.jpg`}
+              width="100%"
+              height="550px"
+            />
+          </TeamIMG>
+
           <TeamMembers />
         </TeamMemberWrapper>
       </Container>
@@ -36,6 +47,15 @@ const TeamMemberWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-top: 30px;
+`;
+
+const TeamIMG = styled.div`
+  width: 100%;
+  height: 500px;
+  border-radius: 15px;
+  border: solid 2px var(--cream);
+  background-color: var(--main);
+  overflow: hidden;
 `;
 
 export default TeamPage;
