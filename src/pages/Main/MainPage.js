@@ -29,6 +29,7 @@ import {
   BsCameraFill,
   BsFillCaretRightFill,
   BsFillExclamationCircleFill,
+  BsPlusLg,
 } from 'react-icons/bs';
 
 const MainPage = (props) => {
@@ -108,6 +109,7 @@ const MainPage = (props) => {
                   border="1rem solid var(--cream)"
                   cursor
                 >
+                  <BsPlusLg size="2rem" color="var(--darkcream)" />
                   <Preview files={files} />
                 </Circle>
               </Dropzone>
