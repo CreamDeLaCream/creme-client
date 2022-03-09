@@ -34,8 +34,6 @@ export const UserCard = ({ isLoggedIN, history }) => {
           {isLoggedIN
             ? '반가운 레아님의 라이프스타일'
             : '당신의 라이프스타일은 어떠한가요?'}
-          {/* 반가운 <span style={{ color: 'var(--blackcream)' }}>레아</span>님의{' '}
-          <span style={{ color: 'var(--main)' }}>라이프스타일</span> */}
         </UserName>
 
         <KeywordsWrapper>
