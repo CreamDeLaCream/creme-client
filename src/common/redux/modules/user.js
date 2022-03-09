@@ -1,8 +1,8 @@
 import { createAction, handleActions } from 'redux-actions';
 import { produce } from 'immer';
 
-import { setCookie } from '../../utils/Cookie';
 import api from '../../utils/API';
+import { setCookie, getCookie, deleteCookie } from '../../utils/Cookie';
 
 // Action
 const SET_USER = 'SET_USER';
@@ -10,9 +10,9 @@ const LOG_OUT = 'LOG_OUT';
 const GET_USER = 'GET_USER';
 
 // Action Creator
-const setUser = createAction(SET_USER, (user_info) => ({ user_info }));
+const setUser = createAction(SET_USER, (user) => ({ user }));
 // const logOut = createAction(LOGOUT, () => {});
-const getUser = createAction(GET_USER, (user_cookie) => ({ user_cookie }));
+const getUser = createAction(GET_USER, (user) => ({ user }));
 const logOut = createAction(LOG_OUT, (user) => ({ user }));
 // initial State
 const initialState = {
@@ -23,31 +23,31 @@ const initialState = {
 };
 
 // middleware
-const getUserAX = () => {
-  return function (dispatch, getState, { history }) {
-    console.log('getuser 들어옴');
-    api
-      // (
-      .get('/users/login')
-      .then((res) => {
-        console.log(res);
-        // let token = res.res;
-        // sessionStorage.setItem('token', token);
-        dispatch(
-          setUser({
-            is_res_token: res.res,
-            user_id: res.user_id,
-            user_email: res.user_email,
-          }),
-        );
-        history.replace('/');
-        window.alert(`환영합니다!`);
-      })
-      .catch((e) => {
-        console.log('유저 정보 확인 에러', e);
-      });
-  };
-};
+// const getUserAX = () => {
+//   return function (dispatch, getState, { history }) {
+//     console.log('getuser 들어옴');
+//     api
+//       // (
+//       .get('/users/login')
+//       .then((res) => {
+//         console.log(res);
+//         // let token = res.res;
+//         // sessionStorage.setItem('token', token);
+//         dispatch(
+//           setUser({
+//             is_res_token: res.res,
+//             user_id: res.user_id,
+//             user_email: res.user_email,
+//           }),
+//         );
+//         history.replace('/');
+//         window.alert(`환영합니다!`);
+//       })
+//       .catch((e) => {
+//         console.log('유저 정보 확인 에러', e);
+//       });
+//   };
+// };
 
 // 카카오 로그인
 const kakaoLogin = (code) => {
@@ -67,22 +67,22 @@ const kakaoLogin = (code) => {
         // localStorage.setItem('token', ACCESS_TOKEN); //예시로 로컬에 저장함
         sessionStorage.setItem('token', ACCESS_TOKEN);
         sessionStorage.setItem('refresh', REFRESH_TOKEN);
-        // const token = sessionStorage.getItem('token');
+        const token = sessionStorage.getItem('token');
 
         history.replace('/'); // 토큰 받았았고 로그인됐으니 화면 전환시켜줌(메인으로)
         // const header = {
         //   Authorization: `Bearer ${token}`,
         // };
         // api
-        //   .get('/users/login', {
+        //   .get('/users', {
         //     headers: header,
         //   })
         //   .then((res) => {
         //     console.log(res);
         //     dispatch(
         //       setUser({
-        //         is_login: res.data.res,
-        //         user_nickname: res.user_nickname,
+        //         user_nickname: res.data.username,
+        //         user_id: res.data.id,
         //         // user_email: res.data.user_email,
         //       }),
         //     );
@@ -102,23 +102,26 @@ const kakaoLogin = (code) => {
 const loginCheck = () => {
   return function (dispatch, getState, { history }) {
     const token = sessionStorage.getItem('token');
+
     if (token) {
       const header = {
         Authorization: `Bearer ${token}`,
       };
       api
         .get('/users/login', { headers: header })
+
         .then((res) => {
-          if (res.data.res) {
+          if (res.data) {
             dispatch(
               setUser({
-                is_login: res.data.res,
-                user_nickname: res.data.user_nickname,
-                user_email: res.data.user_email,
+                is_login: true,
+                username: res.data.username,
+                user_id: res.data.user_id,
               }),
             );
           } else {
-            // dispatch(logOut());
+            window.alert(`로그인에 실패하였습니다.`);
+            dispatch(kakaoLogOut());
           }
         })
         .catch((e) => {
@@ -151,7 +154,7 @@ export default handleActions(
     [SET_USER]: (state, action) =>
       produce(state, (draft) => {
         setCookie('is_login', 'success');
-        draft.user = action.payload.user_info;
+        draft.user = action.payload.user;
         draft.is_login = true;
         console.log(draft.user);
       }),
@@ -168,7 +171,7 @@ export default handleActions(
     //   }),
     [GET_USER]: (state, action) =>
       produce(state, (draft) => {
-        // let cookie = action.payload.user_cookie;
+        // let cookie = action.payload.is_login;
         // setCookie("JSESSIONID", cookie);
         // draft.is_cookie = true;
       }),
@@ -179,7 +182,7 @@ export default handleActions(
 const actionCreators = {
   logOut,
   getUser,
-  getUserAX,
+  // getUserAX,
   kakaoLogin,
   loginCheck,
   kakaoLogOut,

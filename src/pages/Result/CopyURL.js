@@ -16,6 +16,7 @@ const LinkCopy = (text) => {
       });
   }
 };
+
 const CopyURL = () => {
   return (
     <>

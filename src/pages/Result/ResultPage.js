@@ -30,9 +30,18 @@ import KakaoShare from './KakaoShare';
 const ResultPage = (props) => {
   const history = useHistory();
   const dispatch = useDispatch();
+  // const slug = props.match.params.slug;
   const [memo, setMemo] = useState('');
   const petimage = useSelector((state) => state.petimage.list);
   const is_login = useSelector((state) => state.user.is_login);
+  // const petimage = useSelector((state) => state.petimage.list);
+  // const resultList = useSelector((state) => state.petimage.list);
+  // console.log(resultList);
+  const is_session = sessionStorage.getItem('token') ? true : false;
+
+  // useEffect(() => {
+  //   dispatch(postActions.setPetImageAX(resultList));
+  // }, []);
 
   const changeMemo = (e) => {
     setMemo(e.target.value);
@@ -47,7 +56,7 @@ const ResultPage = (props) => {
       return;
     }
     let petmemo = {
-      // slug: slug,
+      slug: petimage[0].slug,
       memo: memo,
     };
     console.log(petmemo);
@@ -68,9 +77,22 @@ const ResultPage = (props) => {
 
     // get context of the canvas
     ctx = canvasEle.getContext('2d');
+    // const ctx = canvasRef.current.getContext('2d');
+
+    // handleResize();
+    // window.addEventListener('resize', handleResize);
+
+    // return () => window.removeEventListener('resize', handleResize);
   }, []);
+  // const canvasRef = useRef();
+  // useEffect(() => {
+  //   // requestAnimationFrame(() => draw(ctx));
+  // }, []);
 
   useEffect(() => {
+    // ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // ctx.fillRect(0, 0, canvas.width, canvas.height);
+
     const r1Info = { x: 120, y: 180, w: 200, h: 200 };
     const r1Style = { borderColor: 'red', borderWidth: 10 };
     drawRect(r1Info, r1Style);
@@ -84,6 +106,7 @@ const ResultPage = (props) => {
     const { x, y, w, h } = info;
     const { borderColor = 'black', borderWidth = 1 } = style;
 
+    // window.addEventListener('resize', draw);
     ctx.beginPath();
     ctx.strokeStyle = borderColor;
     ctx.lineWidth = borderWidth;
@@ -158,7 +181,7 @@ const ResultPage = (props) => {
           {petimage[0].dog_name}, {petimage[0].dog_age}살
         </Text>
         <Text type="subTitle">
-          {!is_login ? null : (
+          {!is_session ? null : (
             <Keywords typekeywords={resultData[0].dog.emotion} />
           )}
           {/* TODO: Keyword에 props에 .character 추가하기 */}
@@ -297,6 +320,7 @@ const ResultBox = styled.div`
 `;
 
 const ButtonWrapper = styled.div`
+  z-index: 1;
   width: 12rem;
   display: flex;
   justify-content: space-between;

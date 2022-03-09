@@ -9,14 +9,14 @@ import { actionCreators as userActions } from '../../common/redux/modules/user';
 // components
 import { Logo, Modal, Text, Image, Grid, Button } from './';
 import { KAKAO_AUTH_URL } from '../utils/OAuth';
-import { getCookie } from '../utils/Cookie';
+// import { getCookie } from '../utils/Cookie';
 
 const Header = (props) => {
   const history = useHistory();
   const [modalOpen, setModalOpen] = useState(false);
-  // const [is_login, setIsLogin] = useState(false);
   const dispatch = useDispatch();
-  const is_login = useSelector((state) => state.user.is_login);
+  // const is_login = useSelector((state) => state.user.user);
+  const is_session = sessionStorage.getItem('token') ? true : false;
 
   return (
     <>
@@ -28,7 +28,7 @@ const Header = (props) => {
             </LogoBox>
           </LeftSide>
           <RightSide>
-            {!is_login && props ? (
+            {!is_session && props ? (
               <>
                 {props.page === 'headermenu' ? (
                   <LoginButton
@@ -45,7 +45,11 @@ const Header = (props) => {
             ) : (
               <>
                 {props.page === 'headermenu' ? (
-                  <LoginButton>
+                  <LoginButton
+                    onClick={() => {
+                      dispatch(userActions.logOut());
+                    }}
+                  >
                     <Text whiteSpace="nowrap" type="button" color="var(--main)">
                       {/* {user_nickname} */}
                       댕댕님

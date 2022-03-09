@@ -1,10 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
 // components
 import { Header, Navbar, Text, Container } from '../../common/components';
-
-// bg
 import { Intro1st } from './Intro1st';
 import { Intro2nd } from './Intro2nd';
 import { Intro3rd } from './Intro3rd';

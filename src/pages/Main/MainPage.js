@@ -30,6 +30,8 @@ const MainPage = (props) => {
   const [age, setAge] = useState('');
   const [name, setName] = useState('');
   // const pet_image_list = useSelector((state) => state.petimage.list);
+  const is_session = sessionStorage.getItem('token') ? true : false;
+  // const is_login = useSelector((state) => state.user.user);
 
   // 업로드 방식 모달
   const [modalOpen, setModalOpen] = useState(false);
@@ -65,14 +67,12 @@ const MainPage = (props) => {
     setAge(e.target.value);
   };
 
-  const is_login = useSelector((state) => state.user.is_login);
-
   return (
     <>
       <Container>
         <Header />
         <Navbar />
-        {!is_login ? null : (
+        {!is_session ? null : (
           <>
             <Grid margin="2rem auto">
               <Text type="mainTitle" color="var(--blackcream)">
