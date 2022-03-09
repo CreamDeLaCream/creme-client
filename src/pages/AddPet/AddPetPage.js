@@ -45,7 +45,7 @@ const AddPetPage = (props) => {
 
       <AddPetSection>
         <InfoWrapper>
-          <p style={{ color: 'var(--main)' }}>MyPet</p>
+          <p>MyPet</p>
           <InputBox
             data={inputData}
             files={files}
@@ -54,7 +54,7 @@ const AddPetPage = (props) => {
           />
         </InfoWrapper>
         <KeywordsSection>
-          <p style={{ color: 'var(--main)' }}>Keywords</p>
+          <p>Keywords</p>
           <KeywordWrapper>
             <AnimatedKeyword
               keywordsData={MyPetKeywordsData}
@@ -88,8 +88,8 @@ const AddPetPage = (props) => {
 };
 
 const AddPetSection = styled.div`
-  background-color: var(—bggray);
-  border: solid 1px var(—cream);
+  background-color: var(--bggray);
+  border: solid 1px var(--cream);
   border-radius: 15px;
   margin-top: 20px;
 
@@ -98,7 +98,7 @@ const AddPetSection = styled.div`
 
   p {
     font-size: 20px;
-    color: var(—main);
+    color: var(--main);
     margin-top: 30px;
   }
 `;
