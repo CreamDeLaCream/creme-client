@@ -13,6 +13,7 @@ export default function PetListButton({ cardNum, onClickAnotherCard }) {
         width="13px"
         height="13px"
         radius="50%"
+        cursor
         bg={cardNum === 0 ? 'var(--main)' : 'var(--darkcream)'}
       />
       <Button
@@ -22,6 +23,7 @@ export default function PetListButton({ cardNum, onClickAnotherCard }) {
         width="13px"
         height="13px"
         radius="50%"
+        cursor
         bg={cardNum === 1 ? 'var(--main)' : 'var(--darkcream)'}
       />
     </PetListButtonWrapper>
