@@ -7,7 +7,11 @@ const ADD_EMOTION = 'ADD_EMOTION';
 const INITIALIZE_EMOTION = 'INITIALIZE_EMOTION';
 
 // Action Creator
-const addEmotion = createAction(ADD_EMOTION, (ques, ans) => ({ ques, ans }));
+const addEmotion = createAction(ADD_EMOTION, (ques, ans, slug) => ({
+  ques,
+  ans,
+  slug,
+}));
 const initializeEmotion = createAction(INITIALIZE_EMOTION, () => {});
 
 // InitialState
@@ -18,30 +22,31 @@ const initialState = {
     2: null,
     3: null,
   },
+  slug: {},
 };
 
 // middleware
-// const addPetImageAX = ({ name, age, image }) => {
-//   return function (dispatch, getState, { history }) {
-//     const formData = new FormData();
-//     formData.append('dog_name', name);
-//     formData.append('dog_age', age);
-//     formData.append('image', image);
-//     api
-//       .post(/analysis/pet, formData, {
-//         headers: {
-//           'Content-Type': 'multipart/form-data',
-//         },
-//       })
-//       .then((response) => {
-//         dispatch(addPetImage(response.data.images));
-//         // window.location.reload();
-//       })
-//       .catch((error) => {
-//         console.log('이미지 전송 실패', error);
-//       });
-//   };
-// };
+const addEmotionAX = ({ emotionResult, slug }) => {
+  return function (dispatch, getState, { history }) {
+    const formData = new FormData();
+    formData.append('emotionResult', emotionResult);
+    formData.append('slug', slug);
+    // const data = { 0: null, 1: null, 2: null, 3: null, slug: {} };
+    api
+      .post(`analysis/human?slug=${slug}`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      })
+      .then((res) => {
+        dispatch(addEmotion(emotionResult, slug));
+        // window.location.reload();
+      })
+      .catch((err) => {
+        console.log('데이터 전송 실패', err);
+      });
+  };
+};
 
 // Reducer
 export default handleActions(
@@ -49,6 +54,7 @@ export default handleActions(
     [ADD_EMOTION]: (state, action) =>
       produce(state, (draft) => {
         draft.emotionResult[action.payload.ques] = action.payload.ans;
+        draft.slug = action.payload.slug;
       }),
     [INITIALIZE_EMOTION]: (state, action) => {
       produce(state, (draft) => {
@@ -67,6 +73,7 @@ export default handleActions(
 const actionCreators = {
   addEmotion,
   initializeEmotion,
+  addEmotionAX,
 };
 
 export { actionCreators };
