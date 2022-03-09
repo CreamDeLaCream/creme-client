@@ -57,9 +57,13 @@ const Header = (props) => {
                       dispatch(userActions.logOut());
                     }}
                   >
-                    <Text whiteSpace="nowrap" type="button" color="var(--main)">
+                    <Text
+                      whiteSpace="nowrap"
+                      type="button"
+                      color="var(--white)"
+                    >
                       {/* {user_nickname} */}
-                      댕댕님
+                      최서연님
                     </Text>
                   </LoginButton>
                 ) : null}
@@ -132,12 +136,13 @@ const LogoBox = styled.div`
 const RightSide = styled.section``;
 
 const LoginButton = styled.button`
-  border-radius: 23px;
+  width: 4rem;
+  padding: 0.4rem;
+  border-radius: 15px;
   display: flex;
   align-items: center;
   // background-color: transparent;
   background-color: var(--main);
-  width: 3.5rem;
   cursor: pointer;
   border: none;
   margin-bottom: -0.8rem;
