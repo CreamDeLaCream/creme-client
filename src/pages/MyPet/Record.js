@@ -25,8 +25,9 @@ const Record = ({ petImages, clickedMyPet, clickedEmotion }) => {
           <Button
             height="23px"
             radius="10px"
-            bg="var(--cream)"
-            color="var(--blackcream)"
+            bg="rgba(245, 234, 214, 0.46)"
+            border="solid var(--lightcream) 1px"
+            color="var(--lightcream)"
             margin="0 10px 0 10px"
           >
             {recordcards.name}
@@ -34,8 +35,9 @@ const Record = ({ petImages, clickedMyPet, clickedEmotion }) => {
           <Button
             height="23px"
             radius="10px"
-            bg="var(--cream)"
-            color="var(--blackcream)"
+            bg="rgba(245, 234, 214, 0.46)"
+            border="solid var(--lightcream) 1px"
+            color="var(--lightcream)"
             margin="0 10px 0 0"
           >
             {recordcards.date}
@@ -43,7 +45,7 @@ const Record = ({ petImages, clickedMyPet, clickedEmotion }) => {
           <Button
             height="23px"
             radius="10px"
-            bg="rgba( 255, 255, 255, 0 )"
+            bg="rgba(245, 234, 214, 0.46)"
             border="solid var(--lightcream) 1px"
             color="var(--lightcream)"
             margin="0 10px 0 0"
