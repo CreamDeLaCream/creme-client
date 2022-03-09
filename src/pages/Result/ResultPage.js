@@ -24,7 +24,12 @@ import { resultData } from './ResultData';
 import { Keywords } from '../../common/components/Keyword';
 import CopyURL from './CopyURL';
 import BarChart from './BarChart';
-import { BsHeartFill, BsReplyAllFill, BsPersonCheckFill } from 'react-icons/bs';
+import {
+  BsHeartFill,
+  BsReplyAllFill,
+  BsPersonCheckFill,
+  BsArrowCounterclockwise,
+} from 'react-icons/bs';
 import KakaoShare from './KakaoShare';
 
 const ResultPage = (props) => {
@@ -244,13 +249,13 @@ const ResultPage = (props) => {
 
       <Grid margin="2rem auto">
         <Text type="subTitle" color="var(--main)" marginBottom="15px">
-          오늘의 감정일기(메모)
+          오늘의 감정일기
         </Text>
         <Input
           multiLine
           value={memo}
           onChange={changeMemo}
-          placeholder="반려인의 간단한 기록 작성 공간"
+          placeholder="결과를 보고 느낀 감정을 작성해주세요."
         />
       </Grid>
       <Grid is_flex margin="1rem auto">
