@@ -5,6 +5,9 @@ import { useHistory } from 'react-router-dom';
 // Data
 import MyPetData from '../../common/components/MyPetData';
 
+// icon
+import { FaAngleDown } from 'react-icons/fa';
+
 // components
 import {
   Header,
@@ -120,12 +123,11 @@ const MyPetPage = (props) => {
             bg="var(--main)"
             margin="0 0 4rem 0"
             radius="50%"
-            size="20px"
             color="var(--white)"
             cursor
             onClick={concatImage}
           >
-            더보기
+            <FaAngleDown size="2rem" />
           </Button>
         </ButtonWrapper>
       </RecordWrapper>

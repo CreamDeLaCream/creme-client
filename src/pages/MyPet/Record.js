@@ -6,6 +6,7 @@ import AnalysisData from './AnalysisData';
 
 // Icons
 import { BsHeartFill } from 'react-icons/bs';
+
 import { myPetEmotion } from './MyPetPage';
 import { Button } from '../../common/components';
 
