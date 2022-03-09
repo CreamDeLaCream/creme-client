@@ -67,7 +67,7 @@ const MyPetPage = (props) => {
 
   const [clickedMyPet, setClickedMyPet] = useState('all');
   const onClickMyPet = (e) => {
-    setClickedMyPet(e.target.value);
+    setClickedMyPet(e);
   };
 
   return (

@@ -5,7 +5,10 @@ import styled from 'styled-components';
 import { Text } from '../../common/components';
 import useDetectOutsideClick from '../../common/utils/useDetectOutsideClick';
 
-const Dropdown = () => {
+// Icon
+import { BsCaretDownFill } from 'react-icons/bs';
+
+const Dropdown = ({ clickedValue, onClickValue, menuList }) => {
   const dropdownRef = useRef(null);
   const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
   const onClick = () => setIsActive(!isActive);
@@ -13,26 +16,27 @@ const Dropdown = () => {
   return (
     <MenuContainer>
       <TriggerButton onClick={onClick}>
-        <MenuTitle>DropDown</MenuTitle>
-        <Image
-          src="https://mblogthumb-phinf.pstatic.net/20141020_84/ribbonchick_1413740254883HpC05_JPEG/01.jpg?type=w420"
-          alt="arrow"
-        />
+        <MenuTitle style={{ color: 'var(--main)' }}>
+          <sapn style={{ fontSize: '1.1rem' }}>
+            {clickedValue} <BsCaretDownFill />
+          </sapn>
+        </MenuTitle>
       </TriggerButton>
       <Nav
         ref={dropdownRef}
         className={`menu ${isActive ? 'active' : 'inactive'}`}
       >
         <MenuList>
-          <Item>
-            <Text color="var(--gray)">마이페이지</Text>
-          </Item>
-          <Item>
-            <Text color="var(--gray)">인트로</Text>
-          </Item>
-          <Item>
-            <Text color="var(--gray)">팀</Text>
-          </Item>
+          {menuList.map((menu) => (
+            <Item
+              onClick={() => {
+                onClickValue(menu);
+                setIsActive(!isActive);
+              }}
+            >
+              <Text color="var(--main)">{menu}</Text>
+            </Item>
+          ))}
         </MenuList>
       </Nav>
     </MenuContainer>
@@ -41,24 +45,24 @@ const Dropdown = () => {
 
 const MenuContainer = styled.div`
   position: relative;
+  margin-top: 28px;
 `;
 
 const TriggerButton = styled.button`
-  width: auto;
+  width: 150px;
   display: flex;
-  justify-content: space-between;
+  // justify-content: space-between;
   align-items: center;
   vertical-align: middle;
-  border: none;
-  border-radius: 8px;
+  border: solid 1px var(--darkcream);
   background: var(--white);
   /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); */
   padding: 4px 6px;
   transition: box-shadow 0.4s ease;
   cursor: pointer;
-  :hover {
-    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
-  }
+  // :hover {
+  //   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+  // }
 `;
 
 const MenuTitle = styled.span`
@@ -66,12 +70,6 @@ const MenuTitle = styled.span`
   font-weight: 700;
   vertical-align: middle;
   margin: 0 10px;
-`;
-
-const Image = styled.img`
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 90px;
 `;
 
 const Nav = styled.nav`
@@ -86,6 +84,7 @@ const Nav = styled.nav`
   visibility: hidden;
   transform: translateX(-50%);
   transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+  z-index: 29;
   &.menu.active {
     opacity: 1;
     visibility: visible;
@@ -104,6 +103,7 @@ const Item = styled.li`
   /* color: #333333; */
   border-bottom: 1px solid #dddddd;
   padding: 15px 20px;
+  cursor: pointer;
 `;
 
 export default Dropdown;

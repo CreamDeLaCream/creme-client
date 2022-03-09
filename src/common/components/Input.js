@@ -42,12 +42,16 @@ const Input = (props) => {
 };
 
 const TextareaForm = styled.textarea`
-  border: 2px solid var(--cream);
   width: 100%;
   font-size: 1.1rem;
   color: gray;
   padding: 5px 0px 0px 5px;
   border-radius: 5px;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 2px solid var(--cream);
+
   :focus {
     outline: none;
     ::-webkit-input-placeholder {

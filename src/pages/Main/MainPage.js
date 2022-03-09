@@ -23,6 +23,10 @@ import {
 import HowTo from './HowTo';
 import SelectPetName from './SelectPetName';
 
+// Icon
+
+import { BsCameraFill, BsFillCaretRightFill } from 'react-icons/bs';
+
 const MainPage = (props) => {
   const history = useHistory();
   const dispatch = useDispatch();
@@ -146,11 +150,12 @@ const MainPage = (props) => {
               <Grid foldColumn is_flex width="100%">
                 <ButtonWrapper>
                   <Button
-                    width="100%"
-                    padding="0.5rem"
+                    width="80px"
+                    height="80px"
+                    // padding="0.5rem"
                     bg="var(--main)"
                     color="var(--white)"
-                    radius="5px"
+                    radius="50%"
                     cursor
                   >
                     <Dropzone onDrop setFiles={setFiles}>
@@ -159,23 +164,24 @@ const MainPage = (props) => {
                         color="var(--white)"
                         whiteSpace="nowrap"
                       >
-                        사진 찍기/ 업로드
+                        <BsCameraFill />
                       </Text>
                     </Dropzone>
                   </Button>
                 </ButtonWrapper>
                 <ButtonWrapper>
                   <Button
-                    width="100%"
-                    padding="0.5rem"
+                    width="80px"
+                    height="80px"
+                    // padding="0.5rem"
                     bg="var(--main)"
                     color="var(--white)"
-                    radius="5px"
+                    radius="50%"
                     cursor
                     onClick={addPost}
                   >
                     <Text type="button" color="var(--white)">
-                      분석 시작
+                      <BsFillCaretRightFill />
                     </Text>
                   </Button>
                 </ButtonWrapper>
