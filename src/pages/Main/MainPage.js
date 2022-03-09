@@ -153,8 +153,8 @@ const MainPage = (props) => {
               </Grid>
             </Grid>
 
-            <Grid margin="1rem auto" width="100%">
-              <Grid foldColumn is_flex width="100%">
+            <Grid>
+              <Grid is_flex_end>
                 <ButtonWrapper>
                   <Button
                     width="4rem"
@@ -206,8 +206,7 @@ const MainPage = (props) => {
 };
 
 const ButtonWrapper = styled.div`
-  background-color: var(--cream);
-  width: 100%;
+  // background-color: var(--cream);
   // justify-content: space-between;
   ${({ theme }) => theme.device.mobile} {
     width: 48%;
