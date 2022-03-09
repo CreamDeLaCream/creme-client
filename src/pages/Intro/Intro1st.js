@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 // components
 import { Text, Button } from '../../common/components';
 import HighlightText from '../../common/styles/HighlightText';
+import Deck from './Deck/Deck';
 
 export const Intro1st = (props) => {
   const history = useHistory();
@@ -25,7 +26,7 @@ export const Intro1st = (props) => {
           느끼고 있을까요?
         </Text>
         <p style={{ fontFamily: 'IBM Plex Sans KR', color: 'var(--main)' }}>
-          나의 댕댕이가 오늘은 어떤 감정을 느끼고 있는지 궁금하시죠?
+          나의 댕댕이가 오늘은 어떤 감정을 <br /> 느끼고 있는지 궁금하시죠?
           <br />
           혹시, 가까웠던 댕댕이와의 관계가 소홀해지셨나요?
           <br />
@@ -51,12 +52,13 @@ export const Intro1st = (props) => {
         </Button>
       </TitleContent>
       <MainDogImg>
-        <img
+        {/* <img
           alt=""
           src={process.env.PUBLIC_URL + `/Image/bgdog1.png`}
           width="400px"
           height="400px"
-        />
+        /> */}
+        <Deck />
       </MainDogImg>
     </MainTitleBg>
   );
@@ -65,7 +67,9 @@ export const Intro1st = (props) => {
 const MainTitleBg = styled.div`
   background-color: var(--white);
   width: 100%;
+  height: 550px;
   display: flex;
+  padding-bottom: 50px;
   ${({ theme }) => theme.device.mobile} {
     flex-direction: column;
     align-items: center;
@@ -84,11 +88,13 @@ const TitleContent = styled.div`
 
 const MainDogImg = styled.div`
   flex: 1;
-  img {
-    margin-top: 150px;
-    margin-left: 20px;
-    ${({ theme }) => theme.device.mobile} {
-      margin: 0px;
-    }
+  margin-left: 200px;
+  margin-top: 50px;
+  // img {
+  //   margin-top: 150px;
+  //   margin-left: 20px;
+  //   ${({ theme }) => theme.device.mobile} {
+  //     margin: 0px;
+  //   }
   }
 `;

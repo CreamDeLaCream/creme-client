@@ -1,0 +1,37 @@
+#deck {
+  box-sizing: border-box;
+  overscroll-behavior-y: contain;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: lightblue;
+  overflow: hidden;
+  user-select: none;
+  cursor: url('https://uploads.codesandbox.io/uploads/user/b3e56831-8b98-4fee-b941-0e27f39883ab/Ad1_-cursor.png')
+      39 39,
+    auto;
+}
+
+#deck > div {
+  position: absolute;
+  width: 250px;
+  will-change: transform;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#deck > div > div {
+  background-color: white;
+  background-size: auto 85%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 230px;
+  max-width: 300px;
+  height: 370px;
+  max-height: 570px;
+  will-change: transform;
+  border-radius: 10px;
+  box-shadow: 0 14px 150px -20px rgba(87, 62, 20, 0.03),
+    0 10px 10px -20px rgba(87, 62, 20, 0.07);
+}

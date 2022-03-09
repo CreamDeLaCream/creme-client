@@ -40,7 +40,7 @@ export const Intro2nd = (props) => {
           radius="50%"
           size="20px"
           color="var(--deepcream)"
-          margin="20px 0 0 0"
+          margin="30px 0 0 0"
           onClick={() => {
             console.log('넘어감');
             history.push('/mypet');

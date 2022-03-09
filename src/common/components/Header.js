@@ -18,6 +18,10 @@ const Header = (props) => {
   const dispatch = useDispatch();
   const is_login = useSelector((state) => state.user.is_login);
 
+  // 로컬 이미지
+  const env = process.env;
+  env.PUBLIC_URL = env.PUBLIC_URL || '';
+
   return (
     <>
       <Container>
@@ -64,7 +68,12 @@ const Header = (props) => {
       {modalOpen && (
         <Modal width="31rem" height="31rem" setOpenModal={setModalOpen}>
           <Grid display="flex" justifyContent="center" margin="1rem 0 3rem 0">
-            <Image shape="bigcircle" size="14" />
+            <img
+              alt=""
+              src={process.env.PUBLIC_URL + `/Image/bgdog1.png`}
+              width="300px"
+              height="300px"
+            />
           </Grid>
 
           <Wrapper>

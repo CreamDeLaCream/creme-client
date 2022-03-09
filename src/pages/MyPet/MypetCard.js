@@ -155,6 +155,8 @@ const MyPetName = styled.div`
 
 const MyPetKeyword = styled.div`
   margin-top: 20px;
+  ${({ theme }) => theme.device.mobile} {
+  }
 `;
 
 const CurrentEmotion = styled.div`

@@ -31,6 +31,16 @@ const IntroBg = styled.div`
   height: 700px;
   display: flex;
   flex-direction: column;
+  img {
+    margin-top: 100px;
+    margin-left: 45%;
+    width: 50%;
+    ${({ theme }) => theme.device.mobile} {
+      margin-left: 13%;
+      // align-items: center;
+      width: 80%;
+    }
+  }
   ${({ theme }) => theme.device.mobile} {
     text-align: center;
   }
@@ -40,10 +50,6 @@ const IntroTitle = styled.div`
   display: flex;
   margin-left: 50px;
   margin-top: 80px;
-
-  img {
-    margin-top: 120px;
-  }
 `;
 
 const IntroContent = styled.div`
