@@ -81,6 +81,9 @@ const MainPage = (props) => {
       <Container>
         <Header />
         <Navbar />
+        <Text type="mainTitle" color="var(--main)" padding-top="30px">
+          반려견 감정상태
+        </Text>
         {!is_login ? null : (
           <>
             <Grid margin="2rem auto">
@@ -94,8 +97,8 @@ const MainPage = (props) => {
 
         <Grid margin="2rem auto">
           <Text type="mainTitle" color="var(--blackcream)">
-            반려견과 반려인의 첫 걸음,
-            <br /> 지금 당신의 반려견 감정 상태를 분석해보세요.
+            반려견과 반려인의 첫 걸음, 지금 당신의 반려견 감정 상태를
+            분석해보세요.
           </Text>
         </Grid>
 
