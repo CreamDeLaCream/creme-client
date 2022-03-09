@@ -57,8 +57,9 @@ export const MypetCard = ({
                   <>
                     <Button
                       height="23px"
-                      bg="rgba(245, 234, 214, 0.46)"
                       color="var(--main)"
+                      bg="var(--white)"
+                      // bg="rgba(245, 234, 214, 0.46)"
                       border="solid 1px var(--cream)"
                       radius="10px"
                       margin="0 15px 0 5px"
@@ -112,7 +113,8 @@ export const MypetCard = ({
               </MyPetName>
               <Button
                 height="23px"
-                bg="rgba(245, 234, 214, 0.46)"
+                bg="var(--white)"
+                // bg="rgba(245, 234, 214, 0.46)"
                 color="var(--main)"
                 border="solid 1px var(--cream)"
                 radius="10px"

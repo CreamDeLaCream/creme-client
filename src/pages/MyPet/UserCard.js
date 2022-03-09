@@ -46,7 +46,8 @@ export const UserCard = ({ isLoggedIN, history }) => {
           ) : (
             <Button
               height="23px"
-              bg="rgba(245, 234, 214, 0.46)"
+              bg="var(--white)"
+              // bg="rgba(245, 234, 214, 0.46)"
               color="var(--main)"
               border="solid 1px var(--cream)"
               radius="10px"
