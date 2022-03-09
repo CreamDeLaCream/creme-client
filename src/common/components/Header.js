@@ -134,7 +134,7 @@ const LoginButton = styled.button`
   align-items: center;
   // background-color: transparent;
   background-color: var(--main);
-  width: 100%;
+  width: 4rem;
   cursor: pointer;
   border: none;
   margin-bottom: -0.8rem;

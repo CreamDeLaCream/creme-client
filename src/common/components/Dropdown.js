@@ -17,9 +17,7 @@ const Dropdown = ({ clickedValue, onClickValue, menuList }) => {
     <MenuContainer>
       <TriggerButton onClick={onClick}>
         <MenuTitle style={{ color: 'var(--main)' }}>
-          <sapn style={{ fontSize: '1.1rem' }}>
-            {clickedValue} <BsCaretDownFill />
-          </sapn>
+          <sapn style={{ fontSize: '1.1rem' }}>{clickedValue}</sapn>
         </MenuTitle>
       </TriggerButton>
       <Nav

@@ -168,7 +168,7 @@ const MyPetKeyword = styled.div`
 
 const CurrentEmotion = styled.div`
   width: 440px;
-  color: var(--blackcream);
+  color: var(--darkcream);
   margin-top: 20px;
   cusor: pointer;
   // font-family: 'IBM Plex Sans KR';
