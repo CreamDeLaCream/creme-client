@@ -22,7 +22,7 @@ const Howto = () => {
 
         <Grid>
           <Text type="desc" color="var(--blackcream)" margin="10px 0 10px 0">
-            사진은 정면 사진으로 강아지의 얼굴이 잘 보이도록 업로드 해주세요{' '}
+            정면 사진으로 강아지의 얼굴이 잘 보이도록 업로드 해주세요{' '}
           </Text>
           <ImageItems>
             <img
