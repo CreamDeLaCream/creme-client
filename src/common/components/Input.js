@@ -52,6 +52,8 @@ const TextareaForm = styled.textarea`
   border-left: none;
   border-bottom: 2px solid var(--cream);
 
+  background-color: transparent;
+
   :focus {
     outline: none;
     ::-webkit-input-placeholder {
@@ -68,7 +70,12 @@ const TextareaForm = styled.textarea`
 const InputForm = styled.input`
   width: 100%;
   height: 2.4rem;
-  border: 2px solid var(--cream);
+  // border: 2px solid var(--cream);
+  background-color: transparent;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 2px solid var(--cream);
   border-radius: 5px;
   padding: 0px 0px 0px 5px;
   font-size: 1.1rem;

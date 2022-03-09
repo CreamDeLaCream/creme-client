@@ -25,7 +25,11 @@ import SelectPetName from './SelectPetName';
 
 // Icon
 
-import { BsCameraFill, BsFillCaretRightFill } from 'react-icons/bs';
+import {
+  BsCameraFill,
+  BsFillCaretRightFill,
+  BsFillExclamationCircleFill,
+} from 'react-icons/bs';
 
 const MainPage = (props) => {
   const history = useHistory();
@@ -121,7 +125,8 @@ const MainPage = (props) => {
                   setModalOpen(true);
                 }}
               >
-                <Text type="body" color="var(--main)">
+                <Text type="body" color="var(--darkcream)">
+                  <BsFillExclamationCircleFill color="var(--darkcream)" />{' '}
                   이미지 업로드 방식
                 </Text>
               </Button>
