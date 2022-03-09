@@ -24,37 +24,9 @@ const AnalysisPage = (props) => {
   console.log('testAnswer', testAnswer);
 
   const sendSlug = (name, value) => {
-    // dispatch(analysicActions.addEmotion());
-    dispatch(analysisActions.addEmotion(name, value, petimage[0].slug));
+    dispatch(analysisActions.addEmotionAX(name, value, petimage[0].slug));
     history.push(`/result/${petimage[0].slug}`);
   };
-
-  // // redux example
-  // import { useDispatch } from 'react-redux';
-  // import { actionCreators as postActions } from '../../common/redux/modules/petimage';
-  // const dispatch = useDispatch();
-  // const addPost = () => {
-  //   if (files.length === 0) {
-  //     window.alert('이미지를 업로드해주세요');
-  //     return;
-  //   }
-  //   if (!name) {
-  //     window.alert('댕댕이의 이름을 입력해주세요');
-  //     return;
-  //   }
-  //   if (!age) {
-  //     window.alert('댕댕이의 나이를 입력해주세요');
-  //     return;
-  //   }
-  //   let petimage = {
-  //     name: name,
-  //     age: age,
-  //     image: files[0],
-  //   };
-  //   console.log(petimage);
-  //   dispatch(postActions.addPetImageAX(petimage));
-  //   history.push('/analysis');
-  // };
 
   return (
     <Analysisbg>

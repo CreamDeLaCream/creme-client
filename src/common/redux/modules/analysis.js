@@ -22,24 +22,23 @@ const initialState = {
     2: null,
     3: null,
   },
-  slug: {},
 };
 
 // middleware
-const addEmotionAX = ({ emotionResult, slug }) => {
+const addEmotionAX = (name, value, slug) => {
   return function (dispatch, getState, { history }) {
+    dispatch(addEmotion(name, value, slug));
     const formData = new FormData();
-    formData.append('emotionResult', emotionResult);
+    formData.append('emotionResult', getState.emotionResult);
     formData.append('slug', slug);
     // const data = { 0: null, 1: null, 2: null, 3: null, slug: {} };
     api
-      .post(`analysis/human?slug=${slug}`, formData, {
+      .put(`analysis/human?slug=${slug}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       })
       .then((res) => {
-        dispatch(addEmotion(emotionResult, slug));
         // window.location.reload();
       })
       .catch((err) => {
