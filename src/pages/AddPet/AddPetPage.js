@@ -88,7 +88,7 @@ const AddPetPage = (props) => {
 };
 
 const AddPetSection = styled.div`
-  background-color: var(--lightcream);
+  background-color: var(--bggray);
   border: solid 1px var(--cream);
   border-radius: 15px;
   margin-top: 20px;
