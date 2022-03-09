@@ -44,7 +44,7 @@ const Header = (props) => {
                       type="button"
                       color="var(--white)"
                     >
-                      LogIn
+                      Log In
                     </Text>
                   </LoginButton>
                 ) : null}

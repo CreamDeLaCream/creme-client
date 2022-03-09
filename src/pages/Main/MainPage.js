@@ -135,8 +135,8 @@ const MainPage = (props) => {
                 </Text>
               </Button>
             </Grid>
-            <Grid margin="2rem auto">
-              <Grid is_flex margin="0 0 3rem 0">
+            <Grid margin="3rem auto">
+              <Grid is_flex margin="1rem 0 3rem 0">
                 <Input
                   placeholder="댕댕이의 이름을 입력해주세요."
                   value={name}
@@ -199,7 +199,7 @@ const MainPage = (props) => {
         </Grid>
       </Container>
       {modalOpen && (
-        <Modal width="32rem" height="42rem" setOpenModal={setModalOpen}>
+        <Modal width="32rem" height="44rem" setOpenModal={setModalOpen}>
           <HowTo />
         </Modal>
       )}
@@ -210,6 +210,7 @@ const MainPage = (props) => {
 const ButtonWrapper = styled.div`
   // background-color: var(--cream);
   // justify-content: space-between;
+  margin-top: 2rem;
   ${({ theme }) => theme.device.mobile} {
     width: 48%;
     min-width: 10rem;
