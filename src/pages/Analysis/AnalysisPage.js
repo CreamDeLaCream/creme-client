@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 
 // redux
 import { useDispatch, useSelector } from 'react-redux';
+import { actionCreators as analysisActions } from '../../common/redux/modules/analysis';
 
 // components
 import {
@@ -18,7 +19,16 @@ import Loading from '../Analysis/Loading';
 
 const AnalysisPage = (props) => {
   const history = useHistory();
+  const dispatch = useDispatch();
   const petimage = useSelector((state) => state.petimage.list);
+  const testAnswer = useSelector((state) => state.analysis.emotionResult);
+  console.log('testAnswer', testAnswer);
+
+  const sendSlug = (name, value) => {
+    // dispatch(analysicActions.addEmotion());
+    dispatch(analysisActions.addEmotion(name, value, petimage[0].slug));
+    history.push(`/result/${petimage[0].slug}`);
+  };
 
   // // redux example
   // import { useDispatch } from 'react-redux';
@@ -67,7 +77,7 @@ const AnalysisPage = (props) => {
           </ImgSection>
           <Text type="subTitle" color="var(--main)"></Text>
           <TestSection>
-            <EmotionTest />
+            <EmotionTest name value />
           </TestSection>
         </TestContentWrapper>
 
@@ -80,7 +90,8 @@ const AnalysisPage = (props) => {
             size="20px"
             color="var(--white)"
             cursor
-            onClick={() => history.push(`/result/${petimage[0].slug}`)}
+            onClick={sendSlug}
+            // onClick={() => history.push(`/result/${petimage[0].slug}`)}
           >
             <Text type="button" color="var(--white)">
               댕댕이 <br /> 결과
