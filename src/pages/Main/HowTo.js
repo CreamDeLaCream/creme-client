@@ -15,15 +15,15 @@ const Howto = () => {
     <>
       <Grid flexDirection="column">
         <Grid>
-          <BsCameraFill
-            size="1.5rem"
-            color="var(--darkcream)"
-            margin="5px 0 0 0"
-          />
+          <BsCameraFill size="1.5rem" color="var(--darkcream)" />
         </Grid>
 
         <Grid>
-          <Text type="subTitle" color="var(--blackcream)" margin="0 0 10px 0">
+          <Text
+            type="subTitle"
+            color="var(--blackcream)"
+            margin="15px 0 10px 0"
+          >
             댕댕이의 얼굴이 정면으로 보이도록 업로드 하세요
           </Text>
           <ImageItems>
@@ -34,7 +34,7 @@ const Howto = () => {
               // style={{ margin: '50px 0 0 0' }}
             />
           </ImageItems>
-          <Text type="desc" color="var(--blackcream)" margin="10px 0 10px 0">
+          <Text type="desc" color="var(--blackcream)" margin="15px 0 15px 0">
             <BsExclamationCircle /> 올바른 예시
           </Text>
         </Grid>
@@ -47,7 +47,7 @@ const Howto = () => {
               // style={{ margin: '50px 0 0 0' }}
             />
           </ImageItems>
-          <Text type="desc" color="var(--blackcream)" margin="10px 0 10px 0">
+          <Text type="desc" color="var(--blackcream)" margin="15px 0 15px 0">
             <BsXCircle /> 올바르지 않은 예시
           </Text>
         </Grid>

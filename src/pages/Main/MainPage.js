@@ -200,7 +200,7 @@ const MainPage = (props) => {
         </Grid>
       </Container>
       {modalOpen && (
-        <Modal width="30rem" height="40rem" setOpenModal={setModalOpen}>
+        <Modal width="32rem" height="42rem" setOpenModal={setModalOpen}>
           <HowTo />
         </Modal>
       )}
