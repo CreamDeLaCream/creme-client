@@ -299,6 +299,7 @@ const ResultBox = styled.div`
 const ButtonWrapper = styled.div`
   width: 12rem;
   display: flex;
+  z-index: 2;
   justify-content: space-between;
   ${({ theme }) => theme.device.fold} {
     width: 10rem;
