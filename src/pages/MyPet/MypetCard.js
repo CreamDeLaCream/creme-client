@@ -49,8 +49,9 @@ export const MypetCard = ({
                   <>
                     <Button
                       height="23px"
-                      bg="var(--cream)"
+                      bg="rgba(245, 234, 214, 0.46)"
                       color="var(--main)"
+                      border="solid 1px var(--cream)"
                       radius="10px"
                       margin="0 0 0 5px"
                       onClick={() => {
@@ -65,8 +66,9 @@ export const MypetCard = ({
                   <>
                     <Button
                       height="23px"
-                      bg="var(--cream)"
+                      bg="rgba(245, 234, 214, 0.46)"
                       color="var(--main)"
+                      border="solid 1px var(--cream)"
                       radius="10px"
                       margin="0 0 0 5px"
                     >
@@ -93,8 +95,9 @@ export const MypetCard = ({
               </MyPetName>
               <Button
                 height="23px"
-                bg="var(--cream)"
+                bg="rgba(245, 234, 214, 0.46)"
                 color="var(--main)"
+                border="solid 1px var(--cream)"
                 radius="10px"
                 margin="10px 0 0 0"
                 onClick={() => {
@@ -165,7 +168,7 @@ const MyPetKeyword = styled.div`
 
 const CurrentEmotion = styled.div`
   width: 440px;
-  color: var(—main);
+  color: var(--blackcream);
   margin-top: 20px;
   cusor: pointer;
   // font-family: 'IBM Plex Sans KR';
