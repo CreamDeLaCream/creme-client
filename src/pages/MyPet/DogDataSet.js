@@ -35,17 +35,15 @@ const DogDataSet = () => {
     <>
       <Grid flexDirection="column">
         <Grid>
-          <ImageItems>
-            <img
-              alt=""
-              src={process.env.PUBLIC_URL + `/Image/bgdog1.png`}
-              width="300px"
-              height="300px"
-            />
-          </ImageItems>
-          <Text type="subTitle" color="var(--blackcream)" margin="0 0 10px 0">
+          <Text type="mainTitle" color="var(--blackcream)" margin="0 0 10px 0">
             이번 주 댕댕이 평균 감정기록은?
           </Text>
+          <img
+            alt=""
+            src={process.env.PUBLIC_URL + `/Image/bgdog1.png`}
+            width="300px"
+            height="300px"
+          />
           <DogDataSeciton>
             {DogDatas.map((dogData, index) => {
               return (
@@ -69,8 +67,8 @@ const DogDataInfo = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: var(--bggray);
-  border: 2px solid var(--cream);
+  background-color: var(--white);
+  border: 1px solid var(--cream);
   border-radius: 10px;
   color: var(--darkcream);
   font-size: 2rem;
@@ -97,9 +95,6 @@ const DataAns = styled.div`
 `;
 
 const ImageItems = styled.div`
-  width: 100%;
-  height: 13rem;
-  border: 1px solid var(--gray);
   img {
     overflow: hidden;
     width: 100%;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 // components
@@ -8,6 +8,8 @@ import { MyPetImages } from './MyPetImages';
 import PetListButton from './PetListButton';
 
 import { BsCalendarCheck } from 'react-icons/bs';
+import { Modal } from '../../common/components';
+import DogDataSet from './DogDataSet';
 
 //props는 {} 사용 X
 export const MypetCard = ({
@@ -16,8 +18,14 @@ export const MypetCard = ({
   onClickAnotherCard,
   history,
 }) => {
+  const [modalOpen, setModalOpen] = useState(false);
   return (
     <MyPetWrapper>
+      {modalOpen && (
+        <Modal width="40rem" height="35rem" setOpenModal={setModalOpen}>
+          <DogDataSet />
+        </Modal>
+      )}
       <PetListButton
         cardNum={cardNum}
         onClickAnotherCard={onClickAnotherCard}
@@ -62,7 +70,12 @@ export const MypetCard = ({
                       Test Go!
                     </Button>
                     이번주 댕댕이의 감정 상태는?{' '}
-                    <div style={{ margin: '1px 0 0 7px' }}>
+                    <div
+                      onClick={() => {
+                        setModalOpen(true);
+                      }}
+                      style={{ margin: '1px 0 0 7px' }}
+                    >
                       <BsCalendarCheck color="var(--main)" size="1rem" />
                     </div>
                   </>
