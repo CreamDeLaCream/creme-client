@@ -80,7 +80,7 @@ const Header = (props) => {
             <Button
               width="25rem"
               padding="0.5rem"
-              bg="var(--main)"
+              bg="#FEE500"
               color="var(--white)"
               radius="5px"
               cursor
@@ -88,9 +88,7 @@ const Header = (props) => {
                 window.location.href = KAKAO_AUTH_URL;
               }}
             >
-              <Text type="button" color="var(--white)">
-                카카오톡으로 시작하기
-              </Text>
+              <Text type="button">카카오톡으로 시작하기</Text>
             </Button>
           </Wrapper>
         </Modal>

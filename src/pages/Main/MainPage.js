@@ -169,7 +169,7 @@ const MainPage = (props) => {
                         color="var(--white)"
                         whiteSpace="nowrap"
                       >
-                        <BsCameraFill />
+                        <BsCameraFill size="2rem" />
                       </Text>
                     </Dropzone>
                   </Button>
@@ -186,7 +186,7 @@ const MainPage = (props) => {
                     onClick={addPost}
                   >
                     <Text type="button" color="var(--white)">
-                      <BsFillCaretRightFill />
+                      <BsFillCaretRightFill size="2rem" />
                     </Text>
                   </Button>
                 </ButtonWrapper>
