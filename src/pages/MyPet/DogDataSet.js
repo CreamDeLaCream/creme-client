@@ -67,7 +67,7 @@ const DogDataInfo = styled.div`
   display: flex;
   flex-direction: column;
   background-color: var(--white);
-  border: 1px solid var(--cream);
+  border: 2px dashed var(--cream);
   border-radius: 10px;
   color: var(--darkcream);
   font-size: 2rem;
