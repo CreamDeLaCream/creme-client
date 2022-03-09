@@ -20,7 +20,7 @@ const Howto = () => {
             height="4rem"
             bg="var(--white)"
             radius="50%"
-            border="var(--darkcream)"
+            border="var(--darkcream) dashed 2px"
           >
             <BsCameraFill size="1.5rem" color="var(--darkcream)" />
           </Button>
@@ -42,7 +42,7 @@ const Howto = () => {
               // style={{ margin: '50px 0 0 0' }}
             />
           </ImageItems>
-          <Text type="desc" color="var(--main)" margin="15px 0 15px 0">
+          <Text type="subTitle" color="var(--main)" margin="15px 0 20px 0">
             <AiFillExclamationCircle /> 올바른 예시
           </Text>
         </Grid>
@@ -55,7 +55,7 @@ const Howto = () => {
               // style={{ margin: '50px 0 0 0' }}
             />
           </ImageItems>
-          <Text type="desc" color="var(--main)" margin="15px 0 15px 0">
+          <Text type="subTitle" color="var(--main)" margin="15px 0 20px 0">
             <AiFillWarning /> 올바르지 않은 예시
           </Text>
         </Grid>
