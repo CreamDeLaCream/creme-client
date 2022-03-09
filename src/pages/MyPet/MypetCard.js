@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 // components
 import { Keyword } from '../../common/components';
-import { Button } from '../../common/components';
+import { Button, Grid } from '../../common/components';
 import { MyPetImages } from './MyPetImages';
 import PetListButton from './PetListButton';
 
@@ -23,7 +23,9 @@ export const MypetCard = ({
     <MyPetWrapper>
       {modalOpen && (
         <Modal width="40rem" height="35rem" setOpenModal={setModalOpen}>
-          <DogDataSet />
+          <Grid display="flex" justifyContent="center">
+            <DogDataSet />
+          </Grid>
         </Modal>
       )}
       <PetListButton

@@ -63,10 +63,9 @@ const DogDataSet = () => {
 const DogDataInfo = styled.div`
   width: 8rem;
   height: 8rem;
-  margin-right: 1rem;
+  // margin-right: 1rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   background-color: var(--white);
   border: 1px solid var(--cream);
   border-radius: 10px;
@@ -106,6 +105,7 @@ const ImageItems = styled.div`
 
 const DogDataSeciton = styled.div`
   display: flex;
+  justify-content: space-between;
 `;
 
 export default DogDataSet;
