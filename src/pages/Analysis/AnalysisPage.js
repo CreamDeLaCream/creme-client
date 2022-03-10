@@ -20,41 +20,11 @@ import Loading from '../Analysis/Loading';
 const AnalysisPage = (props) => {
   const dispatch = useDispatch();
   const petimage = useSelector((state) => state.petimage.list);
-  const testAnswer = useSelector((state) => state.analysis.emotionResult);
-  console.log('testAnswer', testAnswer);
 
   const sendSlug = (name, value) => {
-    // dispatch(analysicActions.addEmotion());
     dispatch(analysisActions.addEmotionAX(name, value, petimage[0].slug));
     history.push(`/result/${petimage[0].slug}`);
   };
-
-  // // redux example
-  // import { useDispatch } from 'react-redux';
-  // import { actionCreators as postActions } from '../../common/redux/modules/petimage';
-  // const dispatch = useDispatch();
-  // const addPost = () => {
-  //   if (files.length === 0) {
-  //     window.alert('이미지를 업로드해주세요');
-  //     return;
-  //   }
-  //   if (!name) {
-  //     window.alert('댕댕이의 이름을 입력해주세요');
-  //     return;
-  //   }
-  //   if (!age) {
-  //     window.alert('댕댕이의 나이를 입력해주세요');
-  //     return;
-  //   }
-  //   let petimage = {
-  //     name: name,
-  //     age: age,
-  //     image: files[0],
-  //   };
-  //   console.log(petimage);
-  //   dispatch(postActions.addPetImageAX(petimage));
-  //   history.push('/analysis');
-  // };
 
   return (
     <Analysisbg>
@@ -89,7 +59,6 @@ const AnalysisPage = (props) => {
             color="var(--white)"
             cursor
             onClick={sendSlug}
-            // onClick={() => history.push(`/result/${petimage[0].slug}`)}
           >
             <Text type="button" color="var(--white)">
               댕댕이 <br /> 결과

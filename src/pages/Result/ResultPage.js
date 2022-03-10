@@ -21,7 +21,7 @@ import {
   Input,
 } from '../../common/components';
 import Dropdown from '../Result/Dropdown';
-import { resultData } from './ResultData';
+// import { resultData } from './ResultData';
 import { Keywords } from '../../common/components/Keyword';
 import CopyURL from './CopyURL';
 import BarChart from './BarChart';
@@ -32,16 +32,18 @@ const ResultPage = (props) => {
   const dispatch = useDispatch();
   // const slug = props.match.params.slug;
   const [memo, setMemo] = useState('');
-  const petimage = useSelector((state) => state.petimage.list);
+  // const petimage = useSelector((state) => state.petimage.list);
   // const is_login = useSelector((state) => state.user.is_login);
   // const petimage = useSelector((state) => state.petimage.list);
-  // const resultList = useSelector((state) => state.petimage.list);
-  // console.log(resultList);
+  const resultList = useSelector((state) => state.analysis.result);
+  console.log('check', resultList.answers);
+  console.log('check2', resultList.needs);
   const is_session = sessionStorage.getItem('token') ? true : false;
 
+  //
   // useEffect(() => {
   //   dispatch(postActions.setPetImageAX(resultList));
-  // }, []);
+  // }, [resultList]);
 
   const changeMemo = (e) => {
     setMemo(e.target.value);
@@ -56,7 +58,7 @@ const ResultPage = (props) => {
       return;
     }
     let petmemo = {
-      slug: petimage[0].slug,
+      slug: resultList.slug,
       memo: memo,
     };
     console.log(petmemo);
@@ -135,7 +137,7 @@ const ResultPage = (props) => {
         <div style={{ width: '1000px', height: '500px', position: 'relative' }}>
           <img
             style={{ width: '100%', height: '100%' }}
-            src={petimage[0].image}
+            src={resultList.image}
             alt="dog_image"
           />
           <canvas
@@ -166,9 +168,9 @@ const ResultPage = (props) => {
           </Button>
           <CopyURL />
           <KakaoShare
-            title={`당신의 반려견 ${petimage[0].dog_name}(이)는 ${petimage[0].dog_age}살 입니다.`}
+            title={`당신의 반려견 ${resultList.dog_name}(이)는 ${resultList.dog_age}살 입니다.`}
             description="당신과 반려견의 궁합은?"
-            imgUrl={petimage[0].image}
+            imgUrl={resultList.image}
             // buttonTitle="보러 가기"
             buttonText="다시 검색하기"
             link="/"
@@ -178,11 +180,11 @@ const ResultPage = (props) => {
 
       <Grid margin="2rem auto">
         <Text type="mainTitle" color="var(--main)" marginBottom="2rem">
-          {petimage[0].dog_name}, {petimage[0].dog_age}살
+          {resultList.dog_name}, {resultList.dog_age}살
         </Text>
         <Text type="subTitle">
           {!is_session ? null : (
-            <Keywords typekeywords={resultData[0].dog.emotion} />
+            <Keywords typekeywords={resultList.dog_emotion} />
           )}
           {/* TODO: Keyword에 props에 .character 추가하기 */}
           {/* <Keyword /> */}
@@ -191,7 +193,7 @@ const ResultPage = (props) => {
 
       <Grid margin="2rem auto">
         <Text type="subTitle" color="var(--main)" marginBottom="2rem">
-          당신이 생각하는 {petimage[0].dog_name}의 감정상태 일치도는?
+          당신이 생각하는 {resultList.dog_name}의 감정상태 일치도는?
         </Text>
 
         <Grid is_flex mobileColumn>
@@ -203,12 +205,12 @@ const ResultPage = (props) => {
                 color="var(--main)"
                 whiteSpace="nowrap"
               >
-                {/* {resultData[0].match === true ? (
+                {/* {resultList.match === true ? (
                   <div>일치</div>
                 ) : (
                   <div>불일치</div>
                 )} */}
-                <div>91%</div>
+                <div>{resultList.chemistry_percentage}</div>
               </Text>
             </Grid>
           </Grid>
@@ -217,12 +219,12 @@ const ResultPage = (props) => {
             <BarChart
               data={[
                 {
-                  label: resultData[0].dog.emotion,
-                  value: resultData[0].dog.prob * 100,
+                  label: resultList.dog_emotion,
+                  value: resultList.dog_emotion_percentage,
                 },
                 {
-                  label: resultData[0].human_emotion.emotion,
-                  value: resultData[0].human_emotion.prob * 100,
+                  label: resultList.human_emotion,
+                  value: resultList.human_emotion_percentage,
                 },
               ]}
             />
@@ -231,37 +233,46 @@ const ResultPage = (props) => {
       </Grid>
       <Grid margin="2rem auto">
         <Text type="subTitle" color="var(--main)" marginBottom="15px">
-          현재 {petimage[0].dog_name}의 감정 상태
+          현재 {resultList.dog_name}의 감정 상태
         </Text>
 
         <Grid>
           <Text type="body" color="var(--deepcream)">
-            {resultData[0].emotion_description}
+            {resultList.dog_emotion_description}
           </Text>
         </Grid>
       </Grid>
       <Grid margin="2rem auto">
         <Text type="subTitle" color="var(--main)" marginBottom="15px">
-          {petimage[0].dog_name}의 솔루션
+          {resultList.dog_name}의 솔루션
         </Text>
         <Text type="body" color="var(--deepcream)">
-          {resultData[0].solution[1]}
-          &nbsp;
-          {resultData[0].solution[2]}
-          &nbsp;
-          {resultData[0].solution[3]}
-          &nbsp;
-          {resultData[0].solution[4]}
+          아직 솔루션이 없어요.
         </Text>
+        {/* <Text type="body" color="var(--deepcream)">
+          {resultList.solution[1]}
+          &nbsp;
+          {resultList.solution[2]}
+          &nbsp;
+          {resultList.solution[3]}
+          &nbsp;
+          {resultList.solution[4]}
+        </Text> */}
       </Grid>
       <Grid margin="2rem auto">
         <Text type="subTitle" color="var(--main)" marginBottom="15px">
-          {petimage[0].dog_name}에게 필요한 것
+          {resultList.dog_name}에게 필요한 것
         </Text>
         <Grid flexWrap="wrap" width="100%" is_flex margin="0 0 3rem 0">
-          {resultData[0].needs.map((need, index) => {
-            return <Dropdown title={need.title} desc={need.desc} key={index} />;
-          })}
+          {/* {resultList.needs.map((need, index) => {
+            return (
+              <Dropdown
+                name={need.name}
+                description={need.description}
+                key={index}
+              />
+            );
+          })} */}
         </Grid>
       </Grid>
 

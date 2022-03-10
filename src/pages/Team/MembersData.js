@@ -22,7 +22,7 @@ export const MembersData = [
     position: 'back-end',
     name: '영광',
     github: 'https://github.com/2ykwang',
-    info: '개발이 제일 쉬웠어요.',
+    info: '개발이 제일 쉬웠어요. 지노 아빠.',
     character: ['내적관종', '주인잘따름', '충성심폭발', '얌전'],
   },
 

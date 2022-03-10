@@ -9,8 +9,8 @@ const INITIALIZE_IMAGE = 'INITIALIZE_IMAGE';
 
 // Action Creator
 const addPetImage = createAction(ADD_PET_IMAGE, (pet_image) => ({ pet_image }));
-const setPetImage = createAction(SET_PET_IMAGE, (result) => ({
-  result,
+const setPetImage = createAction(SET_PET_IMAGE, (pet_image_list) => ({
+  pet_image_list,
 }));
 const initializeImage = createAction(INITIALIZE_IMAGE, () => {});
 
@@ -22,18 +22,21 @@ const initialState = {
 // middleware
 const addPetImageAX = ({ name, age, image }) => {
   return function (dispatch, getState, { history }) {
+    const token = sessionStorage.getItem('token');
+
     const formData = new FormData();
     formData.append('dog_name', name);
     formData.append('dog_age', age);
     formData.append('image', image);
+    const header = {
+      'Content-Type': 'multipart/form-data',
+    };
+    if (token) {
+      header.Authorization = `Bearer ${token}`;
+    }
     api
-      .post(`/analysis/pet`, formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      })
+      .post(`/analysis/pet`, formData, { headers: header })
       .then((res) => {
-        // console.log(res.data.slug);
         // dispatch(writeTextPage(res.data.comments));
         // window.location.reload();
 
@@ -42,11 +45,6 @@ const addPetImageAX = ({ name, age, image }) => {
           dog_name: res.data.dog_name,
           dog_age: res.data.dog_age,
           image: res.data.image,
-          dog_emotion: res.data.dog_emotion,
-          dog_emotion_percentage: res.data.dog_emotion_percentage,
-          human_emotion: res.data.human_emotion,
-          human_emotion_percentage: res.data.human_emotion_percentage,
-          chemistry_percentage: res.data.chemistry_percentage,
 
           // url: `/${res.data.slug}`,
           // image: `${api.baseURL}/${_post.slug}`,
@@ -65,14 +63,10 @@ const addPetImageAX = ({ name, age, image }) => {
 const setPetImageAX = ({ slug }) => {
   return function (dispatch, getState, { history }) {
     console.log('testasdfsdfasdfasdf');
-    const formData = new FormData();
-    formData.append('slug', slug);
     api
       // .post(`analysis/result/${slug}`)
       .get(`analysis/result?slug=${slug}`)
       .then((res) => {
-        console.log('res.data redux', res.data);
-
         // const pet_image_list = [];
         res.data.forEach(() => {
           const pet_image_list = {
@@ -113,7 +107,7 @@ export default handleActions(
       }),
     [SET_PET_IMAGE]: (state, action) =>
       produce(state, (draft) => {
-        draft.result.push(...action.payload.result);
+        draft.pet_image_list.push(...action.payload.pet_image_list);
       }),
     [INITIALIZE_IMAGE]: (state, action) =>
       produce(state, (draft) => {
