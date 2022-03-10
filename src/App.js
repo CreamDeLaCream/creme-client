@@ -28,11 +28,10 @@ import {
 
 function App() {
   const dispatch = useDispatch();
-  const token = getCookie('token');
-  const is_session = sessionStorage.getItem(token) ? true : false;
+  const is_login = getCookie('is_login') ? true:false;
 
   useEffect(() => {
-    if (is_session) {
+    if (is_login) {
       dispatch(userActions.loginCheck('/'));
     }
   }, []);
