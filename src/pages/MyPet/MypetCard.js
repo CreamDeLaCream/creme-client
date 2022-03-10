@@ -66,6 +66,7 @@ export const MypetCard = ({
                       border="solid 1px var(--cream)"
                       radius="10px"
                       margin="0 15px 0 5px"
+                      cursor
                       onClick={() => {
                         console.log('넘어감');
                         history.push('/main');
@@ -85,6 +86,7 @@ export const MypetCard = ({
                         // bg="rgba(245, 234, 214, 0.46)"
                         border="solid 1px var(--cream)"
                         radius="10px"
+                        cursor
                       >
                         <BsCalendarCheck color="var(--main)" size="1rem" />
                       </Button>
@@ -99,6 +101,7 @@ export const MypetCard = ({
                       border="solid 1px var(--cream)"
                       radius="10px"
                       margin="0 0 0 5px"
+                      cursor
                     >
                       {myPetData.emotionState}
                     </Button>
@@ -129,6 +132,7 @@ export const MypetCard = ({
                 border="solid 1px var(--cream)"
                 radius="10px"
                 margin="10px 0 0 0"
+                cursor
                 onClick={() => {
                   console.log('넘어감');
                   history.push('/addpet');

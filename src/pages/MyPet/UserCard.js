@@ -50,6 +50,7 @@ export const UserCard = ({ isLoggedIN, history }) => {
               border="solid 1px var(--cream)"
               radius="10px"
               margin="4px 0 0 0"
+              cursor
               onClick={() => {
                 console.log('넘어감');
                 history.push('/adduserlife');
