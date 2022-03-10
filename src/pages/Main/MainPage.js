@@ -102,7 +102,7 @@ const MainPage = (props) => {
         </Grid>
 
         <MainSection>
-          <Grid is_flex mobileColumn>
+          <Grid is_flex mobileColumn padding="2rem">
             <Grid>
               <Grid margin="2rem auto" display="flex" justifyContent="center">
                 <Dropzone onDrop setFiles={setFiles}>
@@ -156,7 +156,7 @@ const MainPage = (props) => {
               </Grid>
 
               <Grid>
-                <Grid is_flex_end>
+                <Grid is_flex_center>
                   <ButtonWrapper>
                     <Button
                       width="4rem"
@@ -217,8 +217,10 @@ const MainSection = styled.div`
 const ButtonWrapper = styled.div`
   // background-color: var(--cream);
   // justify-content: space-between;
-  margin-right: 2rem;
-  margin-bottom: 3rem;
+  display: flex;
+  justify-content: center;
+  /* margin-right: 2rem;*/
+  margin-bottom: 3rem; 
   ${({ theme }) => theme.device.mobile} {
     width: 48%;
     min-width: 10rem;
