@@ -40,7 +40,7 @@ const Navbar = (props) => {
 
 const Container = styled.div`
   position: fixed;
-  top: 8rem;
+  top: 6.5rem;
   left: 0;
   z-index: 20;
   width: 100%;
