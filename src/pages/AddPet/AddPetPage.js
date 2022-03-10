@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { AnimatedKeyword } from '../../common/components/AnimatedKeyword';
 import { MyPetKeywordsData } from '../../common/components/MyPetKeywordsData';
+import api from '../../common/utils/API';
 
 //redux
 import { history } from '../../common/redux/configureStore';
@@ -17,13 +18,17 @@ import {
 import { Keywords } from '../../common/components/Keyword';
 import { MyPetData } from './MyPetData';
 import InputBox from '../../common/components/InputBox';
+import InputBoxBirth from './InputBoxBirth';
 
 const AddPetPage = (props) => {
   const [myPetData, setMyPetData] = useState(MyPetData);
   const [inputData, setInputData] = useState({
-    age: '',
+    year: '',
+    month: '',
+    day: '',
     name: '',
   });
+  console.log(inputData);
 
   const onChangeData = (name, value) => {
     setInputData({
@@ -32,8 +37,21 @@ const AddPetPage = (props) => {
     });
   };
 
-  const [files, setFiles] = useState([]);
+  const addPet = () => {
+    // access token도 보내기
+    api
+      .post('/dogs', {
+        name: inputData.name,
+        birth: `${inputData.year}-${inputData.month}-${inputData.day}`,
+        image: files[0],
+        keywords: clickedKeywords,
+      })
+      .then((res) => {
+        history.push('/myPet');
+      });
+  };
 
+  const [files, setFiles] = useState([]);
   const [clickedKeywords, setClickedKeywords] = useState([]);
 
   return (
@@ -47,7 +65,13 @@ const AddPetPage = (props) => {
       <AddPetSection>
         <InfoWrapper>
           <p>MyPet</p>
-          <InputBox
+          {/* <InputBox
+            data={inputData}
+            files={files}
+            onChangeData={onChangeData}
+            onChangeFile={setFiles}
+          /> */}
+          <InputBoxBirth
             data={inputData}
             files={files}
             onChangeData={onChangeData}
@@ -76,10 +100,7 @@ const AddPetPage = (props) => {
           size="20px"
           color="var(--white)"
           cursor
-          onClick={() => {
-            console.log('완료');
-            history.push('/mypet');
-          }}
+          onClick={addPet}
         >
           완료
         </Button>

@@ -19,6 +19,7 @@ export const MypetCard = ({
   history,
 }) => {
   const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <MyPetWrapper>
       {modalOpen && (
