@@ -16,8 +16,8 @@ const Howto = () => {
       <Grid flexDirection="column">
         <Grid>
           <Button
-            width="4rem"
-            height="4rem"
+            width="3.5rem"
+            height="3.5rem"
             bg="var(--white)"
             radius="50%"
             border="var(--darkcream) dashed 2px"
@@ -30,7 +30,7 @@ const Howto = () => {
           <Text
             type="subTitle"
             color="var(--blackcream)"
-            margin="15px 0 10px 0"
+            margin="20px 0 10px 0"
           >
             댕댕이의 얼굴이 정면으로 보이도록 업로드 하세요
           </Text>
