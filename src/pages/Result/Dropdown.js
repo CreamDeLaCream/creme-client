@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { Text, Circle } from '../../common/components';
 import useDetectOutsideClick from '../../common/utils/useDetectOutsideClick';
 
-const Dropdown = ({ title, desc }) => {
+const Dropdown = ({ name, description }) => {
   const dropdownRef = useRef(null);
   const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
   const onClick = () => setIsActive(!isActive);
@@ -21,7 +21,7 @@ const Dropdown = ({ title, desc }) => {
           is_flex_center
         >
           <Text type="subTitle" color="var(--deepcream)">
-            {title}
+            {name}
           </Text>
         </Circle>
       </TriggerButton>
@@ -31,7 +31,7 @@ const Dropdown = ({ title, desc }) => {
       >
         <MenuList>
           <Item>
-            <Text color="var(--gray)">{desc}</Text>
+            <Text color="var(--gray)">{description}</Text>
           </Item>
         </MenuList>
       </Nav>

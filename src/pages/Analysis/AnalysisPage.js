@@ -20,8 +20,6 @@ import Loading from '../Analysis/Loading';
 const AnalysisPage = (props) => {
   const dispatch = useDispatch();
   const petimage = useSelector((state) => state.petimage.list);
-  const testAnswer = useSelector((state) => state.analysis.emotionResult);
-  console.log('testAnswer', testAnswer);
 
   const sendSlug = (name, value) => {
     dispatch(analysisActions.addEmotionAX(name, value, petimage[0].slug));
@@ -61,7 +59,6 @@ const AnalysisPage = (props) => {
             color="var(--white)"
             cursor
             onClick={sendSlug}
-            // onClick={() => history.push(`/result/${petimage[0].slug}`)}
           >
             <Text type="button" color="var(--white)">
               댕댕이 <br /> 결과

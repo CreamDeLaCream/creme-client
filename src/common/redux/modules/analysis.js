@@ -4,7 +4,7 @@ import api from '../../utils/API';
 
 // Action
 const ADD_EMOTION = 'ADD_EMOTION';
-
+const SET_RESULT = 'SET_RESULT';
 const INITIALIZE_EMOTION = 'INITIALIZE_EMOTION';
 
 // Action Creator
@@ -12,6 +12,9 @@ const addEmotion = createAction(ADD_EMOTION, (ques, ans, slug) => ({
   ques,
   ans,
   slug,
+}));
+const setResult = createAction(SET_RESULT, (result) => ({
+  result,
 }));
 const initializeEmotion = createAction(INITIALIZE_EMOTION, () => {});
 
@@ -21,39 +24,14 @@ const initialState = {
     0: null,
     1: null,
     2: null,
-    // 3: null,
+    3: null,
   },
+  result: [],
 };
 
 // middleware
-const addEmotionAX = (name, value, slug, answer) => {
+const addEmotionAX = (name, value, slug) => {
   return function (dispatch, getState, { history }) {
-    console.log(getState.emotionResult);
-    // const formData = new FormData();
-    // const answer = [
-    //   {
-    //     choice_id: 1,
-    //   },
-    //   {
-    //     choice_id: 2,
-    //   },
-    //   {
-    //     choice_id: 1,
-    //   },
-    //   {
-    //     choice_id: 2,
-    //   },
-    // ];
-    // formData.append('emotionResult', answer);
-    // formData.append('slug', slug);
-    // formData.append('emotionResult', answer);
-    // formData.append('emotionResult', emotionResult);
-    // api
-    //   .post(`analysis/human?slug=${slug}`, formData, {
-    //     headers: {
-    //       'Content-Type': 'multipart/form-data',
-    //     },
-    //   })
     api
       .post(`analysis/human?slug=${slug}`, {
         slug: slug,
@@ -70,23 +48,37 @@ const addEmotionAX = (name, value, slug, answer) => {
             choice_id: 1,
             // choice_id: getState.emotionResult[3],
           },
+          {
+            choice_id: 4,
+            // choice_id: getState.emotionResult[4],
+          },
         ],
       })
       .then((res) => {
-        console.log('res.data redux', res.data);
-        res.data.forEach(() => {});
-        // res.data.forEach(() => {
-        //   const pet_image_list = {
-        //     dog_emotion: res.data.dog_emotion,
-        //     dog_emotion_percentage: res.data.dog_emotion_percentage,
-        //     human_emotion: res.data.human_emotion,
-        //     human_emotion_percentage: res.data.human_emotion_percentage,
-        //     chemistry_percentage: res.data.chemistry_percentage,
-        //     // image: `${api.baseURL}/${res.data.slug}`,
-        //   };
-        // });
-
-        // dispatch(addEmotionAX(name, value, slug, answer));
+        // let result_list = [];
+        const result = {
+          answers: res.data.answers,
+          chemistry_percentage: res.data.chemistry_percentage,
+          created_at: res.data.created_at,
+          dog: res.data.dog,
+          dog_age: res.data.dog_age,
+          dog_emotion: res.data.dog_emotion,
+          dog_emotion_description: res.data.dog_emotion_description,
+          dog_emotion_percentage: res.data.dog_emotion_percentage,
+          dog_name: res.data.dog_name,
+          human_emotion: res.data.human_emotion,
+          human_emotion_percentage: res.data.human_emotion_percentage,
+          image: res.data.image,
+          is_chemistry_negative: res.data.is_chemistry_negative,
+          is_human_emotion_negative: res.data.is_human_emotion_negative,
+          needs: res.data.needs,
+          slug: res.data.slug,
+          status: res.data.status,
+          // ...user,
+        };
+        // result_list.push(result);
+        console.log('asdf', result);
+        dispatch(setResult(result));
         // window.location.reload();
       })
       .catch((err) => {
@@ -104,14 +96,20 @@ export default handleActions(
         draft.slug = action.payload.slug;
         console.log('action', action);
       }),
+    [SET_RESULT]: (state, action) =>
+      produce(state, (draft) => {
+        draft.result = action.payload.result;
+        // draft.list.push(...action.payload.result_list);
+      }),
     [INITIALIZE_EMOTION]: (state, action) => {
       produce(state, (draft) => {
         draft.emotionResult = {
           0: null,
           1: null,
           2: null,
-          // 3: null,
+          3: null,
         };
+        // draft.result_list = action.payload.result_list;
       });
     },
   },
@@ -122,6 +120,7 @@ const actionCreators = {
   addEmotion,
   initializeEmotion,
   addEmotionAX,
+  setResult,
 };
 
 export { actionCreators };
