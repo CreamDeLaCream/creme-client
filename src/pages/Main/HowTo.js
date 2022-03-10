@@ -42,7 +42,6 @@ const Howto = () => {
             <img
               alt=""
               src={process.env.PUBLIC_URL + `/Image/dog11.png`}
-
               // style={{ margin: '50px 0 0 0' }}
             />
           </ImageItems>

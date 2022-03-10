@@ -105,7 +105,7 @@ const loginCheck = () => {
 
     if (token) {
       const header = {
-        Authorization: `Bearer Token ${token}`,
+        Authorization: `Bearer ${token}`,
       };
       api
         .get('users/', { headers: header })
@@ -114,7 +114,6 @@ const loginCheck = () => {
           if (res.data) {
             dispatch(
               setUser({
-                is_login: true,
                 username: res.data.username,
                 user_id: res.data.user_id,
               }),

@@ -39,15 +39,15 @@ export const EmotionTest = () => {
         { name: 'emotion', emotion: '안함', id: '3' },
       ],
     },
-    {
-      question: { id: 3, Question: '오늘 댕댕이에게 간식 준 횟수는?' },
-      answer: [
-        { name: 'emotion', emotion: '1번', id: '0' },
-        { name: 'emotion', emotion: '2-3번', id: '1' },
-        { name: 'emotion', emotion: '4번 이상', id: '2' },
-        { name: 'emotion', emotion: '안줌', id: '3' },
-      ],
-    },
+    // {
+    //   question: { id: 3, Question: '오늘 댕댕이에게 간식 준 횟수는?' },
+    //   answer: [
+    //     { name: 'emotion', emotion: '1번', id: '0' },
+    //     { name: 'emotion', emotion: '2-3번', id: '1' },
+    //     { name: 'emotion', emotion: '4번 이상', id: '2' },
+    //     { name: 'emotion', emotion: '안줌', id: '3' },
+    //   ],
+    // },
   ];
 
   const clickButton = (name, value) => {
