@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 // components
 import { Keyword } from '../../common/components';
-import { Button } from '../../common/components';
+import { Button, Grid } from '../../common/components';
 import { MyPetImages } from './MyPetImages';
 import PetListButton from './PetListButton';
 
 import { BsCalendarCheck } from 'react-icons/bs';
+import { Modal } from '../../common/components';
+import DogDataSet from './DogDataSet';
 
 //props는 {} 사용 X
 export const MypetCard = ({
@@ -16,8 +18,17 @@ export const MypetCard = ({
   onClickAnotherCard,
   history,
 }) => {
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <MyPetWrapper>
+      {modalOpen && (
+        <Modal width="40rem" height="35rem" setOpenModal={setModalOpen}>
+          <Grid display="flex" justifyContent="center">
+            <DogDataSet />
+          </Grid>
+        </Modal>
+      )}
       <PetListButton
         cardNum={cardNum}
         onClickAnotherCard={onClickAnotherCard}
@@ -49,11 +60,12 @@ export const MypetCard = ({
                   <>
                     <Button
                       height="23px"
-                      bg="rgba(245, 234, 214, 0.46)"
                       color="var(--main)"
+                      bg="var(--white)"
+                      // bg="rgba(245, 234, 214, 0.46)"
                       border="solid 1px var(--cream)"
                       radius="10px"
-                      margin="0 0 0 5px"
+                      margin="0 15px 0 5px"
                       onClick={() => {
                         console.log('넘어감');
                         history.push('/main');
@@ -61,6 +73,22 @@ export const MypetCard = ({
                     >
                       Test Go!
                     </Button>
+                    이번주 댕댕이의 감정 상태는?{' '}
+                    <div
+                      onClick={() => {
+                        setModalOpen(true);
+                      }}
+                      style={{ margin: '1px 0 0 7px' }}
+                    >
+                      <Button
+                        bg="var(--white)"
+                        // bg="rgba(245, 234, 214, 0.46)"
+                        border="solid 1px var(--cream)"
+                        radius="10px"
+                      >
+                        <BsCalendarCheck color="var(--main)" size="1rem" />
+                      </Button>
+                    </div>
                   </>
                 ) : (
                   <>
@@ -95,7 +123,8 @@ export const MypetCard = ({
               </MyPetName>
               <Button
                 height="23px"
-                bg="rgba(245, 234, 214, 0.46)"
+                bg="var(--white)"
+                // bg="rgba(245, 234, 214, 0.46)"
                 color="var(--main)"
                 border="solid 1px var(--cream)"
                 radius="10px"
@@ -167,7 +196,10 @@ const MyPetKeyword = styled.div`
 `;
 
 const CurrentEmotion = styled.div`
-  width: 440px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 470px;
   color: var(--darkcream);
   margin-top: 20px;
   cusor: pointer;

@@ -55,7 +55,6 @@ const addEmotionAX = (name, value, slug) => {
         ],
       })
       .then((res) => {
-        // let result_list = [];
         const result = {
           answers: res.data.answers,
           chemistry_percentage: res.data.chemistry_percentage,

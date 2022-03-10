@@ -71,7 +71,7 @@ const AnalysisPage = (props) => {
 };
 
 const Analysisbg = styled.div`
-  background-color: var(--bggray);
+  // background-color: var(--bggray);
   width: 100%;
   height: calc(160vh - 100px);
 `;
@@ -90,6 +90,8 @@ const ImgSection = styled.div`
   display: flex;
   justify-content: center;
   background-color: #fbfbfb;
+  border-radius: 20px;
+  border: solid 1px var(--cream);
 `;
 
 const ButtonWrapper = styled.div`

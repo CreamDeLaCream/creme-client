@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 // redux
 import { history } from '../../common/redux/configureStore';
-
 // components
 import MyPetData from '../../common/components/MyPetData';
 import {
@@ -24,8 +23,18 @@ import { FilterMyPet } from './FilterMyPet';
 // icons
 import { FaAngleDown } from 'react-icons/fa';
 
+import api from '../../common/utils/API';
+
 const MyPetPage = (props) => {
+  // const isLogin = useSelector((state) => state.user.is_login);
   const [petImage, setPetImage] = useState(AnalysisData);
+  // const [petImage, setPetImage] = useState(null);
+
+  // useEffect(() => {
+  //   api.get('/dogs').then((res) => {
+  //     setPetImage(res);
+  //   });
+  // }, []);
 
   const concatImage = () => {
     const temp = petImage.concat(AnalysisData);
@@ -69,6 +78,10 @@ const MyPetPage = (props) => {
   const onClickMyPet = (e) => {
     setClickedMyPet(e);
   };
+
+  if (petImage === null) {
+    return <></>;
+  }
 
   return (
     <Container height="200vh">

@@ -2,10 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 // components
-import { Text, Grid } from '../../common/components';
+import { Text, Grid, Button } from '../../common/components';
 
 // icons
-import { BsXCircle, BsExclamationCircle, BsCameraFill } from 'react-icons/bs';
+import { BsExclamationCircle, BsCameraFill } from 'react-icons/bs';
+import { AiFillExclamationCircle, AiFillWarning } from 'react-icons/ai';
 
 const Howto = () => {
   const env = process.env;
@@ -14,14 +15,22 @@ const Howto = () => {
     <>
       <Grid flexDirection="column">
         <Grid>
-          <BsCameraFill size="1.5rem" color="var(--darkcream)" />
+          <Button
+            width="3.5rem"
+            height="3.5rem"
+            bg="var(--white)"
+            radius="50%"
+            border="var(--darkcream) dashed 2px"
+          >
+            <BsCameraFill size="1.5rem" color="var(--darkcream)" />
+          </Button>
         </Grid>
 
         <Grid>
           <Text
             type="subTitle"
             color="var(--blackcream)"
-            margin="15px 0 10px 0"
+            margin="20px 0 10px 0"
           >
             댕댕이의 얼굴이 정면으로 보이도록 업로드 하세요
           </Text>
@@ -33,8 +42,8 @@ const Howto = () => {
               // style={{ margin: '50px 0 0 0' }}
             />
           </ImageItems>
-          <Text type="desc" color="var(--blackcream)" margin="15px 0 15px 0">
-            <BsExclamationCircle /> 올바른 예시
+          <Text type="subTitle" color="var(--main)" margin="15px 0 20px 0">
+            <AiFillExclamationCircle /> 올바른 예시
           </Text>
         </Grid>
         <Grid>
@@ -45,30 +54,10 @@ const Howto = () => {
               // style={{ margin: '50px 0 0 0' }}
             />
           </ImageItems>
-          <Text type="desc" color="var(--blackcream)" margin="15px 0 15px 0">
-            <BsXCircle /> 올바르지 않은 예시
+          <Text type="subTitle" color="var(--main)" margin="15px 0 20px 0">
+            <AiFillWarning /> 올바르지 않은 예시
           </Text>
         </Grid>
-
-        {/* <Grid>
-          <Grid is_flex>
-            <ImageItems />
-            <ImageItems />
-          </Grid>
-          <Text type="desc" color="var(--main)">
-            사진은 정면 사진으로 강아지의 얼굴이 잘 보이도록 업로드 해주세용{' '}
-          </Text>
-        </Grid>
-
-        <Grid>
-          <Grid is_flex>
-            <ImageItems />
-            <ImageItems />
-          </Grid>
-          <Text type="desc" color="var(--main)">
-            사진은 정면 사진으로 강아지의 얼굴이 잘 보이도록 업로드 해주세용{' '}
-          </Text>
-        </Grid> */}
       </Grid>
     </>
   );
