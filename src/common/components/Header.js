@@ -9,17 +9,20 @@ import { actionCreators as userActions } from '../../common/redux/modules/user';
 // components
 import { Logo, Modal, Text, Grid, Button } from './';
 import { KAKAO_AUTH_URL } from '../utils/OAuth';
-// import { getCookie } from '../utils/Cookie';
-// import { actionCreators as userActions } from '../../common/redux/modules/user';
+import { getCookie, deleteCookie } from '../utils/Cookie';
 
 const Header = (props) => {
   const [modalOpen, setModalOpen] = useState(false);
   const dispatch = useDispatch();
-  // const is_login = useSelector((state) => state.user.user);
-  const is_session = sessionStorage.getItem('token') ? true : false;
-  // const setUser = createAction(SET_USER, (user) => ({ user }));
-  // const userName = useSelector((state) => state.user.user);
-  // console.log('asdfa', userName);
+  const is_login = getCookie('is_login') ? true : false;
+  const userInfo = useSelector((state) => state.user.user);
+
+  useEffect(() => {
+    if (is_login) {
+      dispatch(userActions.loginCheck('/'));
+    }
+  }, []);
+
   // 로컬 이미지
   const env = process.env;
   env.PUBLIC_URL = env.PUBLIC_URL || '';
@@ -34,7 +37,7 @@ const Header = (props) => {
             </LogoBox>
           </LeftSide>
           <RightSide>
-            {!is_session && props ? (
+            {!is_login && props ? (
               <>
                 {props.page === 'headermenu' ? (
                   <LoginButton
@@ -65,8 +68,7 @@ const Header = (props) => {
                       type="button"
                       color="var(--white)"
                     >
-                      {/* {user_nickname} */}
-                      최서연님
+                      {userInfo.username}님
                     </Text>
                   </LoginButton>
                 ) : null}
@@ -96,6 +98,7 @@ const Header = (props) => {
               cursor
               onClick={() => {
                 window.location.href = KAKAO_AUTH_URL;
+                dispatch(userActions.loginCheck());
               }}
             >
               <Text type="button">카카오톡으로 시작하기</Text>
@@ -114,7 +117,6 @@ const Container = styled.div`
   z-index: 20;
   width: 100%;
   height: 10rem;
-  // background-color: transparent;
   background-color: var(--white);
 `;
 
@@ -144,7 +146,6 @@ const LoginButton = styled.button`
   border-radius: 15px;
   display: flex;
   align-items: center;
-  // background-color: transparent;
   background-color: var(--main);
   cursor: pointer;
   border: none;
