@@ -47,7 +47,7 @@ const InputBox = ({ data, onChangeData, files, onChangeFile }) => {
           <Grid is_flex margin="0 0 3rem 0">
             <Input
               name="name"
-              placeholder="댕댕이의 이름을 입력해주세요."
+              placeholder="이름을 입력해주세요."
               value={data.name}
               onChange={(e) => {
                 onChangeData('name', e.target.value);
@@ -58,7 +58,7 @@ const InputBox = ({ data, onChangeData, files, onChangeFile }) => {
           <Grid is_flex margin="0 0 1rem 0">
             <Input
               name="age"
-              placeholder="댕댕이의 나이를 입력해주세요."
+              placeholder="나이를 입력해주세요."
               value={data.age}
               onChange={(e) => {
                 onChangeData('age', e.target.value);
