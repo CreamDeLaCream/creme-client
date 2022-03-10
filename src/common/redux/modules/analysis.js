@@ -26,11 +26,26 @@ const initialState = {
 };
 
 // middleware
-const addEmotionAX = ({ emotionResult, slug }) => {
+const addEmotionAX = (name, value, slug) => {
   return function (dispatch, getState, { history }) {
+    dispatch(addEmotion(name, value, slug));
     const formData = new FormData();
-    formData.append('emotionResult', emotionResult);
+    const answer = [
+      {
+        choice_id: getState.emotionResult[0],
+      },
+      {
+        choice_id: getState.emotionResult[1],
+      },
+      {
+        choice_id: getState.emotionResult[2],
+      },
+      {
+        choice_id: getState.emotionResult[3],
+      },
+    ];
     formData.append('slug', slug);
+    formData.append('emotionResult', answer);
     // const data = { 0: null, 1: null, 2: null, 3: null, slug: {} };
     api
       .post(`analysis/human?slug=${slug}`, formData, {
@@ -39,7 +54,6 @@ const addEmotionAX = ({ emotionResult, slug }) => {
         },
       })
       .then((res) => {
-        dispatch(addEmotion(emotionResult, slug));
         // window.location.reload();
       })
       .catch((err) => {

@@ -53,15 +53,19 @@ const TriggerButton = styled.button`
   // justify-content: space-between;
   align-items: center;
   vertical-align: middle;
-  border: solid 1px var(--darkcream);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: solid 2px var(--darkcream);
+
   background: var(--white);
   /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); */
   padding: 4px 6px;
   transition: box-shadow 0.4s ease;
   cursor: pointer;
-  // :hover {
-  //   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
-  // }
+  :hover {
+    border-bottom: solid 2px var(--main);
+  }
 `;
 
 const MenuTitle = styled.span`

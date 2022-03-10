@@ -2,12 +2,20 @@ import React from 'react';
 import styled from 'styled-components';
 
 // components
-import { Text } from '../../common/components';
+import { Text, Button } from '../../common/components';
 import HighlightText from '../../common/styles/HighlightText';
 
 export const Intro3rd = () => {
   const env = process.env;
   env.PUBLIC_URL = env.PUBLIC_URL || '';
+  const TodayMyPet = [
+    '강아지 감정 분석',
+    '솔루션 제공',
+    '감정 기록 관리',
+    '파트너 라이프 스타일 등록',
+    '기간별 감정 데이터 관리',
+  ];
+
   return (
     <IntroBg>
       <IntroTitle>
@@ -15,11 +23,28 @@ export const Intro3rd = () => {
           <HighlightText color="var(--lightcream)">반려견</HighlightText>과{' '}
           <HighlightText color="var(--lightcream)">반려인</HighlightText>에게{' '}
           <br />
-          <span style={{ color: 'var(--main)' }}>오늘의 마이펫</span>이 <br />
-          필요한 이유
+          <span style={{ color: 'var(--main)' }}>오늘의 마이펫</span>이 필요한
+          이유
         </Text>
       </IntroTitle>
-      <IntroContent></IntroContent>
+      <IntroContent>
+        {TodayMyPet.map((serviceInfo, index) => {
+          return (
+            <Button
+              width="9rem"
+              height="9rem"
+              bg="var(--white)"
+              radius="50%"
+              size="1.3rem"
+              color="var(--main)"
+              border="dashed 2px "
+              margin="20px 0 0 0"
+            >
+              {serviceInfo}
+            </Button>
+          );
+        })}
+      </IntroContent>
       <img alt="" src={process.env.PUBLIC_URL + `/Image/partner2.png`} />
     </IntroBg>
   );
@@ -32,7 +57,7 @@ const IntroBg = styled.div`
   display: flex;
   flex-direction: column;
   img {
-    margin-top: 100px;
+    margin-top: 0.8rem;
     margin-left: 45%;
     width: 50%;
     ${({ theme }) => theme.device.mobile} {
@@ -47,13 +72,18 @@ const IntroBg = styled.div`
 `;
 
 const IntroTitle = styled.div`
+  width: 50%;
   display: flex;
-  margin-left: 50px;
-  margin-top: 80px;
+  margin-left: 3rem;
+  margin-top: 3.8rem;
 `;
 
 const IntroContent = styled.div`
-  width: 100px;
+  width: 90%;
   height: 400px;
   display: flex;
+  // background-color: var(--main);
+  margin-left: 3rem;
+  margin-top: 2.5rem;
+  justify-content: space-between;
 `;

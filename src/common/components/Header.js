@@ -44,7 +44,7 @@ const Header = (props) => {
                       type="button"
                       color="var(--white)"
                     >
-                      LogIn
+                      Log In
                     </Text>
                   </LoginButton>
                 ) : null}
@@ -106,7 +106,7 @@ const Header = (props) => {
 
 const Container = styled.div`
   position: fixed;
-  top: 0rem;
+  top: -1rem;
   left: 0;
   z-index: 20;
   width: 100%;

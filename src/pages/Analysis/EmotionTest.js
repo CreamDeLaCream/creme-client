@@ -57,8 +57,8 @@ export const EmotionTest = () => {
   function AnswerList({ answerlist, clickButton, questionNum, answerNum }) {
     return (
       <Button
-        width="80px"
-        height="80px"
+        width="5rem"
+        height="5rem"
         bg={
           testAnswer[questionNum] === answerNum ? 'var(--main)' : 'var(--cream)'
         }
@@ -68,7 +68,7 @@ export const EmotionTest = () => {
             ? 'var(--white)'
             : 'var(--darkcream)'
         }
-        size="15px"
+        size="0.9rem"
         margin="0 10px 0 0"
         cursor="pointer"
         onClick={() => {
@@ -120,9 +120,9 @@ export const EmotionTest = () => {
 const EmotionTestWrapper = styled.div`
   width: 470px;
   height: 230px;
-  background-color: var(—lightcream);
+  background-color: var(--bggray);
   border-radius: 30px;
-  border: 2px solid var(—cream);
+  border: dashed 2px var(--cream);
   margin-top: 25px;
 
   display: flex;

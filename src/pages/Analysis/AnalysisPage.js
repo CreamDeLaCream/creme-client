@@ -25,7 +25,7 @@ const AnalysisPage = (props) => {
 
   const sendSlug = (name, value) => {
     // dispatch(analysicActions.addEmotion());
-    dispatch(analysisActions.addEmotion(name, value, petimage[0].slug));
+    dispatch(analysisActions.addEmotionAX(name, value, petimage[0].slug));
     history.push(`/result/${petimage[0].slug}`);
   };
 
@@ -102,7 +102,7 @@ const AnalysisPage = (props) => {
 };
 
 const Analysisbg = styled.div`
-  background-color: var(--bggray);
+  // background-color: var(--bggray);
   width: 100%;
   height: calc(160vh - 100px);
 `;
@@ -121,6 +121,8 @@ const ImgSection = styled.div`
   display: flex;
   justify-content: center;
   background-color: #fbfbfb;
+  border-radius: 20px;
+  border: solid 1px var(--cream);
 `;
 
 const ButtonWrapper = styled.div`
