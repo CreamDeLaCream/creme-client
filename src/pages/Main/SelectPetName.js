@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
+// redux
+import { history } from '../../common/redux/configureStore';
+
 // components
 import { Grid } from '../../common/components';
 
 const SelectPetName = () => {
+  const inputHandler = () => {
+    history.push('/');
+  };
   return (
     <Grid margin="2rem auto">
       <Grid
@@ -16,7 +22,7 @@ const SelectPetName = () => {
         {['옥자', '지노'].map((item) => (
           <Radio key={item}>
             <input type="radio" name="feeling" value={item} />
-            <span>{item}</span>
+            <span onClick={inputHandler}>{item}</span>
           </Radio>
         ))}
       </Grid>
