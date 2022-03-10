@@ -168,8 +168,8 @@ const ResultPage = (props) => {
           </Button>
           <CopyURL />
           <KakaoShare
-            title={`당신의 반려견 ${resultList.dog_name}(이)는 ${resultList.dog_age}살 입니다.`}
-            description="당신과 반려견의 궁합은?"
+            title={`당신의 반려견 ${resultList.dog_name}(이)는 기분은 ${resultList.dog_emotion} 입니다.`}
+            description="당신과 반려견의 케미는?"
             imgUrl={resultList.image}
             // buttonTitle="보러 가기"
             buttonText="다시 검색하기"
