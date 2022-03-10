@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 
 // components
 import { Button, Text } from '../../common/components';
-import kakaoShareList from './kakaoShareList';
+import KakaoShareList from './KakaoShareList';
 
 const KakaoShare = ({ title, description, imgUrl, link, buttonTitle }) => {
   return (
@@ -24,7 +24,7 @@ const KakaoShare = ({ title, description, imgUrl, link, buttonTitle }) => {
         is_flex_center
         cursor
         onClick={() =>
-          kakaoShareList(title, description, imgUrl, link, buttonTitle)
+          KakaoShareList(title, description, imgUrl, link, buttonTitle)
         }
       >
         <Text type="button" color="#fef01b">
