@@ -37,25 +37,17 @@ const addPetImageAX = ({ name, age, image }) => {
     api
       .post(`/analysis/pet`, formData, { headers: header })
       .then((res) => {
-        // dispatch(writeTextPage(res.data.comments));
-        // window.location.reload();
-
         const petimage = {
           slug: res.data.slug,
           dog_name: res.data.dog_name,
           dog_age: res.data.dog_age,
           image: res.data.image,
-
-          // url: `/${res.data.slug}`,
-          // image: `${api.baseURL}/${_post.slug}`,
         };
         dispatch(addPetImage(petimage));
-        // pet_image_list.push(petimage);
-        // console.log('petimage redux', petimage);
-        // console.log('pet_image_list', pet_image_list);
+        history.replace(`/analysis`);
       })
-      .catch((error) => {
-        console.log('이미지 전송 실패', error);
+      .catch((err) => {
+        window.alert('사진을 다시 확인해주세요.');
       });
   };
 };

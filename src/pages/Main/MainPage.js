@@ -60,8 +60,7 @@ const MainPage = (props) => {
       image: files[0],
     };
     dispatch(postActions.addPetImageAX(petimage));
-    console.log('petimage main', petimage.slug);
-    history.replace(`/analysis`);
+    // history.replace(`/analysis`);
   };
 
   const changeName = (e) => {
@@ -190,7 +189,6 @@ const MainPage = (props) => {
                     <Button
                       width="4rem"
                       height="4rem"
-                      // padding="0.5rem"
                       bg="var(--main)"
                       color="var(--white)"
                       radius="50%"
@@ -225,14 +223,8 @@ const MainSection = styled.div`
 `;
 
 const ButtonWrapper = styled.div`
-  // background-color: var(--cream);
-  // justify-content: space-between;
-  /* display: flex;
-  justify-content: center; */
-  /* margin-right: 2rem;*/
   margin-bottom: 3rem;
   ${({ theme }) => theme.device.mobile} {
-    /* width: 48%; */
     display: flex;
     justify-content: center;
   }
