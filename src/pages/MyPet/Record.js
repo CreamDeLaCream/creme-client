@@ -55,7 +55,7 @@ const Record = ({ petImages, clickedMyPet, clickedEmotion }) => {
         <RecordCard>
           <img
             alt=""
-            src={process.env.PUBLIC_URL + `/Image/cat0.png`}
+            src={process.env.PUBLIC_URL + `/dogdog/dog${recordcards.id}.png`}
             width="315px"
             height="315px"
           />

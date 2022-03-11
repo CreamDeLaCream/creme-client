@@ -17,14 +17,12 @@ export const Intro1st = (props) => {
     <MainTitleBg>
       <TitleContent>
         <Text color="var(--deepcream)" fontSize="40px">
-          우리집 <HighlightText color="var(--cream)">옥자</HighlightText>는{' '}
-          <br />
-          오늘{' '}
-          <span style={{ color: 'var(--main)', fontSize: '40px' }}>
-            무슨 감정
-          </span>
-          을<br />
-          느끼고 있을까요?
+          <HighlightText color="var(--lightcream)">옥자</HighlightText>,
+          {/* 옥자, */}
+          <br /> <span style={{ color: 'var(--main)' }}>
+            그러는 이유
+          </span>가 <br />
+          있을거 아니야..?
         </Text>
         <p style={{ fontFamily: 'IBM Plex Sans KR', color: 'var(--main)' }}>
           나의 댕댕이가 오늘은 어떤 감정을 <br /> 느끼고 있는지 궁금하시죠?

@@ -7,7 +7,7 @@ const Logo = () => {
   return (
     <div>
       <Text type="logo" color="var(--main)">
-        오늘의 마이펫
+        옥자가 왜 그럴까
       </Text>
     </div>
   );
