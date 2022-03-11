@@ -4,8 +4,16 @@ import styled from 'styled-components';
 import { Grid } from './';
 
 const Input = (props) => {
-  const { placeholder, onChange, type, multiLine, value, is_submit, onSubmit } =
-    props;
+  const {
+    placeholder,
+    onChange,
+    type,
+    multiLine,
+    value,
+    is_submit,
+    onSubmit,
+    disabled,
+  } = props;
 
   if (multiLine) {
     return (
@@ -16,6 +24,7 @@ const Input = (props) => {
           value={value}
           placeholder={placeholder}
           onChange={onChange}
+          disabled={disabled}
         ></TextareaForm>
       </Grid>
     );

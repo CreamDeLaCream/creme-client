@@ -41,7 +41,7 @@ const ResultPage = (props) => {
 
   const addMemo = () => {
     if (!memo) {
-      window.alert('로그인이 필요합니다.');
+      window.alert('로그인 후 이용가능합니다.');
       return;
     }
     if (memo === 0) {
@@ -54,6 +54,10 @@ const ResultPage = (props) => {
     window.alert('일기가 저장됩니다.');
     dispatch(postActions.addMemoAX(petmemo));
     history.push('/mypet');
+  };
+
+  const preventEvent = () => {
+    window.alert('로그인 후 이용가능합니다.');
   };
 
   const canvas = useRef();
@@ -200,7 +204,7 @@ const ResultPage = (props) => {
                 ) : (
                   <div>불일치</div>
                 )} */}
-                <div>{resultList.chemistry_percentage}</div>
+                <div>{resultList.chemistry_percentage} %</div>
               </Text>
             </Grid>
           </Grid>
@@ -270,12 +274,22 @@ const ResultPage = (props) => {
         <Text type="subTitle" color="var(--main)" marginBottom="15px">
           오늘의 감정일기
         </Text>
-        <Input
-          multiLine
-          value={memo}
-          onChange={changeMemo}
-          placeholder="결과를 보고 느낀 감정을 작성해주세요."
-        />
+        {!is_login ? (
+          <div onClick={preventEvent} style={{ cursor: 'pointer' }}>
+            <Input
+              multiLine
+              disabled
+              placeholder="결과를 보고 느낀 감정을 작성해주세요."
+            />
+          </div>
+        ) : (
+          <Input
+            multiLine
+            value={memo}
+            onChange={changeMemo}
+            placeholder="결과를 보고 느낀 감정을 작성해주세요."
+          />
+        )}
       </Grid>
       <Grid is_flex margin="1rem auto">
         <Button
