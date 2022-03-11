@@ -70,11 +70,15 @@ const ResultPage = (props) => {
   };
 
   const addLike = () => {
-    likeColor === 'var(--white)'
-      ? setLikeColor('var(--main)')
-      : setLikeColor('var(--white)');
-    setIsLike(true);
-    dispatch(memoActions.addMemo(is_like));
+    if (!is_login) {
+      return window.alert('로그인 후 이용가능합니다.');
+    } else {
+      likeColor === 'var(--white)'
+        ? setLikeColor('var(--main)')
+        : setLikeColor('var(--white)');
+      setIsLike(true);
+      dispatch(memoActions.addMemo(is_like));
+    }
   };
 
   const cancelLike = () => {
