@@ -109,10 +109,11 @@ const ResultPage = (props) => {
   };
 
   const resetHandler = () => {
+    history.push('/main');
+    window.alert('분석 결과가 사라집니다.');
     dispatch(petimageActions.initializeImage());
     dispatch(postActions.initializeMemo());
     dispatch(analysisActions.initializeEmotion());
-    history.push('/main');
   };
 
   return (
