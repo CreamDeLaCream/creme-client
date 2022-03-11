@@ -35,7 +35,12 @@ const Input = (props) => {
           }}
         />
       ) : (
-        <InputForm type={type} placeholder={placeholder} onChange={onChange} />
+        <InputForm
+          type={type}
+          placeholder={placeholder}
+          value={value}
+          onChange={onChange}
+        />
       )}
     </Grid>
   );

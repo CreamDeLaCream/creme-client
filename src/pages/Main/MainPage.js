@@ -74,6 +74,12 @@ const MainPage = (props) => {
     setAge(e.target.value);
   };
 
+  const inputButtonEvent = (itemName, itemAge) => {
+    setAge(itemAge);
+    setName(itemName);
+    // console.log('aasdf', itemName);
+  };
+
   return (
     <>
       <Container>
@@ -90,7 +96,7 @@ const MainPage = (props) => {
                 감정상태를 분석할 댕댕이를 골라주세요.
               </Text>
             </Grid>
-            <SelectPetName />
+            <SelectPetName inputHandler={inputButtonEvent} />
           </>
         )}
 
