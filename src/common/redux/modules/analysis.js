@@ -51,7 +51,7 @@ const addEmotionAX = (name, value, slug) => {
         ],
       })
       .then((res) => {
-        console.log('asdf', res);
+        // console.log('result response', res);
         const result = {
           answers: res.data.answers,
           chemistry_percentage: res.data.chemistry_percentage,
@@ -79,6 +79,7 @@ const addEmotionAX = (name, value, slug) => {
       })
       .catch((err) => {
         console.log('데이터 전송 실패', err);
+        // window.alert('사진을 다시 확인해주세요.');
       });
   };
 };
@@ -90,7 +91,6 @@ export default handleActions(
       produce(state, (draft) => {
         draft.emotionResult[action.payload.ques] = action.payload.ans;
         draft.slug = action.payload.slug;
-        console.log('action', action);
       }),
     [SET_RESULT]: (state, action) =>
       produce(state, (draft) => {
@@ -105,7 +105,6 @@ export default handleActions(
           2: null,
           3: null,
         };
-        // draft.result_list = action.payload.result_list;
       });
     },
   },

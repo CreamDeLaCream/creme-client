@@ -9,7 +9,6 @@ const PetListButton = ({ cardNum, onClickAnotherCard }) => {
     <PetListButtonWrapper>
       <Button
         onClick={() => {
-          console.log('hi');
           onClickAnotherCard(0);
         }}
         width="13px"

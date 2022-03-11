@@ -68,7 +68,6 @@ export const MypetCard = ({
                       margin="0 15px 0 5px"
                       cursor
                       onClick={() => {
-                        console.log('넘어감');
                         history.push('/main');
                       }}
                     >
@@ -134,7 +133,6 @@ export const MypetCard = ({
                 margin="10px 0 0 0"
                 cursor
                 onClick={() => {
-                  console.log('넘어감');
                   history.push('/addpet');
                 }}
               >

@@ -67,8 +67,6 @@ const addPetImageAX = ({ name, age, image }) => {
 //           };
 //           // pet_image_list.push(petimage);
 //           dispatch(setPetImage(pet_image_list));
-//           console.log('petimage redux', pet_image_list);
-//           console.log('res.data redux', res.data);
 //         });
 //       })
 //       .catch((e) => {

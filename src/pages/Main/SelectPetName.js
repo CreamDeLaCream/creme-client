@@ -23,7 +23,7 @@ const SelectPetName = ({ inputHandler }) => {
               key={item}
               onClick={() => {
                 inputHandler(item, 5);
-                // console.log('aasdf', item);
+                // console.log('item', item);
               }}
             >
               <input type="radio" name="feeling" value={item} />

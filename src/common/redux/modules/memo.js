@@ -29,7 +29,7 @@ const addMemoAX = ({ slug, memo }) => {
           { headers: header },
         )
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           // dispatch(writeTextPage(response.data.comments));
           dispatch(addMemo(res.data.memos));
           // window.location.reload();

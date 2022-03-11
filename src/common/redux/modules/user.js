@@ -25,7 +25,7 @@ const kakaoLogin = (code) => {
     api
       .get(`/users/kakao/callback?code=${code}`)
       .then((res) => {
-        // console.log(res); // 토큰이 넘어올 것임
+        // console.log('token', res);
         const ACCESS_TOKEN = res.data.access;
         const REFRESH_TOKEN = res.data.refresh;
 
