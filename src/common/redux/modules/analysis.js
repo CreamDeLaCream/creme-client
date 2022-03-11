@@ -16,7 +16,7 @@ const addEmotion = createAction(ADD_EMOTION, (ques, ans, slug) => ({
 const setResult = createAction(SET_RESULT, (result) => ({
   result,
 }));
-const initializeEmotion = createAction(INITIALIZE_EMOTION, () => {});
+const initializeEmotion = createAction(INITIALIZE_EMOTION, () => ({}));
 
 // InitialState
 const initialState = {
@@ -26,7 +26,7 @@ const initialState = {
     2: null,
     3: null,
   },
-  result: [],
+  result: {},
 };
 
 // middleware
@@ -51,6 +51,7 @@ const addEmotionAX = (name, value, slug) => {
         ],
       })
       .then((res) => {
+        console.log('asdf', res);
         const result = {
           answers: res.data.answers,
           chemistry_percentage: res.data.chemistry_percentage,
@@ -60,6 +61,7 @@ const addEmotionAX = (name, value, slug) => {
           dog_emotion: res.data.dog_emotion,
           dog_emotion_description: res.data.dog_emotion_description,
           dog_emotion_percentage: res.data.dog_emotion_percentage,
+          dog_coordinate: res.data.dog_coordinate,
           dog_name: res.data.dog_name,
           human_emotion: res.data.human_emotion,
           human_emotion_percentage: res.data.human_emotion_percentage,
@@ -71,7 +73,7 @@ const addEmotionAX = (name, value, slug) => {
           status: res.data.status,
           // ...user,
         };
-        console.log('asdf', result);
+
         dispatch(setResult(result));
         // window.location.reload();
       })

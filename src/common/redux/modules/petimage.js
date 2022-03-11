@@ -4,15 +4,15 @@ import api from '../../utils/API';
 
 // Action
 const ADD_PET_IMAGE = 'ADD_PET_IMAGE';
-const SET_PET_IMAGE = 'SET_PET_IMAGE';
+// const SET_PET_IMAGE = 'SET_PET_IMAGE';
 const INITIALIZE_IMAGE = 'INITIALIZE_IMAGE';
 
 // Action Creator
 const addPetImage = createAction(ADD_PET_IMAGE, (pet_image) => ({ pet_image }));
-const setPetImage = createAction(SET_PET_IMAGE, (pet_image_list) => ({
-  pet_image_list,
-}));
-const initializeImage = createAction(INITIALIZE_IMAGE, () => {});
+// const setPetImage = createAction(SET_PET_IMAGE, (pet_image_list) => ({
+//   pet_image_list,
+// }));
+const initializeImage = createAction(INITIALIZE_IMAGE, () => ({}));
 
 // InitialState
 const initialState = {
@@ -60,34 +60,30 @@ const addPetImageAX = ({ name, age, image }) => {
   };
 };
 
-const setPetImageAX = ({ slug }) => {
-  return function (dispatch, getState, { history }) {
-    console.log('testasdfsdfasdfasdf');
-    api
-      // .post(`analysis/result/${slug}`)
-      .get(`analysis/result?slug=${slug}`)
-      .then((res) => {
-        // const pet_image_list = [];
-        res.data.forEach(() => {
-          const pet_image_list = {
-            dog_emotion: res.data.dog_emotion,
-            dog_emotion_percentage: res.data.dog_emotion_percentage,
-            human_emotion: res.data.human_emotion,
-            human_emotion_percentage: res.data.human_emotion_percentage,
-            chemistry_percentage: res.data.chemistry_percentage,
-            // image: `${api.baseURL}/${res.data.slug}`,
-          };
-          // pet_image_list.push(petimage);
-          dispatch(setPetImage(pet_image_list));
-          console.log('petimage redux', pet_image_list);
-          console.log('res.data redux', res.data);
-        });
-      })
-      .catch((e) => {
-        console.log('불러오기 에러', e);
-      });
-  };
-};
+// const setPetImageAX = ({ slug }) => {
+//   return function (dispatch, getState, { history }) {
+//     api
+//       .get(`analysis/result?slug=${slug}`)
+//       .then((res) => {
+//         res.data.forEach(() => {
+//           const pet_image_list = {
+//             dog_emotion: res.data.dog_emotion,
+//             dog_emotion_percentage: res.data.dog_emotion_percentage,
+//             human_emotion: res.data.human_emotion,
+//             human_emotion_percentage: res.data.human_emotion_percentage,
+//             chemistry_percentage: res.data.chemistry_percentage,
+//           };
+//           // pet_image_list.push(petimage);
+//           dispatch(setPetImage(pet_image_list));
+//           console.log('petimage redux', pet_image_list);
+//           console.log('res.data redux', res.data);
+//         });
+//       })
+//       .catch((e) => {
+//         console.log('불러오기 에러', e);
+//       });
+//   };
+// };
 
 // const DeleteImageAX = () => {
 //   return function (dispatch, getState, { history }) {
@@ -105,10 +101,10 @@ export default handleActions(
       produce(state, (draft) => {
         draft.list.push(action.payload.pet_image);
       }),
-    [SET_PET_IMAGE]: (state, action) =>
-      produce(state, (draft) => {
-        draft.pet_image_list.push(...action.payload.pet_image_list);
-      }),
+    // [SET_PET_IMAGE]: (state, action) =>
+    //   produce(state, (draft) => {
+    //     draft.pet_image_list.push(...action.payload.pet_image_list);
+    //   }),
     [INITIALIZE_IMAGE]: (state, action) =>
       produce(state, (draft) => {
         draft.list = [];
@@ -120,8 +116,8 @@ export default handleActions(
 const actionCreators = {
   addPetImage,
   addPetImageAX,
-  setPetImage,
-  setPetImageAX,
+  // setPetImage,
+  // setPetImageAX,
   initializeImage,
 };
 
