@@ -21,7 +21,8 @@ import {
   Input,
 } from '../../common/components';
 import Dropdown from '../Result/Dropdown';
-// import { resultData } from './ResultData';
+
+// import { resultList } from './ResultData';
 import { Keywords } from '../../common/components/Keyword';
 import CopyURL from './CopyURL';
 import BarChart from './BarChart';
@@ -30,20 +31,13 @@ import KakaoShare from './KakaoShare';
 
 const ResultPage = (props) => {
   const dispatch = useDispatch();
-  // const slug = props.match.params.slug;
   const [memo, setMemo] = useState('');
-  // const petimage = useSelector((state) => state.petimage.list);
-  // const is_login = useSelector((state) => state.user.is_login);
-  // const petimage = useSelector((state) => state.petimage.list);
   const resultList = useSelector((state) => state.analysis.result);
-  console.log('check', resultList.answers);
-  console.log('check2', resultList.needs);
   const is_session = sessionStorage.getItem('token') ? true : false;
 
-  //
   // useEffect(() => {
-  //   dispatch(postActions.setPetImageAX(resultList));
-  // }, [resultList]);
+  //   dispatch(petimageActions.setPetImageAX(resultList));
+  // }, []);
 
   const changeMemo = (e) => {
     setMemo(e.target.value);
@@ -61,7 +55,6 @@ const ResultPage = (props) => {
       slug: resultList.slug,
       memo: memo,
     };
-    console.log(petmemo);
     window.alert('일기가 저장됩니다.');
     dispatch(postActions.addMemoAX(petmemo));
     history.push('/mypet');
@@ -108,7 +101,6 @@ const ResultPage = (props) => {
     const { x, y, w, h } = info;
     const { borderColor = 'black', borderWidth = 1 } = style;
 
-    // window.addEventListener('resize', draw);
     ctx.beginPath();
     ctx.strokeStyle = borderColor;
     ctx.lineWidth = borderWidth;
@@ -124,6 +116,8 @@ const ResultPage = (props) => {
   };
 
   return (
+    // resultList가 있을 때만 작동
+    // resultList?.dog_name ? ( 옵셔녈체이닝
     <Container>
       <Header />
       <Navbar />
@@ -264,7 +258,7 @@ const ResultPage = (props) => {
           {resultList.dog_name}에게 필요한 것
         </Text>
         <Grid flexWrap="wrap" width="100%" is_flex margin="0 0 3rem 0">
-          {/* {resultList.needs.map((need, index) => {
+          {resultList?.needs?.map((need, index) => {
             return (
               <Dropdown
                 name={need.name}
@@ -272,7 +266,7 @@ const ResultPage = (props) => {
                 key={index}
               />
             );
-          })} */}
+          })}
         </Grid>
       </Grid>
 
@@ -317,6 +311,10 @@ const ResultPage = (props) => {
         </Button>
       </Grid>
     </Container>
+
+    // : (
+    //   <div>로딩중</div>
+    // )
   );
 };
 

@@ -1,4 +1,4 @@
-export const resultData = [
+export const resultList = [
   {
     dog_name: '지노',
     dog_age: 6,
