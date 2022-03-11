@@ -90,11 +90,6 @@ const MyPetPage = (props) => {
       <Text type="mainTitle" color="var(--main)" padding-top="30px">
         마이펫 / 파트너
       </Text>
-      {/* <Text type="mainTitle" color="var(--blackcream)">
-        나의 사랑스러운 댕댕이를
-        <br />
-        추가하고 감정기록들을 관리하세요.
-      </Text> */}
       <MypetPartnerWrapper>
         <MypetCard
           myPetData={myPetData}

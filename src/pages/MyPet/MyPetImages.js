@@ -27,6 +27,12 @@ const MyPetImage = styled.div`
   // positon: absolute;
   // vertical-align: middle;
   margin-right: 50px;
+
+  img {
+    object-fit: cover;
+    background-size: contain;
+  }
+
   ${({ theme }) => theme.device.mobile} {
     position: absolute;
     max-width: 100px;
