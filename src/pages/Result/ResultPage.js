@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import { useParams } from 'react-router-dom';
 
 // redux
 import { history } from '../../common/redux/configureStore';
@@ -21,7 +20,6 @@ import {
   Input,
 } from '../../common/components';
 import Dropdown from '../Result/Dropdown';
-
 // import { resultList } from './ResultData';
 import { Keywords } from '../../common/components/Keyword';
 import CopyURL from './CopyURL';
@@ -34,6 +32,7 @@ const ResultPage = (props) => {
   const [memo, setMemo] = useState('');
   const resultList = useSelector((state) => state.analysis.result);
   const is_login = useSelector((state) => state.user.is_login);
+  const [likeColor, setLikeColor] = useState('var(--white)');
 
   const changeMemo = (e) => {
     setMemo(e.target.value);
@@ -58,6 +57,20 @@ const ResultPage = (props) => {
 
   const preventEvent = () => {
     window.alert('로그인 후 이용가능합니다.');
+  };
+
+  const resetHandler = () => {
+    history.push('/main');
+    window.alert('분석 결과가 사라집니다.');
+    dispatch(petimageActions.initializeImage());
+    dispatch(postActions.initializeMemo());
+    dispatch(analysisActions.initializeEmotion());
+  };
+
+  const likeHandler = () => {
+    likeColor === 'var(--white)'
+      ? setLikeColor('var(--main)')
+      : setLikeColor('var(--white)');
   };
 
   const canvas = useRef();
@@ -108,14 +121,6 @@ const ResultPage = (props) => {
     ctx.stroke();
   };
 
-  const resetHandler = () => {
-    history.push('/main');
-    window.alert('분석 결과가 사라집니다.');
-    dispatch(petimageActions.initializeImage());
-    dispatch(postActions.initializeMemo());
-    dispatch(analysisActions.initializeEmotion());
-  };
-
   return (
     // resultList가 있을 때만 작동
     // resultList?.dog_name ? ( 옵셔녈체이닝
@@ -128,6 +133,7 @@ const ResultPage = (props) => {
         </Text>
       </Grid>
 
+      {/* {resultList.dog_coordinate} */}
       <ResultBox>
         <div style={{ width: '1000px', height: '500px', position: 'relative' }}>
           <img
@@ -147,20 +153,28 @@ const ResultPage = (props) => {
           ></canvas>
         </div>
       </ResultBox>
-
       <Grid is_flex_end margin="-2rem 0 0 0">
         <ButtonWrapper>
           <Button
             circle
+            is_flex_center
             foldSize
             size="3.5"
-            bg="var(--white)"
             border="0.15rem solid var(--darkcream)"
-            is_flex_center
             cursor
+            bg={likeColor}
+            onClick={likeHandler}
           >
-            <BsHeartFill size="1.4rem" color="var(--darkcream)" />
+            <BsHeartFill
+              size="1.4rem"
+              color={
+                likeColor === 'var(--white)'
+                  ? 'var(--darkcream)'
+                  : 'var(--white)'
+              }
+            />
           </Button>
+
           <CopyURL />
           <KakaoShare
             title={`당신의 반려견 ${resultList.dog_name}(이)는 기분은 ${resultList.dog_emotion} 입니다.`}
@@ -172,7 +186,6 @@ const ResultPage = (props) => {
           />
         </ButtonWrapper>
       </Grid>
-
       <Grid margin="2rem auto">
         <Text type="mainTitle" color="var(--main)" marginBottom="2rem">
           {resultList.dog_name}, {resultList.dog_age}살
@@ -185,7 +198,6 @@ const ResultPage = (props) => {
           {/* <Keyword /> */}
         </Text>
       </Grid>
-
       <Grid margin="2rem auto">
         <Text type="subTitle" color="var(--main)" marginBottom="2rem">
           당신이 생각하는 {resultList.dog_name}의 감정상태 일치도는?
@@ -270,7 +282,6 @@ const ResultPage = (props) => {
           })}
         </Grid>
       </Grid>
-
       <Grid margin="2rem auto">
         <Text type="subTitle" color="var(--main)" marginBottom="15px">
           오늘의 감정일기
