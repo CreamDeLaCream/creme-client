@@ -37,20 +37,16 @@ const addEmotionAX = (name, value, slug) => {
         slug: slug,
         answer: [
           {
-            choice_id: 3,
-            // choice_id: getState.emotionResult[1],
+            choice_id: getState().analysis.emotionResult[0],
           },
           {
-            choice_id: 2,
-            // choice_id: getState.emotionResult[2],
+            choice_id: getState().analysis.emotionResult[1],
           },
           {
-            choice_id: 1,
-            // choice_id: getState.emotionResult[3],
+            choice_id: getState().analysis.emotionResult[2],
           },
           {
-            choice_id: 4,
-            // choice_id: getState.emotionResult[4],
+            choice_id: getState().analysis.emotionResult[3],
           },
         ],
       })
@@ -67,7 +63,7 @@ const addEmotionAX = (name, value, slug) => {
           dog_name: res.data.dog_name,
           human_emotion: res.data.human_emotion,
           human_emotion_percentage: res.data.human_emotion_percentage,
-          image: res.data.image,
+          image: `${process.env.REACT_APP_BACKEND_URL}${res.data.image}`,
           is_chemistry_negative: res.data.is_chemistry_negative,
           is_human_emotion_negative: res.data.is_human_emotion_negative,
           needs: res.data.needs,
@@ -75,7 +71,6 @@ const addEmotionAX = (name, value, slug) => {
           status: res.data.status,
           // ...user,
         };
-        // result_list.push(result);
         console.log('asdf', result);
         dispatch(setResult(result));
         // window.location.reload();

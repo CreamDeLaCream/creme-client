@@ -9,21 +9,24 @@ import { Grid } from '../../common/components';
 
 const SelectPetName = () => {
   const inputHandler = () => {
-    history.push('/');
+    // history.push('/');
   };
   return (
-    <Grid margin="2rem auto">
+    <Grid margin="2rem auto" display="flex" justifyContent="space-between">
       <Grid
-        display="flex"
-        justifyContent="space-around"
+        is_flex
+        mobileColumn
+        padding="2rem"
         // margin="0 0 3rem 0"
-        flexWrap="wrap"
+        // flexWrap="wrap"
       >
         {['옥자', '지노'].map((item) => (
-          <Radio key={item}>
-            <input type="radio" name="feeling" value={item} />
-            <span onClick={inputHandler}>{item}</span>
-          </Radio>
+          <Grid is_flex_center margin="0 0 1rem 0">
+            <Radio key={item}>
+              <input type="radio" name="feeling" value={item} />
+              <span onClick={inputHandler}>{item}</span>
+            </Radio>
+          </Grid>
         ))}
       </Grid>
     </Grid>

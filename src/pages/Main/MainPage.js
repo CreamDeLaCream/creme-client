@@ -102,17 +102,24 @@ const MainPage = (props) => {
         </Grid>
 
         <MainSection>
-          <Grid is_flex mobileColumn>
+          <Grid is_flex mobileColumn padding="2rem">
             <Grid>
               <Grid margin="2rem auto" display="flex" justifyContent="center">
                 <Dropzone onDrop setFiles={setFiles}>
                   <Circle
                     is_flex_center
+                    mobileSizeXL
                     size="15"
                     border="1rem solid var(--cream)"
                     cursor
                   >
-                    <BsPlusLg size="2rem" color="var(--darkcream)" />
+                    {files.length === 0 ? (
+                      <Grid is_flex_center>
+                        <BsPlusLg size="2rem" color="var(--darkcream)" />
+                      </Grid>
+                    ) : (
+                      <Grid is_flex_center></Grid>
+                    )}
                     <Preview files={files} />
                   </Circle>
                 </Dropzone>
@@ -156,7 +163,7 @@ const MainPage = (props) => {
               </Grid>
 
               <Grid>
-                <Grid is_flex_end>
+                <Grid is_flex_end mobileCenter>
                   <ButtonWrapper>
                     <Button
                       width="4rem"
@@ -217,11 +224,14 @@ const MainSection = styled.div`
 const ButtonWrapper = styled.div`
   // background-color: var(--cream);
   // justify-content: space-between;
-  margin-right: 2rem;
+  /* display: flex;
+  justify-content: center; */
+  /* margin-right: 2rem;*/
   margin-bottom: 3rem;
   ${({ theme }) => theme.device.mobile} {
-    width: 48%;
-    min-width: 10rem;
+    /* width: 48%; */
+    display: flex;
+    justify-content: center;
   }
   ${({ theme }) => theme.device.fold} {
     min-width: 100%;
