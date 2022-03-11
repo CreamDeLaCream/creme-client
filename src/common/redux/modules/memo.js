@@ -7,16 +7,18 @@ const ADD_MEMO = 'ADD_MEMO';
 const INITIALIZE_MEMO = 'INITIALIZE_MEMO';
 
 // Action Creator
-const addMemo = createAction(ADD_MEMO, (petmemo) => ({ petmemo }));
+const addMemo = createAction(ADD_MEMO, (petmemo) => ({
+  petmemo,
+}));
 const initializeMemo = createAction(INITIALIZE_MEMO, () => ({}));
 
 // InitialState
 const initialState = {
-  list: [],
+  petmemo: [],
 };
 
 // middleware
-const addMemoAX = ({ slug, memo }) => {
+const addMemoAX = ({ slug, memo, is_like }) => {
   return function (dispatch, getState, { history }) {
     const token = sessionStorage.getItem('token');
     const header = {};
@@ -25,13 +27,13 @@ const addMemoAX = ({ slug, memo }) => {
       api
         .post(
           `analysis/result/completed`,
-          { slug: slug, memo: memo },
+          { slug: slug, memo: memo, is_favorite: is_like },
           { headers: header },
         )
         .then((res) => {
           // console.log(res);
           // dispatch(writeTextPage(response.data.comments));
-          dispatch(addMemo(res.data.memos));
+          dispatch(addMemo(slug, memo, is_like));
           // window.location.reload();
         })
         .catch((err) => {
@@ -46,11 +48,11 @@ export default handleActions(
   {
     [ADD_MEMO]: (state, action) =>
       produce(state, (draft) => {
-        draft.comment.push(action.payload.post);
+        draft.petmemo = action.payload.petmemo;
       }),
     [INITIALIZE_MEMO]: (state, action) =>
       produce(state, (draft) => {
-        draft.list = [];
+        draft.petmemo = [];
       }),
     // [SET_MEMO]: (state, action) =>
     //   produce(state, (draft) => {

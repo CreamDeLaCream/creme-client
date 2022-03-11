@@ -4,8 +4,7 @@ import styled from 'styled-components';
 // redux
 import { history } from '../../common/redux/configureStore';
 import { useDispatch, useSelector } from 'react-redux';
-import { actionCreators as postActions } from '../../common/redux/modules/memo';
-import { actionCreators as userActions } from '../../common/redux/modules/user';
+import { actionCreators as memoActions } from '../../common/redux/modules/memo';
 import { actionCreators as petimageActions } from '../../common/redux/modules/petimage';
 import { actionCreators as analysisActions } from '../../common/redux/modules/analysis';
 
@@ -33,6 +32,7 @@ const ResultPage = (props) => {
   const resultList = useSelector((state) => state.analysis.result);
   const is_login = useSelector((state) => state.user.is_login);
   const [likeColor, setLikeColor] = useState('var(--white)');
+  const [is_like, setIsLike] = useState(false);
 
   const changeMemo = (e) => {
     setMemo(e.target.value);
@@ -49,9 +49,11 @@ const ResultPage = (props) => {
     let petmemo = {
       slug: resultList.slug,
       memo: memo,
+      is_like: is_like,
     };
     window.alert('일기가 저장됩니다.');
-    dispatch(postActions.addMemoAX(petmemo));
+    dispatch(memoActions.addMemo(petmemo));
+
     history.push('/mypet');
   };
 
@@ -63,14 +65,24 @@ const ResultPage = (props) => {
     history.push('/main');
     window.alert('분석 결과가 사라집니다.');
     dispatch(petimageActions.initializeImage());
-    dispatch(postActions.initializeMemo());
+    dispatch(memoActions.initializeMemo());
     dispatch(analysisActions.initializeEmotion());
   };
 
-  const likeHandler = () => {
+  const addLike = () => {
     likeColor === 'var(--white)'
       ? setLikeColor('var(--main)')
       : setLikeColor('var(--white)');
+    setIsLike(true);
+    dispatch(memoActions.addMemo(is_like));
+  };
+
+  const cancelLike = () => {
+    likeColor === 'var(--main)'
+      ? setLikeColor('var(--white)')
+      : setLikeColor('var(--main)');
+    setIsLike(false);
+    dispatch(memoActions.addMemo(is_like));
   };
 
   const canvas = useRef();
@@ -155,25 +167,47 @@ const ResultPage = (props) => {
       </ResultBox>
       <Grid is_flex_end margin="-2rem 0 0 0">
         <ButtonWrapper>
-          <Button
-            circle
-            is_flex_center
-            foldSize
-            size="3.5"
-            border="0.15rem solid var(--darkcream)"
-            cursor
-            bg={likeColor}
-            onClick={likeHandler}
-          >
-            <BsHeartFill
-              size="1.4rem"
-              color={
-                likeColor === 'var(--white)'
-                  ? 'var(--darkcream)'
-                  : 'var(--white)'
-              }
-            />
-          </Button>
+          {is_like ? (
+            <Button
+              circle
+              is_flex_center
+              foldSize
+              size="3.5"
+              border="0.15rem solid var(--darkcream)"
+              cursor
+              bg={likeColor}
+              onClick={cancelLike}
+            >
+              <BsHeartFill
+                size="1.4rem"
+                color={
+                  likeColor === 'var(--white)'
+                    ? 'var(--darkcream)'
+                    : 'var(--white)'
+                }
+              />
+            </Button>
+          ) : (
+            <Button
+              circle
+              is_flex_center
+              foldSize
+              size="3.5"
+              border="0.15rem solid var(--darkcream)"
+              cursor
+              bg={likeColor}
+              onClick={addLike}
+            >
+              <BsHeartFill
+                size="1.4rem"
+                color={
+                  likeColor === 'var(--white)'
+                    ? 'var(--darkcream)'
+                    : 'var(--white)'
+                }
+              />
+            </Button>
+          )}
 
           <CopyURL />
           <KakaoShare
