@@ -36,6 +36,14 @@ const Wrapper = styled.div`
         border-radius: var(--size);  min-width: var(--size);`
         : ''};
   }
+  ${({ theme }) => theme.device.mobile} {
+    ${(props) =>
+      props.mobileSizeXL
+        ? `--size: 15rem;
+        width: var(--size); height: var(--size);
+        border-radius: var(--size);  min-width: var(--size);`
+        : ''};
+  }
 `;
 
 export default Circle;

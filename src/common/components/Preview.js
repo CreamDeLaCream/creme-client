@@ -16,13 +16,24 @@ const Preview = ({ files }) => {
       />
     </ImgSection>
   ));
-  return <div>{images}</div>;
+  return <>{images}</>;
 };
 
 const ImgSection = styled.div`
+  display: flex;
+  justify-content: center;
+
   img {
     object-fit: cover;
     background-size: contain;
+
+    /* ${({ theme }) => theme.device.fold} { */
+    /* display: flex;
+    justify-content: center; */
+    /* img {
+      object-fit: cover;
+      background-size: contain;
+    } */
   }
 `;
 
