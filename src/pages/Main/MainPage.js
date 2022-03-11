@@ -36,9 +36,7 @@ const MainPage = (props) => {
   const [files, setFiles] = useState([]);
   const [age, setAge] = useState('');
   const [name, setName] = useState('');
-  // const pet_image_list = useSelector((state) => state.petimage.list);
-  const is_session = sessionStorage.getItem('token') ? true : false;
-  // const is_login = useSelector((state) => state.user.user);
+  const is_login = useSelector((state) => state.user.is_login);
 
   // 업로드 방식 모달
   const [modalOpen, setModalOpen] = useState(false);
@@ -77,7 +75,6 @@ const MainPage = (props) => {
   const inputButtonEvent = (itemName, itemAge) => {
     setAge(itemAge);
     setName(itemName);
-    // console.log('aasdf', itemName);
   };
 
   return (
@@ -89,7 +86,7 @@ const MainPage = (props) => {
         <Text type="mainTitle" color="var(--main)" padding-top="30px">
           반려견 감정상태
         </Text>
-        {!is_session ? null : (
+        {!is_login ? null : (
           <>
             <Grid margin="2rem auto">
               <Text type="mainTitle" color="var(--blackcream)">

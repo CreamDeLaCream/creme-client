@@ -28,11 +28,11 @@ import {
 
 function App() {
   const dispatch = useDispatch();
-  const is_login = useSelector((state) => state.user.user);
+  const is_login = useSelector((state) => state.user.is_login);
 
   useEffect(() => {
     if (is_login) {
-      dispatch(userActions.loginCheck(getCookie('is_login')));
+      dispatch(userActions.loginCheck('/'));
     }
   }, []);
 

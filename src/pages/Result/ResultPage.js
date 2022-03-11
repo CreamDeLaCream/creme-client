@@ -33,11 +33,7 @@ const ResultPage = (props) => {
   const dispatch = useDispatch();
   const [memo, setMemo] = useState('');
   const resultList = useSelector((state) => state.analysis.result);
-  const is_session = sessionStorage.getItem('token') ? true : false;
-
-  // useEffect(() => {
-  //   dispatch(petimageActions.setPetImageAX(resultList));
-  // }, []);
+  const is_login = useSelector((state) => state.user.is_login);
 
   const changeMemo = (e) => {
     setMemo(e.target.value);
@@ -177,7 +173,7 @@ const ResultPage = (props) => {
           {resultList.dog_name}, {resultList.dog_age}살
         </Text>
         <Text type="subTitle">
-          {!is_session ? null : (
+          {!is_login ? null : (
             <Keywords typekeywords={resultList.dog_emotion} />
           )}
           {/* TODO: Keyword에 props에 .character 추가하기 */}

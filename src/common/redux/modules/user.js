@@ -1,9 +1,6 @@
 import { createAction, handleActions } from 'redux-actions';
 import { produce } from 'immer';
-
 import api from '../../utils/API';
-import { setCookie, getCookie } from '../../utils/Cookie';
-import jwtDecode from 'jwt-decode';
 
 // Action
 const SET_USER = 'SET_USER';
@@ -19,7 +16,6 @@ const logOut = createAction(LOG_OUT, () => ({}));
 const initialState = {
   user: null,
   is_login: false,
-  // is_cookie: false,
 };
 
 // middleware
@@ -34,17 +30,9 @@ const kakaoLogin = (code) => {
         const REFRESH_TOKEN = res.data.refresh;
 
         sessionStorage.setItem('token', ACCESS_TOKEN);
-        // sessionStorage.setItem('refresh', REFRESH_TOKEN);
+        sessionStorage.setItem('refresh', REFRESH_TOKEN);
 
         dispatch(loginCheck(ACCESS_TOKEN));
-        setCookie('accessToken', ACCESS_TOKEN, {
-          path: '/',
-          maxAge: 1800, // 30분
-        });
-        setCookie('refreshToken', REFRESH_TOKEN, {
-          path: '/',
-          maxAge: 604800, // 7일
-        });
 
         history.replace('/');
       })
@@ -75,7 +63,7 @@ const loginCheck = () => {
             dispatch(setUser({ ...user }));
           } else {
             window.alert(`로그인에 실패하였습니다.`);
-            dispatch(loginCheck(getCookie('is_login')));
+            dispatch(loginCheck(sessionStorage.getItem('is_login')));
           }
         })
         .catch((e) => {
@@ -89,11 +77,10 @@ const kakaoLogOut = (code) => {
   return function (dispatch, getState, { history }) {
     api({
       method: 'POST',
-      url: `/users/logout`,
+      url: `users/logout`,
     })
       .then((res) => {
-        sessionStorage.removeItem('token');
-        sessionStorage.removeItem('refresh');
+        dispatch(logOut());
       })
       .catch((err) => {
         window.alert('로그아웃에 실패하였습니다.');
@@ -107,15 +94,15 @@ export default handleActions(
   {
     [SET_USER]: (state, action) =>
       produce(state, (draft) => {
-        setCookie('is_login', 'success');
-        // sessionStorage.setItem('is_login', 'success');
+        sessionStorage.setItem('is_login', 'success');
         draft.user = action.payload.user;
         draft.is_login = true;
       }),
     [LOG_OUT]: (state, action) =>
       produce(state, (draft) => {
-        // deleteCookie('is_login');
-        // sessionStorage.removeItem('token');
+        sessionStorage.removeItem('token');
+        sessionStorage.removeItem('refresh');
+        sessionStorage.removeItem('is_login');
         draft.user = null;
         draft.is_login = false;
       }),
