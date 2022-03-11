@@ -5,7 +5,7 @@ import GlobalStyle from './common/styles/GlobalStyle';
 import { Switch, Route } from 'react-router-dom';
 import { ConnectedRouter } from 'connected-react-router';
 import { history } from './common/redux/configureStore';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { actionCreators as userActions } from './common/redux/modules/user';
 
 // components
@@ -28,11 +28,11 @@ import {
 
 function App() {
   const dispatch = useDispatch();
-  const is_login = getCookie('is_login') ? true:false;
+  const is_login = useSelector((state) => state.user.user);
 
   useEffect(() => {
     if (is_login) {
-      dispatch(userActions.loginCheck('/'));
+      dispatch(userActions.loginCheck(getCookie('is_login')));
     }
   }, []);
 

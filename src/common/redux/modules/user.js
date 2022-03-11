@@ -19,11 +19,10 @@ const logOut = createAction(LOG_OUT, () => ({}));
 const initialState = {
   user: null,
   is_login: false,
-  is_cookie: false,
+  // is_cookie: false,
 };
 
 // middleware
-
 // 카카오 로그인
 const kakaoLogin = (code) => {
   return function (dispatch, getState, { history }) {
@@ -33,11 +32,11 @@ const kakaoLogin = (code) => {
         // console.log(res); // 토큰이 넘어올 것임
         const ACCESS_TOKEN = res.data.access;
         const REFRESH_TOKEN = res.data.refresh;
-        // const { id, username } = jwtDecode(ACCESS_TOKEN);
-        sessionStorage.setItem('token', ACCESS_TOKEN);
-        sessionStorage.setItem('refresh', REFRESH_TOKEN);
-        // const token = sessionStorage.getItem('token');
 
+        sessionStorage.setItem('token', ACCESS_TOKEN);
+        // sessionStorage.setItem('refresh', REFRESH_TOKEN);
+
+        dispatch(loginCheck(ACCESS_TOKEN));
         setCookie('accessToken', ACCESS_TOKEN, {
           path: '/',
           maxAge: 1800, // 30분
@@ -48,16 +47,15 @@ const kakaoLogin = (code) => {
         });
 
         history.replace('/');
-
       })
       .catch((error) => {
         console.log('user 정보 조회 에러', error);
-        window.alert('로그인에 실패하였습니다.1');
         history.replace('/'); // 로그인 실패하면 서비스 소개 화면으로 돌려보냄
       });
   };
 };
 
+// 페이지가 새로고침 되는 상황마다 user check 후 리덕스에 정보 저장
 const loginCheck = () => {
   return function (dispatch, getState, { history }) {
     const token = sessionStorage.getItem('token');
@@ -73,17 +71,11 @@ const loginCheck = () => {
             user_id: res.data.id,
             username: res.data.username,
           };
-          console.log('2asdfasd3', user);
           if (res.data) {
-            dispatch(
-              setUser({
-                user_id: res.data.user_id,
-                username: res.data.username,
-              }),
-            );
+            dispatch(setUser({ ...user }));
           } else {
             window.alert(`로그인에 실패하였습니다.`);
-            dispatch(loginCheck(...user));
+            dispatch(loginCheck(getCookie('is_login')));
           }
         })
         .catch((e) => {
@@ -116,6 +108,7 @@ export default handleActions(
     [SET_USER]: (state, action) =>
       produce(state, (draft) => {
         setCookie('is_login', 'success');
+        // sessionStorage.setItem('is_login', 'success');
         draft.user = action.payload.user;
         draft.is_login = true;
       }),
@@ -126,16 +119,11 @@ export default handleActions(
         draft.user = null;
         draft.is_login = false;
       }),
-    // [LOG_OUT]: (state, action) =>
-    //   produce(state, (draft) => {
-    //     draft.user = null;
-    //     draft.is_login = false;
-    //   }),
     [GET_USER]: (state, action) =>
       produce(state, (draft) => {
-        let cookie = action.payload.is_login;
-        setCookie('JSESSIONID', cookie);
-        draft.is_cookie = true;
+        // let cookie = action.payload.is_login;
+        // setCookie('JSESSIONID', cookie);
+        // draft.is_cookie = true;
       }),
   },
   initialState,

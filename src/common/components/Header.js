@@ -14,14 +14,14 @@ import { getCookie, deleteCookie } from '../utils/Cookie';
 const Header = (props) => {
   const [modalOpen, setModalOpen] = useState(false);
   const dispatch = useDispatch();
-  const is_login = getCookie('is_login') ? true : false;
   const userInfo = useSelector((state) => state.user.user);
+  const is_login = useSelector((state) => state.user.is_login);
 
   useEffect(() => {
-    if (is_login) {
-      dispatch(userActions.loginCheck('/'));
+    if (!is_login) {
+      dispatch(userActions.loginCheck(getCookie('is_login')));
     }
-  }, []);
+  }, [is_login]);
 
   // 로컬 이미지
   const env = process.env;
@@ -60,7 +60,7 @@ const Header = (props) => {
                 {props.page === 'headermenu' ? (
                   <LoginButton
                     onClick={() => {
-                      dispatch(userActions.logOut());
+                      // dispatch(userActions.logOut());
                     }}
                   >
                     <Text
