@@ -1,12 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import { useParams } from 'react-router-dom';
 
 // redux
 import { history } from '../../common/redux/configureStore';
 import { useDispatch, useSelector } from 'react-redux';
-import { actionCreators as postActions } from '../../common/redux/modules/memo';
-import { actionCreators as userActions } from '../../common/redux/modules/user';
+import { actionCreators as memoActions } from '../../common/redux/modules/memo';
 import { actionCreators as petimageActions } from '../../common/redux/modules/petimage';
 import { actionCreators as analysisActions } from '../../common/redux/modules/analysis';
 
@@ -21,7 +19,7 @@ import {
   Input,
 } from '../../common/components';
 import Dropdown from '../Result/Dropdown';
-// import { resultData } from './ResultData';
+import { resultList } from './ResultData';
 import { Keywords } from '../../common/components/Keyword';
 import CopyURL from './CopyURL';
 import BarChart from './BarChart';
@@ -30,20 +28,11 @@ import KakaoShare from './KakaoShare';
 
 const ResultPage = (props) => {
   const dispatch = useDispatch();
-  // const slug = props.match.params.slug;
   const [memo, setMemo] = useState('');
-  // const petimage = useSelector((state) => state.petimage.list);
-  // const is_login = useSelector((state) => state.user.is_login);
-  // const petimage = useSelector((state) => state.petimage.list);
-  const resultList = useSelector((state) => state.analysis.result);
-  console.log('check', resultList.answers);
-  console.log('check2', resultList.needs);
-  const is_session = sessionStorage.getItem('token') ? true : false;
-
-  //
-  // useEffect(() => {
-  //   dispatch(postActions.setPetImageAX(resultList));
-  // }, [resultList]);
+  // const resultList = useSelector((state) => state.analysis.result);
+  const is_login = useSelector((state) => state.user.is_login);
+  const [likeColor, setLikeColor] = useState('var(--white)');
+  const [is_like, setIsLike] = useState(false);
 
   const changeMemo = (e) => {
     setMemo(e.target.value);
@@ -51,7 +40,7 @@ const ResultPage = (props) => {
 
   const addMemo = () => {
     if (!memo) {
-      window.alert('로그인이 필요합니다.');
+      window.alert('로그인 후 이용가능합니다.');
       return;
     }
     if (memo === 0) {
@@ -60,11 +49,44 @@ const ResultPage = (props) => {
     let petmemo = {
       slug: resultList.slug,
       memo: memo,
+      is_like: is_like,
     };
-    console.log(petmemo);
     window.alert('일기가 저장됩니다.');
-    dispatch(postActions.addMemoAX(petmemo));
+    dispatch(memoActions.addMemo(petmemo));
+
     history.push('/mypet');
+  };
+
+  const preventEvent = () => {
+    window.alert('로그인 후 이용가능합니다.');
+  };
+
+  const resetHandler = () => {
+    history.push('/main');
+    window.alert('분석 결과가 사라집니다.');
+    dispatch(petimageActions.initializeImage());
+    dispatch(memoActions.initializeMemo());
+    dispatch(analysisActions.initializeEmotion());
+  };
+
+  const addLike = () => {
+    if (!is_login) {
+      return window.alert('로그인 후 이용가능합니다.');
+    } else {
+      likeColor === 'var(--white)'
+        ? setLikeColor('var(--main)')
+        : setLikeColor('var(--white)');
+      setIsLike(true);
+      dispatch(memoActions.addMemo(is_like));
+    }
+  };
+
+  const cancelLike = () => {
+    likeColor === 'var(--main)'
+      ? setLikeColor('var(--white)')
+      : setLikeColor('var(--main)');
+    setIsLike(false);
+    dispatch(memoActions.addMemo(is_like));
   };
 
   const canvas = useRef();
@@ -96,11 +118,11 @@ const ResultPage = (props) => {
     // ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     const r1Info = { x: 120, y: 180, w: 200, h: 200 };
-    const r1Style = { borderColor: 'red', borderWidth: 10 };
+    const r1Style = { borderColor: '#f69269', borderWidth: 10 };
     drawRect(r1Info, r1Style);
 
     const r2Info = { x: 600, y: 180, w: 200, h: 200 };
-    const r2Style = { borderColor: 'blue', borderWidth: 10 };
+    const r2Style = { borderColor: '#f69269', borderWidth: 10 };
     drawRect(r2Info, r2Style);
   }, []);
 
@@ -108,7 +130,6 @@ const ResultPage = (props) => {
     const { x, y, w, h } = info;
     const { borderColor = 'black', borderWidth = 1 } = style;
 
-    // window.addEventListener('resize', draw);
     ctx.beginPath();
     ctx.strokeStyle = borderColor;
     ctx.lineWidth = borderWidth;
@@ -116,14 +137,9 @@ const ResultPage = (props) => {
     ctx.stroke();
   };
 
-  const resetHandler = () => {
-    dispatch(petimageActions.initializeImage());
-    dispatch(postActions.initializeMemo());
-    dispatch(analysisActions.initializeEmotion());
-    history.push('/main');
-  };
-
   return (
+    // resultList가 있을 때만 작동
+    // resultList?.dog_name ? ( 옵셔녈체이닝
     <Container>
       <Header />
       <Navbar />
@@ -133,6 +149,7 @@ const ResultPage = (props) => {
         </Text>
       </Grid>
 
+      {/* {resultList.dog_coordinate} */}
       <ResultBox>
         <div style={{ width: '1000px', height: '500px', position: 'relative' }}>
           <img
@@ -152,20 +169,50 @@ const ResultPage = (props) => {
           ></canvas>
         </div>
       </ResultBox>
-
       <Grid is_flex_end margin="-2rem 0 0 0">
         <ButtonWrapper>
-          <Button
-            circle
-            foldSize
-            size="3.5"
-            bg="var(--white)"
-            border="0.15rem solid var(--darkcream)"
-            is_flex_center
-            cursor
-          >
-            <BsHeartFill size="1.4rem" color="var(--darkcream)" />
-          </Button>
+          {is_like ? (
+            <Button
+              circle
+              is_flex_center
+              foldSize
+              size="3.5"
+              border="0.15rem solid var(--darkcream)"
+              cursor
+              bg={likeColor}
+              onClick={cancelLike}
+            >
+              <BsHeartFill
+                size="1.4rem"
+                color={
+                  likeColor === 'var(--white)'
+                    ? 'var(--darkcream)'
+                    : 'var(--white)'
+                }
+              />
+            </Button>
+          ) : (
+            <Button
+              circle
+              is_flex_center
+              foldSize
+              size="3.5"
+              border="0.15rem solid var(--darkcream)"
+              cursor
+              bg={likeColor}
+              onClick={addLike}
+            >
+              <BsHeartFill
+                size="1.4rem"
+                color={
+                  likeColor === 'var(--white)'
+                    ? 'var(--darkcream)'
+                    : 'var(--white)'
+                }
+              />
+            </Button>
+          )}
+
           <CopyURL />
           <KakaoShare
             title={`당신의 반려견 ${resultList.dog_name}(이)는 기분은 ${resultList.dog_emotion} 입니다.`}
@@ -177,20 +224,18 @@ const ResultPage = (props) => {
           />
         </ButtonWrapper>
       </Grid>
-
       <Grid margin="2rem auto">
         <Text type="mainTitle" color="var(--main)" marginBottom="2rem">
           {resultList.dog_name}, {resultList.dog_age}살
         </Text>
         <Text type="subTitle">
-          {!is_session ? null : (
+          {!is_login ? null : (
             <Keywords typekeywords={resultList.dog_emotion} />
           )}
           {/* TODO: Keyword에 props에 .character 추가하기 */}
           {/* <Keyword /> */}
         </Text>
       </Grid>
-
       <Grid margin="2rem auto">
         <Text type="subTitle" color="var(--main)" marginBottom="2rem">
           당신이 생각하는 {resultList.dog_name}의 감정상태 일치도는?
@@ -210,7 +255,7 @@ const ResultPage = (props) => {
                 ) : (
                   <div>불일치</div>
                 )} */}
-                <div>{resultList.chemistry_percentage}</div>
+                <div>{resultList.chemistry_percentage} %</div>
               </Text>
             </Grid>
           </Grid>
@@ -246,25 +291,24 @@ const ResultPage = (props) => {
         <Text type="subTitle" color="var(--main)" marginBottom="15px">
           {resultList.dog_name}의 솔루션
         </Text>
-        <Text type="body" color="var(--deepcream)">
-          아직 솔루션이 없어요.
-        </Text>
         {/* <Text type="body" color="var(--deepcream)">
-          {resultList.solution[1]}
-          &nbsp;
-          {resultList.solution[2]}
-          &nbsp;
-          {resultList.solution[3]}
-          &nbsp;
-          {resultList.solution[4]}
+          아직 솔루션이 없어요.
         </Text> */}
+        {resultList?.solution?.map((solution, index) => {
+          return (
+            <Text type="body" color="var(--deepcream)">
+              {solution.solution}
+            </Text>
+          );
+        })}
+        {resultList.solution.solution}
       </Grid>
       <Grid margin="2rem auto">
         <Text type="subTitle" color="var(--main)" marginBottom="15px">
           {resultList.dog_name}에게 필요한 것
         </Text>
         <Grid flexWrap="wrap" width="100%" is_flex margin="0 0 3rem 0">
-          {/* {resultList.needs.map((need, index) => {
+          {resultList?.needs?.map((need, index) => {
             return (
               <Dropdown
                 name={need.name}
@@ -272,20 +316,29 @@ const ResultPage = (props) => {
                 key={index}
               />
             );
-          })} */}
+          })}
         </Grid>
       </Grid>
-
       <Grid margin="2rem auto">
         <Text type="subTitle" color="var(--main)" marginBottom="15px">
           오늘의 감정일기
         </Text>
-        <Input
-          multiLine
-          value={memo}
-          onChange={changeMemo}
-          placeholder="결과를 보고 느낀 감정을 작성해주세요."
-        />
+        {!is_login ? (
+          <div onClick={preventEvent} style={{ cursor: 'pointer' }}>
+            <Input
+              multiLine
+              disabled
+              placeholder="결과를 보고 느낀 감정을 작성해주세요."
+            />
+          </div>
+        ) : (
+          <Input
+            multiLine
+            value={memo}
+            onChange={changeMemo}
+            placeholder="결과를 보고 느낀 감정을 작성해주세요."
+          />
+        )}
       </Grid>
       <Grid is_flex margin="1rem auto">
         <Button
@@ -317,6 +370,10 @@ const ResultPage = (props) => {
         </Button>
       </Grid>
     </Container>
+
+    // : (
+    //   <div>로딩중</div>
+    // )
   );
 };
 

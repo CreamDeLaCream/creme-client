@@ -42,7 +42,6 @@ export const Intro1st = (props) => {
           color="var(--lightcream)"
           margin="20px 0 0 0"
           onClick={() => {
-            console.log('넘어감');
             history.push('/main');
           }}
           cursor

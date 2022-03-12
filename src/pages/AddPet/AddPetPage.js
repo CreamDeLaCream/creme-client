@@ -28,7 +28,6 @@ const AddPetPage = (props) => {
     day: '',
     name: '',
   });
-  console.log(inputData);
 
   const onChangeData = (name, value) => {
     setInputData({

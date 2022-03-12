@@ -36,9 +36,7 @@ const MainPage = (props) => {
   const [files, setFiles] = useState([]);
   const [age, setAge] = useState('');
   const [name, setName] = useState('');
-  // const pet_image_list = useSelector((state) => state.petimage.list);
-  const is_session = sessionStorage.getItem('token') ? true : false;
-  // const is_login = useSelector((state) => state.user.user);
+  const is_login = useSelector((state) => state.user.is_login);
 
   // 업로드 방식 모달
   const [modalOpen, setModalOpen] = useState(false);
@@ -62,8 +60,7 @@ const MainPage = (props) => {
       image: files[0],
     };
     dispatch(postActions.addPetImageAX(petimage));
-    console.log('petimage main', petimage.slug);
-    history.replace(`/analysis`);
+    // history.replace(`/analysis`);
   };
 
   const changeName = (e) => {
@@ -72,6 +69,11 @@ const MainPage = (props) => {
 
   const changeAge = (e) => {
     setAge(e.target.value);
+  };
+
+  const inputButtonEvent = (itemName, itemAge) => {
+    setAge(itemAge);
+    setName(itemName);
   };
 
   return (
@@ -83,14 +85,14 @@ const MainPage = (props) => {
         <Text type="mainTitle" color="var(--main)" padding-top="30px">
           반려견 감정상태
         </Text>
-        {!is_session ? null : (
+        {!is_login ? null : (
           <>
             <Grid margin="2rem auto">
               <Text type="mainTitle" color="var(--blackcream)">
                 감정상태를 분석할 댕댕이를 골라주세요.
               </Text>
             </Grid>
-            <SelectPetName />
+            <SelectPetName inputHandler={inputButtonEvent} />
           </>
         )}
 
@@ -187,7 +189,6 @@ const MainPage = (props) => {
                     <Button
                       width="4rem"
                       height="4rem"
-                      // padding="0.5rem"
                       bg="var(--main)"
                       color="var(--white)"
                       radius="50%"
@@ -222,14 +223,8 @@ const MainSection = styled.div`
 `;
 
 const ButtonWrapper = styled.div`
-  // background-color: var(--cream);
-  // justify-content: space-between;
-  /* display: flex;
-  justify-content: center; */
-  /* margin-right: 2rem;*/
   margin-bottom: 3rem;
   ${({ theme }) => theme.device.mobile} {
-    /* width: 48%; */
     display: flex;
     justify-content: center;
   }

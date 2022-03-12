@@ -74,7 +74,6 @@ const AddUserLifePage = (props) => {
           color="var(--white)"
           cursor
           onClick={() => {
-            console.log('완료');
             history.push('/mypet');
           }}
         >

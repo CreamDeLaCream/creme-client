@@ -115,7 +115,7 @@ const TestSection = styled.div`
   justify-content: space-between;
 `;
 
-const ImageSetion = styled.div`
+const ImageSection = styled.div`
   width: 320px;
   height: 750px;
 
@@ -133,4 +133,5 @@ const ImageSetion = styled.div`
     bottom: 85px;
   }
 `;
+
 export default AnalysisPage;

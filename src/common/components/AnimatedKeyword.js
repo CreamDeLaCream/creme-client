@@ -163,7 +163,7 @@ export const AnimatedKeyword = ({
           flexWrap: 'wrap',
         }}
         onClick={() => {
-          console.log(keywordBalls);
+          // console.log(keywordBalls);
         }}
       >
         {clickedKeywords.map((clickedKeyword) => {

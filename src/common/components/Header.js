@@ -9,7 +9,6 @@ import { actionCreators as userActions } from '../../common/redux/modules/user';
 // components
 import { Logo, Modal, Text, Grid, Button } from './';
 import { KAKAO_AUTH_URL } from '../utils/OAuth';
-import { getCookie, deleteCookie } from '../utils/Cookie';
 
 const Header = (props) => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -19,7 +18,7 @@ const Header = (props) => {
 
   useEffect(() => {
     if (!is_login) {
-      dispatch(userActions.loginCheck(getCookie('is_login')));
+      dispatch(userActions.loginCheck('/'));
     }
   }, [is_login]);
 
@@ -60,13 +59,14 @@ const Header = (props) => {
                 {props.page === 'headermenu' ? (
                   <LoginButton
                     onClick={() => {
-                      // dispatch(userActions.logOut());
+                      dispatch(userActions.logOut());
                     }}
                   >
                     <Text
                       whiteSpace="nowrap"
                       type="button"
                       color="var(--white)"
+                      center
                     >
                       {userInfo.username}님
                     </Text>
@@ -128,6 +128,12 @@ const InsideBox = styled.div`
   height: 100%;
   margin: 0 auto;
   padding: 0 2rem;
+  /* ${({ theme }) => theme.device.mobile} {
+    padding: 0 1rem 0 2rem;
+  } */
+  ${({ theme }) => theme.device.fold} {
+    padding: 0 1rem 0 2rem;
+  }
 `;
 
 const LeftSide = styled.section`
@@ -145,16 +151,14 @@ const LoginButton = styled.button`
   padding: 0.4rem;
   border-radius: 15px;
   display: flex;
+  justify-content: center;
   align-items: center;
   background-color: var(--main);
   cursor: pointer;
   border: none;
-  margin-bottom: -0.8rem;
-  ${({ theme }) => theme.device.mobile} {
-    margin-left: 1.7rem;
-  }
+  /* margin-bottom: -0.8rem; */
   ${({ theme }) => theme.device.fold} {
-    margin-left: 0.8rem;
+    margin-left: 3rem;
   }
 `;
 

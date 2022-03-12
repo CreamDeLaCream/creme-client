@@ -7,10 +7,7 @@ import { history } from '../../common/redux/configureStore';
 // components
 import { Grid } from '../../common/components';
 
-const SelectPetName = () => {
-  const inputHandler = () => {
-    // history.push('/');
-  };
+const SelectPetName = ({ inputHandler }) => {
   return (
     <Grid margin="2rem auto" display="flex" justifyContent="space-between">
       <Grid
@@ -22,9 +19,15 @@ const SelectPetName = () => {
       >
         {['옥자', '지노'].map((item) => (
           <Grid is_flex_center margin="0 0 1rem 0">
-            <Radio key={item}>
+            <Radio
+              key={item}
+              onClick={() => {
+                inputHandler(item, 5);
+                // console.log('item', item);
+              }}
+            >
               <input type="radio" name="feeling" value={item} />
-              <span onClick={inputHandler}>{item}</span>
+              <span>{item}</span>
             </Radio>
           </Grid>
         ))}

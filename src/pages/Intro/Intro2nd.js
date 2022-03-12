@@ -46,7 +46,6 @@ export const Intro2nd = (props) => {
           color="var(--deepcream)"
           margin="30px 0 0 0"
           onClick={() => {
-            console.log('넘어감');
             history.push('/adduserlife');
           }}
           cursor

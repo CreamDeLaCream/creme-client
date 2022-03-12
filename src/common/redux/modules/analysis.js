@@ -16,7 +16,7 @@ const addEmotion = createAction(ADD_EMOTION, (ques, ans, slug) => ({
 const setResult = createAction(SET_RESULT, (result) => ({
   result,
 }));
-const initializeEmotion = createAction(INITIALIZE_EMOTION, () => {});
+const initializeEmotion = createAction(INITIALIZE_EMOTION, () => ({}));
 
 // InitialState
 const initialState = {
@@ -26,7 +26,7 @@ const initialState = {
     2: null,
     3: null,
   },
-  result: [],
+  result: {},
 };
 
 // middleware
@@ -51,6 +51,7 @@ const addEmotionAX = (name, value, slug) => {
         ],
       })
       .then((res) => {
+        // console.log('result response', res);
         const result = {
           answers: res.data.answers,
           chemistry_percentage: res.data.chemistry_percentage,
@@ -60,6 +61,7 @@ const addEmotionAX = (name, value, slug) => {
           dog_emotion: res.data.dog_emotion,
           dog_emotion_description: res.data.dog_emotion_description,
           dog_emotion_percentage: res.data.dog_emotion_percentage,
+          dog_coordinate: res.data.dog_coordinate,
           dog_name: res.data.dog_name,
           human_emotion: res.data.human_emotion,
           human_emotion_percentage: res.data.human_emotion_percentage,
@@ -69,14 +71,16 @@ const addEmotionAX = (name, value, slug) => {
           needs: res.data.needs,
           slug: res.data.slug,
           status: res.data.status,
+          solution: res.data.solution,
           // ...user,
         };
-        console.log('asdf', result);
+
         dispatch(setResult(result));
         // window.location.reload();
       })
       .catch((err) => {
         console.log('데이터 전송 실패', err);
+        // window.alert('사진을 다시 확인해주세요.');
       });
   };
 };
@@ -88,7 +92,6 @@ export default handleActions(
       produce(state, (draft) => {
         draft.emotionResult[action.payload.ques] = action.payload.ans;
         draft.slug = action.payload.slug;
-        console.log('action', action);
       }),
     [SET_RESULT]: (state, action) =>
       produce(state, (draft) => {
@@ -103,7 +106,6 @@ export default handleActions(
           2: null,
           3: null,
         };
-        // draft.result_list = action.payload.result_list;
       });
     },
   },
