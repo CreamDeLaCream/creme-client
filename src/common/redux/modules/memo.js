@@ -20,32 +20,32 @@ const initialState = {
 // middleware
 const addMemoAX = ({ slug, memo, is_like }) => {
   return function (dispatch, getState, { history }) {
-    const token = sessionStorage.getItem('token');
+    // const token = sessionStorage.getItem('token');
     // const header = {
     //   Authorization: `Bearer ${token}`,
     // };
-    if (token) {
-      // header.Authorization = `Bearer ${token}`;
-      api
-        .post(`analysis/result/completed`, {
-          slug: slug,
-          memo: memo,
-          is_favorite: is_like,
-        })
-        .then((res) => {
-          // console.log(res);
-          // dispatch(writeTextPage(response.data.comments));
-          dispatch(addMemo(res.data));
-          console.log(res.data);
-          // dispatch(addMemo(slug, memo, is_like));
-          // window.location.reload();
-        })
-        .catch((err) => {
-          console.log('메모 전송 실패', err);
-        });
-    }
+    // if (token) {
+    // header.Authorization = `Bearer ${token}`;
+    api
+      .post(`analysis/result/completed`, {
+        slug: slug,
+        memo: memo,
+        is_favorite: is_like,
+      })
+      .then((res) => {
+        // console.log(res);
+        // dispatch(writeTextPage(response.data.comments));
+        dispatch(addMemo(res.data));
+        console.log(res.data);
+        // dispatch(addMemo(slug, memo, is_like));
+        // window.location.reload();
+      })
+      .catch((err) => {
+        console.log('메모 전송 실패', err);
+      });
   };
 };
+// };
 
 // Reducer
 export default handleActions(
