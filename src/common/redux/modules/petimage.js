@@ -31,9 +31,9 @@ const addPetImageAX = ({ name, age, image }) => {
     const header = {
       'Content-Type': 'multipart/form-data',
     };
-    if (token) {
-      header.Authorization = `Bearer ${token}`;
-    }
+    // if (token) {
+    //   header.Authorization = `Bearer ${token}`;
+    // }
     api
       .post(`/analysis/pet`, formData, { headers: header })
       .then((res) => {

@@ -46,32 +46,33 @@ const kakaoLogin = (code) => {
 // 페이지가 새로고침 되는 상황마다 user check 후 리덕스에 정보 저장
 const loginCheck = () => {
   return function (dispatch, getState, { history }) {
-    const token = sessionStorage.getItem('token');
+    // const token = sessionStorage.getItem('token');
 
-    if (token) {
-      const header = {
-        Authorization: `Bearer ${token}`,
-      };
-      api
-        .get('users/', { headers: header })
-        .then((res) => {
-          const user = {
-            user_id: res.data.id,
-            username: res.data.username,
-          };
-          if (res.data) {
-            dispatch(setUser({ ...user }));
-          } else {
-            window.alert(`로그인에 실패하였습니다.`);
-            dispatch(loginCheck(sessionStorage.getItem('is_login')));
-          }
-        })
-        .catch((e) => {
-          console.log('에러발생', e);
-        });
-    }
+    // if (token) {
+    // const header = {
+    //   Authorization: `Bearer ${token}`,
+    // };
+    api
+      .get('users/')
+      .then((res) => {
+        const user = {
+          user_id: res.data.id,
+          username: res.data.username,
+        };
+
+        if (res.data) {
+          dispatch(setUser({ ...user }));
+        } else {
+          window.alert(`로그인에 실패하였습니다.`);
+          dispatch(loginCheck(sessionStorage.getItem('is_login')));
+        }
+      })
+      .catch((e) => {
+        console.log('에러발생', e);
+      });
   };
 };
+// };
 
 const kakaoLogOut = (code) => {
   return function (dispatch, getState, { history }) {
