@@ -3,12 +3,12 @@ import thunk from 'redux-thunk';
 import { createBrowserHistory } from 'history';
 import { connectRouter } from 'connected-react-router';
 
-// // reducer
+// // reducer (여기만 보셈)
 import User from './modules/user';
 import Analysis from './modules/analysis';
 import PetImage from './modules/petimage';
 import Memo from './modules/memo';
-// import Post from './modules/post';
+// import Post from './modules/post'; (예시)
 
 // 브라우저 히스토리를 만듭니다.
 export const history = createBrowserHistory(); // connected-react-router에 필요

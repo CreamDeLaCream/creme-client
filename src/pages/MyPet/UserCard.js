@@ -31,9 +31,12 @@ export const UserCard = ({ isLoggedIN, history }) => {
             }
           }}
         >
+          {/* {isLoggedIN
+            ? '반가운 영광님의 라이프스타일'
+            : '당신의 라이프스타일은 어떠한가요?'} */}
           {isLoggedIN
-            ? '반가운 레아님의 라이프스타일'
-            : '당신의 라이프스타일은 어떠한가요?'}
+            ? '당신의 라이프스타일은 어떠한가요?'
+            : '반가운 영광님의 라이프스타일'}
         </UserName>
 
         <KeywordsWrapper>

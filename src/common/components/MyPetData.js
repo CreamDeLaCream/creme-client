@@ -1,7 +1,7 @@
 export const MyPetData = [
   {
     id: 0,
-    name: 'Okja',
+    name: '옥자',
     age: 4,
     character: [
       '애교많음',

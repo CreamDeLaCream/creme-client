@@ -39,7 +39,7 @@ export const MypetCard = ({
             <MyPetContent>
               <p>MyPet</p>
               <MyPetName>
-                <span style={{ color: 'var(--blackcream)' }}>서연</span>님의
+                <span style={{ color: 'var(--blackcream)' }}>영광</span>님의
                 댕댕이
                 <br />{' '}
                 <b
