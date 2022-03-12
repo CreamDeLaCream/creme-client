@@ -19,7 +19,7 @@ import {
   Input,
 } from '../../common/components';
 import Dropdown from '../Result/Dropdown';
-// import { resultList } from './ResultData';
+import { resultList } from './ResultData';
 import { Keywords } from '../../common/components/Keyword';
 import CopyURL from './CopyURL';
 import BarChart from './BarChart';
@@ -29,7 +29,7 @@ import KakaoShare from './KakaoShare';
 const ResultPage = (props) => {
   const dispatch = useDispatch();
   const [memo, setMemo] = useState('');
-  const resultList = useSelector((state) => state.analysis.result);
+  // const resultList = useSelector((state) => state.analysis.result);
   const is_login = useSelector((state) => state.user.is_login);
   const [likeColor, setLikeColor] = useState('var(--white)');
   const [is_like, setIsLike] = useState(false);
@@ -118,11 +118,11 @@ const ResultPage = (props) => {
     // ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     const r1Info = { x: 120, y: 180, w: 200, h: 200 };
-    const r1Style = { borderColor: 'red', borderWidth: 10 };
+    const r1Style = { borderColor: '#f69269', borderWidth: 10 };
     drawRect(r1Info, r1Style);
 
     const r2Info = { x: 600, y: 180, w: 200, h: 200 };
-    const r2Style = { borderColor: 'blue', borderWidth: 10 };
+    const r2Style = { borderColor: '#f69269', borderWidth: 10 };
     drawRect(r2Info, r2Style);
   }, []);
 
@@ -291,18 +291,17 @@ const ResultPage = (props) => {
         <Text type="subTitle" color="var(--main)" marginBottom="15px">
           {resultList.dog_name}의 솔루션
         </Text>
-        <Text type="body" color="var(--deepcream)">
-          아직 솔루션이 없어요.
-        </Text>
         {/* <Text type="body" color="var(--deepcream)">
-          {resultList.solution[1]}
-          &nbsp;
-          {resultList.solution[2]}
-          &nbsp;
-          {resultList.solution[3]}
-          &nbsp;
-          {resultList.solution[4]}
+          아직 솔루션이 없어요.
         </Text> */}
+        {resultList?.solution?.map((solution, index) => {
+          return (
+            <Text type="body" color="var(--deepcream)">
+              {solution.solution}
+            </Text>
+          );
+        })}
+        {resultList.solution.solution}
       </Grid>
       <Grid margin="2rem auto">
         <Text type="subTitle" color="var(--main)" marginBottom="15px">

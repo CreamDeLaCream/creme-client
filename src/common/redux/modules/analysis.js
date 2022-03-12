@@ -71,6 +71,7 @@ const addEmotionAX = (name, value, slug) => {
           needs: res.data.needs,
           slug: res.data.slug,
           status: res.data.status,
+          solution: res.data.solution,
           // ...user,
         };
 
