@@ -77,9 +77,7 @@ const InputBoxBirth = ({ data, onChangeData, files, onChangeFile }) => {
               onChange={(e) => {
                 onChangeData(
                   'month',
-                  e.target.value.length === 2
-                    ? e.target.value
-                    : `0${e.target.value}`,
+                  e.target.value
                 );
               }}
             />
@@ -90,9 +88,7 @@ const InputBoxBirth = ({ data, onChangeData, files, onChangeFile }) => {
               onChange={(e) => {
                 onChangeData(
                   'day',
-                  e.target.value.length === 2
-                    ? e.target.value
-                    : `0${e.target.value}`,
+                  e.target.value
                 );
               }}
             />

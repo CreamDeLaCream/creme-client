@@ -4,8 +4,10 @@ import styled from 'styled-components';
 // components
 import { Keywords } from '../../common/components/Keyword';
 import { Button } from '../../common/components';
+import { useSelector } from 'react-redux';
 
-export const UserCard = ({ isLoggedIN, history }) => {
+export const UserCard = ({ history }) => {
+  const user = useSelector((state) => state.user);
   const CrrentUserKeywordData = [
     '28세',
     '부모님과 함께 삼',
@@ -22,25 +24,21 @@ export const UserCard = ({ isLoggedIN, history }) => {
       <UserContent>
         <p>Partner</p>
         <UserName
-          isLoggedIN
           onClick={() => {
-            if (isLoggedIN) {
+            if (user?.is_login) {
               //
             } else {
               //
             }
           }}
         >
-          {/* {isLoggedIN
-            ? '반가운 영광님의 라이프스타일'
-            : '당신의 라이프스타일은 어떠한가요?'} */}
-          {isLoggedIN
-            ? '당신의 라이프스타일은 어떠한가요?'
-            : '반가운 영광님의 라이프스타일'}
+          {user?.is_login
+            ? `반가운 ${user?.user.username}님의 라이프스타일`
+            : '당신의 라이프스타일은 어떠한가요?'}
         </UserName>
 
         <KeywordsWrapper>
-          {isLoggedIN ? (
+          {user?.is_login ? (
             CrrentUserKeywordData.map((userlifestyle, i) => {
               return <Keywords typekeywords={userlifestyle} />;
             })

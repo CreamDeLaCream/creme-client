@@ -30,13 +30,17 @@ import api from '../../common/utils/API';
 const MyPetPage = (props) => {
   // const isLogin = useSelector((state) => state.user.is_login);
   const [petImage, setPetImage] = useState(AnalysisData);
-  // const [petImage, setPetImage] = useState(null);
-
-  // useEffect(() => {
-  //   api.get('/dogs').then((res) => {
-  //     setPetImage(res);
-  //   });
-  // }, []);
+  const [myPetData, setMyPetData] = useState(null);
+  console.log(myPetData)
+  const token = sessionStorage.getItem('token');
+  useEffect(() => {
+      const header = {
+        Authorization: `Bearer ${token}`,
+      };
+    api.get('/dogs/', { headers: header }).then((res) => {
+      setMyPetData(res.data);
+    });
+  }, [token]);
 
   const concatImage = () => {
     const temp = petImage.concat(AnalysisData);
@@ -46,15 +50,10 @@ const MyPetPage = (props) => {
     //   setCard(temp);
     // })
   };
-
-  //axios 연결 하면 null 담아주기
-
-  let [myPetData, setMyPetData] = useState(MyPetData[0]);
   const [cardNum, setCardNum] = useState(0);
   const onClickAnotherCard = (num) => {
     if (cardNum !== num) {
       setCardNum(num);
-      setMyPetData(MyPetData[num]);
     }
   };
 
@@ -84,7 +83,7 @@ const MyPetPage = (props) => {
     setClickedMyPet(e);
   };
 
-  if (petImage === null) {
+  if (myPetData === null) {
     return <></>;
   }
 

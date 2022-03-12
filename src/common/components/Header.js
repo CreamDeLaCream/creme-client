@@ -68,7 +68,7 @@ const Header = (props) => {
                       color="var(--white)"
                       center
                     >
-                      {userInfo.username}님
+                      {userInfo?.username}님
                     </Text>
                   </LoginButton>
                 ) : null}

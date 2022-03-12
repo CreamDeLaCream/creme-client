@@ -19,6 +19,7 @@ import { Keywords } from '../../common/components/Keyword';
 import { MyPetData } from './MyPetData';
 import InputBox from '../../common/components/InputBox';
 import InputBoxBirth from './InputBoxBirth';
+import { useLocation } from 'react-router';
 
 const AddPetPage = (props) => {
   const [myPetData, setMyPetData] = useState(MyPetData);
@@ -28,6 +29,10 @@ const AddPetPage = (props) => {
     day: '',
     name: '',
   });
+  const location = useLocation();
+  const redirectedForEdit = location.state?.redirectedForEdit;
+
+  const dog_id = 1; // 후에 리덕스에서 받아와야함
 
   const onChangeData = (name, value) => {
     setInputData({
@@ -37,17 +42,36 @@ const AddPetPage = (props) => {
   };
 
   const addPet = () => {
-    // access token도 보내기
-    api
-      .post('/dogs', {
-        name: inputData.name,
-        birth: `${inputData.year}-${inputData.month}-${inputData.day}`,
-        image: files[0],
-        keywords: clickedKeywords,
-      })
+    const token = sessionStorage.getItem('token');
+    const header = {
+      'Content-Type': 'multipart/form-data', // 영광님 오면 바꿔야함
+    };
+    if (token) {
+      header.Authorization = `Bearer ${token}`;
+    }
+
+    const data = new FormData()
+    data.append('name', inputData.name);
+    data.append('birth', `${inputData.year}-${inputData.month.length === 1 ? `0${inputData.month}` : inputData.month}-${inputData.day.length === 1 ? `0${inputData.day}` : inputData.day}`, );
+    data.append('image', files[0]);
+    data.append('dog_keyword', clickedKeywords);
+    if(redirectedForEdit){
+      api
+      .put(`/dogs/${dog_id}`, data, { headers: header })
       .then((res) => {
+        console.log("put",res)
         history.push('/myPet');
       });
+    }
+    else{
+      api
+      .post('/dogs/', data, { headers: header })
+      .then((res) => {
+        console.log("post",res)
+        history.push('/myPet');
+      });
+    }
+    
   };
 
   const [files, setFiles] = useState([]);
@@ -58,7 +82,7 @@ const AddPetPage = (props) => {
       <Header />
       <Navbar />
       <Text type="mainTitle" color="var(--main)" padding-top="30px">
-        마이펫 추가하기
+        {redirectedForEdit ? '마이펫 변경하기' : '마이펫 추가하기'}
       </Text>
 
       <AddPetSection>

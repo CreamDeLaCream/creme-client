@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { actionCreators as userActions } from '../../common/redux/modules/user';
 
@@ -20,10 +21,28 @@ const KakaoRedirect = (props) => {
   return (
     <Container>
       <Text type="mainTitle" color="var(--deepcream)">
-        로그인 중
+        로그인 중입니다. 잠시만 기다려주세요.
       </Text>
+      <ImgSection>
+        <img
+          alt=""
+          src={process.env.PUBLIC_URL + `/Image/dog3.gif`}
+          width="400px"
+          height="300px"
+        />
+      </ImgSection>
     </Container>
   );
 };
+
+const ImgSection = styled.div`
+  width: 100%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  background-color: #fbfbfb;
+  border-radius: 20px;
+  border: solid 1px var(--cream);
+`;
 
 export default KakaoRedirect;
