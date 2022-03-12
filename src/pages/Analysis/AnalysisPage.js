@@ -22,8 +22,14 @@ const AnalysisPage = (props) => {
   const petimage = useSelector((state) => state.petimage.list);
 
   const sendSlug = (name, value) => {
-    dispatch(analysisActions.addEmotionAX(name, value, petimage[0].slug));
-    history.push(`/result/${petimage[0].slug}`);
+    dispatch(
+      analysisActions.addEmotionAX(
+        name,
+        value,
+        petimage[petimage.length - 1].slug,
+      ),
+    );
+    history.push(`/result/${petimage[petimage.length - 1].slug}`);
   };
 
   return (
@@ -71,14 +77,12 @@ const AnalysisPage = (props) => {
 };
 
 const Analysisbg = styled.div`
-  // background-color: var(--bggray);
   width: 100%;
   height: calc(160vh - 100px);
 `;
 
 const TestContentWrapper = styled.div`
   width: 100%;
-  // background-color: var(--main);
   display: flex;
   flex-wrap: wrap;
   margin-top: 50px;
@@ -102,36 +106,12 @@ const ButtonWrapper = styled.div`
   margin-bottom: 50px;
 `;
 
-const Ment = styled.div`
-  width: 100%;
-`;
-
 const TestSection = styled.div`
   width: 100%;
   color: var(--darkcream);
-  // background-color: var(--cream);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-`;
-
-const ImageSection = styled.div`
-  width: 320px;
-  height: 750px;
-
-  img {
-    width: 320px;
-    height: 320px;
-    border-radius: 50%;
-    overflow: hidden;
-  }
-
-  Button {
-    position: absolute;
-    // float: right;
-    right: 60px;
-    bottom: 85px;
-  }
 `;
 
 export default AnalysisPage;

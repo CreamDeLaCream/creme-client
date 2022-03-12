@@ -91,23 +91,16 @@ export default handleActions(
     [ADD_EMOTION]: (state, action) =>
       produce(state, (draft) => {
         draft.emotionResult[action.payload.ques] = action.payload.ans;
-        draft.slug = action.payload.slug;
       }),
     [SET_RESULT]: (state, action) =>
       produce(state, (draft) => {
         draft.result = action.payload.result;
         // draft.list.push(...action.payload.result_list);
       }),
-    [INITIALIZE_EMOTION]: (state, action) => {
+    [INITIALIZE_EMOTION]: (state) =>
       produce(state, (draft) => {
-        draft.emotionResult = {
-          0: null,
-          1: null,
-          2: null,
-          3: null,
-        };
-      });
-    },
+        draft.emotionResult = { state, 0: null, 1: null, 2: null, 3: null };
+      }),
   },
   initialState,
 );

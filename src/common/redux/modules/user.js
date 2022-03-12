@@ -26,11 +26,15 @@ const kakaoLogin = (code) => {
       .get(`/users/kakao/callback?code=${code}`)
       .then((res) => {
         // console.log('token', res);
+        console.log('res', res);
         const ACCESS_TOKEN = res.data.access;
         const REFRESH_TOKEN = res.data.refresh;
 
         sessionStorage.setItem('token', ACCESS_TOKEN);
         sessionStorage.setItem('refresh', REFRESH_TOKEN);
+
+        // setCookie('access', ACCESS_TOKEN);
+        // setCookie('refresh', REFRESH_TOKEN);
 
         dispatch(loginCheck(ACCESS_TOKEN));
 
@@ -46,33 +50,33 @@ const kakaoLogin = (code) => {
 // 페이지가 새로고침 되는 상황마다 user check 후 리덕스에 정보 저장
 const loginCheck = () => {
   return function (dispatch, getState, { history }) {
-    // const token = sessionStorage.getItem('token');
+    const token = sessionStorage.getItem('token');
 
-    // if (token) {
-    // const header = {
-    //   Authorization: `Bearer ${token}`,
-    // };
-    api
-      .get('users/')
-      .then((res) => {
-        const user = {
-          user_id: res.data.id,
-          username: res.data.username,
-        };
+    if (token) {
+      const header = {
+        Authorization: `Bearer ${token}`,
+      };
+      api
+        .get('users/')
+        .then((res) => {
+          const user = {
+            user_id: res.data.id,
+            username: res.data.username,
+          };
 
-        if (res.data) {
-          dispatch(setUser({ ...user }));
-        } else {
-          window.alert(`로그인에 실패하였습니다.`);
-          dispatch(loginCheck(sessionStorage.getItem('is_login')));
-        }
-      })
-      .catch((e) => {
-        console.log('에러발생', e);
-      });
+          if (res.data) {
+            dispatch(setUser({ ...user }));
+          } else {
+            window.alert(`로그인에 실패하였습니다.`);
+            dispatch(loginCheck(sessionStorage.getItem('is_login')));
+          }
+        })
+        .catch((e) => {
+          console.log('에러발생', e);
+        });
+    }
   };
 };
-// };
 
 const kakaoLogOut = (code) => {
   return function (dispatch, getState, { history }) {
@@ -95,6 +99,7 @@ export default handleActions(
   {
     [SET_USER]: (state, action) =>
       produce(state, (draft) => {
+        // setCookie('is_login', 'success');
         sessionStorage.setItem('is_login', 'success');
         draft.user = action.payload.user;
         draft.is_login = true;

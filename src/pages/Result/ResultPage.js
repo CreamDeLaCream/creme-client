@@ -18,9 +18,9 @@ import {
   Container,
   Input,
 } from '../../common/components';
-import Dropdown from '../Result/Dropdown';
+import Dropdown from './Dropdown';
 // import { resultList } from './ResultData';
-import { Keywords } from '../../common/components/Keyword';
+import Keywords from './Keywords';
 import CopyURL from './CopyURL';
 import BarChart from './BarChart';
 import { BsHeartFill, BsReplyAllFill, BsPersonCheckFill } from 'react-icons/bs';
@@ -33,17 +33,19 @@ const ResultPage = (props) => {
   const is_login = useSelector((state) => state.user.is_login);
   const [likeColor, setLikeColor] = useState('var(--white)');
   const [is_like, setIsLike] = useState(false);
+  const petmemo = useSelector((state) => state.memo.petmemo);
 
   const changeMemo = (e) => {
     setMemo(e.target.value);
   };
 
   const addMemo = () => {
-    if (!memo) {
+    if (!is_login) {
       window.alert('로그인 후 이용가능합니다.');
       return;
     }
     if (memo === 0) {
+      window.alert('반려견의 일기를 작성해주세요.');
       return;
     }
     let petmemo = {
@@ -52,7 +54,7 @@ const ResultPage = (props) => {
       is_like: is_like,
     };
     window.alert('일기가 저장됩니다.');
-    dispatch(memoActions.addMemo(petmemo));
+    dispatch(memoActions.addMemoAX(petmemo));
 
     history.push('/mypet');
   };
@@ -77,7 +79,7 @@ const ResultPage = (props) => {
         ? setLikeColor('var(--main)')
         : setLikeColor('var(--white)');
       setIsLike(true);
-      dispatch(memoActions.addMemoAX(is_like));
+      dispatch(memoActions.addMemoAX(petmemo));
     }
   };
 
@@ -86,56 +88,58 @@ const ResultPage = (props) => {
       ? setLikeColor('var(--white)')
       : setLikeColor('var(--main)');
     setIsLike(false);
-    dispatch(memoActions.addMemoAX(is_like));
+    dispatch(memoActions.addMemo(petmemo));
   };
 
   const canvas = useRef();
   let ctx = null;
 
-  // initialize the canvas context
   useEffect(() => {
-    // dynamically assign the width and height to canvas
     const canvasEle = canvas.current;
     canvasEle.width = canvasEle.clientWidth;
     canvasEle.height = canvasEle.clientHeight;
-
-    // get context of the canvas
     ctx = canvasEle.getContext('2d');
-    // const ctx = canvasRef.current.getContext('2d');
-
-    // handleResize();
-    // window.addEventListener('resize', handleResize);
-
-    // return () => window.removeEventListener('resize', handleResize);
   }, []);
-  // const canvasRef = useRef();
-  // useEffect(() => {
-  //   // requestAnimationFrame(() => draw(ctx));
-  // }, []);
 
   useEffect(() => {
-    // ctx.clearRect(0, 0, canvas.width, canvas.height);
-    // ctx.fillRect(0, 0, canvas.width, canvas.height);
+    const drawRect = (info, style = {}) => {
+      const { x, y, w, h } = info;
+      const { borderColor = 'black', borderWidth = 1 } = style;
 
-    const r1Info = { x: 120, y: 180, w: 200, h: 200 };
-    const r1Style = { borderColor: '#f69269', borderWidth: 10 };
-    drawRect(r1Info, r1Style);
+      ctx.beginPath();
+      ctx.strokeStyle = borderColor;
+      ctx.lineWidth = borderWidth;
+      ctx.rect(x, y, w, h);
+      ctx.stroke();
+    };
 
-    const r2Info = { x: 600, y: 180, w: 200, h: 200 };
-    const r2Style = { borderColor: '#f69269', borderWidth: 10 };
-    drawRect(r2Info, r2Style);
-  }, []);
+    if (resultList.dogCoordinate) {
+      const dogCoordinate = resultList.dog_coordinate.split(',');
+      const humanCoordinate = resultList.human_coordinate.split(',');
+      const r1Info = {
+        x: dogCoordinate[0],
+        y: dogCoordinate[1],
+        w: dogCoordinate[2],
+        h: dogCoordinate[3],
+      };
+      const r1Style = { borderColor: 'yellowgreen', borderWidth: 10 };
+      drawRect(r1Info, r1Style);
 
-  const drawRect = (info, style = {}) => {
-    const { x, y, w, h } = info;
-    const { borderColor = 'black', borderWidth = 1 } = style;
-
-    ctx.beginPath();
-    ctx.strokeStyle = borderColor;
-    ctx.lineWidth = borderWidth;
-    ctx.rect(x, y, w, h);
-    ctx.stroke();
-  };
+      const r2Info = {
+        x: humanCoordinate[0],
+        y: humanCoordinate[1],
+        w: humanCoordinate[2],
+        h: humanCoordinate[3],
+      };
+      const r2Style = { borderColor: 'yellow', borderWidth: 10 };
+      drawRect(r2Info, r2Style);
+    }
+  }, [
+    ctx,
+    resultList.dogCoordinate,
+    resultList.dog_coordinate,
+    resultList.human_coordinate,
+  ]);
 
   return (
     // resultList가 있을 때만 작동
@@ -143,13 +147,13 @@ const ResultPage = (props) => {
     <Container>
       <Header />
       <Navbar />
+
       <Grid margin="1rem auto">
         <Text type="mainTitle" color="var(--main)">
           반려견 감정 상태 결과
         </Text>
       </Grid>
 
-      {/* {resultList.dog_coordinate} */}
       <ResultBox>
         <div style={{ width: '1000px', height: '500px', position: 'relative' }}>
           <img
@@ -169,6 +173,7 @@ const ResultPage = (props) => {
           ></canvas>
         </div>
       </ResultBox>
+
       <Grid is_flex_end margin="-2rem 0 0 0">
         <ButtonWrapper>
           {is_like ? (
@@ -247,7 +252,7 @@ const ResultPage = (props) => {
               <Text
                 center
                 fontSize="5rem"
-                color="var(--main)"
+                color="var(--darkcream)"
                 whiteSpace="nowrap"
               >
                 {/* {resultList.match === true ? (
@@ -385,7 +390,7 @@ const ResultBox = styled.div`
   justify-content: center;
   object-fit: cover;
   background-size: cover;
-  border: 2px solid var(--lightgray);
+  border: 2px solid var(—lightgray);
 `;
 
 const ButtonWrapper = styled.div`

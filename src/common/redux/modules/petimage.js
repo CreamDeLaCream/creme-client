@@ -22,7 +22,7 @@ const initialState = {
 // middleware
 const addPetImageAX = ({ name, age, image }) => {
   return function (dispatch, getState, { history }) {
-    const token = sessionStorage.getItem('token');
+    // const token = sessionStorage.getItem('token');
 
     const formData = new FormData();
     formData.append('dog_name', name);
