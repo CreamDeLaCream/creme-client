@@ -54,10 +54,6 @@ export default handleActions(
       produce(state, (draft) => {
         draft.petmemo = [];
       }),
-    // [SET_MEMO]: (state, action) =>
-    //   produce(state, (draft) => {
-    //     draft.list.push(...action.payload.postlist);
-    //   }),
   },
   initialState,
 );

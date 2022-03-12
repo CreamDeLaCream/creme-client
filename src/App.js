@@ -11,7 +11,6 @@ import { actionCreators as userActions } from './common/redux/modules/user';
 // components
 import { Template } from './common/components';
 import ScrollToTop from './common/utils/ScrollToTop';
-import { getCookie } from './common/utils/Cookie';
 
 // pages
 import {
@@ -47,7 +46,6 @@ function App() {
             <Route exact path="/main" component={MainPage} />
             <Route exact path="/analysis" component={AnalysisPage} />
             <Route exact path="/result/:slug" component={ResultPage} />
-            {/* <Route exact path="/result" component={ResultPage} /> */}
             <Route exact path="/mypet" component={MyPetPage} />
             <Route exact path="/team" component={TeamPage} />
             <Route exact path="/addpet" component={AddPetPage} />

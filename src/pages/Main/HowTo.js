@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { Text, Grid, Button } from '../../common/components';
 
 // icons
-import { BsExclamationCircle, BsCameraFill } from 'react-icons/bs';
+import { BsCameraFill } from 'react-icons/bs';
 import { AiFillExclamationCircle, AiFillWarning } from 'react-icons/ai';
 
 const Howto = () => {
