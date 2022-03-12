@@ -75,8 +75,13 @@ const MyPetPage = (props) => {
 
   const [petImage, setPetImage] = useState(AnalysisData); // dummy
   const [petRecords, setPetRecords] = useState(null);
-
   useEffect(() => {
+    const emotionObj = {
+      angry: 1,
+      fear: 2,
+      happy: 3,
+      sad: 4,
+    };
     const header = {
       Authorization: `Bearer ${token}`,
     };
@@ -91,7 +96,9 @@ const MyPetPage = (props) => {
       } else {
         clickedEmotion.forEach((emotion) => {
           api
-            .get(`/analysis/history/emotion/${emotion}`, { headers: header })
+            .get(`/analysis/history/emotion/${emotionObj[emotion]}`, {
+              headers: header,
+            })
             .then((res) => {
               setPetRecords([]);
               setPetRecords((prevState) => {
@@ -103,7 +110,9 @@ const MyPetPage = (props) => {
     } else {
       if (clickedEmotion.length === 4) {
         api
-          .get(`/analysis/history/${clickedMyPet}`, { headers: header })
+          .get(`/analysis/history/${myPetData[cardNum].id}`, {
+            headers: header,
+          })
           .then((res) => {
             setPetRecords([]);
             setPetRecords((prevState) => {
@@ -113,9 +122,10 @@ const MyPetPage = (props) => {
       } else {
         clickedEmotion.forEach((emotion) => {
           api
-            .get(`/analysis/history/${clickedMyPet}/${emotion}`, {
-              headers: header,
-            })
+            .get(
+              `/analysis/history/${myPetData[cardNum].id}/${emotionObj[emotion]}`,
+              { headers: header },
+            )
             .then((res) => {
               setPetRecords([]);
               setPetRecords((prevState) => {
@@ -182,7 +192,7 @@ const MyPetPage = (props) => {
         </RecordMenu>
         <RecordCardWrapper>
           <Record
-            petRecords={petImage}
+            petRecords={petRecords}
             clickedMyPet={clickedMyPet.toLowerCase()}
             clickedEmotion={clickedEmotion}
           />
@@ -252,6 +262,6 @@ const ButtonWrapper = styled.div`
   margin-bottom: 50px;
 `;
 
-export const myPetEmotion = ['happy', 'sad', 'scared', 'angry'];
+export const myPetEmotion = ['angry', 'fear', 'happy', 'sad'];
 
 export default MyPetPage;

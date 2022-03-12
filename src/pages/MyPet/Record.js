@@ -7,15 +7,20 @@ import { myPetEmotion } from './MyPetPage';
 
 // icons
 import { BsHeartFill } from 'react-icons/bs';
+import { useHistory } from 'react-router';
 
 const Record = ({ petRecords, clickedMyPet, clickedEmotion }) => {
   const env = process.env;
   env.PUBLIC_URL = env.PUBLIC_URL || '';
-
+  const history = useHistory();
   const ImageList = ({ petRecord }) => {
     return (
-      <RecordWrapper>
-        {petRecord.isLiked && (
+      <RecordWrapper
+        onClick={() => {
+          history.push(`/result/${petRecord.slug}`);
+        }}
+      >
+        {petRecord.is_favorite && (
           <ILikePetBt>
             <BsHeartFill color="var(--main)" size="30px" />
           </ILikePetBt>
@@ -29,7 +34,7 @@ const Record = ({ petRecords, clickedMyPet, clickedEmotion }) => {
             color="var(--lightcream)"
             margin="0 10px 0 10px"
           >
-            {petRecord.name}
+            {petRecord.dog_name}
           </Button>
           <Button
             height="23px"
@@ -39,7 +44,7 @@ const Record = ({ petRecords, clickedMyPet, clickedEmotion }) => {
             color="var(--lightcream)"
             margin="0 10px 0 0"
           >
-            {petRecord.date}
+            {petRecord.created_at}
           </Button>
           <Button
             height="23px"
@@ -53,16 +58,15 @@ const Record = ({ petRecords, clickedMyPet, clickedEmotion }) => {
           </Button>
         </MyPetInfo>
         <RecordCard>
-          <img
-            alt=""
-            src={process.env.PUBLIC_URL + `/dogdog/dog${petRecord.id}.png`}
-            width="315px"
-            height="315px"
-          />
+          <img alt="" src={petRecord.image} width="315px" height="315px" />
         </RecordCard>
       </RecordWrapper>
     );
   };
+  if (petRecords == null || !Array.isArray(petRecords)) {
+    return <></>;
+  }
+  console.log(petRecords);
   return (
     <>
       {petRecords.map((petRecord, i) => {
@@ -120,7 +124,7 @@ const RecordCard = styled.div`
   p {
     text-align: center;
     font-size: 30px;
-    color: var(--white);
+    color: var(—white);
     margin-top: 110px;
   }
 

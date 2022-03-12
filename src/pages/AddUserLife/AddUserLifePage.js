@@ -42,29 +42,27 @@ const AddUserLifePage = (props) => {
   const addUserLife = () => {
     const token = sessionStorage.getItem('token');
     const header = {
-      'Content-Type': 'multipart/form-data', // 영광님 오면 바꿔야함
+      'Content-Type': 'application/json',
     };
     if (token) {
       header.Authorization = `Bearer ${token}`;
     }
 
-    const data = new FormData();
-    data.append('username', inputData.name);
-    data.append(
-      'birth',
-      `${inputData.year}-${
+    const body = {
+      username: inputData.name,
+      birth: `${inputData.year}-${
         inputData.month.length === 1 ? `0${inputData.month}` : inputData.month
       }-${inputData.day.length === 1 ? `0${inputData.day}` : inputData.day}`,
-    );
-    data.append('image', files[0]);
-    data.append(
-      'user_keyword',
-      clickedKeywords.filter((keyword) => keyword !== '빈공'),
-    );
+      image: files[0],
+      user_keyword: clickedKeywords.filter((keyword) => keyword !== '빈공'),
+    };
+
     api
-      .put(`/users/${user.user.user_id}`, data, { headers: header })
+      .put(`/users/${user.user.user_id}`, body, { headers: header })
       .then((res) => {
         console.log('put userLife', res);
+      })
+      .finally(() => {
         history.push('/mypet');
       });
   };
