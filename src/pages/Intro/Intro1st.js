@@ -88,6 +88,9 @@ const MainDogImg = styled.div`
   flex: 1;
   margin-left: 200px;
   margin-top: 50px;
+  ${({ theme }) => theme.device.mobile} {
+    visibility: hidden;
+  }
   // img {
   //   margin-top: 150px;
   //   margin-left: 20px;

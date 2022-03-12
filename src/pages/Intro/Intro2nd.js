@@ -52,14 +52,6 @@ export const Intro2nd = (props) => {
         >
           <BsFillPersonPlusFill size="2rem" />
         </Button>
-
-        {/* <p>
-          나의 사랑하는 댕댕이가 어떤 감정을 느끼고 있는지 궁금하시죠?
-          <br />
-          creme de la creme은 현재 댕댕이가
-          <br />
-          어떤 감정을 가지고 있는지 분석해드립니다.
-        </p> */}
       </TitleContent>
     </IntroBg>
   );
@@ -68,7 +60,7 @@ export const Intro2nd = (props) => {
 const IntroBg = styled.div`
   display: flex;
   background-color: var(--lightcream);
-  width: 100%;
+
   ${({ theme }) => theme.device.mobile} {
     flex-direction: column-reverse;
     text-align: center;
@@ -92,13 +84,15 @@ const TitleContent = styled.div`
 `;
 
 const MainPartnerImg = styled.div`
-  width: 500px;
+  /* width: 500px; */
   // background-color: var(—cream);
   img {
     margin-top: 80px;
     margin-left: 70px;
     ${({ theme }) => theme.device.mobile} {
-      margin: 0px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
     }
   }
 `;
