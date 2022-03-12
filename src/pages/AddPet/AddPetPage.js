@@ -15,11 +15,10 @@ import {
   Text,
   Button,
 } from '../../common/components';
-import { Keywords } from '../../common/components/Keyword';
 import { MyPetData } from './MyPetData';
-import InputBox from '../../common/components/InputBox';
 import InputBoxBirth from './InputBoxBirth';
 import { useLocation } from 'react-router';
+import { useSelector } from 'react-redux';
 
 const AddPetPage = (props) => {
   const [myPetData, setMyPetData] = useState(MyPetData);
@@ -32,7 +31,8 @@ const AddPetPage = (props) => {
   const location = useLocation();
   const redirectedForEdit = location.state?.redirectedForEdit;
 
-  const dog_id = 1; // 후에 리덕스에서 받아와야함
+  const user = useSelector((state) => state.user);
+  const dog_id = location.state?.dogId; // 후에 리덕스에서 받아와야함
 
   const onChangeData = (name, value) => {
     setInputData({
@@ -50,28 +50,35 @@ const AddPetPage = (props) => {
       header.Authorization = `Bearer ${token}`;
     }
 
-    const data = new FormData()
+    const data = new FormData();
     data.append('name', inputData.name);
-    data.append('birth', `${inputData.year}-${inputData.month.length === 1 ? `0${inputData.month}` : inputData.month}-${inputData.day.length === 1 ? `0${inputData.day}` : inputData.day}`, );
+    data.append(
+      'birth',
+      `${inputData.year}-${
+        inputData.month.length === 1 ? `0${inputData.month}` : inputData.month
+      }-${inputData.day.length === 1 ? `0${inputData.day}` : inputData.day}`,
+    );
     data.append('image', files[0]);
-    data.append('dog_keyword', clickedKeywords);
-    if(redirectedForEdit){
+    data.append(
+      'dog_keyword',
+      clickedKeywords.filter((keyword) => keyword !== '빈공'),
+    );
+    data.append('user', user.user.user_id);
+    if (redirectedForEdit) {
       api
-      .put(`/dogs/${dog_id}`, data, { headers: header })
-      .then((res) => {
-        console.log("put",res)
-        history.push('/myPet');
-      });
-    }
-    else{
+        .put(`/dogs/${dog_id}`, data, { headers: header })
+        .then((res) => {})
+        .finally(() => {
+          history.push('/mypet');
+        });
+    } else {
       api
-      .post('/dogs/', data, { headers: header })
-      .then((res) => {
-        console.log("post",res)
-        history.push('/myPet');
-      });
+        .post('/dogs/', data, { headers: header })
+        .then((res) => {})
+        .finally(() => {
+          history.push('/mypet');
+        });
     }
-    
   };
 
   const [files, setFiles] = useState([]);

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
 // redux
@@ -53,6 +53,10 @@ export const EmotionTest = () => {
   const clickButton = (name, value) => {
     dispatch(analysisActions.addEmotion(name, value));
   };
+
+  useEffect(() => {
+    return dispatch(analysisActions.initializeEmotion());
+  }, [dispatch]);
 
   function AnswerList({ answerlist, clickButton, questionNum, answerNum }) {
     return (

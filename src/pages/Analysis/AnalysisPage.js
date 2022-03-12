@@ -22,8 +22,14 @@ const AnalysisPage = (props) => {
   const petimage = useSelector((state) => state.petimage.list);
 
   const sendSlug = (name, value) => {
-    dispatch(analysisActions.addEmotionAX(name, value, petimage[0].slug));
-    history.push(`/result/${petimage[0].slug}`);
+    dispatch(
+      analysisActions.addEmotionAX(
+        name,
+        value,
+        petimage[petimage.length - 1].slug,
+      ),
+    );
+    history.push(`/result/${petimage[petimage.length - 1].slug}`);
   };
 
   return (

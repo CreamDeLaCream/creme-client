@@ -29,27 +29,17 @@ import api from '../../common/utils/API';
 
 const MyPetPage = (props) => {
   // const isLogin = useSelector((state) => state.user.is_login);
-  const [petImage, setPetImage] = useState(AnalysisData);
   const [myPetData, setMyPetData] = useState(null);
-  console.log(myPetData)
   const token = sessionStorage.getItem('token');
   useEffect(() => {
-      const header = {
-        Authorization: `Bearer ${token}`,
-      };
+    const header = {
+      Authorization: `Bearer ${token}`,
+    };
     api.get('/dogs/', { headers: header }).then((res) => {
       setMyPetData(res.data);
     });
   }, [token]);
 
-  const concatImage = () => {
-    const temp = petImage.concat(AnalysisData);
-    setPetImage(temp);
-    // axios.get('api/mypet/${number}').then((res) => {
-    //   const temp = card.concat(res.data.mypetImage);
-    //   setCard(temp);
-    // })
-  };
   const [cardNum, setCardNum] = useState(0);
   const onClickAnotherCard = (num) => {
     if (cardNum !== num) {
@@ -83,9 +73,80 @@ const MyPetPage = (props) => {
     setClickedMyPet(e);
   };
 
-  if (myPetData === null) {
-    return <></>;
-  }
+  const [petImage, setPetImage] = useState(AnalysisData); // dummy
+  const [petRecords, setPetRecords] = useState(null);
+
+  useEffect(() => {
+    const header = {
+      Authorization: `Bearer ${token}`,
+    };
+    if (clickedMyPet === 'all') {
+      if (clickedEmotion.length === 4) {
+        api.get(`/analysis/history`, { headers: header }).then((res) => {
+          setPetRecords([]);
+          setPetRecords((prevState) => {
+            return res.data;
+          });
+        });
+      } else {
+        clickedEmotion.forEach((emotion) => {
+          api
+            .get(`/analysis/history/emotion/${emotion}`, { headers: header })
+            .then((res) => {
+              setPetRecords([]);
+              setPetRecords((prevState) => {
+                return [...prevState, res.data];
+              });
+            });
+        });
+      }
+    } else {
+      if (clickedEmotion.length === 4) {
+        api
+          .get(`/analysis/history/${clickedMyPet}`, { headers: header })
+          .then((res) => {
+            setPetRecords([]);
+            setPetRecords((prevState) => {
+              return res.data;
+            });
+          });
+      } else {
+        clickedEmotion.forEach((emotion) => {
+          api
+            .get(`/analysis/history/${clickedMyPet}/${emotion}`, {
+              headers: header,
+            })
+            .then((res) => {
+              setPetRecords([]);
+              setPetRecords((prevState) => {
+                return [...prevState, res.data];
+              });
+            });
+        });
+      }
+    }
+  }, [
+    cardNum,
+    clickedEmotion,
+    clickedEmotion.length,
+    clickedMyPet,
+    myPetData,
+    token,
+  ]);
+
+  // TODO: 10개씩 보이도록 바꾸기
+  const concatImage = () => {
+    const temp = petImage.concat(AnalysisData);
+    setPetImage(temp);
+    // axios.get('api/mypet/${number}').then((res) => {
+    //   const temp = card.concat(res.data.mypetImage);
+    //   setCard(temp);
+    // })
+  };
+
+  // if (myPetData === null) {
+  //   return <></>;
+  // }
 
   return (
     <Container height="200vh">
@@ -121,7 +182,7 @@ const MyPetPage = (props) => {
         </RecordMenu>
         <RecordCardWrapper>
           <Record
-            petImages={petImage}
+            petRecords={petImage}
             clickedMyPet={clickedMyPet.toLowerCase()}
             clickedEmotion={clickedEmotion}
           />

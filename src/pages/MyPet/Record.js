@@ -8,14 +8,14 @@ import { myPetEmotion } from './MyPetPage';
 // icons
 import { BsHeartFill } from 'react-icons/bs';
 
-const Record = ({ petImages, clickedMyPet, clickedEmotion }) => {
+const Record = ({ petRecords, clickedMyPet, clickedEmotion }) => {
   const env = process.env;
   env.PUBLIC_URL = env.PUBLIC_URL || '';
 
-  const ImageList = ({ recordcards }) => {
+  const ImageList = ({ petRecord }) => {
     return (
       <RecordWrapper>
-        {recordcards.isLiked && (
+        {petRecord.isLiked && (
           <ILikePetBt>
             <BsHeartFill color="var(--main)" size="30px" />
           </ILikePetBt>
@@ -29,7 +29,7 @@ const Record = ({ petImages, clickedMyPet, clickedEmotion }) => {
             color="var(--lightcream)"
             margin="0 10px 0 10px"
           >
-            {recordcards.name}
+            {petRecord.name}
           </Button>
           <Button
             height="23px"
@@ -39,7 +39,7 @@ const Record = ({ petImages, clickedMyPet, clickedEmotion }) => {
             color="var(--lightcream)"
             margin="0 10px 0 0"
           >
-            {recordcards.date}
+            {petRecord.date}
           </Button>
           <Button
             height="23px"
@@ -49,13 +49,13 @@ const Record = ({ petImages, clickedMyPet, clickedEmotion }) => {
             color="var(--lightcream)"
             margin="0 10px 0 0"
           >
-            {recordcards.emotion}
+            {petRecord.emotion}
           </Button>
         </MyPetInfo>
         <RecordCard>
           <img
             alt=""
-            src={process.env.PUBLIC_URL + `/dogdog/dog${recordcards.id}.png`}
+            src={process.env.PUBLIC_URL + `/dogdog/dog${petRecord.id}.png`}
             width="315px"
             height="315px"
           />
@@ -65,21 +65,21 @@ const Record = ({ petImages, clickedMyPet, clickedEmotion }) => {
   };
   return (
     <>
-      {petImages.map((recordcards, i) => {
+      {petRecords.map((petRecord, i) => {
         if (clickedEmotion.length === myPetEmotion.length) {
           if (clickedMyPet === 'all') {
-            return <ImageList recordcards={recordcards} />;
+            return <ImageList petRecord={petRecord} />;
           }
-          if (clickedMyPet === recordcards.name) {
-            return <ImageList recordcards={recordcards} />;
+          if (clickedMyPet === petRecord.name) {
+            return <ImageList petRecord={petRecord} />;
           }
         } else {
-          if (clickedEmotion.indexOf(recordcards.emotion) !== -1) {
+          if (clickedEmotion.indexOf(petRecord.emotion) !== -1) {
             if (clickedMyPet === 'all') {
-              return <ImageList recordcards={recordcards} />;
+              return <ImageList petRecord={petRecord} />;
             }
-            if (clickedMyPet === recordcards.name) {
-              return <ImageList recordcards={recordcards} />;
+            if (clickedMyPet === petRecord.name) {
+              return <ImageList petRecord={petRecord} />;
             }
           }
         }

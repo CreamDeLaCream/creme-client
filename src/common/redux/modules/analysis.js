@@ -65,7 +65,7 @@ const addEmotionAX = (name, value, slug) => {
           dog_name: res.data.dog_name,
           human_emotion: res.data.human_emotion,
           human_emotion_percentage: res.data.human_emotion_percentage,
-          image: `${process.env.REACT_APP_BACKEND_URL}${res.data.image}`,
+          image: `${process.env.REACT_APP_SERVER_URL}${res.data.image}`,
           is_chemistry_negative: res.data.is_chemistry_negative,
           is_human_emotion_negative: res.data.is_human_emotion_negative,
           needs: res.data.needs,
@@ -91,23 +91,16 @@ export default handleActions(
     [ADD_EMOTION]: (state, action) =>
       produce(state, (draft) => {
         draft.emotionResult[action.payload.ques] = action.payload.ans;
-        draft.slug = action.payload.slug;
       }),
     [SET_RESULT]: (state, action) =>
       produce(state, (draft) => {
         draft.result = action.payload.result;
         // draft.list.push(...action.payload.result_list);
       }),
-    [INITIALIZE_EMOTION]: (state, action) => {
+    [INITIALIZE_EMOTION]: (state) =>
       produce(state, (draft) => {
-        draft.emotionResult = {
-          0: null,
-          1: null,
-          2: null,
-          3: null,
-        };
-      });
-    },
+        draft.emotionResult = { state, 0: null, 1: null, 2: null, 3: null };
+      }),
   },
   initialState,
 );

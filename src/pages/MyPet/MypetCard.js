@@ -23,8 +23,13 @@ export const MypetCard = ({
   const analysisResult = useSelector((state) => state.analysis.result);
   const [modalOpen, setModalOpen] = useState(false);
   const editMyPet = () => {
-    history.push({pathname: "/addpet",
-    state: {redirectedForEdit: true}})
+    history.push({
+      pathname: '/addpet',
+      state: { redirectedForEdit: true, dogId: myPetData[cardNum].id },
+    });
+  };
+  if (myPetData === null) {
+    return <></>;
   }
   return (
     <MyPetWrapper>
@@ -45,8 +50,10 @@ export const MypetCard = ({
             <MyPetContent>
               <p>MyPet</p>
               <MyPetName>
-                <span style={{ color: 'var(--blackcream)' }}>{user?.username}</span>님의
-                댕댕이
+                <span style={{ color: 'var(--blackcream)' }}>
+                  {user?.username}
+                </span>
+                님의 댕댕이
                 <br />{' '}
                 <b
                   style={{
@@ -133,7 +140,7 @@ export const MypetCard = ({
               </CurrentEmotion>
             </MyPetContent>
           </MyPetContentContainer>
-            <MyPetImages onClick={editMyPet} imgUrl={myPetData[cardNum].image} />
+          <MyPetImages onClick={editMyPet} imgUrl={myPetData[cardNum].image} />
         </MyPetInfoCard>
       ) : (
         <MyPetInfoCard>
