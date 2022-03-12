@@ -3,6 +3,8 @@ import styled from 'styled-components';
 
 // redux
 import { history } from '../../common/redux/configureStore';
+import { useDispatch, useSelector } from 'react-redux';
+
 // components
 import MyPetData from '../../common/components/MyPetData';
 import {
@@ -44,7 +46,9 @@ const MyPetPage = (props) => {
     //   setCard(temp);
     // })
   };
+
   //axios 연결 하면 null 담아주기
+
   let [myPetData, setMyPetData] = useState(MyPetData[0]);
   const [cardNum, setCardNum] = useState(0);
   const onClickAnotherCard = (num) => {
@@ -55,7 +59,7 @@ const MyPetPage = (props) => {
   };
 
   // useEffect(() => {
-  //   axios.get('/mypetdata').then((res) => {
+  //   .get('/mypetdata').then((res) => {
   //     setMyPetData(res);
   //   });
   // }, []);
@@ -63,6 +67,7 @@ const MyPetPage = (props) => {
   // if (myPetData === null) {
   //  retrun <> // 컴포넌트 넣기
   // };
+
   const [clickedEmotion, setClickedEmotion] = useState(myPetEmotion);
   const onClickEmotion = (emotion) => {
     if (clickedEmotion.indexOf(emotion) !== -1) {
@@ -90,11 +95,7 @@ const MyPetPage = (props) => {
       <Text type="mainTitle" color="var(--main)" padding-top="30px">
         마이펫 / 파트너
       </Text>
-      {/* <Text type="mainTitle" color="var(--blackcream)">
-        나의 사랑스러운 댕댕이를
-        <br />
-        추가하고 감정기록들을 관리하세요.
-      </Text> */}
+
       <MypetPartnerWrapper>
         <MypetCard
           myPetData={myPetData}

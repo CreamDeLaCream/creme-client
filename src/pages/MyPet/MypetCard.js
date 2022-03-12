@@ -39,7 +39,7 @@ export const MypetCard = ({
             <MyPetContent>
               <p>MyPet</p>
               <MyPetName>
-                <span style={{ color: 'var(--blackcream)' }}>레아</span>님의
+                <span style={{ color: 'var(--blackcream)' }}>영광</span>님의
                 댕댕이
                 <br />{' '}
                 <b
@@ -96,17 +96,33 @@ export const MypetCard = ({
                   <>
                     <Button
                       height="23px"
-                      bg="rgba(245, 234, 214, 0.46)"
                       color="var(--main)"
+                      bg="var(--white)"
+                      // bg="rgba(245, 234, 214, 0.46)"
                       border="solid 1px var(--cream)"
                       radius="10px"
-                      margin="0 0 0 5px"
+                      margin="0 15px 0 5px"
                       cursor
                     >
                       {myPetData.emotionState}
                     </Button>
-                    <p>이번주 댕댕이의 감정 상태는?</p>
-                    <BsCalendarCheck color="var(--main)" size="10px" />
+                    이번주 댕댕이의 감정 상태는?
+                    <div
+                      onClick={() => {
+                        setModalOpen(true);
+                      }}
+                      style={{ margin: '1px 0 0 7px' }}
+                    >
+                      <Button
+                        bg="var(--white)"
+                        // bg="rgba(245, 234, 214, 0.46)"
+                        border="solid 1px var(--cream)"
+                        radius="10px"
+                        cursor
+                      >
+                        <BsCalendarCheck color="var(--main)" size="1rem" />
+                      </Button>
+                    </div>
                   </>
                 )}
               </CurrentEmotion>
@@ -206,6 +222,4 @@ const CurrentEmotion = styled.div`
   width: 470px;
   color: var(--darkcream);
   margin-top: 20px;
-  cusor: pointer;
-  // font-family: 'IBM Plex Sans KR';
 `;

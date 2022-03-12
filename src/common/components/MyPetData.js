@@ -1,8 +1,8 @@
 export const MyPetData = [
   {
     id: 0,
-    name: 'SUMMER',
-    age: 6,
+    name: '옥자',
+    age: 4,
     character: [
       '애교많음',
       '관종',
@@ -12,8 +12,9 @@ export const MyPetData = [
       '개쫄보',
       '충성심폭발',
     ],
-    emotionState: null,
-    imgUrl: '/Image/cat0.png',
+    // emotionState: null,
+    emotionState: 'happy',
+    imgUrl: '/dogdog/dog0.png',
   },
   // {
   //   id: 1,
