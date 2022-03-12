@@ -19,7 +19,7 @@ import {
   Input,
 } from '../../common/components';
 import Dropdown from '../Result/Dropdown';
-import { resultList } from './ResultData';
+// import { resultList } from './ResultData';
 import { Keywords } from '../../common/components/Keyword';
 import CopyURL from './CopyURL';
 import BarChart from './BarChart';
@@ -29,7 +29,7 @@ import KakaoShare from './KakaoShare';
 const ResultPage = (props) => {
   const dispatch = useDispatch();
   const [memo, setMemo] = useState('');
-  // const resultList = useSelector((state) => state.analysis.result);
+  const resultList = useSelector((state) => state.analysis.result);
   const is_login = useSelector((state) => state.user.is_login);
   const [likeColor, setLikeColor] = useState('var(--white)');
   const [is_like, setIsLike] = useState(false);
@@ -77,7 +77,7 @@ const ResultPage = (props) => {
         ? setLikeColor('var(--main)')
         : setLikeColor('var(--white)');
       setIsLike(true);
-      dispatch(memoActions.addMemo(is_like));
+      dispatch(memoActions.addMemoAX(is_like));
     }
   };
 
@@ -86,7 +86,7 @@ const ResultPage = (props) => {
       ? setLikeColor('var(--white)')
       : setLikeColor('var(--main)');
     setIsLike(false);
-    dispatch(memoActions.addMemo(is_like));
+    dispatch(memoActions.addMemoAX(is_like));
   };
 
   const canvas = useRef();
@@ -301,7 +301,7 @@ const ResultPage = (props) => {
             </Text>
           );
         })}
-        {resultList.solution.solution}
+        {/* {resultList.solution.solution} */}
       </Grid>
       <Grid margin="2rem auto">
         <Text type="subTitle" color="var(--main)" marginBottom="15px">

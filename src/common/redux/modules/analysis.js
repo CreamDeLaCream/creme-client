@@ -65,7 +65,7 @@ const addEmotionAX = (name, value, slug) => {
           dog_name: res.data.dog_name,
           human_emotion: res.data.human_emotion,
           human_emotion_percentage: res.data.human_emotion_percentage,
-          image: `${process.env.REACT_APP_BACKEND_URL}${res.data.image}`,
+          image: `${process.env.REACT_APP_SERVER_URL}${res.data.image}`,
           is_chemistry_negative: res.data.is_chemistry_negative,
           is_human_emotion_negative: res.data.is_human_emotion_negative,
           needs: res.data.needs,
