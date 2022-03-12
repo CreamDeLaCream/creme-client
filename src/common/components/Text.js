@@ -10,6 +10,7 @@ import {
   body,
   desc,
   button,
+  sans,
 } from '../styles/textStyle';
 
 const Text = ({ children, ...rest }) => {
@@ -33,6 +34,8 @@ const Wrapper = styled.div`
         return `${desc}`;
       case 'button':
         return `${button}`;
+      case 'sans':
+        return `${sans}`;
       default:
         return;
     }
@@ -46,6 +49,7 @@ const Wrapper = styled.div`
   margin: ${(props) => props.margin};
   margin-bottom: ${(props) => props.marginBottom};
   font-size: ${(props) => props.fontSize};
+  font-weight: ${(props) => props.fontWeight};
   white-space: ${(props) => props.whiteSpace};
   ${({ theme }) => theme.device.mobile} {
     ${(props) => (props.center ? `text-align: center;` : '')}
