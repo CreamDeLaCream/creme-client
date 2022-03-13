@@ -10,7 +10,7 @@ import HighlightText from '../../common/styles/HighlightText';
 import { UserKeywords } from './UserKeywords';
 
 // icons
-import { BsFillPersonPlusFill } from 'react-icons/bs';
+import { FaUserCog } from 'react-icons/fa';
 
 export const Intro2nd = (props) => {
   return (
@@ -50,7 +50,7 @@ export const Intro2nd = (props) => {
           }}
           cursor
         >
-          <BsFillPersonPlusFill size="2rem" />
+          <FaUserCog size="2rem" />
         </Button>
       </TitleContent>
     </IntroBg>

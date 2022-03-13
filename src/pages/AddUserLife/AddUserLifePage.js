@@ -15,11 +15,15 @@ import {
 import { AnimatedKeyword } from '../../common/components/AnimatedKeyword';
 import { UserKeywordsData } from '../../common/components/UserKeywordsData';
 
-import InputBox from '../../common/components/InputBox';
+import api from '../../common/utils/API';
+import { useSelector } from 'react-redux';
+import InputBoxBirth from '../AddPet/InputBoxBirth';
 
 const AddUserLifePage = (props) => {
   const [inputData, setInputData] = useState({
-    age: '',
+    year: '',
+    month: '',
+    day: '',
     name: '',
   });
 
@@ -33,6 +37,36 @@ const AddUserLifePage = (props) => {
   const [files, setFiles] = useState([]);
   const [clickedKeywords, setClickedKeywords] = useState([]);
 
+  const user = useSelector((state) => state.user);
+
+  const addUserLife = () => {
+    const token = sessionStorage.getItem('token');
+    const header = {
+      'Content-Type': 'application/json',
+    };
+    if (token) {
+      header.Authorization = `Bearer ${token}`;
+    }
+
+    const body = {
+      username: inputData.name,
+      birth: `${inputData.year}-${
+        inputData.month.length === 1 ? `0${inputData.month}` : inputData.month
+      }-${inputData.day.length === 1 ? `0${inputData.day}` : inputData.day}`,
+      image: files[0],
+      user_keyword: clickedKeywords.filter((keyword) => keyword !== '빈공'),
+    };
+
+    api
+      .put(`/users/${user.user.user_id}`, body, { headers: header })
+      .then((res) => {
+        console.log('put userLife', res);
+      })
+      .finally(() => {
+        history.push('/mypet');
+      });
+  };
+
   return (
     <Container>
       <Header />
@@ -43,11 +77,12 @@ const AddUserLifePage = (props) => {
       <AddUserSection>
         <InfoWrapper>
           <p>Partner</p>
-          <InputBox
+          <InputBoxBirth
             data={inputData}
             onChangeData={onChangeData}
             files={files}
             onChangeFile={setFiles}
+            isPerson
           />
         </InfoWrapper>
 
@@ -73,9 +108,7 @@ const AddUserLifePage = (props) => {
           size="20px"
           color="var(--white)"
           cursor
-          onClick={() => {
-            history.push('/mypet');
-          }}
+          onClick={addUserLife}
         >
           완료
         </Button>

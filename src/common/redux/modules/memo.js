@@ -33,8 +33,11 @@ const addMemoAX = ({ slug, memo, is_like }) => {
         .then((res) => {
           // dispatch(writeTextPage(response.data.comments));
           const petmemo = {
-            slug, memo, is_like
-          }
+            slug,
+            memo,
+            is_like,
+          };
+
           dispatch(addMemo(petmemo));
           // window.location.reload();
         })

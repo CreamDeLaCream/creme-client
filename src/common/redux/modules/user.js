@@ -99,8 +99,7 @@ export default handleActions(
   {
     [SET_USER]: (state, action) =>
       produce(state, (draft) => {
-        // setCookie('is_login', 'success');
-        sessionStorage.setItem('is_login', 'success');
+        sessionStorage.setItem('is_login', true);
         draft.user = action.payload.user;
         draft.is_login = true;
       }),

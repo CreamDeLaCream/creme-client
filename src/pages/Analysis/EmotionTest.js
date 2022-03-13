@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
 // redux
@@ -17,7 +17,7 @@ export const EmotionTest = () => {
       answer: [
         { name: 'emotion', emotion: 'happy', id: '1' },
         { name: 'emotion', emotion: 'sad', id: '2' },
-        { name: 'emotion', emotion: 'scared', id: '3' },
+        { name: 'emotion', emotion: 'fear', id: '3' },
         { name: 'emotion', emotion: 'angry', id: '4' },
       ],
     },
@@ -53,6 +53,10 @@ export const EmotionTest = () => {
   const clickButton = (name, value) => {
     dispatch(analysisActions.addEmotion(name, value));
   };
+
+  useEffect(() => {
+    return dispatch(analysisActions.initializeEmotion());
+  }, [dispatch]);
 
   function AnswerList({ answerlist, clickButton, questionNum, answerNum }) {
     return (

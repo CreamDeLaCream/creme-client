@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Keywords } from '../../common/components/Keyword';
 
 export const EmotionButton = () => {
-  const DogEmotion = ['happy', 'sad', 'scared', 'angry'];
+  const DogEmotion = ['happy', 'sad', 'fear', 'angry'];
   const [] = useState;
   return (
     <>
