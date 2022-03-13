@@ -7,15 +7,24 @@ import { myPetEmotion } from './MyPetPage';
 
 // icons
 import { BsHeartFill } from 'react-icons/bs';
+import { useHistory } from 'react-router';
+import { useSelector } from 'react-redux';
 
-const Record = ({ petImages, clickedMyPet, clickedEmotion }) => {
+const Record = ({ petRecords, pageMaxNum, clickedMyPet, clickedEmotion }) => {
   const env = process.env;
   env.PUBLIC_URL = env.PUBLIC_URL || '';
+  const history = useHistory();
+  const slugList = useSelector((state) => state.petimage.list);
 
-  const ImageList = ({ recordcards }) => {
+  const ImageList = ({ petRecord }) => {
     return (
-      <RecordWrapper>
-        {recordcards.isLiked && (
+      <RecordWrapper
+        onClick={() => {
+          // history.push(`/result/${petRecord.slug}`)
+          history.push(`/result/${slugList[slugList.length - 1]?.slug}`); // 임시 코드
+        }}
+      >
+        {petRecord.is_favorite && (
           <ILikePetBt>
             <BsHeartFill color="var(--main)" size="30px" />
           </ILikePetBt>
@@ -29,7 +38,7 @@ const Record = ({ petImages, clickedMyPet, clickedEmotion }) => {
             color="var(--lightcream)"
             margin="0 10px 0 10px"
           >
-            {recordcards.name}
+            {petRecord.dog_name}
           </Button>
           <Button
             height="23px"
@@ -39,7 +48,7 @@ const Record = ({ petImages, clickedMyPet, clickedEmotion }) => {
             color="var(--lightcream)"
             margin="0 10px 0 0"
           >
-            {recordcards.date}
+            {petRecord.created_at?.slice(0, 10)}
           </Button>
           <Button
             height="23px"
@@ -49,37 +58,46 @@ const Record = ({ petImages, clickedMyPet, clickedEmotion }) => {
             color="var(--lightcream)"
             margin="0 10px 0 0"
           >
-            {recordcards.emotion}
+            {petRecord.dog_emotion}
           </Button>
         </MyPetInfo>
         <RecordCard>
-          <img
-            alt=""
-            src={process.env.PUBLIC_URL + `/dogdog/dog${recordcards.id}.png`}
-            width="315px"
-            height="315px"
-          />
+          <img alt="" src={petRecord.image} width="315px" height="315px" />
         </RecordCard>
       </RecordWrapper>
     );
   };
+  const emotionObj = {
+    angry: '화남',
+    fear: '두려움',
+    happy: '행복',
+    sad: '슬픔',
+  };
+  if (petRecords == null) {
+    return <></>;
+  }
+
   return (
     <>
-      {petImages.map((recordcards, i) => {
+      {petRecords.slice(0, pageMaxNum).map((petRecord, i) => {
         if (clickedEmotion.length === myPetEmotion.length) {
           if (clickedMyPet === 'all') {
-            return <ImageList recordcards={recordcards} />;
+            return <ImageList petRecord={petRecord} />;
           }
-          if (clickedMyPet === recordcards.name) {
-            return <ImageList recordcards={recordcards} />;
+          if (clickedMyPet === petRecord.dog_name) {
+            return <ImageList petRecord={petRecord} />;
           }
         } else {
-          if (clickedEmotion.indexOf(recordcards.emotion) !== -1) {
+          if (
+            clickedEmotion
+              .map((ele) => emotionObj[ele])
+              .indexOf(petRecord.dog_emotion) !== -1
+          ) {
             if (clickedMyPet === 'all') {
-              return <ImageList recordcards={recordcards} />;
+              return <ImageList petRecord={petRecord} />;
             }
-            if (clickedMyPet === recordcards.name) {
-              return <ImageList recordcards={recordcards} />;
+            if (clickedMyPet === petRecord.dog_name) {
+              return <ImageList petRecord={petRecord} />;
             }
           }
         }
@@ -120,7 +138,7 @@ const RecordCard = styled.div`
   p {
     text-align: center;
     font-size: 30px;
-    color: var(--white);
+    color: var(—white);
     margin-top: 110px;
   }
 

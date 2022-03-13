@@ -31,7 +31,9 @@ const Dropdown = ({ name, description }) => {
       >
         <MenuList>
           <Item>
-            <Text color="var(--gray)">{description}</Text>
+            <Text color="var(--gray)" type="sans" fontWeight="600">
+              {description}
+            </Text>
           </Item>
         </MenuList>
       </Nav>
@@ -58,7 +60,7 @@ const TriggerButton = styled.button`
 `;
 
 const Nav = styled.nav`
-  width: 10rem;
+  width: 14rem;
   position: absolute;
   border-radius: 8px;
   background: var(--white);
@@ -86,6 +88,7 @@ const Item = styled.li`
   text-decoration: none;
   border-bottom: 1px solid #dddddd;
   padding: 15px 20px;
+  font-family: IBM Plex Sans KR;
 `;
 
 export default Dropdown;

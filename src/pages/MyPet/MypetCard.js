@@ -10,6 +10,7 @@ import PetListButton from './PetListButton';
 import { BsCalendarCheck } from 'react-icons/bs';
 import { Modal } from '../../common/components';
 import DogDataSet from './DogDataSet';
+import { useSelector } from 'react-redux';
 
 //props는 {} 사용 X
 export const MypetCard = ({
@@ -18,8 +19,18 @@ export const MypetCard = ({
   onClickAnotherCard,
   history,
 }) => {
+  const user = useSelector((state) => state.user.user);
+  const analysisResult = useSelector((state) => state.analysis.result);
   const [modalOpen, setModalOpen] = useState(false);
-
+  const editMyPet = () => {
+    history.push({
+      pathname: '/addpet',
+      state: { redirectedForEdit: true, dogId: myPetData[cardNum].id },
+    });
+  };
+  if (myPetData === null) {
+    return <></>;
+  }
   return (
     <MyPetWrapper>
       {modalOpen && (
@@ -33,14 +44,16 @@ export const MypetCard = ({
         cardNum={cardNum}
         onClickAnotherCard={onClickAnotherCard}
       />
-      {myPetData ? (
+      {myPetData[cardNum] ? (
         <MyPetInfoCard>
           <MyPetContentContainer>
             <MyPetContent>
               <p>MyPet</p>
               <MyPetName>
-                <span style={{ color: 'var(--blackcream)' }}>영광</span>님의
-                댕댕이
+                <span style={{ color: 'var(--blackcream)' }}>
+                  {user?.username}
+                </span>
+                님의 댕댕이
                 <br />{' '}
                 <b
                   style={{
@@ -48,15 +61,15 @@ export const MypetCard = ({
                     fontFamily: 'IBM Plex Sans KR',
                   }}
                 >
-                  {myPetData.name}, {myPetData.age}살
+                  {myPetData[cardNum].name}, {myPetData[cardNum].age}살
                 </b>
               </MyPetName>
               <MyPetKeyword>
-                <Keyword keywordList={myPetData.character} />
+                <Keyword keywordList={myPetData[cardNum].dog_keyword} />
               </MyPetKeyword>
               <CurrentEmotion>
                 오늘의 댕댕이 감정상태는?
-                {myPetData.emotionState === null ? (
+                {analysisResult?.dog_emotion == null ? (
                   <>
                     <Button
                       height="23px"
@@ -103,7 +116,7 @@ export const MypetCard = ({
                       margin="0 15px 0 5px"
                       cursor
                     >
-                      {myPetData.emotionState}
+                      {analysisResult.dog_emotion}
                     </Button>
                     이번주 댕댕이의 감정 상태는?
                     <div
@@ -127,7 +140,7 @@ export const MypetCard = ({
               </CurrentEmotion>
             </MyPetContent>
           </MyPetContentContainer>
-          <MyPetImages imgUrl={myPetData.imgUrl} />
+          <MyPetImages onClick={editMyPet} imgUrl={myPetData[cardNum].image} />
         </MyPetInfoCard>
       ) : (
         <MyPetInfoCard>

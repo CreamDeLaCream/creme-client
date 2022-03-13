@@ -31,9 +31,13 @@ const addMemoAX = ({ slug, memo, is_like }) => {
           { headers: header },
         )
         .then((res) => {
-          // console.log(res);
           // dispatch(writeTextPage(response.data.comments));
-          dispatch(addMemo(slug, memo, is_like));
+          const petmemo = {
+            slug,
+            memo,
+            is_like,
+          };
+          dispatch(addMemo(petmemo));
           // window.location.reload();
         })
         .catch((err) => {
@@ -48,7 +52,7 @@ export default handleActions(
   {
     [ADD_MEMO]: (state, action) =>
       produce(state, (draft) => {
-        draft.petmemo = action.payload.petmemo;
+        draft.petmemo.push(action.payload.petmemo);
       }),
     [INITIALIZE_MEMO]: (state, action) =>
       produce(state, (draft) => {

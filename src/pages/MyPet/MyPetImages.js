@@ -1,16 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export const MyPetImages = ({ imgUrl }) => {
-  const env = process.env;
-  env.PUBLIC_URL = env.PUBLIC_URL || '';
+export const MyPetImages = ({ onClick, imgUrl }) => {
   return (
     <MyPetImage>
       <img
         alt=""
-        src={process.env.PUBLIC_URL + `${imgUrl}`}
+        src={process.env.REACT_APP_SERVER_URL + `${imgUrl}`}
         width="100%"
         height="100%"
+        onClick={onClick}
       />
     </MyPetImage>
   );
@@ -27,7 +26,7 @@ const MyPetImage = styled.div`
   // positon: absolute;
   // vertical-align: middle;
   margin-right: 50px;
-
+  cursor: pointer;
   img {
     object-fit: cover;
     background-size: contain;

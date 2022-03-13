@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 // Icon
@@ -6,31 +6,27 @@ import styled from 'styled-components';
 // components
 import { Text, Grid } from '../../common/components';
 import HighlightText from '../../common/styles/HighlightText';
+import api from '../../common/utils/API';
 
 const DogDataSet = () => {
   const env = process.env;
   env.PUBLIC_URL = env.PUBLIC_URL || '';
 
-  //감정, 홀로보낸시간, 산책횟수, 간식횟수
+  const [weekData, setWeekData] = useState(null);
+  const token = sessionStorage.getItem('token');
 
-  const DogDatas = [
-    {
-      ques: '제일 많이 느낀 감정',
-      ans: 'happy',
-    },
-    {
-      ques: '홀로 보낸시간',
-      ans: '2시간',
-    },
-    {
-      ques: '산책 횟수',
-      ans: '3번',
-    },
-    {
-      ques: '간식횟수',
-      ans: '2-3번',
-    },
-  ];
+  useEffect(() => {
+    const header = {
+      Authorization: `Bearer ${token}`,
+    };
+    api.get('analysis/week', { headers: header }).then((res) => {
+      setWeekData(res.data);
+    });
+  }, [token]);
+
+  if (weekData === null) {
+    return <></>;
+  }
 
   return (
     <>
@@ -50,11 +46,11 @@ const DogDataSet = () => {
             height="300px"
           />
           <DogDataSeciton>
-            {DogDatas.map((dogData, index) => {
+            {DogDatas.map((dogData) => {
               return (
                 <DogDataInfo>
                   <DataQues>{dogData.ques}</DataQues>
-                  <DataAns>{dogData.ans}</DataAns>
+                  <DataAns>{weekData[dogData.key]}</DataAns>
                 </DogDataInfo>
               );
             })}
@@ -112,5 +108,25 @@ const DogDataSeciton = styled.div`
   display: flex;
   justify-content: space-between;
 `;
+
+//감정, 홀로보낸시간, 산책횟수, 간식횟수
+const DogDatas = [
+  {
+    ques: '제일 많이 느낀 감정',
+    key: 'emotion',
+  },
+  {
+    ques: '홀로 보낸시간',
+    key: 'waiting',
+  },
+  {
+    ques: '산책 횟수',
+    key: 'walking',
+  },
+  {
+    ques: '간식횟수',
+    key: 'num_snack',
+  },
+];
 
 export default DogDataSet;
