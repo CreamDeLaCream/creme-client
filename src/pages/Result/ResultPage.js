@@ -18,9 +18,9 @@ import {
   Container,
   Input,
 } from '../../common/components';
-import Dropdown from '../Result/Dropdown';
+import Dropdown from './Dropdown';
 // import { resultList } from './ResultData';
-import { Keywords } from '../../common/components/Keyword';
+import Keywords from './Keywords';
 import CopyURL from './CopyURL';
 import BarChart from './BarChart';
 import { BsHeartFill, BsReplyAllFill, BsPersonCheckFill } from 'react-icons/bs';
@@ -40,11 +40,12 @@ const ResultPage = (props) => {
   };
 
   const addMemo = () => {
-    if (!memo) {
+    if (!is_login) {
       window.alert('로그인 후 이용가능합니다.');
       return;
     }
     if (memo === 0) {
+      window.alert('반려견의 일기를 작성해주세요.');
       return;
     }
     let petmemo = {
@@ -251,7 +252,7 @@ const ResultPage = (props) => {
               <Text
                 center
                 fontSize="5rem"
-                color="var(--main)"
+                color="var(--darkcream)"
                 whiteSpace="nowrap"
               >
                 {/* {resultList.match === true ? (

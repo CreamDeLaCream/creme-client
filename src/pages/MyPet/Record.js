@@ -8,16 +8,20 @@ import { myPetEmotion } from './MyPetPage';
 // icons
 import { BsHeartFill } from 'react-icons/bs';
 import { useHistory } from 'react-router';
+import { useSelector } from 'react-redux';
 
-const Record = ({ petRecords, clickedMyPet, clickedEmotion }) => {
+const Record = ({ petRecords, pageMaxNum, clickedMyPet, clickedEmotion }) => {
   const env = process.env;
   env.PUBLIC_URL = env.PUBLIC_URL || '';
   const history = useHistory();
+  const slugList = useSelector((state) => state.petimage.list);
+
   const ImageList = ({ petRecord }) => {
     return (
       <RecordWrapper
         onClick={() => {
-          history.push(`/result/${petRecord.slug}`);
+          // history.push(`/result/${petRecord.slug}`)
+          history.push(`/result/${slugList[slugList.length - 1]?.slug}`); // 임시 코드
         }}
       >
         {petRecord.is_favorite && (
@@ -44,7 +48,7 @@ const Record = ({ petRecords, clickedMyPet, clickedEmotion }) => {
             color="var(--lightcream)"
             margin="0 10px 0 0"
           >
-            {petRecord.created_at}
+            {petRecord.created_at?.slice(0, 10)}
           </Button>
           <Button
             height="23px"
@@ -54,7 +58,7 @@ const Record = ({ petRecords, clickedMyPet, clickedEmotion }) => {
             color="var(--lightcream)"
             margin="0 10px 0 0"
           >
-            {petRecord.emotion}
+            {petRecord.dog_emotion}
           </Button>
         </MyPetInfo>
         <RecordCard>
@@ -63,26 +67,36 @@ const Record = ({ petRecords, clickedMyPet, clickedEmotion }) => {
       </RecordWrapper>
     );
   };
-  if (petRecords == null || !Array.isArray(petRecords)) {
+  const emotionObj = {
+    angry: '화남',
+    fear: '두려움',
+    happy: '행복',
+    sad: '슬픔',
+  };
+  if (petRecords == null) {
     return <></>;
   }
-  console.log(petRecords);
+
   return (
     <>
-      {petRecords.map((petRecord, i) => {
+      {petRecords.slice(0, pageMaxNum).map((petRecord, i) => {
         if (clickedEmotion.length === myPetEmotion.length) {
           if (clickedMyPet === 'all') {
             return <ImageList petRecord={petRecord} />;
           }
-          if (clickedMyPet === petRecord.name) {
+          if (clickedMyPet === petRecord.dog_name) {
             return <ImageList petRecord={petRecord} />;
           }
         } else {
-          if (clickedEmotion.indexOf(petRecord.emotion) !== -1) {
+          if (
+            clickedEmotion
+              .map((ele) => emotionObj[ele])
+              .indexOf(petRecord.dog_emotion) !== -1
+          ) {
             if (clickedMyPet === 'all') {
               return <ImageList petRecord={petRecord} />;
             }
-            if (clickedMyPet === petRecord.name) {
+            if (clickedMyPet === petRecord.dog_name) {
               return <ImageList petRecord={petRecord} />;
             }
           }

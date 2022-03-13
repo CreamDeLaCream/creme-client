@@ -75,6 +75,7 @@ const MyPetPage = (props) => {
 
   const [petImage, setPetImage] = useState(AnalysisData); // dummy
   const [petRecords, setPetRecords] = useState(null);
+  const [pageMaxNum, setPageMaxNum] = useState(10);
   useEffect(() => {
     const emotionObj = {
       angry: 1,
@@ -93,48 +94,37 @@ const MyPetPage = (props) => {
             return res.data;
           });
         });
-      } else {
-        clickedEmotion.forEach((emotion) => {
-          api
-            .get(`/analysis/history/emotion/${emotionObj[emotion]}`, {
-              headers: header,
-            })
-            .then((res) => {
-              setPetRecords([]);
-              setPetRecords((prevState) => {
-                return [...prevState, res.data];
-              });
-            });
-        });
       }
-    } else {
-      if (clickedEmotion.length === 4) {
-        api
-          .get(`/analysis/history/${myPetData[cardNum].id}`, {
-            headers: header,
-          })
-          .then((res) => {
-            setPetRecords([]);
-            setPetRecords((prevState) => {
-              return res.data;
-            });
-          });
-      } else {
-        clickedEmotion.forEach((emotion) => {
-          api
-            .get(
-              `/analysis/history/${myPetData[cardNum].id}/${emotionObj[emotion]}`,
-              { headers: header },
-            )
-            .then((res) => {
-              setPetRecords([]);
-              setPetRecords((prevState) => {
-                return [...prevState, res.data];
-              });
-            });
-        });
-      }
+      // else {
+      //   clickedEmotion.forEach((emotion) => {
+      //     api.get(`/analysis/history/emotion/${emotionObj[emotion]}`, { headers: header }).then((res) => {
+      //       setPetRecords([]);
+      //       setPetRecords((prevState) => {
+      //         return [...prevState, res.data];
+      //       });
+      //     });
+      //   })
+      // }
     }
+    // } else {
+    //   if(clickedEmotion.length === 4){
+    //     api.get(`/analysis/history/${myPetData[cardNum].id}`, { headers: header }).then((res) => {
+    //       setPetRecords([]);
+    //       setPetRecords((prevState) => {
+    //         return res.data;
+    //       });
+    //     });
+    //   } else {
+    //     clickedEmotion.forEach((emotion) => {
+    //       api.get(`/analysis/history/${myPetData[cardNum].id}/${emotionObj[emotion]}`, { headers: header }).then((res) => {
+    //         setPetRecords([]);
+    //         setPetRecords((prevState) => {
+    //           return [...prevState, res.data];
+    //         });
+    //       });
+    //     })
+    //   }
+    // }
   }, [
     cardNum,
     clickedEmotion,
@@ -146,12 +136,7 @@ const MyPetPage = (props) => {
 
   // TODO: 10개씩 보이도록 바꾸기
   const concatImage = () => {
-    const temp = petImage.concat(AnalysisData);
-    setPetImage(temp);
-    // axios.get('api/mypet/${number}').then((res) => {
-    //   const temp = card.concat(res.data.mypetImage);
-    //   setCard(temp);
-    // })
+    setPageMaxNum(pageMaxNum + 10);
   };
 
   // if (myPetData === null) {
@@ -193,6 +178,7 @@ const MyPetPage = (props) => {
         <RecordCardWrapper>
           <Record
             petRecords={petRecords}
+            pageMaxNum={pageMaxNum}
             clickedMyPet={clickedMyPet.toLowerCase()}
             clickedEmotion={clickedEmotion}
           />
