@@ -17,7 +17,6 @@
 <img alt="React-Router" src ="https://img.shields.io/badge/React-Router-CA4245.svg?&style=for-the-badge&logo=React-Router&logoColor=white"/>
 <img alt="Redux" src ="https://img.shields.io/badge/Redux-764ABC.svg?&style=for-the-badge&logo=Redux&logoColor=white"/>
 <img alt="Yarn" src ="https://img.shields.io/badge/Yarn-2C8EBB.svg?&style=for-the-badge&logo=Yarn&logoColor=white"/>
-</br>
 <img alt="GitLab" src ="https://img.shields.io/badge/GitLab-FCA121.svg?&style=for-the-badge&logo=GitLab&logoColor=white"/>
 <img alt="GitHub" src ="https://img.shields.io/badge/GitHub-181717.svg?&style=for-the-badge&logo=GitHub&logoColor=white"/>
 <img alt="Whimsical" src ="https://img.shields.io/badge/Whimsical-730FC3.svg?&style=for-the-badge&logo=Whimsical&logoColor=white"/>
