@@ -20,10 +20,10 @@ const initialState = {
 // middleware
 const addMemoAX = ({ slug, memo, is_like }) => {
   return function (dispatch, getState, { history }) {
-    const token = sessionStorage.getItem('token');
+    // const token = sessionStorage.getItem('token');
     const header = {};
-    if (token) {
-      header.Authorization = `Bearer ${token}`;
+    // if (token) {
+    //   header.Authorization = `Bearer ${token}`;
       api
         .post(
           `analysis/result/completed`,
@@ -37,6 +37,7 @@ const addMemoAX = ({ slug, memo, is_like }) => {
             memo,
             is_like,
           };
+
           dispatch(addMemo(petmemo));
           // window.location.reload();
         })
@@ -45,7 +46,7 @@ const addMemoAX = ({ slug, memo, is_like }) => {
         });
     }
   };
-};
+// };
 
 // Reducer
 export default handleActions(

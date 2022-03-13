@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
@@ -140,7 +141,7 @@ export const MypetCard = ({
               </CurrentEmotion>
             </MyPetContent>
           </MyPetContentContainer>
-          <MyPetImages onClick={editMyPet} imgUrl={myPetData[cardNum].image} />
+            <MyPetImages onClick={editMyPet} imgUrl={myPetData[cardNum].image} />
         </MyPetInfoCard>
       ) : (
         <MyPetInfoCard>
@@ -231,6 +232,6 @@ const CurrentEmotion = styled.div`
   flex-direction: row;
   align-items: center;
   width: 470px;
-  color: var(--darkcream);
+  color: var(—darkcream);
   margin-top: 20px;
 `;

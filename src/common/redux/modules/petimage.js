@@ -22,7 +22,7 @@ const initialState = {
 // middleware
 const addPetImageAX = ({ name, age, image }) => {
   return function (dispatch, getState, { history }) {
-    const token = sessionStorage.getItem('token');
+    // const token = sessionStorage.getItem('token');
 
     const formData = new FormData();
     formData.append('dog_name', name);
@@ -31,9 +31,9 @@ const addPetImageAX = ({ name, age, image }) => {
     const header = {
       'Content-Type': 'multipart/form-data',
     };
-    if (token) {
-      header.Authorization = `Bearer ${token}`;
-    }
+    // if (token) {
+    //   header.Authorization = `Bearer ${token}`;
+    // }
     api
       .post(`/analysis/pet`, formData, { headers: header })
       .then((res) => {

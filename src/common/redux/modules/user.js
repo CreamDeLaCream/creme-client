@@ -26,11 +26,15 @@ const kakaoLogin = (code) => {
       .get(`/users/kakao/callback?code=${code}`)
       .then((res) => {
         // console.log('token', res);
+        console.log('res', res);
         const ACCESS_TOKEN = res.data.access;
         const REFRESH_TOKEN = res.data.refresh;
 
         sessionStorage.setItem('token', ACCESS_TOKEN);
         sessionStorage.setItem('refresh', REFRESH_TOKEN);
+
+        // setCookie('access', ACCESS_TOKEN);
+        // setCookie('refresh', REFRESH_TOKEN);
 
         dispatch(loginCheck(ACCESS_TOKEN));
 
@@ -53,12 +57,13 @@ const loginCheck = () => {
         Authorization: `Bearer ${token}`,
       };
       api
-        .get('users/', { headers: header })
+        .get('users/')
         .then((res) => {
           const user = {
             user_id: res.data.id,
             username: res.data.username,
           };
+
           if (res.data) {
             dispatch(setUser({ ...user }));
           } else {

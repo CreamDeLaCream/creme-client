@@ -35,3 +35,7 @@ export const desc = css`
 export const button = css`
   font-size: 1rem;
 `;
+
+export const sans = css`
+  font-family: IBM Plex Sans KR;
+`;

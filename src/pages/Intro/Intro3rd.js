@@ -20,8 +20,10 @@ export const Intro3rd = () => {
     <IntroBg>
       <IntroTitle>
         <Text color="var(--deepcream)" fontSize="40px">
-          <HighlightText color="var(--lightcream)">반려견</HighlightText>과{' '}
-          <HighlightText color="var(--lightcream)">반려인</HighlightText>에게{' '}
+          <HighlightText color="var(--lightcream)">반려견</HighlightText>
+          과&nbsp;
+          <HighlightText color="var(--lightcream)">반려인</HighlightText>
+          에게&nbsp;
           <br />
           <span style={{ color: 'var(--main)' }}>오늘의 마이펫</span>이 필요한
           이유
@@ -52,7 +54,7 @@ export const Intro3rd = () => {
 
 const IntroBg = styled.div`
   background-color: var(--bgpink);
-  width: 100%;
+  /* width: 100%; */
   height: 700px;
   display: flex;
   flex-direction: column;
@@ -61,14 +63,23 @@ const IntroBg = styled.div`
     margin-left: 45%;
     width: 50%;
     ${({ theme }) => theme.device.mobile} {
-      margin-left: 13%;
-      // align-items: center;
+      /* margin-left: 13%; */
+      width: 70%;
+      margin: 0 auto;
+    }
+    ${({ theme }) => theme.device.fold} {
+      /* margin-left: 13%; */
+
       width: 80%;
+      display: flex;
+      justify-content: center;
+      visibility: hidden;
     }
   }
-  ${({ theme }) => theme.device.mobile} {
-    text-align: center;
-  }
+  /* ${({ theme }) => theme.device.fold} {
+    display: flex;
+    justify-content: center;
+  } */
 `;
 
 const IntroTitle = styled.div`
@@ -82,7 +93,6 @@ const IntroContent = styled.div`
   width: 90%;
   height: 400px;
   display: flex;
-  // background-color: var(--main);
   margin-left: 3rem;
   margin-top: 2.5rem;
   justify-content: space-between;
