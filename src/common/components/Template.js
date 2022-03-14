@@ -17,11 +17,9 @@ const Container = styled.div`
 
 const MainForm = styled.main`
   width: 100%;
-  /* height: 100vh; */
   display: flex;
   position: relative;
   max-width: 1024px;
-  /* border: 2px solid violet; */
 `;
 
 export default Template;

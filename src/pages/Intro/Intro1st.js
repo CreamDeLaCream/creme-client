@@ -11,7 +11,13 @@ import Deck from './Deck/Deck';
 
 const Intro1st = () => {
   return (
-    <Grid is_flex mobileCenter height="31rem" bg="var(--white)" margin="0 auto">
+    <Grid
+      is_flex
+      mobileCenter
+      width="100%"
+      padding="5rem 0 5rem 3rem"
+      bg="var(--white)"
+    >
       <Grid>
         <Text color="var(--deepcream)" fontSize="40px" center>
           <HighlightText color="var(--lightcream)">옥자</HighlightText>,
@@ -38,10 +44,10 @@ const Intro1st = () => {
             size="20px"
             color="var(--lightcream)"
             margin="20px 0 0 0"
+            cursor
             onClick={() => {
               history.push('/main');
             }}
-            cursor
           >
             start
           </Button>
@@ -57,8 +63,8 @@ const Intro1st = () => {
 const DeckWrapper = styled.div`
   display: flex;
   justify-content: center;
-  margin: -30rem 20rem 0 0;
   flex: 1;
+  margin: -25rem 20rem 0 0;
   ${({ theme }) => theme.device.mobile} {
     margin: 0 auto;
   }

@@ -25,6 +25,8 @@ const Grid = (props) => {
     foldColumn,
     mobileCenter,
     flex,
+    mobileHidden,
+    foldHidden,
   } = props;
 
   const styles = {
@@ -49,6 +51,8 @@ const Grid = (props) => {
     foldColumn,
     mobileCenter,
     flex,
+    mobileHidden,
+    foldHidden,
   };
   return (
     <React.Fragment>
@@ -86,7 +90,6 @@ const GridBox = styled.div`
   ${(props) => (props.bg ? `background-color: ${props.bg};` : '')}
   ${(props) => (props.center ? `text-align: center;` : '')}
   ${(props) => (props.flexWrap ? `flex-wrap:${props.flexWrap};` : '')}
-  ${(props) => (props.flex ? `flex:${props.flex};` : '')}
   ${(props) => (props.flex ? `flex:${props.flex};` : '')}
   // space-beteween
   ${(props) =>
@@ -126,6 +129,14 @@ const GridBox = styled.div`
   ${({ theme }) => theme.device.mobile} {
     ${(props) =>
       props.mobileCenter ? `display: flex; justify-content: center;` : ''};
+  }
+  // mobile hidden
+  ${({ theme }) => theme.device.mobile} {
+    ${(props) => (props.mobileHidden ? `  visibility: hidden;` : '')};
+  }
+  // fold hidden
+  ${({ theme }) => theme.device.fold} {
+    ${(props) => (props.foldHidden ? `  visibility: hidden;` : '')};
   }
 `;
 
