@@ -1,23 +1,17 @@
 import React from 'react';
 
-// redux
-import { history } from '../../common/redux/configureStore';
-
 // components
 import { Header, Navbar, Container } from '../../common/components';
-import Intro1st from './Intro1st';
-import { Intro2nd } from './Intro2nd';
-import { Intro3rd } from './Intro3rd';
+import { Intro1st, Intro2nd, Intro3rd } from '.';
 
-const IntroPage = (props) => {
+const IntroPage = () => {
   return (
     <Container>
       <Header page="headermenu" />
       <Navbar page="navbarmenu" />
-
       <Intro1st />
-      <Intro2nd history={history} />
-      <Intro3rd history={history} />
+      <Intro2nd />
+      <Intro3rd />
     </Container>
   );
 };

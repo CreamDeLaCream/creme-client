@@ -1,7 +1,7 @@
 import React from 'react';
 import { Keywords } from '../../common/components/Keyword';
 
-export const UserKeywords = () => {
+const UserKeywords = () => {
   const UserKeywordData = [
     '28세',
     '부모님과 함께 삼',
@@ -28,3 +28,5 @@ export const UserKeywords = () => {
     </>
   );
 };
+
+export default UserKeywords;

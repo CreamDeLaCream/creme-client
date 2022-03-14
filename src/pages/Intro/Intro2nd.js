@@ -7,7 +7,7 @@ import { history } from '../../common/redux/configureStore';
 // components
 import { Text, Button } from '../../common/components';
 import HighlightText from '../../common/styles/HighlightText';
-import { UserKeywords } from './UserKeywords';
+import { UserKeywords } from './';
 
 // icons
 import { FaUserCog } from 'react-icons/fa';
