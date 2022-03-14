@@ -15,10 +15,10 @@ const Intro1st = () => {
       is_flex
       mobileCenter
       width="100%"
-      padding="5rem 0 5rem 3rem"
+      padding="5rem 0 5rem 0rem"
       bg="var(--white)"
     >
-      <Grid>
+      <Grid padding="0 0 0 3rem">
         <Text color="var(--deepcream)" fontSize="40px" center>
           <HighlightText color="var(--lightcream)">옥자</HighlightText>,
           <br /> <span style={{ color: 'var(--main)' }}>
