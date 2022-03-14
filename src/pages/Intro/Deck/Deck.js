@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
+
 import { useSprings, animated, to as animatedTo } from 'react-spring';
 import { useGesture } from 'react-use-gesture';
-import './styles.css';
 import img1 from './1.jpeg';
 import img2 from './2.jpeg';
 import img3 from './3.jpeg';
@@ -16,19 +17,22 @@ const to = (i) => ({
   rot: -10 + Math.random() * 20,
   delay: i * 100,
 });
+
 const from = (i) => ({ x: 0, rot: 0, scale: 1.5, y: -1000 });
+
 // This is being used down there in the view, it interpolates rotation and scale into a css transform
 const trans = (r, s) =>
   `perspective(5000px) rotateX(30deg) rotateY(${
     r / 10
   }deg) rotateZ(${r}deg) scale(${s})`;
 
-export default function Deck() {
+const Deck = () => {
   const [gone] = useState(() => new Set()); // The set flags all the cards that are flicked out
   const [props, set] = useSprings(cards.length, (i) => ({
     ...to(i),
     from: from(i),
   })); // Create a bunch of springs using the helpers above
+
   // Create a gesture, we're interested in down-state, delta (current-pos - click-pos), direction and velocity
   const bind = useGesture(
     ({
@@ -60,9 +64,10 @@ export default function Deck() {
         setTimeout(() => gone.clear() || set((i) => to(i)), 600);
     },
   );
+
   // Now we're just mapping the animated values to our view, that's it. Btw, this component only renders once. :-)
   return props.map(({ x, y, rot, scale }, i) => (
-    <div id="deck">
+    <DeckWrapper id="deck">
       <animated.div
         key={i}
         style={{
@@ -81,6 +86,47 @@ export default function Deck() {
           }}
         />
       </animated.div>
-    </div>
+    </DeckWrapper>
   ));
-}
+};
+
+const DeckWrapper = styled.div`
+  box-sizing: border-box;
+  overscroll-behavior-y: contain;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: lightblue;
+  overflow: hidden;
+  user-select: none;
+  cursor: url('https://uploads.codesandbox.io/uploads/user/b3e56831-8b98-4fee-b941-0e27f39883ab/Ad1_-cursor.png')
+      39 39,
+    auto;
+  > div {
+    position: absolute;
+    width: 250px;
+    will-change: transform;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    ${({ theme }) => theme.device.mobile} {
+      width: 0;
+    }
+  }
+  > div > div {
+    background-color: white;
+    background-size: auto 85%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 230px;
+    max-width: 300px;
+    height: 370px;
+    max-height: 570px;
+    will-change: transform;
+    border-radius: 10px;
+    box-shadow: 0 14px 150px -20px rgba(87, 62, 20, 0.03),
+      0 10px 10px -20px rgba(87, 62, 20, 0.07);
+  }
+`;
+
+export default Deck;
