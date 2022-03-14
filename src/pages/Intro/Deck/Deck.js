@@ -111,6 +111,7 @@ const DeckWrapper = styled.div`
     justify-content: center;
     ${({ theme }) => theme.device.mobile} {
       width: 0;
+      /* margin: 0 auto; */
     }
   }
   > div > div {

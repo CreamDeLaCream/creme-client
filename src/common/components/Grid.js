@@ -24,6 +24,7 @@ const Grid = (props) => {
     mobileColumn,
     foldColumn,
     mobileCenter,
+    flex,
   } = props;
 
   const styles = {
@@ -47,6 +48,7 @@ const Grid = (props) => {
     mobileColumn,
     foldColumn,
     mobileCenter,
+    flex,
   };
   return (
     <React.Fragment>
@@ -59,12 +61,13 @@ Grid.defaultProps = {
   chidren: null,
   is_flex: false,
   width: '100%',
-  height: '',
+  height: false,
   padding: false,
   margin: false,
   bg: false,
   center: false,
 };
+
 const GridBox = styled.div`
   width: ${(props) => props.width};
   box-sizing: border-box;
@@ -83,34 +86,43 @@ const GridBox = styled.div`
   ${(props) => (props.bg ? `background-color: ${props.bg};` : '')}
   ${(props) => (props.center ? `text-align: center;` : '')}
   ${(props) => (props.flexWrap ? `flex-wrap:${props.flexWrap};` : '')}
+  ${(props) => (props.flex ? `flex:${props.flex};` : '')}
+  ${(props) => (props.flex ? `flex:${props.flex};` : '')}
+  // space-beteween
   ${(props) =>
     props.is_flex
       ? `display: flex; align-items: center; justify-content: space-between;`
       : ''}
+  // flex-start
   ${(props) =>
     props.is_flex_start
       ? `display: flex; align-items: center; justify-content: flex-start;`
       : ''}
+  // center
   ${(props) =>
     props.is_flex_center
       ? `display: flex; align-items: center; justify-content: center;`
       : ''}
+  // flex-end
   ${(props) =>
     props.is_flex_end
       ? `display: flex; align-items: center; justify-content: flex-end;`
       : ''}
+  // mobile column center
   ${({ theme }) => theme.device.mobile} {
     ${(props) =>
       props.mobileColumn
         ? `display: flex; flex-direction: column;  justify-content: center;`
         : ''};
   }
+  // fold column center
   ${({ theme }) => theme.device.fold} {
     ${(props) =>
       props.foldColumn
         ? `display: flex; flex-direction: column;  justify-content: center;`
         : ''};
   }
+  // mobile row center
   ${({ theme }) => theme.device.mobile} {
     ${(props) =>
       props.mobileCenter ? `display: flex; justify-content: center;` : ''};

@@ -14,8 +14,8 @@ const Form = styled.section`
   flex-direction: column;
   padding: 2rem;
   ${({ theme }) => theme.device.fold} {
-    width: 320px;
-    padding: 2rem;
+    /* width: 320px; */
+    /* padding: 2rem; */
   }
 `;
 
