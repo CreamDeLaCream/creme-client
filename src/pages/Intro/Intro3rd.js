@@ -2,24 +2,22 @@ import React from 'react';
 import styled from 'styled-components';
 
 // components
-import { Text, Button } from '../../common/components';
+import { Text, Grid } from '../../common/components';
 import HighlightText from '../../common/styles/HighlightText';
 
-export const Intro3rd = () => {
-  const env = process.env;
-  env.PUBLIC_URL = env.PUBLIC_URL || '';
-  const TodayMyPet = [
-    '강아지 감정 분석',
-    '솔루션 제공',
-    '감정 기록 관리',
-    '파트너 라이프 스타일 등록',
-    '기간별 감정 데이터 관리',
-  ];
+const TodayMyPet = [
+  '강아지 감정 분석',
+  '솔루션 제공',
+  '감정 기록 관리',
+  '파트너 라이프 스타일 등록',
+  '기간별 감정 데이터 관리',
+];
 
+const Intro3rd = () => {
   return (
     <IntroBg>
       <IntroTitle>
-        <Text color="var(--deepcream)" fontSize="40px">
+        <Text center color="var(--deepcream)" fontSize="40px">
           <HighlightText color="var(--lightcream)">반려견</HighlightText>
           과&nbsp;
           <HighlightText color="var(--lightcream)">반려인</HighlightText>
@@ -31,69 +29,88 @@ export const Intro3rd = () => {
       </IntroTitle>
       <IntroContent>
         {TodayMyPet.map((serviceInfo, index) => {
-          return (
-            <Button
-              width="9rem"
-              height="9rem"
-              bg="var(--white)"
-              radius="50%"
-              size="1.3rem"
-              color="var(--main)"
-              border="dashed 2px "
-              margin="20px 0 0 0"
-            >
-              {serviceInfo}
-            </Button>
-          );
+          return <Circle>{serviceInfo}</Circle>;
         })}
       </IntroContent>
-      <img alt="" src={process.env.PUBLIC_URL + `/Image/partner2.png`} />
+      <Grid is_flex_center foldHidden>
+        <img alt="" src={process.env.PUBLIC_URL + `/Image/partner2.png`} />
+      </Grid>
     </IntroBg>
   );
 };
 
 const IntroBg = styled.div`
   background-color: var(--bgpink);
-  /* width: 100%; */
-  height: 700px;
   display: flex;
   flex-direction: column;
+
   img {
     margin-top: 0.8rem;
     margin-left: 45%;
     width: 50%;
     ${({ theme }) => theme.device.mobile} {
-      /* margin-left: 13%; */
       width: 70%;
       margin: 0 auto;
     }
     ${({ theme }) => theme.device.fold} {
-      /* margin-left: 13%; */
-
       width: 80%;
-      display: flex;
-      justify-content: center;
+      display: none;
       visibility: hidden;
     }
   }
-  /* ${({ theme }) => theme.device.fold} {
-    display: flex;
-    justify-content: center;
-  } */
 `;
 
 const IntroTitle = styled.div`
-  width: 50%;
+  width: 60%;
   display: flex;
-  margin-left: 3rem;
-  margin-top: 3.8rem;
+  padding: 3.8rem 0 0 3rem;
+
+  ${({ theme }) => theme.device.mobile} {
+    padding: 3.8rem 0 0 0;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+  }
 `;
 
 const IntroContent = styled.div`
-  width: 90%;
-  height: 400px;
   display: flex;
-  margin-left: 3rem;
-  margin-top: 2.5rem;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  padding: 2.5rem 0 5rem 0;
+
+  ${({ theme }) => theme.device.fold} {
+    flex-flow: column wrap;
+    padding: 2.5rem 0 2.5rem 0;
+  }
 `;
+
+const Circle = styled.div`
+  --size: 9rem;
+  width: var(--size);
+  height: var(--size);
+  border-radius: var(--size);
+  border: dashed 2px;
+  color: var(--main);
+  background-color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+
+  ${({ theme }) => theme.device.mobile} {
+    --size: 7rem;
+    width: var(--size);
+    height: var(--size);
+    border-radius: var(--size);
+  }
+
+  ${({ theme }) => theme.device.fold} {
+    width: 100%;
+    height: 3rem;
+    background-color: var(--white);
+    margin-bottom: 1rem;
+  }
+`;
+
+export default Intro3rd;
