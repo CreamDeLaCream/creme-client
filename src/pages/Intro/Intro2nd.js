@@ -68,10 +68,10 @@ const IntroBg = styled.div`
 const TitleContent = styled.div`
   width: 100%;
   text-align: right;
-  margin: 4.3rem 3.1rem 0 0;
+  padding: 4.3rem 3.1rem 0 0;
   ${({ theme }) => theme.device.mobile} {
+    padding: 4.3rem 0 0 0;
     text-align: center;
-    margin: 0;
   }
 `;
 
