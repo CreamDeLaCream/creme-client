@@ -17,14 +17,16 @@ import {
   Navbar,
   Container,
   Input,
+  Keywords,
 } from '../../common/components';
 import Dropdown from './Dropdown';
 // import { resultList } from './ResultData';
-import Keywords from './Keywords';
 import CopyURL from './CopyURL';
 import BarChart from './BarChart';
-import { BsHeartFill, BsReplyAllFill, BsPersonCheckFill } from 'react-icons/bs';
 import KakaoShare from './KakaoShare';
+
+// icons
+import { BsHeartFill, BsReplyAllFill, BsPersonCheckFill } from 'react-icons/bs';
 
 const ResultPage = (props) => {
   const dispatch = useDispatch();
@@ -235,7 +237,7 @@ const ResultPage = (props) => {
         </Text>
         <Text type="subTitle">
           {!is_login ? null : (
-            <Keywords typekeywords={resultList.dog_emotion} />
+            <Keywords shape="circle" typekeywords={resultList.dog_emotion} />
           )}
           {/* TODO: Keyword에 props에 .character 추가하기 */}
           {/* <Keyword /> */}
