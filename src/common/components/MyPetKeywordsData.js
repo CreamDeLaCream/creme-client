@@ -1,4 +1,4 @@
-import { baseImg, clickedImg } from './MyPetimage';
+import { baseImg, clickedImg } from '../../common/components/MyPetimage';
 
 const screenwidth =
   window.innerWidth > 0 ? window.innerWidth : window.screen.width;

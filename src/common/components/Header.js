@@ -22,10 +22,6 @@ const Header = (props) => {
     }
   }, [is_login]);
 
-  // 로컬 이미지
-  const env = process.env;
-  env.PUBLIC_URL = env.PUBLIC_URL || '';
-
   return (
     <>
       <Container>

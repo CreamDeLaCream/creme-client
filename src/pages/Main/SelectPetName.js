@@ -1,8 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-
-// redux
-import { history } from '../../common/redux/configureStore';
 
 // components
 import { Grid } from '../../common/components';
@@ -10,20 +7,13 @@ import { Grid } from '../../common/components';
 const SelectPetName = ({ inputHandler }) => {
   return (
     <Grid margin="2rem auto" display="flex" justifyContent="space-between">
-      <Grid
-        is_flex
-        mobileColumn
-        padding="2rem"
-        // margin="0 0 3rem 0"
-        // flexWrap="wrap"
-      >
+      <Grid is_flex mobileColumn padding="2rem">
         {['옥자', '지노'].map((item) => (
           <Grid is_flex_center margin="0 0 1rem 0">
             <Radio
               key={item}
               onClick={() => {
                 inputHandler(item, 5);
-                // console.log('item', item);
               }}
             >
               <input type="radio" name="feeling" value={item} />

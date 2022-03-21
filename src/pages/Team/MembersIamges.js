@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export const MembersIamges = () => {
+const MembersIamges = () => {
   return (
     <MembersImage>
       <img
@@ -20,8 +20,8 @@ const MembersImage = styled.div`
   border: 13px solid var(--cream);
   background-color: var(--main);
   overflow: hidden;
-  // positon: absolute;
-  // vertical-align: middle;
   margin-right: 50px;
   margin-top: 10px;
 `;
+
+export default MembersIamges;

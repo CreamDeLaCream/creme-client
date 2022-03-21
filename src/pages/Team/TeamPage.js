@@ -3,11 +3,9 @@ import styled from 'styled-components';
 
 // components
 import { Header, Navbar, Text, Container } from '../../common/components';
-import { TeamMembers } from './TeamMembers';
+import TeamMembers from './TeamMembers';
 
 const TeamPage = () => {
-  const env = process.env;
-  env.PUBLIC_URL = env.PUBLIC_URL || '';
   return (
     <TeamPageBg>
       <Container height="100vh">

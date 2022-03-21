@@ -1,12 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
-import styled from 'styled-components';
 
 // components
 import Button from './Button';
 import Matter from 'matter-js';
-import { MyPetKeywordsData } from './MyPetKeywordsData';
 
-export const AnimatedKeyword = ({
+const AnimatedKeyword = ({
   keywordsData,
   questionTitle,
   clickedKeywords,
@@ -185,3 +183,5 @@ export const AnimatedKeyword = ({
     </div>
   );
 };
+
+export default AnimatedKeyword;

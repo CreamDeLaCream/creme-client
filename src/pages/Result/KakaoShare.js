@@ -8,7 +8,6 @@ import KakaoShareList from './KakaoShareList';
 const KakaoShare = ({ title, description, imgUrl, link, buttonTitle }) => {
   return (
     <div>
-      {/* Include Kakao sdk */}
       <Helmet>
         <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
         <script>

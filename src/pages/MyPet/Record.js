@@ -1,19 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// redux
+import { history } from '../../common/redux/configureStore';
+import { useSelector } from 'react-redux';
+
 // components
 import { Button } from '../../common/components';
 import { myPetEmotion } from './MyPetPage';
 
 // icons
 import { BsHeartFill } from 'react-icons/bs';
-import { useHistory } from 'react-router';
-import { useSelector } from 'react-redux';
 
 const Record = ({ petRecords, pageMaxNum, clickedMyPet, clickedEmotion }) => {
-  const env = process.env;
-  env.PUBLIC_URL = env.PUBLIC_URL || '';
-  const history = useHistory();
   const slugList = useSelector((state) => state.petimage.list);
 
   const ImageList = ({ petRecord }) => {

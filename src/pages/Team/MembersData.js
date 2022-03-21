@@ -1,4 +1,4 @@
-export const MembersData = [
+const MembersData = [
   {
     id: 0,
     position: 'front-end',

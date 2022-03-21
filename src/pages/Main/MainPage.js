@@ -139,7 +139,7 @@ const MainPage = (props) => {
                   }}
                 >
                   <Text type="body" color="var(--darkcream)">
-                    <BsFillExclamationCircleFill color="var(--darkcream)" />{' '}
+                    <BsFillExclamationCircleFill color="var(--darkcream)" />
                     이미지 업로드 방식
                   </Text>
                 </Button>

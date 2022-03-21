@@ -1,8 +1,10 @@
 import React from 'react';
+
+// components
 import { Button } from '../../common/components';
 import { myPetEmotion } from './MyPetPage';
 
-export const FilterRecord = ({ clickedEmotion, onClickEmotion }) => {
+const FilterRecord = ({ clickedEmotion, onClickEmotion }) => {
   return (
     <>
       {myPetEmotion.map((emotionwords, i) => {
@@ -33,3 +35,5 @@ export const FilterRecord = ({ clickedEmotion, onClickEmotion }) => {
     </>
   );
 };
+
+export default FilterRecord;

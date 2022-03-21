@@ -6,7 +6,6 @@ import { history } from '../../common/redux/configureStore';
 import { useDispatch, useSelector } from 'react-redux';
 
 // components
-import MyPetData from '../../common/components/MyPetData';
 import {
   Header,
   Navbar,
@@ -14,18 +13,18 @@ import {
   Container,
   Button,
 } from '../../common/components';
+// import { MyPetData } from '../../common/components/MyPetData';
 
 import Record from './Record';
-import { MypetCard } from './MypetCard';
+import MypetCard from './MypetCard';
 import AnalysisData from './AnalysisData';
-import { UserCard } from './UserCard';
-import { FilterRecord } from './FilterRecord';
-import { FilterMyPet } from './FilterMyPet';
+import UserCard from './UserCard';
+import FilterRecord from './FilterRecord';
+import FilterMyPet from './FilterMyPet';
+import api from '../../common/utils/API';
 
 // icons
 import { FaAngleDown } from 'react-icons/fa';
-
-import api from '../../common/utils/API';
 
 const MyPetPage = (props) => {
   // const isLogin = useSelector((state) => state.user.is_login);
@@ -228,7 +227,6 @@ const RecordMenu = styled.div`
 const RecordMenuEmotion = styled.div`
   display: flex;
   width: 80%;
-  // background-color: red;
 `;
 
 const RecordCardWrapper = styled.div`

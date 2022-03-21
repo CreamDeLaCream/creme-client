@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
 // components
-import { Keywords } from '../../common/components/Keyword';
+import { Keywords } from '../../common/components';
 
-export const EmotionButton = () => {
+const EmotionButton = () => {
   const DogEmotion = ['happy', 'sad', 'fear', 'angry'];
   const [] = useState;
   return (
@@ -14,3 +14,5 @@ export const EmotionButton = () => {
     </>
   );
 };
+
+export default EmotionButton;

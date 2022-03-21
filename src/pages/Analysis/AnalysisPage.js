@@ -14,8 +14,8 @@ import {
   Container,
   Button,
 } from '../../common/components';
-import { EmotionTest } from './EmotionTest';
-import Loading from '../Analysis/Loading';
+import EmotionTest from './EmotionTest';
+import Loading from './Loading';
 
 const AnalysisPage = (props) => {
   const dispatch = useDispatch();

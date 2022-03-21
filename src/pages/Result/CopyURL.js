@@ -2,6 +2,8 @@ import React from 'react';
 
 // components
 import { Button } from '../../common/components';
+
+// icons
 import { BsShareFill } from 'react-icons/bs';
 
 const LinkCopy = (text) => {

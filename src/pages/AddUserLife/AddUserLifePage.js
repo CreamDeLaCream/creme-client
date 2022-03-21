@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 // redux
 import { history } from '../../common/redux/configureStore';
+import { useSelector } from 'react-redux';
 
 // components
 import {
@@ -11,13 +12,11 @@ import {
   Navbar,
   Text,
   Button,
+  AnimatedKeyword,
+  InputBoxBirth,
 } from '../../common/components';
-import { AnimatedKeyword } from '../../common/components/AnimatedKeyword';
 import { UserKeywordsData } from '../../common/components/UserKeywordsData';
-
 import api from '../../common/utils/API';
-import { useSelector } from 'react-redux';
-import InputBoxBirth from '../AddPet/InputBoxBirth';
 
 const AddUserLifePage = (props) => {
   const [inputData, setInputData] = useState({

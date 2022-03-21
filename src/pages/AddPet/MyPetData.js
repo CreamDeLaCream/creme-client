@@ -1,4 +1,4 @@
-export const MyPetData = [
+const MyPetData = [
   '애교 많음',
   '관종',
   '착함',
@@ -28,3 +28,5 @@ export const MyPetData = [
   '사나움',
   '활발',
 ];
+
+export default MyPetData;

@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 // components
-import { Keywords } from '../../common/components/Keyword';
-
+import { Keywords } from '../../common/components';
 import MembersData from './MembersData';
 
-export const TeamMembers = () => {
+const TeamMembers = () => {
   const [membersData, setMemberData] = useState(MembersData);
 
   function TeamMeberlist({ membersdatas }) {
@@ -67,23 +66,8 @@ const MembersImage = styled.div`
   border: 13px solid var(--cream);
   background-color: var(--main);
   overflow: hidden;
-  // positon: absolute;
-  // vertical-align: middle;
   margin-right: 50px;
   margin-top: 17px;
-`;
-
-const MyPetImage = styled.div`
-  width: 280px;
-  height: 280px;
-  border-radius: 50%;
-  border: 2px solid var(--cream);
-  background-color: var(--main);
-  overflow: hidden;
-  // positon: absolute;
-  // vertical-align: middle;
-  margin-right: 50px;
-  margin-top: 10px;
 `;
 
 const TeamContentContainer = styled.div`
@@ -117,5 +101,7 @@ const TeamInfo = styled.div`
   width: 440px;
   color: var(--darkcream);
   margin-top: 20px;
-  cusor: pointer;
+  cursor: pointer;
 `;
+
+export default TeamMembers;

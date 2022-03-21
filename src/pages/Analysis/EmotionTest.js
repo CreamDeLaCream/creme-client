@@ -8,7 +8,7 @@ import { actionCreators as analysisActions } from '../../common/redux/modules/an
 // components
 import { Text, Button } from '../../common/components';
 
-export const EmotionTest = () => {
+const EmotionTest = () => {
   const dispatch = useDispatch();
   const testAnswer = useSelector((state) => state.analysis.emotionResult);
   const testQnA = [
@@ -135,3 +135,5 @@ const EmotionTestWrapper = styled.div`
 `;
 
 const TestContent = styled.div``;
+
+export default EmotionTest;

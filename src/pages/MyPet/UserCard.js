@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-// components
-import { Keywords } from '../../common/components/Keyword';
-import { Button } from '../../common/components';
+// redux
+import { history } from '../../common/redux/configureStore';
 import { useSelector } from 'react-redux';
+
+// components
+import { Button, Keywords } from '../../common/components';
 import api from '../../common/utils/API';
 
-export const UserCard = ({ history }) => {
+const UserCard = () => {
   const user = useSelector((state) => state.user);
   const [userKeywords, setUserKeywords] = useState(null);
   useEffect(() => {
@@ -15,17 +17,7 @@ export const UserCard = ({ history }) => {
       setUserKeywords(res.data.user_keyword);
     });
   }, [user?.user?.user_id]);
-  // const CrrentUserKeywordData = [
-  //   '28세',
-  //   '부모님과 함께 삼',
-  //   '초년생',
-  //   '야근잦음',
-  //   '주말 하루는 약속',
-  //   '개인시간 부족',
-  //   '썸남있음',
-  //   '썸남 때문에 싱숭생숭',
-  //   'INFP',
-  // ];
+
   if (userKeywords === null) {
     return <></>;
   }
@@ -56,7 +48,6 @@ export const UserCard = ({ history }) => {
             <Button
               height="23px"
               bg="var(--white)"
-              // bg="rgba(245, 234, 214, 0.46)"
               color="var(--main)"
               border="solid 1px var(--cream)"
               radius="10px"
@@ -105,3 +96,5 @@ const UserName = styled.div`
 const KeywordsWrapper = styled.div`
   margin-top: 10px;
 `;
+
+export default UserCard;

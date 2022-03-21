@@ -1,17 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-// Icon
-
 // components
 import { Text, Grid } from '../../common/components';
 import HighlightText from '../../common/styles/HighlightText';
 import api from '../../common/utils/API';
 
 const DogDataSet = () => {
-  const env = process.env;
-  env.PUBLIC_URL = env.PUBLIC_URL || '';
-
   const [weekData, setWeekData] = useState(null);
   const token = sessionStorage.getItem('token');
 
@@ -64,7 +59,6 @@ const DogDataSet = () => {
 const DogDataInfo = styled.div`
   width: 8rem;
   height: 8rem;
-  // margin-right: 1rem;
   display: flex;
   flex-direction: column;
   background-color: var(--white);
@@ -91,17 +85,6 @@ const DataAns = styled.div`
   justify-content: center;
   width: 100%;
   height: 6rem;
-  // background-color: var(--main);
-`;
-
-const ImageItems = styled.div`
-  img {
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    background-size: contain;
-  }
 `;
 
 const DogDataSeciton = styled.div`

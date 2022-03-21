@@ -1,5 +1,7 @@
 import React from 'react';
-import { Keywords } from '../../common/components/Keyword';
+
+// components
+import { Keywords } from '../../common/components';
 
 const UserKeywords = () => {
   const UserKeywordData = [

@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+
+// icons
 import { BsXLg } from 'react-icons/bs';
 
 const Modal = ({ setOpenModal, children, ...rest }) => {

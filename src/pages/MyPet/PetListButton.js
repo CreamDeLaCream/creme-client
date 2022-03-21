@@ -44,8 +44,6 @@ const PetListButtonWrapper = styled.div`
   justify-content: space-between;
 
   z-index: 10;
-
-  // background-color: var(--main);
 `;
 
 export default PetListButton;

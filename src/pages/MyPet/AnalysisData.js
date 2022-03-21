@@ -1,4 +1,4 @@
-export const AnalysisData = [
+const AnalysisData = [
   {
     id: 0,
     name: '옥자',

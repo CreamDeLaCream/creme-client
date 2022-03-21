@@ -1,25 +1,20 @@
-
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-// components
-import { Keyword } from '../../common/components';
-import { Button, Grid } from '../../common/components';
-import { MyPetImages } from './MyPetImages';
-import PetListButton from './PetListButton';
-
-import { BsCalendarCheck } from 'react-icons/bs';
-import { Modal } from '../../common/components';
-import DogDataSet from './DogDataSet';
+// redux
 import { useSelector } from 'react-redux';
 
+// components
+import { Button, Grid, Modal, Keyword } from '../../common/components';
+import MyPetImages from './MyPetImages';
+import PetListButton from './PetListButton';
+import DogDataSet from './DogDataSet';
+
+// icons
+import { BsCalendarCheck } from 'react-icons/bs';
+
 //props는 {} 사용 X
-export const MypetCard = ({
-  myPetData,
-  cardNum,
-  onClickAnotherCard,
-  history,
-}) => {
+const MypetCard = ({ myPetData, cardNum, onClickAnotherCard, history }) => {
   const user = useSelector((state) => state.user.user);
   const analysisResult = useSelector((state) => state.analysis.result);
   const [modalOpen, setModalOpen] = useState(false);
@@ -141,7 +136,7 @@ export const MypetCard = ({
               </CurrentEmotion>
             </MyPetContent>
           </MyPetContentContainer>
-            <MyPetImages onClick={editMyPet} imgUrl={myPetData[cardNum].image} />
+          <MyPetImages onClick={editMyPet} imgUrl={myPetData[cardNum].image} />
         </MyPetInfoCard>
       ) : (
         <MyPetInfoCard>
@@ -235,3 +230,5 @@ const CurrentEmotion = styled.div`
   color: var(—darkcream);
   margin-top: 20px;
 `;
+
+export default MypetCard;

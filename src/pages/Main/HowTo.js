@@ -9,8 +9,6 @@ import { BsCameraFill } from 'react-icons/bs';
 import { AiFillExclamationCircle, AiFillWarning } from 'react-icons/ai';
 
 const Howto = () => {
-  const env = process.env;
-  env.PUBLIC_URL = env.PUBLIC_URL || '';
   return (
     <>
       <Grid flexDirection="column">
@@ -35,24 +33,16 @@ const Howto = () => {
             댕댕이의 얼굴이 정면으로 보이도록 업로드 하세요
           </Text>
           <ImageItems>
-            <img
-              alt=""
-              src={process.env.PUBLIC_URL + `/Image/dog10.png`}
-
-              // style={{ margin: '50px 0 0 0' }}
-            />
+            <img src={process.env.PUBLIC_URL + `/Image/dog10.png`} alt="" />
           </ImageItems>
           <Text type="subTitle" color="var(--main)" margin="15px 0 20px 0">
             <AiFillExclamationCircle /> 올바른 예시
           </Text>
         </Grid>
+
         <Grid>
           <ImageItems>
-            <img
-              alt=""
-              src={process.env.PUBLIC_URL + `/Image/dog11.png`}
-              // style={{ margin: '50px 0 0 0' }}
-            />
+            <img src={process.env.PUBLIC_URL + `/Image/dog11.png`} alt="" />
           </ImageItems>
           <Text type="subTitle" color="var(--main)" margin="15px 0 20px 0">
             <AiFillWarning /> 올바르지 않은 예시

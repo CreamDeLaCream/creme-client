@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
+
+// redux
 import { useDispatch } from 'react-redux';
 import { actionCreators as userActions } from '../../common/redux/modules/user';
 

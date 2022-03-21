@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export const MyPetImages = ({ onClick, imgUrl }) => {
+const MyPetImages = ({ onClick, imgUrl }) => {
   return (
     <MyPetImage>
       <img
@@ -23,8 +23,6 @@ const MyPetImage = styled.div`
   border: 13px solid var(--cream);
   background-color: var(--main);
   overflow: hidden;
-  // positon: absolute;
-  // vertical-align: middle;
   margin-right: 50px;
   cursor: pointer;
   img {
@@ -40,3 +38,5 @@ const MyPetImage = styled.div`
     top: 50px;
   }
 `;
+
+export default MyPetImages;

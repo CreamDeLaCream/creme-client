@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 // components
 import { Circle, Grid, Input, Dropzone, Preview } from '.';
 
-// Icon
+// icons
 import { BsPlusLg } from 'react-icons/bs';
 
 const InputBox = ({ data, onChangeData, files, onChangeFile }) => {

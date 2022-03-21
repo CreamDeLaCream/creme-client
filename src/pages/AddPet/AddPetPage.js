@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { AnimatedKeyword } from '../../common/components/AnimatedKeyword';
-import { MyPetKeywordsData } from '../../common/components/MyPetKeywordsData';
-import api from '../../common/utils/API';
+import { useLocation } from 'react-router';
 
 //redux
 import { history } from '../../common/redux/configureStore';
+import { useSelector } from 'react-redux';
 
 // components
 import {
@@ -14,11 +13,12 @@ import {
   Navbar,
   Text,
   Button,
+  AnimatedKeyword,
+  InputBoxBirth,
 } from '../../common/components';
-import { MyPetData } from './MyPetData';
-import InputBoxBirth from './InputBoxBirth';
-import { useLocation } from 'react-router';
-import { useSelector } from 'react-redux';
+import { MyPetKeywordsData } from '../../common/components/MyPetKeywordsData';
+import MyPetData from './MyPetData';
+import api from '../../common/utils/API';
 
 const AddPetPage = (props) => {
   const [myPetData, setMyPetData] = useState(MyPetData);
