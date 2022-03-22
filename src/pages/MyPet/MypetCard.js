@@ -13,7 +13,7 @@ import DogDataSet from './DogDataSet';
 // icons
 import { BsCalendarCheck } from 'react-icons/bs';
 
-//props는 {} 사용 X
+// props는 {} 사용 X
 const MypetCard = ({ myPetData, cardNum, onClickAnotherCard, history }) => {
   const user = useSelector((state) => state.user.user);
   const analysisResult = useSelector((state) => state.analysis.result);
@@ -71,7 +71,6 @@ const MypetCard = ({ myPetData, cardNum, onClickAnotherCard, history }) => {
                       height="23px"
                       color="var(--main)"
                       bg="var(--white)"
-                      // bg="rgba(245, 234, 214, 0.46)"
                       border="solid 1px var(--cream)"
                       radius="10px"
                       margin="0 15px 0 5px"
@@ -91,7 +90,6 @@ const MypetCard = ({ myPetData, cardNum, onClickAnotherCard, history }) => {
                     >
                       <Button
                         bg="var(--white)"
-                        // bg="rgba(245, 234, 214, 0.46)"
                         border="solid 1px var(--cream)"
                         radius="10px"
                         cursor
@@ -106,7 +104,6 @@ const MypetCard = ({ myPetData, cardNum, onClickAnotherCard, history }) => {
                       height="23px"
                       color="var(--main)"
                       bg="var(--white)"
-                      // bg="rgba(245, 234, 214, 0.46)"
                       border="solid 1px var(--cream)"
                       radius="10px"
                       margin="0 15px 0 5px"
@@ -123,7 +120,6 @@ const MypetCard = ({ myPetData, cardNum, onClickAnotherCard, history }) => {
                     >
                       <Button
                         bg="var(--white)"
-                        // bg="rgba(245, 234, 214, 0.46)"
                         border="solid 1px var(--cream)"
                         radius="10px"
                         cursor
