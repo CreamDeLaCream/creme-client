@@ -6,16 +6,12 @@ import Dropdown from './Dropdown';
 import Dropzone from './Dropzone';
 import Grid from './Grid';
 import Header from './Header';
-// import Image from './Image';
 import Input from './Input';
-// import InputBox from './InputBox';
 import InputBoxBirth from './InputBoxBirth';
 import Keyword from './Keyword';
 import Keywords from './Keywords';
 import Logo from './Logo';
-// import Members from './Members';
 import Modal from './Modal';
-// import MyPetData from './MyPetData';
 import Navbar from './Navbar';
 import NavItems from './NavItems';
 import Preview from './Preview';
@@ -33,16 +29,12 @@ export {
   Dropzone,
   Grid,
   Header,
-  // Image,
   Input,
-  // InputBox,
   InputBoxBirth,
   Keyword,
   Keywords,
   Logo,
-  // Members,
   Modal,
-  // MyPetData,
   Navbar,
   NavItems,
   Preview,
