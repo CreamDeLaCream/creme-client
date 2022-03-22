@@ -8,7 +8,7 @@ const isTablet = screenwidth > 767;
 // 870 x 350
 // 400 x 400
 
-export const UserKeywordsData = [
+const UserKeywordsData = [
   {
     x: isTablet ? 770 : 20,
     y: 20,
@@ -292,3 +292,5 @@ export const UserKeywordsData = [
     isClicked: false,
   },
 ];
+
+export default UserKeywordsData;

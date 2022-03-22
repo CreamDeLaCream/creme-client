@@ -15,8 +15,8 @@ import {
   Button,
   AnimatedKeyword,
   InputBoxBirth,
+  MyPetKeywordsData,
 } from '../../common/components';
-import { MyPetKeywordsData } from '../../common/components/MyPetKeywordsData';
 import MyPetData from './MyPetData';
 import api from '../../common/utils/API';
 

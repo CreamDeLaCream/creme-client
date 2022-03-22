@@ -14,8 +14,8 @@ import {
   Button,
   AnimatedKeyword,
   InputBoxBirth,
+  UserKeywordsData,
 } from '../../common/components';
-import { UserKeywordsData } from '../../common/components/UserKeywordsData';
 import api from '../../common/utils/API';
 
 const AddUserLifePage = (props) => {

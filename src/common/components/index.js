@@ -21,6 +21,8 @@ import NavItems from './NavItems';
 import Preview from './Preview';
 import Template from './Template';
 import Text from './Text';
+import MyPetKeywordsData from './MyPetKeywordsData';
+import UserKeywordsData from './UserKeywordsData';
 
 export {
   AnimatedKeyword,
@@ -46,4 +48,6 @@ export {
   Preview,
   Template,
   Text,
+  MyPetKeywordsData,
+  UserKeywordsData,
 };

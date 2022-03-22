@@ -9,7 +9,7 @@ const CLICKED_RADIUS = isTablet ? 40 : 35;
 
 // 870 x 350
 // 400 x 400
-export const MyPetKeywordsData = [
+const MyPetKeywordsData = [
   {
     x: isTablet ? 770 : 300,
     y: 20,
@@ -383,3 +383,5 @@ export const MyPetKeywordsData = [
     isClicked: false,
   },
 ];
+
+export default MyPetKeywordsData;
